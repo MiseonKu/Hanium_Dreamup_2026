@@ -1,0 +1,11 @@
+# Runtime and editor caches
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+Thumbs.db
+
+# The 3.27 GB source archive exceeds the 2 GB GitHub Free/Pro LFS per-file
+# limit. Its complete contents are stored in the two independently extractable
+# split archives tracked next to it.
+/03_Dataset_Collection/imu_added_experiment/raw_sessions_archive.zip
