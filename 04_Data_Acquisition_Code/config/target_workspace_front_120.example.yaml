@@ -1,0 +1,108 @@
+# target_workspace_front_120.example.yaml
+#
+# Thin YAML mirror of the REAL config this package's target-plan tool reads:
+#   02_FK_IK/config/
+#   pre_imu_forward_hemisphere_workspace.json
+#
+# This file is illustrative only -- `tools/generate_front_120_target_plan.py`
+# does NOT read this YAML file. Its `DEFAULT_CONFIG` constant points
+# directly at the JSON file above, and that JSON (not this file) is the
+# actual source of truth for azimuth_limit_deg, link lengths, stage
+# definitions, etc. See docs/TARGET_WORKSPACE_FRONT_120.md for the full
+# explanation of the front_120 addition.
+#
+# Structure below matches the real JSON 1:1 (converted to YAML for
+# readability) as of the front_120 key's addition (DECISIONS.md #2).
+
+experiment_mode: pre_imu_forward_hemisphere
+imu_available: false
+material_preset: TPU95A_40x12_wall4_topbottom4_infill15_honeycomb
+
+frame:
+  name: robot_base
+  x_axis: away_from_desk_forward
+  y_axis: lateral
+  z_axis: up
+
+links:
+  link_1:
+    length_m: 0.233
+    length_mm: 233.0
+    cross_section_mm: [40, 12]
+  link_2:
+    length_m: 0.215
+    length_mm: 215.0
+    cross_section_mm: [40, 12]
+
+workspace:
+  type: forward_trimmed_hemisphere
+  center_frame: robot_base
+  center_m: [0.0, 0.0, 0.0]
+  forward_axis: [1.0, 0.0, 0.0]
+  default_mode: pilot
+  # This is the field DECISIONS.md #2 added the "front_120" key to -- a pure
+  # config addition (no formula change): azimuth_deg = degrees(atan2(v_y,
+  # v_x)) must fall inside [lo, hi] for the requested mode.
+  azimuth_limit_deg:
+    pilot: [-30.0, 30.0]
+    main: [-45.0, 45.0]
+    front_120: [-60.0, 60.0]      # added for this task -- full sector width 120 deg
+
+defaults:
+  seed: 101
+  candidate_multiplier: 40
+  minimum_candidate_count: 300
+  target_id_prefix:
+    P1_ONE_LINK_RIGID_TARGET_VIVE_LABEL: P1
+    P2_TWO_LINK_RIGID_TARGET_VIVE_LABEL: P2
+
+stages:
+  # STALE REFERENCE POSE -- read before using `basic_q_deg` (2026-08-05).
+  # `basic_pose`/`basic_q_deg` below mirror the 02 package's JSON, which
+  # still describes the reference pose as an L-shape (q3 = -90 deg). The
+  # physical arm's reference pose is STRAIGHT: the correct wrist anchor is
+  # q3 = 0 at the reference pose, Vive-validated (pairwise-distance
+  # correlation 0.79 -> 0.96, rigid-registration residual 77.4mm -> 48.7mm
+  # on segment 006). See docs/FK_CONVENTION_CORRECTION.md "Error 2".
+  # The q1/q2 anchors are deliberately NOT calibrated -- a constant offset
+  # there is unobservable from tip position.
+  # This YAML is a read-only mirror; fixing the number here would fix
+  # nothing. The authoritative file is the 02 package's
+  # config/pre_imu_forward_hemisphere_workspace.json (and its
+  # robot_config.yaml `q_init_rad`), outside this package.
+  P2_TWO_LINK_RIGID_TARGET_VIVE_LABEL:
+    link_count: 2
+    tracker_mount: link2_tip
+    basic_pose: desk_clamped_most_folded_l_shape_tracker_forward   # STALE, see note above
+    basic_q_deg: {q1: 0.0, q2: 90.0, q3: -90.0}                    # STALE, real reference is q3 = 0
+    q_offset_deg: {q1: [-30.0, 30.0], q2: [-30.0, 30.0], q3: [-40.0, 40.0]}
+    default_target_count: 40
+    default_repeats: 3
+
+# --- how to actually generate a front_120 target plan -----------------------
+# tools/generate_front_120_target_plan.py is a thin CLI wrapper: it always
+# forces --mode front_120 (even if you pass a different --mode, per its own
+# docstring) and points --config/--output/--metadata-output at this
+# package's outputs/ directory by default, instead of 03's outputs/. All
+# sampling/FK/gating/binning/CSV/metadata logic is reused as-is from the 02
+# package (imported, not reimplemented) by calling its
+# generate_pre_imu_targets.main() with a constructed argv.
+#
+# Verified working command (run from 04_Data_Acquisition_Code/):
+#
+#   python tools/generate_front_120_target_plan.py \
+#     --stage P2_TWO_LINK_RIGID_TARGET_VIVE_LABEL \
+#     --count 20 \
+#     --seed 202
+#
+# Writes (defaults, overridable with --output/--metadata-output):
+#   outputs/pre_imu_front_120_targets.csv
+#   outputs/pre_imu_front_120_targets_metadata.json
+#
+# Then audit the result against the master-spec acceptance criteria
+# (azimuth violations, duplicates, requested-vs-generated count):
+#
+#   python tools/audit_target_plan.py \
+#     --csv outputs/pre_imu_front_120_targets.csv \
+#     --metadata outputs/pre_imu_front_120_targets_metadata.json \
+#     --expected-count 20

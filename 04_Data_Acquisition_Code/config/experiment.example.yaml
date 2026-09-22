@@ -1,0 +1,77 @@
+# experiment.example.yaml
+#
+# Top-level experiment/session config example. Nothing reads THIS file --
+# `SessionController` takes its mode and sessions_root as constructor/CLI
+# arguments (see tools/run_mock_session.py, tools/run_soak_test.py). It is a
+# template for a future loader, shaped to match parameter/field names that
+# already exist in the code, so wiring it in later is additive.
+#
+# (Amended 2026-08-05: the "no config-loader exists at all" claim is now only
+# partly true -- `SessionController(sensor_map_path=...)` does load
+# config/sensor_map.example.yaml-shaped YAML for real-mode port resolution,
+# see experiment/session_controller.py:337. This file is still unread.)
+
+# --- workspace / target-generation mode -----------------------------------
+# Azimuth-sector mode for the 02_FK_IK
+# pre-IMU target generator (config/pre_imu_forward_hemisphere_workspace.json
+# `workspace.azimuth_limit_deg`, tools/generate_front_120_target_plan.py).
+# Only 3 modes are implemented today -- confirmed directly from
+# scripts/generate_pre_imu_targets.py's `--mode choices=["pilot","main",
+# "front_120"]` and the config's azimuth_limit_deg keys. There is no
+# "front_180"/"front_180_legacy" mode anywhere in that package; do not set
+# this to a value the generator doesn't recognize.
+workspace_mode: front_120   # one of: pilot | main | front_120
+
+# NOTE: this `workspace_mode` (the azimuth-sector target mode) is a
+# different axis from the session *execution* mode below. They used to
+# collide on one field name in experiment/session_controller.py's
+# manifest.json; that's now fixed -- the manifest writes execution mode to
+# `execution_mode`, leaving `workspace_mode` free for its azimuth-sector
+# meaning once a target plan is wired into the session controller (not yet
+# done -- see docs/TASKS.md).
+
+# --- session execution mode -------------------------------------------------
+# Matches experiment/session_controller.py:121, MODES = ("inventory",
+# "mock", "passive", "soak", "experiment"). "mock" and "soak" are the modes
+# with end-to-end coverage (tools/run_mock_session.py,
+# tools/run_soak_test.py). "passive" now has real port resolution wired
+# (sensor_map_path), but has not been run end-to-end on hardware;
+# "experiment" (the only motion-capable mode) never has -- every real motion
+# run so far went through experiment_scripts/, not SessionController. See
+# docs/EXPERIMENT_RUNBOOK.md section 6 and docs/STATUS.md.
+session_mode: mock   # one of: inventory | mock | passive | soak | experiment
+
+# --- hardware motion safety gate --------------------------------------------
+# Must default false. Real gate: experiment/safety_gate.py
+# `hardware_motion_allowed(config_flag, cli_flag)` requires BOTH this value
+# AND the --enable-hardware-motion CLI flag to be true simultaneously --
+# either alone blocks it (master spec section 22, double-arm gate).
+#
+# As implemented today, `experiment/session_controller.py`'s
+# `_check_experiment_gate()` reads the config-side flag from the
+# SO101_ALLOW_EXPERIMENT_MODE=1 environment variable (not from a YAML file,
+# since no config loader exists yet) and ANDs it with SessionController's own
+# `experiment_cli_flag` constructor argument. `hardware_motion_enabled` here
+# is the intended future YAML source for that same config_flag boolean.
+hardware_motion_enabled: false
+
+# --- session naming / output location ---------------------------------------
+# experiment/session_controller.py's _allocate_session_dir() always creates
+# `session_YYYYMMDD_NNN/` (date + zero-padded per-day counter) under this
+# root -- there is no other naming template to configure. Default when
+# unset: `<package_root>/sessions` (SessionController(sessions_root=None)).
+sessions_root: "sessions"
+
+# --- enabled streams ---------------------------------------------------------
+# Illustrative only -- SessionController._start_all_collectors() currently
+# starts every collector unconditionally in mock/soak mode (no per-stream
+# enable/disable wiring exists yet). Stream names match core/schemas.py's
+# STREAM_* constants.
+enabled_streams:
+  imu: true              # imu0_base, imu1_link_root, imu2_link_mid, imu3_tip
+  encoder: true           # esp32_encoder via collectors/collect_esp32_state_poll.py (the STATE protocol -- that is the firmware on this rig; collect_esp32_encoder.py's STREAM protocol targets 02_SO-101_rtos_motor_driver, which is not flashed here -- docs/ENCODER_COMMAND_COVERAGE.md)
+  vive_tracker: true      # collectors/collect_vive_tracker.py
+  events: true            # always attempted today regardless of this flag
+  health: true             # always attempted today regardless of this flag
+  stability_metrics: false # written by experiment/experiment_state_machine.py in experiment mode only -- not produced by mock/soak sessions today
+  commands: false           # core.schemas.SCHEMA_COMMAND/STREAM_COMMAND. Amended 2026-08-05: collect_esp32_state_poll.py:335-360 DOES build command_records now, for the legacy D<axis><deg> path -- which docs/FIRMWARE_MOTION_HAZARDS.md #3 says is abandoned in favour of MOVE_RAW. No collector writes this stream in a mock/soak session.

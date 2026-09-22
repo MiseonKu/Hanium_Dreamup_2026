@@ -1,0 +1,57 @@
+{
+  "captured_utc": "2026-08-05T04:41:41Z",
+  "note": "Measured reference pose. Joint angles are the firmware's logical_deg; IMU angles are gravity-referenced and are what pins the arm's real orientation (the FK model's q1/q2 offsets cannot be recovered from tip position alone).",
+  "joints": {
+    "shoulder_pan": {
+      "logical_deg": 74.5,
+      "raw_pos": 2055
+    },
+    "shoulder_lift": {
+      "logical_deg": 71.9,
+      "raw_pos": 2093
+    },
+    "wrist_flex": {
+      "logical_deg": 2.9,
+      "raw_pos": 1970
+    }
+  },
+  "imu_euler_deg": {
+    "imu0_base": {
+      "n_samples": 81,
+      "roll_deg": 91.09,
+      "pitch_deg": 1.37,
+      "yaw_deg": -168.44,
+      "roll_sd_deg": 0.086,
+      "pitch_sd_deg": 0.032,
+      "yaw_sd_deg": 0.026
+    },
+    "imu1_link_root": {
+      "n_samples": 80,
+      "roll_deg": 91.12,
+      "pitch_deg": -0.53,
+      "yaw_deg": 69.64,
+      "roll_sd_deg": 3.269,
+      "pitch_sd_deg": 0.386,
+      "yaw_sd_deg": 0.357
+    },
+    "imu2_link_mid": {
+      "n_samples": 81,
+      "roll_deg": 89.23,
+      "pitch_deg": 0.81,
+      "yaw_deg": 46.04,
+      "roll_sd_deg": 0.564,
+      "pitch_sd_deg": 0.282,
+      "yaw_sd_deg": 0.429
+    },
+    "imu3_tip": {
+      "n_samples": 81,
+      "roll_deg": 86.57,
+      "pitch_deg": 0.41,
+      "yaw_deg": 27.49,
+      "roll_sd_deg": 0.131,
+      "pitch_sd_deg": 0.105,
+      "yaw_sd_deg": 0.039
+    }
+  },
+  "vive": null
+}

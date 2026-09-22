@@ -1,0 +1,99 @@
+# sampling.example.yaml
+#
+# Per-stream sampling/queue/flush/fsync parameters. Nothing reads this file
+# (the only config YAML actually loaded today is sensor_map -- see
+# config/sensor_map.example.yaml). Every value below is already a real
+# default hardcoded in the code; this file makes them config-visible for a
+# future loader rather than introducing new behavior. Field names match the
+# actual constructor parameter names so wiring this in later is a direct
+# pass-through.
+
+imu_streams:
+  # Applies to imu0_base, imu1_link_root, imu2_link_mid, imu3_tip
+  # (collectors/collect_imu_rs232.py:IMURS232Collector).
+  # WARNING (2026-08-05): this is the NOMINAL full-sample rate the collector
+  # stamps into `sensor_config.configured_output_rate_hz`; it does not
+  # configure the device. The real WT901C units emit ~10.1 Hz per packet
+  # type (~40.3 Hz combined), not 100 -- see output_rate_profiles below and
+  # docs/SAMPLING_AND_UART_BUDGET.md. Changing this number changes a label,
+  # not the sensor.
+  output_rate_hz: 100.0            # mocks/mock_imu.py:MockWT901CImu only accepts 100.0 or 200.0
+  # IMURS232Collector.queue_expected_rate_hz default = 400.0: the WT901C
+  # wire protocol emits one frame (accel/gyro/angle/quaternion) per call,
+  # cycling 4 frame types per full sample -- so the raw per-RECORD rate is
+  # ~4x output_rate_hz. See docs/SAMPLING_AND_ALIASING.md.
+  queue_expected_rate_hz: 400.0
+  queue_buffer_seconds: 10.0       # BoundedQueue(expected_rate_hz, buffer_seconds) -> maxsize = rate*seconds
+  flush_interval_s: 0.4            # core/jsonl_writer.py:JsonlWriter default
+  fsync_interval_s: 1.5            # core/jsonl_writer.py:JsonlWriter default (must be >= flush_interval_s)
+  reconnect_wait_s: 1.0            # IMURS232Collector default
+  stale_run_length: 20             # consecutive identical accel/gyro frames before quality_flags: ["stale_suspect"]
+
+  # --- output-rate profiles (informational only, no loader reads this key) --
+  # docs/SAMPLING_AND_UART_BUDGET.md worked the arithmetic against the real
+  # demo captures: at 9600 baud (960 B/s raw, 8N1), the real WT901C units
+  # measured ~10.1Hz per packet_type (~40.3Hz combined across the 4 types
+  # actually observed: acceleration/angular_velocity/angle/magnetic_field),
+  # using ~46% of the raw byte budget -- the UART link is NOT the bottleneck
+  # at that rate, the sensor's own internal output-rate setting is.
+  output_rate_profiles:
+    raw_all_fields:                 # what the real demo session actually ran
+      baud: 9600
+      measured_combined_rate_hz: 40.3
+      measured_per_packet_type_rate_hz: 10.1
+      uart_utilization: 0.46
+    dynamic_high_rate:               # NOT implemented -- recommendation only
+      baud: 115200                  # matches collectors/collect_esp32_encoder.py's default
+      target_combined_rate_hz: 400.0    # 100Hz full-sample x 4 packet types
+      required_bytes_per_sec: 4400.0
+      raw_capacity_bytes_per_sec: 11520.0
+      note: >
+        Raising baud alone is not sufficient -- the WT901C's own internal
+        output-rate register must also be reconfigured to actually emit
+        faster than ~10Hz/type; see docs/SAMPLING_AND_UART_BUDGET.md.
+
+encoder_stream:
+  # NOTE (2026-08-05): these are the STREAM-protocol collector's parameters
+  # (collectors/collect_esp32_encoder.py:Esp32EncoderCollector), which
+  # targets 02_SO-101_rtos_motor_driver -- NOT the firmware on this rig.
+  # The rig uses collect_esp32_state_poll.py, which is host-paced: it has no
+  # period/backoff parameter at all (`poll_once()` is called by whoever owns
+  # the loop), and the firmware's own state cadence is
+  # kStatePollIntervalMs = 200 (robot_config.h:40).
+  # docs/ENCODER_COMMAND_COVERAGE.md.
+  period_ms: 100                   # -> STREAM ON 100 (10 Hz), matches mocks/mock_esp32.py default
+  output_rate_hz: 10.0             # derived: 1000 / period_ms
+  retry_backoff_s: 1.0             # Esp32EncoderCollector default
+  max_backoff_s: 10.0              # Esp32EncoderCollector default, doubling backoff cap
+  flush_interval_s: 0.4            # JsonlWriter default (session_controller.py opens with no override)
+  fsync_interval_s: 1.5            # JsonlWriter default
+
+vive_tracker_stream:
+  # collectors/collect_vive_tracker.py:ViveTrackerCollector, pull-style.
+  output_rate_hz: 90.0             # mocks/mock_vive.py default sample_period_s = 1/90 (Vive base-station rate)
+  retry_wait_s: 0.5                # ViveTrackerCollector default, used only when source.next_sample() itself raises
+  flush_interval_s: 0.4            # JsonlWriter default
+  fsync_interval_s: 1.5            # JsonlWriter default
+
+events_stream:
+  # collectors/collect_events.py:EventCollector (or session_controller.py's
+  # built-in fallback logger if that module isn't importable).
+  flush_interval_s: 0.4
+  fsync_interval_s: 1.5
+
+health_stream:
+  # core/health_supervisor.py:HealthSupervisor, persisted by
+  # experiment/session_controller.py's own writer loop (see that module's
+  # docstring -- HealthSupervisor itself never persists).
+  sample_interval_s: 1.0           # HealthSupervisor default
+  flush_interval_s: 0.4            # JsonlWriter default
+  fsync_interval_s: 1.5            # JsonlWriter default
+
+# --- queue depth escalation thresholds (informational, not per-stream) -----
+# core/bounded_queue.py:BoundedQueue.depth_state() -- fixed percentages, not
+# currently configurable per stream:
+#   0-60%   NORMAL
+#   60-80%  WARN
+#   80-95%  DEGRADED
+#   95-100% CRITICAL
+#   100%    OVERFLOW

@@ -1,0 +1,108 @@
+# sensor_map.example.yaml
+#
+# Example logical-sensor-id -> USB-identity map for
+# `core/port_discovery.py`'s `match_sensor_map(ports, sensor_map)`.
+#
+# match_sensor_map() reads exactly these three keys per logical id (any
+# subset; a key that's absent/None is simply not checked):
+#   vid            -- USB vendor id, int (e.g. 0x1A86)
+#   pid            -- USB product id, int (e.g. 0x7523)
+#   serial_number  -- USB serial string, exact match
+#
+# `expected_description` and `fallback_com_port` below are NOT read by
+# match_sensor_map() today -- they are documentation-only fields for a human
+# doing physical bring-up (cross-check against `tools/inventory_ports.py`'s
+# DESCRIPTION column, and a last-resort manual port if VID/PID/serial
+# matching is inconclusive, e.g. two identical CH340 adapters with no
+# serial_number burned in).
+#
+# Amended 2026-08-05: this file's SHAPE is now actually loaded --
+# `SessionController(sensor_map_path=...)` reads the top-level `sensor_map:`
+# key (experiment/session_controller.py:337) and feeds it to
+# `core.port_discovery.match_sensor_map()` for real-mode port resolution.
+# The earlier "no config-loader module reads this file yet" note was stale.
+# Point `sensor_map_path` at your own filled-in copy, not at this example.
+#
+# WARNING: every vid/pid/serial_number value below is a clearly-labeled
+# placeholder, NOT a real device id. Do not treat these as working values.
+# Determine the real values for your bench by running, with each sensor
+# plugged in one at a time:
+#     python tools/inventory_ports.py
+# and copying that sensor's DEVICE/VID/PID/SERIAL_NUMBER row here.
+
+sensor_map:
+  imu0_base:
+    vid: "REPLACE_ME_VID"              # e.g. 0x1A86 -- run tools/inventory_ports.py
+    pid: "REPLACE_ME_PID"              # e.g. 0x7523
+    serial_number: "REPLACE_ME_SERIAL_IMU0_BASE"
+    expected_description: "REPLACE_ME_DESCRIPTION"   # e.g. "USB-SERIAL CH340"
+    fallback_com_port: "REPLACE_ME_COM_PORT"          # e.g. COM16, only if VID/PID/serial can't disambiguate
+
+  imu1_link_root:
+    vid: "REPLACE_ME_VID"
+    pid: "REPLACE_ME_PID"
+    serial_number: "REPLACE_ME_SERIAL_IMU1_LINK_ROOT"
+    expected_description: "REPLACE_ME_DESCRIPTION"
+    fallback_com_port: "REPLACE_ME_COM_PORT"
+
+  imu2_link_mid:
+    vid: "REPLACE_ME_VID"
+    pid: "REPLACE_ME_PID"
+    serial_number: "REPLACE_ME_SERIAL_IMU2_LINK_MID"
+    expected_description: "REPLACE_ME_DESCRIPTION"
+    fallback_com_port: "REPLACE_ME_COM_PORT"
+
+  imu3_tip:
+    vid: "REPLACE_ME_VID"
+    pid: "REPLACE_ME_PID"
+    serial_number: "REPLACE_ME_SERIAL_IMU3_TIP"
+    expected_description: "REPLACE_ME_DESCRIPTION"
+    fallback_com_port: "REPLACE_ME_COM_PORT"
+
+  # ESP32 board actually on this rig, running 03_SO-101_control/main
+  # (STATE poll for telemetry; motion uses MOVE_RAW -- the D2/D3/D5 legacy
+  # command interface is deliberately abandoned, it requires INIT and INIT
+  # is unsafe, see docs/FIRMWARE_MOTION_HAZARDS.md), read via
+  # collectors/collect_esp32_state_poll.py's Esp32StatePollCollector --
+  # experiment/session_controller.py's _start_encoder wires this
+  # automatically in real mode once this entry is filled in (no
+  # encoder_collector_factory needed for the default path). NOT
+  # collectors/collect_esp32_encoder.py's STREAM protocol client, which
+  # targets a different, not-actually-flashed firmware
+  # (02_SO-101_rtos_motor_driver) -- see that module's own docstring.
+  # sensor_id string in the encoder record itself is fixed as
+  # "esp32_encoder" -- keep this key name matching.
+  esp32_encoder:
+    vid: "REPLACE_ME_VID"              # many ESP32 dev boards enumerate as Silicon Labs CP210x (0x10C4) or CH340 (0x1A86) -- confirm on your board
+    pid: "REPLACE_ME_PID"
+    serial_number: "REPLACE_ME_SERIAL_ESP32"
+    expected_description: "REPLACE_ME_DESCRIPTION"    # e.g. "Silicon Labs CP210x USB to UART Bridge"
+    fallback_com_port: "REPLACE_ME_COM_PORT"
+
+  # Vive Tracker, read via collectors/collect_vive_tracker.py's
+  # OpenVRTrackerSource (OpenVR/SteamVR, not a serial port -- vid/pid/
+  # fallback_com_port don't apply here). Only `tracker_serial` is read by
+  # session_controller.py's _start_vive; everything else in this block is
+  # ignored for this logical id. Omit this whole entry (or leave
+  # tracker_serial unset) to fall back to "first GenericTracker found" --
+  # OpenVRTrackerSource logs a warning when it does, it does not fail.
+  vive_tracker:
+    tracker_serial: "REPLACE_ME_LHR_SERIAL"   # e.g. "LHR-1A2B3C4D" -- run SteamVR and check its device list, or read the warning event from a first bring-up run with this left unset
+
+# Notes:
+# - match_sensor_map() matching is first-match-wins in sensor_map iteration
+#   order, and a port already claimed by an earlier logical id is not reused
+#   -- so list higher-confidence identities (more fields set) first if two
+#   sensors could otherwise both match a partial spec.
+# - vid/pid must be real ints in an actual config (e.g. `0x1A86`), not the
+#   placeholder strings above -- YAML accepts `0x` hex ints directly.
+# - For orientation only (NOT to be copied in): on the bench where the real
+#   sessions/real_motion_demo data was captured, the 4 IMUs enumerated on
+#   COM16-COM19 at 9600 baud and the ESP32 on COM20 at 115200
+#   (docs/STATUS.md). Port numbers are machine- and plug-order-specific;
+#   resolve yours with tools/inventory_ports.py.
+# - No hardcoded COM port numbers should ever be treated as authoritative --
+#   core/port_discovery.py's own docstring flags 07_WT901C's
+#   DEFAULT_PORTS = ("COM22", "COM21", "COM20", "COM18") as a machine-specific
+#   smell it deliberately does not repeat. fallback_com_port here is a
+#   last-resort documentation aid only.

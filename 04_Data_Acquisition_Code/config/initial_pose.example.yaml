@@ -1,0 +1,62 @@
+# initial_pose.example.yaml
+#
+# Placeholder static-baseline capture config for the "10-20s static
+# baseline" described in the master spec (section 19.2). No module in this
+# package implements a static-baseline capture step yet -- there is no
+# `initial_pose`/`static_baseline` code anywhere under core/, collectors/,
+# experiment/, or tools/ (grepped; zero hits). This file is a placeholder
+# for that future module's config shape, not a wired-in setting.
+#
+# The closest prior art is 07_WT901C/WT901C_imu0/live_4imu_visualizer.py's
+# INITIAL_POSE_SETTLE_SECONDS=3.0 / INITIAL_POSE_CAPTURE_SECONDS=10.0
+# constants (docs/07_WT901C_CODE_AUDIT.md) -- REFERENCE_ONLY per that audit,
+# never validated against real hardware, and that module's own capture is
+# for pose-alignment post-processing, not this package's raw acquisition.
+
+static_baseline:
+  # Master spec 19.2 describes a 10-20s static baseline window; this is a
+  # placeholder default inside that range, NOT a validated value.
+  duration_s: 15.0
+
+  # Settle time before the baseline window starts counting, mirroring (not
+  # reusing as validated) 07_WT901C's INITIAL_POSE_SETTLE_SECONDS=3.0.
+  settle_before_capture_s: 3.0
+
+  # Which streams a real implementation would read during the baseline
+  # window -- all 4 IMUs, matching core/collect_imu_rs232.py's
+  # VALID_SENSOR_IDS.
+  sensors: [imu0_base, imu1_link_root, imu2_link_mid, imu3_tip]
+
+# --- joint home positions (firmware constants, EXAMPLE not measured) --------
+#
+# Corrected 2026-08-05. This block previously listed 5 joints (adding
+# `elbow_flex: 77` and `gripper: 50`) and `wrist_flex: 155`. Both were
+# wrong for this rig:
+#
+#   * The rig is 3-axis by design, not 5 -- shoulder_pan / shoulder_lift /
+#     wrist_flex. `wrist_roll` and `gripper` carry a Vive Tracker mount, not
+#     a motor. See docs/THREE_AXIS_EXPERIMENT_SCOPE.md. The firmware agrees:
+#     robot_config.h:33 `kJointCount = 3`, and kJointConfigs (robot_config.h:
+#     79-92) has exactly 3 rows.
+#   * `wrist_flex` home was lowered 155 -> 90 in firmware (robot_config.h:
+#     82-91): driving toward the raw_home for 155 stalled the servo against a
+#     hard mechanical end-stop at logical ~118.8 deg.
+#
+# Verbatim from 03_SO-101_control/main/include/robot_config.h:80-91
+# (`logical_home_deg` column). This package sends NO motion commands and
+# never dispatches a joint to this or any other pose -- informational only.
+# See config/joint_limits.reference.yaml for the full table.
+#
+# CAUTION: `logical_deg` is a firmware LABEL, not a physical angle -- the
+# firmware maps each axis's calibrated-active raw span linearly onto an
+# arbitrary label interval. Do not feed these numbers into an FK model as
+# angles. See docs/FK_CONVENTION_CORRECTION.md.
+joint_home_deg:
+  shoulder_pan: 80
+  shoulder_lift: 35
+  wrist_flex: 90
+
+# The ACTUAL measured reference pose of this rig (raw ticks + logical labels
+# + gravity-referenced IMU Euler angles) is NOT here -- it lives in
+# `config/reference_pose.yaml`, which is measured data, not an example.
+# Nothing in this file is a measurement.

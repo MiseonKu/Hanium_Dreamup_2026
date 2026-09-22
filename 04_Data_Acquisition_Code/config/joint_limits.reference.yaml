@@ -1,0 +1,144 @@
+# joint_limits.reference.yaml
+#
+# REFERENCE ONLY -- NOT ENFORCED BY THIS PACKAGE.
+#
+# Nothing here checks or clamps against these limits at runtime. This file
+# exists purely so a human (or a future tool) has the real, current
+# joint-limit values in one place without having to open firmware source or
+# power on the arm.
+#
+# ---------------------------------------------------------------------------
+# CORRECTED 2026-08-05. What this file used to say, and why it was wrong:
+#
+#   1. It listed 5 joints (`elbow_flex` id=3, `gripper` id=5). The rig is
+#      3-axis by design -- shoulder_pan / shoulder_lift / wrist_flex.
+#      `wrist_roll`/`gripper` carry a Vive Tracker mount, not a motor.
+#      docs/THREE_AXIS_EXPERIMENT_SCOPE.md; firmware robot_config.h:33
+#      (`kJointCount = 3`) and robot_config.h:79-92 (3 rows).
+#   2. `wrist_flex.logical_home_deg` was 155. Firmware lowered it to 90
+#      (robot_config.h:82-91) after INIT driving toward the raw_home for 155
+#      stalled the servo against a hard mechanical end-stop at logical
+#      ~118.8 deg.
+#   3. It said `raw_min/raw_max/raw_home = -1` means "uncalibrated, motion
+#      blocked". That is true of the *source file's* compile-time defaults,
+#      but NOT of this rig: the real ST3215 calibration lives in servo
+#      EEPROM and is loaded into firmware at runtime by `CAL_AUTO LOAD`.
+#      The live values are below, and the arm has really moved with them.
+#   4. It claimed this package "sends no motion commands to any hardware".
+#      Still true of `collectors/`, but real 50-point motion runs have been
+#      driven from `experiment_scripts/` against this same firmware -- read
+#      docs/FIRMWARE_MOTION_HAZARDS.md before sending anything.
+# ---------------------------------------------------------------------------
+#
+# READ THIS BEFORE USING `logical_*_deg` AS AN ANGLE: it is a firmware
+# LABEL, not a physical angle. The firmware maps each axis's calibrated-
+# ACTIVE raw span linearly onto the arbitrary `logical_min_deg..
+# logical_max_deg` interval:
+#
+#   logical = logical_min + (raw - raw_active_min)/(raw_active_max - raw_active_min)
+#                           * (logical_max - logical_min)
+#
+# ST3215 is a 360-deg encoder with 4096 counts, so 1 physical degree =
+# 11.378 ticks and the label scale is distorted per axis (see
+# `physical_deg_per_logical_deg` on each joint). Feed raw ticks to an FK
+# model, not logical degrees. docs/FK_CONVENTION_CORRECTION.md.
+#
+# Sources:
+#   logical_*_deg, servo_id, direction, speed, acc:
+#     03_SO-101_control/main/include/robot_config.h:79-92 (`kJointConfigs`)
+#   raw_cal_*, raw_active_*:
+#     live `STATE` reply captured in
+#     sessions/real_motion_demo/encoder_segment012.jsonl (first record's
+#     `raw_line`); firmware emitter is printJointDetailLine(),
+#     03_SO-101_control/main/src/main.cpp:1400
+#   raw_home: not present on the STATE line -- marked UNMEASURED, not guessed.
+#
+# NOTE: `02_SO-101_rtos_motor_driver/main` is a DIFFERENT firmware that is
+# NOT flashed on this rig (docs/ENCODER_COMMAND_COVERAGE.md, DECISIONS.md
+# #3/#7). Its `include/rtos_motor_config.h` defines the same axis names/
+# IDs/UART pins/baud; its numeric limits have not been re-checked against
+# the live values below.
+
+joints:
+  shoulder_pan:
+    servo_id: 1
+    legacy_alias: D2
+    logical_min_deg: 0
+    logical_max_deg: 160
+    logical_home_deg: 80
+    raw_cal_min: 1054           # live, from servo EEPROM calibration
+    raw_cal_max: 3189
+    raw_active_min: 1160        # live; THIS is the span logical_deg maps over
+    raw_active_max: 3083
+    raw_home: UNMEASURED
+    physical_deg_per_logical_deg: 1.056   # (3083-1160)/11.378/160
+    direction: NORMAL           # increasing raw = "left" = where the targets are
+    speed: 120                  # robot_config.h compile-time default
+    speed_runtime: 120          # live EEPROM value; see the speed note below
+    acc: 10
+
+  shoulder_lift:
+    servo_id: 2
+    legacy_alias: D3
+    logical_min_deg: 5
+    logical_max_deg: 154
+    logical_home_deg: 35
+    raw_cal_min: 1092
+    raw_cal_max: 3296
+    raw_active_min: 1202
+    raw_active_max: 3186
+    raw_home: UNMEASURED
+    physical_deg_per_logical_deg: 1.170   # (3186-1202)/11.378/149
+    direction: NORMAL
+    speed: 100
+    speed_runtime: 100
+    acc: 10
+
+  wrist_flex:
+    servo_id: 4
+    legacy_alias: D5
+    logical_min_deg: 0
+    logical_max_deg: 180
+    logical_home_deg: 90        # was 155 -- lowered in firmware, see header note 2
+    raw_cal_min: 1825
+    raw_cal_max: 4080
+    raw_active_min: 1937
+    raw_active_max: 3968
+    raw_home: UNMEASURED
+    physical_deg_per_logical_deg: 0.992   # (3968-1937)/11.378/180
+    direction: NORMAL
+    speed: 90
+    speed_runtime: 90
+    acc: 10
+
+# Sanity check of the mapping formula against that same real STATE reply:
+#   shoulder_pan  raw 2127 -> (2127-1160)/1923*160     = 80.5  (firmware said 80.5)
+#   shoulder_lift raw 1596 -> (1596-1202)/1984*149 + 5 = 34.6  (firmware said 34.6)
+#   wrist_flex    raw 2953 -> (2953-1937)/2031*180     = 90.0  (firmware said 90.0)
+# The same formula reproduces config/reference_pose.yaml's 74.5 / 71.9 / 2.9.
+
+source:
+  firmware_on_this_rig: "03_SO-101_control/main"
+  config_header: "03_SO-101_control/main/include/robot_config.h"
+  struct: "kJointConfigs"
+  joint_count: 3
+  servo_type: "ST3215 serial bus servo"
+  encoder_counts_per_rev: 4096
+  ticks_per_physical_degree: 11.378
+  servo_uart_baud: 1000000
+  usb_command_baud: 115200
+  calibration_storage: "servo EEPROM; reload into firmware with CAL_AUTO LOAD after every reconnect"
+
+# Speed note (2026-08-05)
+# ----------------------
+# The EEPROM-persisted runtime speeds were found at 250 / 450 / 450 -- far
+# above both robot_config.h's compile-time defaults and the 80-150 band the
+# ST3215 manual recommends for this arm (section 17). Higher commanded speed
+# means higher acceleration current on a shared daisy-chain rail, which is the
+# failure mode being worked around in docs/ST3215_THERMAL_AND_SEQUENCING.md.
+# They were lowered back to the header defaults and re-saved:
+#     CONFIG SET <axis> SPEED <120|100|90> ; CONFIG SET <axis> ACC 10 ; CONFIG SAVE
+# `speed_runtime` above reflects the values now in EEPROM (verified by a STATE
+# read afterwards). Note runtime config overrides the header at boot, so
+# editing robot_config.h alone will NOT change this -- it has to be set on the
+# device.
