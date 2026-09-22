@@ -1,0 +1,9 @@
+{
+  "plan_digest_sha256": "29623cf18c4ce83b4993af324f45fdcd9649df30da9538399fe27e8cee044c6c",
+  "repeats": 3,
+  "seed": 202,
+  "source": "workspace_points.pre_imu_targets.generate_pre_imu_trial_schedule_rows",
+  "target_csv_path": "data\\samples\\pre_imu_stage2_targets.csv",
+  "trial_count": 120,
+  "validation_issues": []
+}

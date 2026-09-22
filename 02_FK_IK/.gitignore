@@ -1,0 +1,18 @@
+﻿# Generated experiment outputs are reproducible from scripts.
+outputs/*
+!outputs/.gitkeep
+
+# Local datasets/raw logs should stay outside source control.
+dataset/
+*.csv
+*.png
+*.json
+
+# Keep checked-in configs and small synthetic pre-IMU samples.
+!config/*.json
+!data/
+data/*
+!data/samples/
+data/samples/*
+!data/samples/pre_imu_*.csv
+!data/samples/pre_imu_*.json

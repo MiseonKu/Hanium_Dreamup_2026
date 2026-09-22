@@ -1,0 +1,31 @@
+{
+  "candidate_count": 1600,
+  "config_path": "config\\pre_imu_forward_hemisphere_workspace.json",
+  "link_spec": {
+    "infill_pattern": "honeycomb",
+    "infill_percent": 15,
+    "link_1_cross_section_mm": [
+      40.0,
+      12.0
+    ],
+    "link_1_length_m": 0.233,
+    "link_2_cross_section_mm": [
+      40.0,
+      12.0
+    ],
+    "link_2_length_m": 0.215,
+    "top_bottom_wall_count": 4,
+    "wall_count": 4,
+    "weak_axis_installation": "thin_face_bending"
+  },
+  "material_preset": "TPU95A_40x12_wall4_topbottom4_infill15_honeycomb",
+  "mode": "pilot",
+  "plan_target_digest_sha256": "dea5dc06a2f61dff3a33f07c27e2a5d92eb08041a5346d6119dd2deab3f4b08d",
+  "rejected_count": 18,
+  "seed": 102,
+  "source": "workspace_points.pre_imu_targets",
+  "stage": "P2_TWO_LINK_RIGID_TARGET_VIVE_LABEL",
+  "target_count": 40,
+  "validation_issues": [],
+  "workspace_region_type": "forward_trimmed_hemisphere"
+}
