@@ -1,0 +1,82 @@
+{
+  "accounting": {
+    "failed_recovery_canonical_reconstructions": 1,
+    "failed_recovery_gate_replays": 1,
+    "failed_recovery_invocations": 1,
+    "failed_recovery_stage_writes": 7,
+    "salvage_aggregate_calls": 0,
+    "salvage_canonical_reconstructions": 0,
+    "salvage_checkpoint_selections": 0,
+    "salvage_evaluator_calls": 0,
+    "salvage_fits": 0,
+    "salvage_gate_replays": 0,
+    "salvage_model_forwards": 0,
+    "salvage_optimizer_updates": 0,
+    "salvage_outer_feature_loads": 0,
+    "salvage_outer_label_reads": 0
+  },
+  "assertions": {
+    "authority_directory_empty": true,
+    "created_before_any_performance_value_read_or_disclosure": true,
+    "failed_stage_must_remain_byte_identical": true,
+    "new_data_collection_allowed": false,
+    "no_scientific_design_change": true,
+    "run003_unchanged": true,
+    "salvage_requires_separate_source_audit": true,
+    "standard_and_salvage_terminals_jointly_required": true
+  },
+  "contract": "openaxes.external.native_sensor_experts.v2.compound_recovery.salvage_preissue.v1",
+  "corrected_stage": {
+    "ordered_file_references": [
+      {"bytes": 151211, "path": "reports/zero_shift.json", "sha256": "177185d615a1e3dd9ed0ec775e638ce386d858706dee55136178fc81e879f956"},
+      {"bytes": 1476, "path": "reports/primary_gates.json", "sha256": "f91309d249a84342e2142f7364a49cea815685eeeb580d0d285845c07e751973"},
+      {"bytes": 29629, "path": "reports/stress_report.json", "sha256": "5dac7a6052fd72f4ed47659f1b96f1c6eed44aa6e92e7be78541ac09b9e94ffc"},
+      {"bytes": 521875, "path": "reports/signed_shift_report.json", "sha256": "00ab104b75f6610d93612489e5eb08e43eff85f85901e2fb26ed91204c5c66c8"},
+      {"bytes": 2113, "path": "reports/development_summary.json", "sha256": "86e97674b466f8c229f5b93e1f8c7fafb07c9e378850c484ff6fcd8707b69d14"},
+      {"bytes": 21875, "path": "development_manifest.json", "sha256": "c493baff0e4ec8f0cd2912f3e066d9eba077fd12d9327828f49093816d69e833"},
+      {"bytes": 934, "path": "COMPLETE.json", "sha256": "318ec3c2ef1f3a8453819e8b0cbf18ec23193307e1927070c44a5b3ccbfa8299"}
+    ],
+    "ordered_reference_set_sha256": "8f8987c8a0268b019fc4e8f1b884f705b1285ecbc09880ad0d57425bdebb6eb6",
+    "only_changed_path": "reports/development_summary.json",
+    "stage_must_be_fresh_private_empty": true
+  },
+  "created_at_utc": "2026-08-26T01:11:47Z",
+  "failed_stage": {
+    "authority_terminal_absent": true,
+    "ordered_file_references": [
+      {"bytes": 151211, "path": "reports/zero_shift.json", "sha256": "177185d615a1e3dd9ed0ec775e638ce386d858706dee55136178fc81e879f956"},
+      {"bytes": 1476, "path": "reports/primary_gates.json", "sha256": "f91309d249a84342e2142f7364a49cea815685eeeb580d0d285845c07e751973"},
+      {"bytes": 29629, "path": "reports/stress_report.json", "sha256": "5dac7a6052fd72f4ed47659f1b96f1c6eed44aa6e92e7be78541ac09b9e94ffc"},
+      {"bytes": 521875, "path": "reports/signed_shift_report.json", "sha256": "00ab104b75f6610d93612489e5eb08e43eff85f85901e2fb26ed91204c5c66c8"},
+      {"bytes": 2273, "path": "reports/development_summary.json", "sha256": "7d8dea342ca1f476edbb8f45d8dfa39c3fdaf75031507c9f5e734eea7b45efff"},
+      {"bytes": 21875, "path": "development_manifest.json", "sha256": "c493baff0e4ec8f0cd2912f3e066d9eba077fd12d9327828f49093816d69e833"},
+      {"bytes": 934, "path": "COMPLETE.json", "sha256": "318ec3c2ef1f3a8453819e8b0cbf18ec23193307e1927070c44a5b3ccbfa8299"}
+    ],
+    "ordered_reference_set_sha256": "8c5974a3de927372c90bd395b760cc873c1f6bdbe308d9a9d7401853f54d00d3",
+    "root": "/home/shin-server/.codex-supervisors/capstone-code/openaxes-native-v2-run003-compound-recovery-001/stage",
+    "stage_seal_absent": true
+  },
+  "known_defect": {
+    "exception": "development summary payload hash changed",
+    "removed_self_reference": {"bytes": 2113, "path": "reports/development_summary.json", "sha256": "86e97674b466f8c229f5b93e1f8c7fafb07c9e378850c484ff6fcd8707b69d14"},
+    "single_key_removal_makes_payload_hash_valid": true,
+    "surplus_key": "development_summary.json"
+  },
+  "payload_sha256": "02ecc9a881ad6cef04ad4cd905ba7a6c1bcdaa205591167163d5881f225bd5a0",
+  "prior_authority": {
+    "recovery_erratum_reference": {"bytes": 5356, "path": "09_SO101_IMU_VIVE_LEARNING/docs/OPENAXES_EXTERNAL_NATIVE_V2_RUN003_RECOVERY_ERRATUM.md", "sha256": "0bca94bfb7ac930a504ccd01fa557261da16b312f6eec74779a33101604aab6a"},
+    "recovery_implementation_commit": "c77e8bb30a5cb1040194b3b0ade35cbd78aa3977",
+    "recovery_source_audit_evidence_commit": "9cf2c36a47eb203ea07840b0410eec96c639fb43",
+    "recovery_source_audit_reference": {"bytes": 15299, "path": "09_SO101_IMU_VIVE_LEARNING/receipts/openaxes_external_native_v2_compound_recovery_source_audit.json", "sha256": "887ba564fee0f701df2fa69e233600a0f7266df2cbb4ffde166bfb628ae7df4c"}
+  },
+  "run003_prestate": {
+    "canonical_tree_sha256": "e42472225abdaaa081da7a33dfdbe6d3543a607b579654a8ef7172aeb944b08b",
+    "complete_absent": true,
+    "development_manifest_absent": true,
+    "regular_file_bytes": 318851615,
+    "regular_file_count": 2799,
+    "reports_empty": true
+  },
+  "run_id": "openaxes-native-v2-sealed-003",
+  "schema_version": 1
+}

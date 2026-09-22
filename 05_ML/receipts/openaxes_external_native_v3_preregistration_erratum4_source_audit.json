@@ -1,0 +1,124 @@
+{
+  "assertions": {
+    "accounting_supplement_is_separately_append_only_and_required": true,
+    "audited_commit_changes_exactly_the_three_erratum4_preregistered_paths": true,
+    "authority_only_validation_is_insufficient": true,
+    "created_before_salvage_implementation_or_execution": true,
+    "dual_original_and_salvage_lineage_is_required": true,
+    "exact_three_preregistered_git_blobs_match_worktree_at_issuance": true,
+    "no_preparation_api_call_run003_read_or_scientific_payload_read_by_erratum4_audit_author": true,
+    "prior_v3_audited_blobs_are_preserved_byte_for_byte": true,
+    "standard_and_salvage_terminals_are_jointly_required": true,
+    "ten_fresh_process_salvage_validations_each_require_original_full_validate": true,
+    "v3_scientific_design_values_and_execution_counts_are_unchanged": true
+  },
+  "audited_commit_tree_oid": "21a9010062b101c80a8fbf2ea0bf96cb2ee44db5",
+  "audited_git_commit": "c09ff7df998a772364941100397aec79ff958614",
+  "audited_git_parent_commit": "540a46e95b32c7164aad3ecef58ba9e6630a2b0b",
+  "contract": "openaxes.external.native_sensor_experts.v3.preregistration_erratum4_source_audit.v1",
+  "created_at_utc": "2026-08-26T01:21:12Z",
+  "historical_v3_authority": {
+    "erratum3_source_audit_commit": "540a46e95b32c7164aad3ecef58ba9e6630a2b0b",
+    "erratum3_source_audit_reference": {
+      "bytes": 5584,
+      "git_blob_oid": "65cceed315adab02dee51a1c1a545faf116fd558",
+      "git_mode": "100644",
+      "path": "receipts/openaxes_external_native_v3_preregistration_erratum3_source_audit.json",
+      "sha256": "cda0ab8062acc235a2e38bc354ab379ebe6a27e1580530161a32c28b22db4d3c"
+    }
+  },
+  "outcome_neutral_action_accounting": {
+    "canonical_preparation_public_api_calls": 0,
+    "run003_file_reads": 0,
+    "scientific_fits": 0,
+    "scientific_model_forwards": 0,
+    "scientific_outcome_payload_reads": 0,
+    "task_evaluator_calls": 0
+  },
+  "payload_hash_algorithm": "sha256_of_utf8_canonical_json_document_with_payload_sha256_field_omitted",
+  "payload_sha256": "b88b915fd6e54830ed7e3ddece6f918fb5f2a3fc91b6173df0e59460c11018ba",
+  "project_repository_prefix": "09_SO101_IMU_VIVE_LEARNING",
+  "repository_object_format": "sha1",
+  "schema_version": 1,
+  "source_closure": {
+    "file_count": 3,
+    "files": [
+      {
+        "bytes": 9954,
+        "git_blob_oid": "6d669789b05e7dfed6a86151d44d2dcaac6c022d",
+        "git_mode": "100644",
+        "path": "configs/openaxes_external_native_v3_erratum4_salvage_validation.yaml",
+        "sha256": "29b0664c782c0f782e5aff6c3e0d78297e1d701d79f73456002fab6c9b9b1ac2"
+      },
+      {
+        "bytes": 4410,
+        "git_blob_oid": "13ad64cb343aa5f8e6434d762aafb54f6960922c",
+        "git_mode": "100644",
+        "path": "docs/OPENAXES_EXTERNAL_NATIVE_V3_ERRATUM4_SALVAGE_VALIDATION_CONTRACT.md",
+        "sha256": "6a1e71c677527e094ebbee191c50c3c159a8916d71b116e89ba187eb0af9ceef"
+      },
+      {
+        "bytes": 3116,
+        "git_blob_oid": "3d2610591547fd304e6e73f2a531bc73def2553d",
+        "git_mode": "100644",
+        "path": "receipts/openaxes_external_native_v3_preregistration_erratum4_preissue.json",
+        "sha256": "bb403081363ceaf2c78e63b868fcfa5a426e82d2fa45b1ba7358fa45bc35b898"
+      }
+    ],
+    "path_order": [
+      "configs/openaxes_external_native_v3_erratum4_salvage_validation.yaml",
+      "docs/OPENAXES_EXTERNAL_NATIVE_V3_ERRATUM4_SALVAGE_VALIDATION_CONTRACT.md",
+      "receipts/openaxes_external_native_v3_preregistration_erratum4_preissue.json"
+    ],
+    "set_hash_algorithm": "sha256_of_canonical_json_path_ordered_array_of_exact_path_bytes_sha256_git_blob_oid_git_mode_records",
+    "set_sha256": "4c7e502bfa4093b827743e8fb8fdf7262ea2811e3790d449caa58ac81ba71a5a"
+  },
+  "supplement_authority": {
+    "accounting_supplement_preissue_commit": "dd5e01aafb2dee1309bc1da2a221bd71bc59783e",
+    "accounting_supplement_preissue_reference": {
+      "bytes": 3364,
+      "git_blob_oid": "1764ec526b0e42eba814b525ff73adb62a360981",
+      "git_mode": "100644",
+      "path": "receipts/openaxes_external_native_v3_preregistration_erratum4_accounting_supplement_preissue.json",
+      "sha256": "7272358884667c8d898ddcc678a7977402024b10325d5cde0f0f353856e43b8f"
+    },
+    "accounting_supplement_source_audit_contract": "openaxes.external.native_sensor_experts.v3.preregistration_erratum4_accounting_supplement_source_audit.v1",
+    "accounting_supplement_source_audit_path": "receipts/openaxes_external_native_v3_preregistration_erratum4_accounting_supplement_source_audit.json",
+    "must_be_validated_together_with_this_receipt": true
+  },
+  "v2_salvage_authority": {
+    "accounting_supplement_git_commit": "4b71a1686f45638f9b4087c85401478626fc2ed7",
+    "accounting_supplement_payload_sha256": "97c43bbfa9c239f3c1f69ade69e252af09ae57447e73c295057060e5d0e5d9dc",
+    "accounting_supplement_reference": {
+      "bytes": 2995,
+      "git_blob_oid": "478c61c37d0dab833f4fb2f55864b86c11a4ed88",
+      "git_mode": "100644",
+      "path": "receipts/openaxes_external_native_v2_compound_recovery_salvage_accounting_supplement.json",
+      "sha256": "4df21c681f15cbcfdad43a17304e4f5e23da9478aba77ea804b525d25a7122be"
+    },
+    "erratum2_git_commit": "6a953c9996cc7ff446a1a6a3aa7e7c29ccc7044d",
+    "erratum2_reference": {
+      "bytes": 4390,
+      "git_blob_oid": "94da89b25763e91ee16659b5f03a8ad0528c1fd7",
+      "git_mode": "100644",
+      "path": "docs/OPENAXES_EXTERNAL_NATIVE_V2_RUN003_RECOVERY_ERRATUM2.md",
+      "sha256": "d053b8bed1aa7e427d06688b4978ad9bf6c48e105dd6b6da29a16bda682ae906"
+    },
+    "salvage_preissue_payload_sha256": "02ecc9a881ad6cef04ad4cd905ba7a6c1bcdaa205591167163d5881f225bd5a0",
+    "salvage_preissue_reference": {
+      "bytes": 5149,
+      "git_blob_oid": "e6ad11ee6c558cf37d3b4e44490f9e28e15a4633",
+      "git_mode": "100644",
+      "path": "receipts/openaxes_external_native_v2_compound_recovery_salvage_preissue.json",
+      "sha256": "0b15daf0d47878d57a798a34bdc5df09092b4523dc1bd3070cf0653fe7a4f1b5"
+    }
+  },
+  "validation_authority": {
+    "authority_only_validation_is_sufficient": false,
+    "exact_fresh_process_success_count": 10,
+    "original_recovery_full_validate_invocations_per_process": 1,
+    "salvage_semantic_validate_invocations_per_process": 1,
+    "salvage_terminal_contract": "openaxes.external.native_sensor_experts.v2.compound_recovery.salvage.terminal.v1",
+    "standard_and_salvage_terminal_joint_validation_required": true
+  }
+}

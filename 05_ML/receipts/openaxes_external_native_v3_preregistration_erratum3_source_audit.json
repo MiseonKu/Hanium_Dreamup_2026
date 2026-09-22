@@ -1,0 +1,107 @@
+{
+  "assertions": {
+    "authority_cli_validate_terminal_alone_is_insufficient": true,
+    "audited_commit_changes_exactly_the_three_erratum3_preregistered_paths": true,
+    "base_erratum2_audited_blobs_are_preserved_byte_for_byte": true,
+    "created_before_any_v3_implementation_fit_prediction_result_metric_or_gate": true,
+    "exact_three_preregistered_git_blobs_match_worktree_at_issuance": true,
+    "historical_receipts_are_preserved_byte_for_byte": true,
+    "no_canonical_preparation_api_call_run003_read_fit_or_scientific_outcome_payload_read_during_erratum3_audit": true,
+    "no_scientific_result_metric_prediction_comparator_or_gate_payload_in_receipt": true,
+    "ten_fresh_process_recovery_module_cli_validate_successes_are_required": true,
+    "v3_candidates_views_parameters_training_folds_seeds_metrics_gates_execution_counts_and_claims_are_unchanged": true
+  },
+  "audited_commit_tree_oid": "e20276d546003019118f40521bc62b98228aec9e",
+  "audited_git_commit": "f02699c4ed95266bbd22ddedf5366353d585ec02",
+  "audited_git_parent_commit": "f38a0213ed53f8698a9e12d23cc496f27084423d",
+  "contract": "openaxes.external.native_sensor_experts.v3.preregistration_erratum3_source_audit.v1",
+  "created_at_utc": "2026-08-26T00:50:54Z",
+  "historical_authority": {
+    "erratum2_preregistration_commit": "652dc542bc398806c2243cfd3abd0244cebd1612",
+    "erratum2_source_audit_commit": "f38a0213ed53f8698a9e12d23cc496f27084423d",
+    "erratum2_source_audit_reference": {
+      "bytes": 8523,
+      "git_blob_oid": "7d5993f772ba9c9fac4d975214b4e3361a02812e",
+      "git_mode": "100644",
+      "path": "receipts/openaxes_external_native_v3_preregistration_erratum2_source_audit.json",
+      "sha256": "bc4519fd0a67ef1019d912302368965a6b165d2aea9d2adde68ecee5a4c906e8"
+    },
+    "erratum1_source_audit_commit": "d54e9f08f81273d1f5a1931d00309b771853b1c6",
+    "original_preregistration_commit": "7da0bb4e4bb10193465cf03d3e082275157aaa43",
+    "original_source_audit_commit": "a6e28ac6df8bc864c81104f4e3be958804d87f6c",
+    "repository_parent_commit": "a06488185601cfd646ac1cecb43d8951cd0fb3b8"
+  },
+  "outcome_neutral_action_accounting": {
+    "canonical_preparation_public_api_calls": 0,
+    "run003_file_reads": 0,
+    "scientific_fits": 0,
+    "scientific_model_forwards": 0,
+    "scientific_outcome_payload_reads": 0,
+    "task_evaluator_calls": 0
+  },
+  "payload_hash_algorithm": "sha256_of_utf8_canonical_json_document_with_payload_sha256_field_omitted",
+  "payload_sha256": "637d56d7e31eb8c86ea4db3a38380fe6767a96486775fd3b91f20689cd63b865",
+  "project_repository_prefix": "09_SO101_IMU_VIVE_LEARNING",
+  "repository_object_format": "sha1",
+  "schema_version": 1,
+  "source_closure": {
+    "file_count": 3,
+    "files": [
+      {
+        "bytes": 8575,
+        "git_blob_oid": "6e4a88e1306fef50d7fa6529fe99892326d63dfe",
+        "git_mode": "100644",
+        "path": "configs/openaxes_external_native_v3_erratum3_recovery_validation.yaml",
+        "sha256": "48c64d8a2c2704d79a2f5f836e22ad189a10d9c3a07e23dfba6d9a0ea014b08e"
+      },
+      {
+        "bytes": 6218,
+        "git_blob_oid": "c4260f74ef4ee6717ed17d04cb7352a114b59a50",
+        "git_mode": "100644",
+        "path": "docs/OPENAXES_EXTERNAL_NATIVE_V3_ERRATUM3_RECOVERY_VALIDATION_CONTRACT.md",
+        "sha256": "9ba0f018d5d670c9db12d9c394f4f7efd2d7e0ddef6eda742960ffd85e17c891"
+      },
+      {
+        "bytes": 2966,
+        "git_blob_oid": "2759015ce9cd6f1dfe8335f7ae0d4da4ee4415a9",
+        "git_mode": "100644",
+        "path": "receipts/openaxes_external_native_v3_preregistration_erratum3_preissue.json",
+        "sha256": "7e86b772a32dfa71f7e0446dfc84db9b1031004246d1112ac50f02729a89a27a"
+      }
+    ],
+    "path_order": [
+      "configs/openaxes_external_native_v3_erratum3_recovery_validation.yaml",
+      "docs/OPENAXES_EXTERNAL_NATIVE_V3_ERRATUM3_RECOVERY_VALIDATION_CONTRACT.md",
+      "receipts/openaxes_external_native_v3_preregistration_erratum3_preissue.json"
+    ],
+    "set_hash_algorithm": "sha256_of_canonical_json_path_ordered_array_of_exact_path_bytes_sha256_git_blob_oid_git_mode_records",
+    "set_sha256": "9eb4b390e9c462e275b2aca4834bb3ffc77e095efcafe1aedd0abe61df7e5b56"
+  },
+  "source_evidence_boundary": {
+    "implementation_or_parent_validation_before_this_receipt_is_committed": "forbidden",
+    "source_audit_evidence_commit_must_be_a_strict_descendant_of_audited_git_commit": true,
+    "source_audit_evidence_commit_must_contain_this_exact_receipt_blob": true
+  },
+  "validation_authority": {
+    "authority_cli_validate_terminal_alone_is_sufficient": false,
+    "exact_validation_record_count": 10,
+    "external_terminal_contract": "openaxes.external.native_sensor_experts.v2.compound_recovery.terminal.v1",
+    "record_contract": "openaxes.external.native_sensor_experts.v3.parent_recovery_validation_record.v1",
+    "recovery_module": "imu_vive_learning.openaxes_external_native_v2_recovery",
+    "recovery_module_subcommand": "validate",
+    "required_record_assertions": [
+      "embedded_exact_seven_file_semantics_passed",
+      "frozen_full_run003_validator_passed",
+      "recovery_authority_validator_passed"
+    ],
+    "required_record_raw_references": [
+      "recovery_source_audit_reference",
+      "stage_seal_reference",
+      "external_compound_terminal_reference",
+      "run003_complete_reference",
+      "run003_development_manifest_reference"
+    ],
+    "required_source_evidence_binding": "recovery_source_evidence_git_commit",
+    "receipt_set_hash_algorithm": "sha256_of_canonical_json_array_of_exact_record_references_in_validation_ordinal_order"
+  }
+}

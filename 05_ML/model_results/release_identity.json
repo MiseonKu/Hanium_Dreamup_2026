@@ -1,0 +1,10 @@
+{
+  "archive_sha256": "94deccb960b0554fb9a683875d36ef5726afc825d4b4ea244a1490f3353b1930",
+  "canonical_rows": 7707,
+  "parent_contract": "alphaf.ml_preparation.v1",
+  "path_recorded_for_provenance_only": "../06_simulation_and_data_collect_preparation/imu_added_experiment/ml_preparation_v1.zip",
+  "preparation_config_sha256": "bf258a9be480b4f69aa14f6e121949042771f1104a69cdabc014adf6d95f7503",
+  "source_member_sha256": "1b0a821a1822f237adadb1c978ea73da02b0e4bb7f099ce085a63931e9792b54",
+  "strict_qc_rows": 7670,
+  "train_eligible_rows": 7702
+}

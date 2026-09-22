@@ -1,0 +1,328 @@
+contract:
+  name: alphaf.endpoint_regression.gpu_experiment.outage_v5_pord
+  parent_v3_contract: alphaf.endpoint_regression.gpu_experiment.outage_v3
+  parent_v4_contract: alphaf.endpoint_regression.gpu_experiment.outage_v4_gbdt
+  base_seed: 20260824
+  research_status: same_session_development_extension_with_one_sealed_challenge_gate
+  method_name: locally_proposed_paired_outage_risk_decomposition_pord
+  label_frame: vive_world
+  label_unit: mm
+  frozen_before_challenge_label_access: true
+  independent_session_available: false
+  confirmatory_claim_allowed: false
+  challenge_gate_protocol_owner: v5_under_single_controller_assumption
+  machine_enforced_cross_parent_finalizer_mutex: false
+  single_controller_no_concurrent_parent_finalizer_assumption: true
+
+parent_freeze:
+  prepare_command_required: true
+  v3_required_stage: development_complete_challenge_labels_sealed
+  v4_required_stage: development_complete_challenge_labels_sealed
+  v3_challenge_label_access_marker_must_be_absent: true
+  v4_challenge_label_access_marker_must_be_absent: true
+  v3_required_development_seed_fits: 240
+  v3_required_scored_contexts: 96
+  v4_required_unique_bundle_fits: 12
+  v4_required_scored_contexts: 48
+  semantic_validation_required: true
+  immutable_parent_manifest_before_after_required: true
+  copied_development_replay_required: true
+  copied_label_blind_challenge_identity_required: true
+  frozen_v4_winner_is_incumbent: true
+  v3_preprocessing_reference_schema: path_bytes_sha256_exact
+  v3_checkpoint_reference_schema: path_bytes_sha256_tensor_count_exact
+  v3_checkpoint_npz_validation: positive_exact_tensor_count_nonempty_names_numeric_finite
+  no_new_collection: true
+
+data_roles:
+  development_segments: [36, 37, 38, 39]
+  development_rows: 6635
+  development_segment_rows: [1672, 1597, 1707, 1659]
+  challenge_segments: [40, 41]
+  challenge_rows: 3295
+  challenge_segment_rows: [1672, 1623]
+  challenge_forced_outage_index: 1
+  challenge_forced_outage_sensor: imu1_link_root
+  challenge_availability: [1, 0, 1, 1]
+  segment_41_role: primary_previously_unused_same_session_diagnostic
+  segment_40_role: secondary_previously_observed_same_session_diagnostic
+  same_collection_session: true
+  no_synthetic_or_new_rows: true
+
+task:
+  sensor_feature_view: fusion_v1
+  encoder_delta_feature_count: 3
+  imu_count: 4
+  per_imu_feature_count: 10
+  sensor_feature_count: 43
+  availability_feature_count: 4
+  model_input_feature_count: 47
+  unavailable_sensor_imputation: exact_zero_after_train_only_standardization
+  availability_features_are_raw_binary: true
+  segment_is_model_input: false
+  target_transform: train_xyz_mean_and_one_isotropic_scale_repeated_three_times_at_api
+  prediction_space: inverse_transformed_vive_world_xyz_mm
+  supervised_label_source: vive_only
+  inference_forbidden_tokens: [vive, tracker, planned, target_id, segment, timestamp, qc, provenance]
+
+views:
+  names: [full, drop_imu0, drop_imu1, drop_imu2, drop_imu3]
+  probabilities: [0.25, 0.1875, 0.1875, 0.1875, 0.1875]
+  availability:
+    - [1, 1, 1, 1]
+    - [0, 1, 1, 1]
+    - [1, 0, 1, 1]
+    - [1, 1, 0, 1]
+    - [1, 1, 1, 0]
+  constant_availability_negative_control: [1, 1, 1, 1]
+  constant_availability_still_zero_masks_continuous_imu_block: true
+  materialization: exact_full_plus_four_views_for_every_uid_after_split
+  fit_preprocessor_on_complete_unreplicated_train_rows_only: true
+  empirical_group_means_use_full_fold_each_epoch: true
+
+backbones:
+  primary:
+    backbone_id: masked_mlp_64x64_relu
+    methods: [full_gradient_only_mask_selected_control, masked_erm, constant_availability_erm, group_mean_pord, paired_tail, paired_interaction, paired_pord, paired_wrong_pair, paired_no_stopgrad, groupdro, vrex, mofe]
+    hidden_layer_sizes: [64, 64]
+    activation: ReLU
+    reconstruction_loss_weight: 0.0
+  transfer:
+    backbone_id: chain_endpoint_only
+    methods: [masked_erm, paired_pord]
+    width: 96
+    depth: 4
+    expansion: 2
+    activation: SiLU
+    normalization: LayerNorm
+    dropout: 0.0
+    reconstruction_loss_weight: 0.0
+
+methods:
+  controlled_primary_order: [full_gradient_only_mask_selected_control, masked_erm, constant_availability_erm, group_mean_pord, paired_tail, paired_interaction, paired_pord, paired_wrong_pair, paired_no_stopgrad, groupdro, vrex, mofe]
+  transfer_order: [masked_erm, paired_pord]
+  full_gradient_only_mask_selected_control: full_view_gradient_only_with_same_outage_based_train_only_checkpoint_selection_not_a_no_mask_pipeline
+  constant_availability_erm: physical_outage_zero_mask_with_all_four_availability_bits_fixed_one_in_train_checkpoint_and_outer
+  group_mean_pord_terms: [mask_risk, fixed_symmetric_positive_top3_group_mean_excess, mean_absolute_two_way_group_mean_interaction]
+  group_mean_excess: missing_group_risk_minus_detached_full_group_risk_not_pair_specific
+  paired_atom: segment_mean_of_row_relu_missing_loss_minus_full_reference_loss
+  paired_relu_order: relu_before_segment_mean
+  paired_pord_terms: [mask_risk, fixed_symmetric_positive_top3_paired_atoms, mean_absolute_two_way_paired_atom_interaction]
+  correct_pairing: same_trial_uid_full_reference
+  wrong_pairing: sorted_trial_uid_within_segment_circular_derangement_shift_one
+  wrong_pairing_preserves_full_loss_marginal: true
+  wrong_pairing_has_no_self_pair: true
+  wrong_pairing_map_and_hash_frozen_before_training: true
+  wrong_pair_evidence_is_bounded_to_one_preregistered_map: true
+  no_general_claim_over_all_derangements: true
+  paired_no_stopgrad_forward_equals_paired_pord: true
+  paired_no_stopgrad_only_intended_difference: full_reference_gradient
+  tail_atom_count: 12
+  tail_top_k: 3
+  tail_cutoff_ties: symmetric_subgradient
+  interaction: two_way_centered_paired_positive_atoms
+  relu_and_abs_zero_subgradient: 0.0
+  groupdro_eta: 0.01
+  groupdro_prior_full_atom_weight: 0.08333333333333333
+  groupdro_prior_missing_atom_weight: 0.0625
+  vrex_beta: 1.0
+  vrex_variance: population_weighted_group_variance
+  mofe_lambda: 0.1
+  mofe_hinge: per_row_relu_full_loss_minus_missing_loss
+
+splits:
+  held_out_segment_policy: leave_one_development_segment_out
+  held_out_segments: [36, 37, 38, 39]
+  paired_seed_values: [20260824, 20260825, 20260826]
+  paired_initialization_required_within_backbone_seed_fold: true
+  exact_fit_rows: 14
+  exact_fit_count: 168
+  outage_contexts_primary: 192
+  outage_contexts_transfer: 32
+  outage_contexts_total: 224
+  full_contexts_total: 56
+  row_positive_excess_summaries: 672
+
+training:
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.001
+  update_budget: 400
+  updates_per_epoch: 1
+  early_checkpoint_criterion: training_segments_only_half_mean_four_outage_rmse_plus_half_max_four_outage_rmse
+  earliest_tie_checkpoint: true
+  checkpoint_selection_scope: training_segments_only
+  outer_labels_read_before_checkpoint_fixed: false
+  outer_eval_count_per_fit: 1
+  outer_evaluation_timing: exactly_once_after_checkpoint_fixed
+  one_checkpoint_predicts_all_four_outages: true
+  one_checkpoint_predicts_full: true
+  nonfinite_action: fail_closed
+  missing_artifact_action: fail_closed
+
+execution:
+  production_mode: production_cuda_spawn
+  private_test_mode: synthetic_test_only
+  synthetic_artifacts_rejected_by_production_handoff: true
+  gpu_count: 4
+  workers_per_gpu_min: 1
+  workers_per_gpu_max: 3
+  workers_per_gpu_is_execution_only: true
+  scientific_task_grid_must_not_duplicate: true
+  per_worker_ledger_required: true
+  runtime_auth_tree_separate_from_prepared_snapshot: true
+  multiprocessing_start_method: spawn
+  persistent_process_per_logical_gpu_slot: true
+  fixed_slot_fifo_serial: true
+  cuda_identity_uuid_format: bare_lowercase_8_4_4_4_12_hex
+  cuda_visible_devices_selector: GPU_dash_plus_frozen_bare_uuid_exact
+  cuda_visible_devices_set_to_canonical_selector_before_child_module_import: true
+  torch_import_before_child_bootstrap: forbidden
+  worker_cuda_device: "cuda:0"
+  worker_visible_uuid_pci_name_revalidation: true
+  strict_task_result_checkpoint_history_prediction_bindings: true
+  strict_source_environment_gpu_uuid_pci_bindings: true
+  resultless_complete_bundle_resume: authenticate_and_reconstruct_without_source_reread_or_refit
+  task_phase_order: [execution.started, training.completed, outer_prediction.completed, outer_eval.started, outer_eval.completed, bundle.completed, result]
+  authenticated_unique_scientific_fit_count: 168
+  execution_started_without_training_completed: fail_closed_no_refit
+  training_completed_resume: continue_from_authenticated_checkpoint_without_refit
+  outer_eval_started_without_completed: fail_closed_no_second_evaluation
+  outer_eval_completed_resume: authenticate_persisted_phase_receipt_and_predictions_without_truth_source_read_or_evaluator_call
+  resultless_phase_recovery: authenticate_phase_payloads_without_repeat_fit_or_repeat_completed_evaluation
+  worker_development_label_authority: full_snapshot_in_process_not_capability_isolated
+  trainer_outer_array_surface: absent
+  outer_nonuse_enforcement: code_order_and_durable_phase_receipts
+  standalone_validators_are_pure_nonmutating: true
+  recovery_mutation_route: explicit_resume_execution_only
+  single_controller_no_concurrent_parent_finalizer_assumption: true
+  machine_enforced_cross_parent_finalizer_mutex: false
+  parent_challenge_markers_checked_before_and_after_label_load: true
+  parquet_arrow_dtype_contract: string_int64_float64_exact_no_narrowing_or_coercion
+  parquet_arrow_field_nullability: nullable_true_exact
+  parquet_schema_metadata: exact_single_canonical_pandas_metadata_bytes
+  parquet_metadata_version_policy: exact_locked_runtime_pyarrow_and_pandas_versions
+  quarantine_is_nondelete_evidence_preservation_not_refit_authority: true
+  started_only_challenge_marker_action: fail_closed
+  python: "3.12"
+
+aggregation:
+  context_prediction: arithmetic_mean_of_three_paired_seed_predictions
+  score_name: outage_robust_j_mm
+  score_formula: "(mean_rmse_over_16_contexts_mm + worst_segment_mean_rmse_over_4_outages_mm + worst_sensor_mean_rmse_over_4_segments_mm) / 3"
+  exact_v3_scoring_semantics: true
+  numeric_equality_abs_tolerance_mm: 1.0e-12
+  nonfinite_context_score: positive_infinity
+  missing_context_action: fail_closed_before_scoring
+  row_positive_excess: max_outage_3d_error_minus_full_3d_error_and_zero
+  row_positive_excess_summaries: [mean_mm, p95_mm, max_mm, positive_fraction]
+  v3_full_baseline_replay_checkpoint_outage_index: 1
+  v3_full_baseline_seed_ensemble_count_per_fold: 3
+  full_score_formula: "0.5 * (mean_heldout_full_rmse_3d_mm + max_heldout_full_rmse_3d_mm)"
+
+claim_gates:
+  candidate: masked_mlp_64x64_relu__paired_pord
+  baseline: masked_mlp_64x64_relu__masked_erm
+  all_must_pass: true
+  mask_augmentation_attribution_gate: masked_mlp_64x64_relu__masked_erm_strict_j_lower_than_masked_mlp_64x64_relu__full_gradient_only_mask_selected_control
+  strict_j_lower_than_masked_erm: true
+  strict_worst_sensor_mean_lower_than_masked_erm: true
+  strict_j_lower_than: [masked_mlp_64x64_relu__group_mean_pord, masked_mlp_64x64_relu__paired_tail, masked_mlp_64x64_relu__paired_interaction, masked_mlp_64x64_relu__paired_no_stopgrad, masked_mlp_64x64_relu__paired_wrong_pair, masked_mlp_64x64_relu__groupdro, masked_mlp_64x64_relu__vrex, masked_mlp_64x64_relu__mofe]
+  combined_objective_and_stop_gradient_gates_required: true
+  held_out_segment_mean_improvement_required: 3
+  held_out_segment_count: 4
+  paired_seed_j_improvement_required: 2
+  paired_seed_count: 3
+  frozen_v3_same_backbone_full_tolerance_mm: 1.0e-9
+  same_v5_masked_erm_full_tolerance_mm: 0.0
+  constant_availability_is_interpretation_only_not_challenge_eligibility: true
+  ablations_are_separate_honest_report: [group_mean_pord, paired_tail, paired_interaction, paired_wrong_pair, paired_no_stopgrad, constant_availability_erm, full_gradient_only_mask_selected_control]
+  chain_transfer_is_separate_honest_report: true
+  chain_transfer_primary_eligibility_gate: false
+  chain_failure_interpretation: primary_claim_is_masked_mlp_architecture_specific
+
+selection:
+  incumbent_source: frozen_v4_development_winner
+  claim_gates_must_pass_before_any_challenge_finalize: true
+  novel_candidate_order: [masked_mlp_64x64_relu__paired_pord, fixed_half_v4_incumbent_half_pord]
+  fixed_blend_weights: [0.5, 0.5]
+  fixed_blend_space: raw_vive_world_xyz_mm
+  novel_candidate_requires_j_not_worse_than_incumbent: true
+  no_eligible_stage: novelty_gate_failed_challenge_sealed
+  no_eligible_next_version_allowed: v6
+  tie_break_order: [outage_robust_j_mm, mean_p95_3d_mm, mean_seed_rmse_population_std_mm, listed_order]
+  challenge_scores_can_trigger_selection_or_reselection: false
+
+challenge:
+  finalize_requires_separate_resume_and_finalize_challenge: true
+  one_time_marker: challenge/label_access_1.started.json
+  marker_create_flags: O_CREAT_O_EXCL
+  prior_v3_marker_must_be_absent: true
+  prior_v4_marker_must_be_absent: true
+  feature_only_prediction_frozen_before_labels: true
+  recipe_hash_frozen_before_labels: true
+  semantic_prediction_replay_before_labels: true
+  freeze_marker_written_last_after_all_prelabeled_artifacts_validate: true
+  access_marker_hash_chain_binds_development_selection_freeze_recipe_prediction_uid_parent_identity_and_label_source_authority: true
+  selected_prediction_preloaded_before_access_marker: true
+  default_label_loader_nonlabel_authority_preloaded_before_access_marker: true
+  frozen_v3_config_copied_and_hash_bound_inside_v5_before_access_marker: true
+  post_marker_default_loader_nonlabel_disk_reads: 0
+  post_label_loader_disk_hash_revalidation: true
+  metrics_use_only_preloaded_prediction: true
+  selected_only_predictors:
+    - masked_mlp_64x64_relu__paired_pord
+    - frozen_v4_incumbent
+    - fixed_half_v4_incumbent_half_pord
+  no_retraining: true
+  pord_predictor: mean_of_twelve_frozen_paired_pord_fold_seed_checkpoints_under_imu1_outage
+  incumbent_predictor: replay_frozen_v3_v4_component_bundle_under_imu1_outage
+  blend_predictor: raw_mm_fixed_half_each
+  label_access_passes: 1
+  primary_segment: 41
+  secondary_segment: 40
+  thresholding_after_labels: false
+  reselection_after_labels: false
+  completed_evidence_recovery: authenticate_linkage_replay_identity_truth_prediction_and_metrics_without_source_reread
+  missing_or_corrupt_root_manifest_recovery: explicit_resume_finalize_reconstructs_from_completed_evidence_without_label_reread
+  standalone_final_validator: nonmutating_rejects_present_manifest_extra_fields_or_type_drift
+  started_only_recovery: fail_closed
+
+provenance:
+  source_closure_required_before_any_metric: true
+  source_closure_includes_all_imports_tests_and_locks: true
+  current_source_must_match_prepare_snapshot: true
+  environment_snapshot_required: true
+  exact_four_gpu_identity_required: true
+  gpu_uuid_and_pci_required: true
+  worker_visible_cuda_mapping_required: true
+  task_bindings_include_source_environment_gpu: true
+
+claim_boundaries:
+  method_description: locally_proposed_paired_outage_risk_decomposition_pord
+  cvar_description: fixed_atom_upper_tail_surrogate_not_standard_cvar_theorem
+  no_first_claim: true
+  no_causal_claim: true
+  no_provable_claim: true
+  no_independent_session_claim: true
+  paired_gap_description: empirical_row_positive_outage_degradation_atom_not_oracle_relative_minimax_regret
+  group_mean_difference_uses_same_uid_covariance: false
+  full_segment_risk_cancels_from_two_way_interaction: true
+  primary_relu_before_mean_is_joint_pair_distribution_dependent: true
+  wrong_pair_negative_control_required_before_pairing_claim: true
+  wrong_pair_evidence_is_bounded_to_one_preregistered_map: true
+  no_general_claim_over_all_derangements: true
+  full_gradient_only_mask_selected_control_required_before_mask_augmentation_attribution: true
+  full_gradient_only_control_is_not_a_complete_no_mask_pipeline: true
+  constant_availability_control_is_interpretive_not_eligibility_gate: true
+  novelty_claim_before_required_controls: false
+  no_wasserstein_ambiguity_or_oracle_comparator_or_regret_theory: true
+  objective_protocol_contribution_not_fusion_router_or_modality_expert_architecture: true
+  static_trial_endpoint_in_raw_vive_world_mm: true
+  same_collection_session_as_development: true
+  not_normal_four_imu_confirmation: true
+  not_robot_base_or_tcp_calibrated: true
+  not_dynamic_state_estimation: true
+  not_shapefk_or_formal_imu_only: true
+  not_deployment_ready: true
+  not_control_authority: true

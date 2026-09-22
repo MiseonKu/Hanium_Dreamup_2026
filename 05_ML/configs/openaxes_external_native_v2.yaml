@@ -1,0 +1,2567 @@
+contract:
+  name: openaxes.external.native_sensor_experts.v2
+  version: 2
+  status: preregistered_not_implemented_authority_erratum2
+  research_role: fixed_parameter_matched_native_sensor_expert_contrast
+  created_before_any_v1_result_or_metric_access: true
+  v1_result_or_metric_used_to_choose_any_v2_field: false
+  native_training_config_and_experiment_implementation_allowed_before_v1_terminal_receipt_and_separate_audit: false
+  parent_receipt_auditor_source_implementation_is_the_only_pre_v1_exception: true
+  authority_erratum1_is_limited_to_outcome_free_consumer_and_receipt_authority_repair: true
+  authority_erratum2_is_limited_to_outcome_free_cuda_uuid_representation_and_receipt_authority_repair: true
+  execution_allowed_before_v1_terminal_receipt_and_separate_audit: false
+  challenge_access_allowed: false
+  so101_data_or_weights_allowed: false
+
+authority_erratum1:
+  erratum_id: openaxes_external_native_v2_parent_receipt_erratum1
+  amendment_scope: receipt_authority_and_outcome_free_canonical_json_key_order_consumer_only
+  active_source_audit_receipt_path: receipts/openaxes_external_native_v2_parent_receipt_source_audit_erratum1.json
+  retired_source_audit_receipt_path: receipts/openaxes_external_native_v2_parent_receipt_source_audit.json
+  retired_path_remains_immutable_history: true
+  retired_path_may_authorize_terminal_bound_successful_lineage: false
+  retired_audited_git_commit: 49d9cb64406d6f5c9457e210623c45324a0880ac
+  retired_source_audit_evidence_git_commit: ce09392a287f00447c5451471eae854d6aa726e6
+  retired_evidence_commit_may_authorize_terminal_bound_successful_lineage: false
+  failed_run:
+    run_id: openaxes-v1-sealed-001
+    failed_supervisor_terminal_relative_path: openaxes-v1-runs/openaxes-v1-sealed-001/LATEST_TERMINAL.json
+    failed_supervisor_terminal_sha256: e032c62b899efd7e90647748f6c087b05d271ae1e312fc8ec64f390cc1bc20e3
+    public_preparation_existed: true
+    public_preparation_manifest_sha256: dcffda6bb3e8c0c3af52ec2b7a2a98e9eaee5a788352de32a38b915d82153a17
+    public_preparation_parquet_sha256: 98747e51fd95506b91facfeb273be23c454d07da563deea13a6f2192ded48703
+    public_preparation_COMPLETE_sha256: 1a9f4cc4e5a3528e0a986f27aebc060fb6fee749458b43ad4154250623968b12
+    public_validator_stdout_sha256: 4d3f793511dd55a6df0fe5ba7404ca71e487aafcbfcfb7d19b54f2b4b5e3ba94
+    successful_lineage_counts_before_erratum:
+      model_PREPARED: 0
+      execution_session: 0
+      scientific_fit: 0
+      prediction: 0
+      evaluation: 0
+      result: 0
+  failure:
+    classification: outcome_free_canonical_json_key_order_consumer_bug
+    producer_semantic_sensor_group_order: [humerus, radius, carpus, digitus]
+    canonical_persisted_object_key_order: [carpus, digitus, humerus, radius]
+    persisted_sensor_groups_mapping_content_and_feature_lists_correct: true
+    persisted_sensor_groups_mapping_sha256: 30deb94cc249ec6c2d17ac141b5450a30e4c526c4f96378a8a57b0c94443762a
+    failed_consumer_rule: require_mapping_iteration_order_then_flatten_values_in_mapping_iteration_order
+    corrected_consumer_rule: require_exact_key_set_then_flatten_by_frozen_humerus_radius_carpus_digitus_order
+    failure_occurred_before_model_PREPARED_session_fit_prediction_evaluation_or_result: true
+    v1_result_or_metric_accessed: false
+  terminal_bound_successful_lineage:
+    run_id: openaxes-v1-sealed-002
+    v1_run_project_relative_path: artifacts/openaxes_external_model_v1/run_openaxes-v1-sealed-002
+    preparation_run_project_relative_path: artifacts/openaxes_external_v1/prepared_openaxes-v1-sealed-002
+    supervisor_relative_path_declaration_only: openaxes-v1-runs/openaxes-v1-sealed-002
+    supervisor_path_is_consumed_as_scientific_terminal_authority: false
+    committed_before_v1_prepare_meaning: active_erratum_source_commit_precedes_the_terminal_bound_successful_sealed_002_preparation
+    source_audited_before_v1_prepare_meaning: active_erratum_receipt_evidence_commit_precedes_the_terminal_bound_successful_sealed_002_preparation
+    sealed_001_public_preparation_does_not_make_either_boolean_false: true
+  scientific_projection:
+    unchanged: true
+    v1_config_path: configs/openaxes_external_model_v1.yaml
+    v1_config_bytes: 12099
+    v1_config_raw_sha256: 848a19cc270401f6c37d391b399832996324792382a4a926f93b1584d7186c51
+    v1_config_canonical_semantic_sha256: ce6a828e6d92118e29b7c67ec166cc3a555709e78bb41ef0838a79e982e80a3e
+    methods_hyperparameters_folds_seeds_and_gates_equal_pre_erratum_git_blob: true
+    pre_erratum_git_blob_authority_commit: ce09392a287f00447c5451471eae854d6aa726e6
+    methods_order_exact: [full_gradient_only_mask_selected_control, masked_erm, group_mean_pord, paired_pord, paired_wrong_pair, groupdro, vrex, mofe]
+    optimizer_projection_exact: {optimizer: AdamW, learning_rate: 0.001, weight_decay: 0.001, full_data_updates: 400}
+    fold_family_counts_exact: {scenario_loso: 8, speed_pair_out: 4, shape_out: 2}
+    seeds_exact: [1701, 2603, 3907]
+    directional_gate_objective_exact: paired_pord
+    directional_gate_comparators_exact: [masked_erm, group_mean_pord, paired_wrong_pair]
+    minimum_strict_scenario_wins_exact: 6
+
+authority_erratum2:
+  erratum_id: openaxes_external_native_v2_parent_receipt_erratum2
+  amendment_scope: receipt_authority_and_outcome_free_pytorch_cuda_uuid_representation_consumer_only
+  active_source_audit_receipt_path: receipts/openaxes_external_native_v2_parent_receipt_source_audit_erratum2.json
+  historical_source_audit_authorities_exact:
+    - authority_id: original
+      receipt_path: receipts/openaxes_external_native_v2_parent_receipt_source_audit.json
+      audited_git_commit: 49d9cb64406d6f5c9457e210623c45324a0880ac
+      evidence_git_commit: ce09392a287f00447c5451471eae854d6aa726e6
+    - authority_id: erratum1
+      receipt_path: receipts/openaxes_external_native_v2_parent_receipt_source_audit_erratum1.json
+      audited_git_commit: 6f5b1226cff400b708f0c9d167973ce505c48938
+      evidence_git_commit: 26795e6c34a7ac11995875134d8ff81758758622
+  both_historical_receipt_paths_and_git_histories_remain_immutable: true
+  either_historical_authority_may_authorize_terminal_bound_successful_lineage: false
+  sealed_001_evidence_preserved_by_authority_erratum1_unchanged: true
+  failed_run:
+    run_id: openaxes-v1-sealed-002
+    audited_git_head: 26795e6c34a7ac11995875134d8ff81758758622
+    supervisor_run_spec_relative_path: openaxes-v1-runs/openaxes-v1-sealed-002/RUN_SPEC.json
+    supervisor_run_spec_sha256: e86c303be806cc2e076676a4d680f8b20ef28adbf03dfea24b0df28a7d7c8e16
+    supervisor_run_spec_payload_sha256: a21554298dc0b1683755bd6068687a55b4102699aafe642f8ce22e1355ab3dac
+    cleanup_blocked_current_relative_path: openaxes-v1-runs/openaxes-v1-sealed-002/CURRENT.json
+    cleanup_blocked_current_sha256: 063644f72ad6d83eb3890d5ea0693ef3d42b0cb8f25831b2743fde87938b25e0
+    cleanup_blocked_marker_relative_path: openaxes-v1-runs/openaxes-v1-sealed-002/attempts/attempt_0001/CLEANUP_BLOCKED.json
+    cleanup_blocked_marker_sha256: 063644f72ad6d83eb3890d5ea0693ef3d42b0cb8f25831b2743fde87938b25e0
+    supervisor_log_relative_path: openaxes-v1-runs/openaxes-v1-sealed-002/attempts/attempt_0001/supervisor.log.jsonl
+    supervisor_log_sha256: 4cad8de028568efd84c48b334b1285d38c8759318c751607c9455214007e33b8
+    launch_log_relative_path: openaxes-v1-sealed-002.launch.log
+    launch_log_sha256: 056bc9f64d882e16cf1b139fd383ecc5224927c1e5e55a6d88f6923218a71d48
+    public_preparation:
+      manifest_sha256: 1afd49e9f0b111e3a54d724668a894a9522ad039231746b7992e29d7b1117673
+      parquet_sha256: 98747e51fd95506b91facfeb273be23c454d07da563deea13a6f2192ded48703
+      COMPLETE_sha256: 129f08a63991a87a51755100a6b01a3b31daefac0aa28ba2560811b720bec7ea
+      public_prepare_stdout_sha256: 84fb2181e279b5fffc5ad89249e31529e2f4cc64ed93cc17118b0c5749166451
+      public_validator_stdout_sha256: 4d3f793511dd55a6df0fe5ba7404ca71e487aafcbfcfb7d19b54f2b4b5e3ba94
+      rows: 22482
+      features: 36
+      folds: 14
+      semantic_replay: true
+      supervisor_progress_preparation_present_false_is_report_only_wrong_marker_probe: true
+      parent_scientific_authority_requires_the_valid_COMPLETE_bound_preparation: true
+    model_authority:
+      PREPARED_sha256: 6e2b6a55b66e379e34bf7ade7e96e961bc2a9b039987eae2140a8773b5aa6026
+      prepared_manifest_sha256: 42e0cc5063e2a32b21e5aee25804b603690f2bd73930c81d326c4b8258a46498
+      task_index_sha256: 2fa8051f788ae9dc0ed9bb6eaae3e9a2c1a2395ca82d5ae751670583f114f416
+      pre_fit_validation_sha256: 2940e0a25c6afbd48b99c1d17f20faee5777fdbe4598b5e8bfedbdaa911d0265
+      execution_session_sha256: 836aff56ad4b8341bb4e72c8fc73d614e6479bd614ca9b6dab0d3b464bf7bc7c
+      launch_started_sha256: 0a05882663931f38d9836a48632b9e227d934b3d555b5a11a387b4eeebbefdb9
+      task_count: 336
+      primary_task_count: 192
+      stress_task_count: 144
+    stage_counts_exact:
+      public_preparation: 1
+      model_prepared: 1
+      execution_session: 1
+      launch_started: 1
+      worker_ready: 0
+      task_ledger: 0
+      attempt_ledger: 0
+      attempt_roster: 0
+      task_result_directory: 0
+      quarantine_member: 0
+      scientific_fit: 0
+      prediction: 0
+      evaluation: 0
+      result: 0
+    status: cleanup_blocked_nonterminal
+    failed_terminal_written: false
+    exception_exact: 'GPU slot 6 failed: OpenAxesExternalModelV1Error: visible CUDA UUID changed'
+    failure_stage: worker_identity_bootstrap_before_worker_ready_before_fit
+    automatic_deletion_or_refit_performed: false
+    original_evidence_preserved: true
+    resource_tracker_survivor_pid_at_cleanup_blocked: 2892748
+    cleanup_refused_survivor_role: multiprocessing.resource_tracker
+    cleanup_refusal_classification: supervisor_argv_allowlist_reporting_bug
+    cleanup_refusal_actual_python_flags_exact: [-B, -s, -P, -c]
+    cleanup_survivor_self_exited: true
+    resource_tracker_survivor_marker_count_after_verified_natural_exit: 0
+    manual_signal_performed: false
+    resume_scientifically_forbidden_after_source_amendment: true
+  failure:
+    classification: outcome_free_pytorch_cuda_uuid_representation_bug
+    assigned_nvidia_uuid: GPU-5ebdc8be-b2f3-b6e2-4da1-af79ef91f7cb
+    pytorch_version: 2.12.1+cu132
+    pytorch_property_type_name: _CUuuid
+    pytorch_property_string: 5ebdc8be-b2f3-b6e2-4da1-af79ef91f7cb
+    literal_GPU_prefix_is_only_representation_difference: true
+    torch_availability_device_count_name_and_nvidia_smi_mapping_unchanged: true
+    corrected_consumer_rule: normalize_exact_canonical_hex_UUID_then_reconstruct_GPU_dash_prefix_before_frozen_identity_comparison
+    failure_occurred_before_worker_ready_fit_prediction_evaluation_or_result: true
+    v1_model_result_or_metric_artifact_existed_or_was_accessed: false
+  terminal_bound_successful_lineage:
+    run_id: openaxes-v1-sealed-003
+    v1_run_project_relative_path: artifacts/openaxes_external_model_v1/run_openaxes-v1-sealed-003
+    preparation_run_project_relative_path: artifacts/openaxes_external_v1/prepared_openaxes-v1-sealed-003
+    supervisor_relative_path_declaration_only: openaxes-v1-runs/openaxes-v1-sealed-003
+    supervisor_path_is_consumed_as_scientific_terminal_authority: false
+    committed_before_v1_prepare_meaning: active_erratum2_source_commit_precedes_the_terminal_bound_successful_sealed_003_preparation
+    source_audited_before_v1_prepare_meaning: active_erratum2_receipt_evidence_commit_precedes_the_terminal_bound_successful_sealed_003_preparation
+    sealed_001_or_002_public_preparation_does_not_make_either_boolean_false: true
+    fresh_preparation_and_model_roots_required: true
+    sealed_002_resume_allowed: false
+  scientific_projection:
+    unchanged: true
+    v1_config_path: configs/openaxes_external_model_v1.yaml
+    v1_config_bytes: 12099
+    v1_config_raw_sha256: 848a19cc270401f6c37d391b399832996324792382a4a926f93b1584d7186c51
+    v1_config_canonical_semantic_sha256: ce6a828e6d92118e29b7c67ec166cc3a555709e78bb41ef0838a79e982e80a3e
+    methods_hyperparameters_folds_seeds_and_gates_equal_erratum1_git_blob: true
+    erratum1_git_blob_authority_commit: 26795e6c34a7ac11995875134d8ff81758758622
+    methods_order_exact: [full_gradient_only_mask_selected_control, masked_erm, group_mean_pord, paired_pord, paired_wrong_pair, groupdro, vrex, mofe]
+    optimizer_projection_exact: {optimizer: AdamW, learning_rate: 0.001, weight_decay: 0.001, full_data_updates: 400}
+    fold_family_counts_exact: {scenario_loso: 8, speed_pair_out: 4, shape_out: 2}
+    seeds_exact: [1701, 2603, 3907]
+    directional_gate_objective_exact: paired_pord
+    directional_gate_comparators_exact: [masked_erm, group_mean_pord, paired_wrong_pair]
+    minimum_strict_scenario_wins_exact: 6
+
+lineage:
+  prepared_input_contract: openaxes.external.preparation.v1
+  prepared_input_canonical_config_sha256: 05c3f44b58a16cebb8c0cef1338a42ae55a0fd84dd9f87db09196a7b740b32c6
+  predecessor_model_contract: openaxes.external.model_benchmark.v1
+  predecessor_model_canonical_config_sha256: ce6a828e6d92118e29b7c67ec166cc3a555709e78bb41ef0838a79e982e80a3e
+  predecessor_model_source_set_file_count: 9
+  predecessor_model_source_set_sha256: dd6418badc644f7d7576c836d17074ee2914b4ae0cb555b26315eae8669b8488
+  predecessor_model_source_set_digest_algorithm: sha256_of_canonical_json_path_keyed_map_to_path_bytes_sha256_records
+  predecessor_model_source_files_exact:
+    - configs/openaxes_external_model_v1.yaml
+    - docs/OPENAXES_EXTERNAL_MODEL_V1_CONTRACT.md
+    - src/imu_vive_learning/io_utils.py
+    - src/imu_vive_learning/openaxes_external_model_v1_config.py
+    - src/imu_vive_learning/openaxes_external_model_v1_training.py
+    - src/imu_vive_learning/openaxes_external_model_v1_experiment.py
+    - tests/test_openaxes_external_model_v1_config.py
+    - tests/test_openaxes_external_model_v1_training.py
+    - tests/test_openaxes_external_model_v1_experiment.py
+  frozen_predecessor_comparator_method_id: masked_erm
+  predecessor_result_values_embedded_here: false
+  predecessor_metric_values_embedded_here: false
+  predecessor_refit_allowed: false
+  predecessor_outer_evaluator_replay_allowed: false
+  required_predecessor_terminal_stage: development_complete_before_any_external_outcome_reinterpretation
+
+freeze_sequence:
+  ordered_phases:
+    - freeze_these_two_preregistration_files_without_v1_result_or_metric_access
+    - implement_parent_receipt_auditor_module_tests_and_doc_without_v1_result_or_metric_access
+    - commit_preregistration_and_parent_receipt_auditor_closure_before_v1_prepare
+    - source_audit_parent_receipt_auditor_closure_before_v1_prepare
+    - commit_parent_receipt_auditor_source_audit_receipt_before_v1_prepare
+    - verify_preregistration_commit_is_ancestor_of_v1_model_contract_git_head_before_v1_execution
+    - preserve_failed_sealed_001_terminal_and_retired_source_audit_as_immutable_history
+    - freeze_outcome_free_key_order_consumer_erratum_without_changing_v1_science
+    - commit_and_source_audit_erratum1_before_terminal_bound_successful_sealed_002_preparation
+    - preserve_failed_sealed_002_nonterminal_and_erratum1_source_audit_as_immutable_history
+    - freeze_outcome_free_pytorch_cuda_uuid_representation_erratum_without_changing_v1_science
+    - commit_and_source_audit_erratum2_before_terminal_bound_successful_sealed_003_preparation
+    - complete_and_validate_successful_sealed_003_without_v2_access_to_v1_outcomes
+    - issue_terminal_v1_for_v2_receipt
+    - perform_separate_read_only_preregistration_and_receipt_audit
+    - implement_v2_as_a_literal_compilation_of_this_preregistration
+    - perform_separate_v2_source_closure_audit
+    - execute_the_fixed_v2_grid
+    - evaluate_fixed_v2_gates_once
+  changing_this_preregistration_after_v1_outcome_access_allowed: false
+  changing_candidates_hyperparameters_checkpoint_or_gates_after_receipt_allowed: false
+  native_model_implementation_or_run_before_all_preexecution_receipts_exist: fail_closed
+
+git_preregistration:
+  repository_object_format: sha1
+  exact_preregistered_paths:
+    - configs/openaxes_external_native_v2.yaml
+    - docs/OPENAXES_EXTERNAL_NATIVE_V2_CONTRACT.md
+  both_paths_must_be_regular_git_blobs_in_one_commit: true
+  commit_required_before_terminal_bound_successful_v1_execution_started: true
+  commit_hash_embedded_in_either_preregistered_blob: false
+  commit_and_blob_ids_are_frozen_only_in_terminal_receipt: true
+  terminal_receipt_required_nonempty_exact_fields:
+    - git_lineage.v2_preregistration_git_commit
+    - git_lineage.repository_object_format
+    - git_lineage.v2_yaml_git_blob_oid
+    - git_lineage.v2_markdown_git_blob_oid
+    - git_lineage.v2_yaml_git_blob_reference
+    - git_lineage.v2_markdown_git_blob_reference
+    - git_lineage.v1_model_contract_git_head
+    - git_lineage.ancestor_check_command
+    - git_lineage.ancestor_check_exit_code
+  blob_verification:
+    blob_type_command: git_cat_file_dash_t_blob_oid
+    blob_bytes_command: git_cat_file_blob_commit_colon_canonical_path
+    blob_oid_command: git_rev_parse_commit_colon_canonical_path
+    required_blob_type: blob
+    reference_fields_exact: [path, bytes, sha256]
+    bytes_definition: exact_stdout_bytes_from_git_cat_file_blob_without_text_decode_or_newline_change
+    sha256_definition: sha256_of_exact_git_cat_file_blob_stdout_bytes
+    byte_count_definition: length_of_exact_git_cat_file_blob_stdout_bytes
+    git_blob_oid_must_equal_hash_object_of_same_exact_bytes: true
+    yaml_and_markdown_worktree_or_artifact_copy_must_equal_git_blob_bytes: true
+  ancestry_verification:
+    command: git_merge_base_dash_dash_is_ancestor_v2_preregistration_git_commit_v1_model_contract_git_head
+    required_exit_code: 0
+    descendant_head_source: immutable_v1_prepared_manifest_repository_model_contract_git_head
+    equality_of_commits_allowed: true
+    missing_object_shallow_history_or_nonzero_exit_policy: fail_closed
+  timing_evidence_must_precede_terminal_bound_successful_v1_execution_started_receipt: true
+
+parent_receipt_auditor:
+  status_at_preregistration: erratum2_implemented_after_failed_worker_identity_bootstrap_before_any_v1_fit_or_outcome
+  source_must_be_written_without_v1_result_or_metric_access: true
+  source_must_be_committed_and_audited_before_terminal_bound_successful_v1_prepare: true
+  exact_source_closure_paths:
+    - configs/openaxes_external_native_v2.yaml
+    - docs/OPENAXES_EXTERNAL_NATIVE_V2_CONTRACT.md
+    - docs/OPENAXES_EXTERNAL_NATIVE_V2_PARENT_RECEIPT_CONTRACT.md
+    - requirements-eval.lock
+    - src/imu_vive_learning/__init__.py
+    - src/imu_vive_learning/io_utils.py
+    - src/imu_vive_learning/openaxes_external_native_v2_parent_receipt.py
+    - tests/test_openaxes_external_native_v2_parent_receipt.py
+  exact_source_closure_file_count: 8
+  pre_v1_prepare_source_audit_receipt_path: receipts/openaxes_external_native_v2_parent_receipt_source_audit_erratum2.json
+  historical_source_audit_receipt_paths_history_only:
+    - receipts/openaxes_external_native_v2_parent_receipt_source_audit.json
+    - receipts/openaxes_external_native_v2_parent_receipt_source_audit_erratum1.json
+  copied_source_audit_receipt_path_in_v2_run: parents/parent_receipt_auditor_source_audit.json
+  source_audit_receipt_reference_fields_exact: [path, bytes, sha256]
+  source_audit_receipt_contract: openaxes.external.native_sensor_experts.v2.parent_receipt_source_audit.erratum2.v1
+  source_audit_receipt_top_level_keys_exact:
+    - contract
+    - schema_version
+    - created_at_utc
+    - audited_git_commit
+    - source_closure
+    - source_set_sha256
+    - erratum
+    - test_receipt
+    - assertions
+    - payload_sha256
+  source_audit_source_closure_representation: path_keyed_map_of_exact_eight_canonical_path_bytes_sha256_references
+  source_audit_erratum_keys_exact:
+    - erratum_id
+    - active_receipt_path
+    - historical_source_audit_authorities
+    - sealed_001_evidence
+    - sealed_002_evidence
+    - terminal_bound_successful_run_id
+    - terminal_bound_successful_v1_run_project_relative_path
+    - terminal_bound_successful_preparation_run_project_relative_path
+    - terminal_bound_successful_supervisor_relative_path
+    - failure_classification
+    - torch_uuid_observation
+    - sealed_002_stage_counts
+    - no_v1_model_result_or_metric_artifact_existed_or_was_accessed
+    - scientific_projection_unchanged
+  source_audit_erratum_historical_authority_keys_exact: [authority_id, receipt_path, audited_git_commit, evidence_git_commit]
+  source_audit_erratum_historical_authorities_count_exact: 2
+  source_audit_erratum_sealed_002_stage_count_keys_exact: [public_preparation, model_prepared, execution_session, launch_started, worker_ready, task_ledger, attempt_ledger, attempt_roster, task_result_directory, quarantine_member, scientific_fit, prediction, evaluation, result]
+  source_audit_erratum_sealed_002_stage_count_values_exact: {public_preparation: 1, model_prepared: 1, execution_session: 1, launch_started: 1, worker_ready: 0, task_ledger: 0, attempt_ledger: 0, attempt_roster: 0, task_result_directory: 0, quarantine_member: 0, scientific_fit: 0, prediction: 0, evaluation: 0, result: 0}
+  source_audit_test_receipt_keys_exact:
+    - python_launch_path_absolute
+    - python_real_executable_absolute
+    - python_real_executable_sha256
+    - python_version
+    - sys_prefix_absolute
+    - venv_site_packages_absolute
+    - working_directory_absolute
+    - argv_after_executable
+    - environment
+    - source_audit_bootstrap
+    - pyvenv_cfg_reference
+    - pyvenv_cfg_fields
+    - requirements_eval_lock_reference
+    - dependency_resolution
+    - pinned_distributions
+    - installed_distribution_inventory
+    - dependency_file_closure_before_tests
+    - dependency_file_closure_after_tests
+    - dependency_file_closure_unchanged
+    - runner_module_files
+    - source_import_boundary
+    - audited_git_commit
+    - source_set_sha256
+    - exit_code
+    - passed
+    - failed
+    - skipped
+    - xfailed
+    - stdout_utf8
+    - stdout_bytes
+    - stdout_sha256
+    - stderr_utf8
+    - stderr_bytes
+    - stderr_sha256
+    - report_bytes
+    - report_sha256
+  source_audit_assertions_keys_exact:
+    - source_written_without_v1_result_or_metric_access
+    - exact_eight_file_closure
+    - all_mandatory_tests_passed
+    - no_forbidden_import_or_action
+    - no_challenge_access
+  source_audit_all_assertion_values_exact: true
+  source_audit_payload_hash: sha256_of_canonical_json_of_all_exact_top_level_keys_except_payload_sha256
+  source_audit_evidence_git_verification:
+    committed_path_exact: receipts/openaxes_external_native_v2_parent_receipt_source_audit_erratum2.json
+    original_or_erratum1_path_audited_commit_or_evidence_commit_allowed_as_successful_terminal_authority: false
+    object_type_exact: blob
+    bytes_command: git_cat_file_blob_source_audit_evidence_commit_colon_committed_path
+    raw_bytes_must_equal_copied_parent_file: true
+    blob_oid_must_equal_hash_object_of_raw_bytes: true
+    evidence_commit_must_be_ancestor_of_v1_model_contract_git_head: true
+    ancestor_check_required_exit_code: 0
+    GIT_NO_REPLACE_OBJECTS_exact: "1"
+    replace_refs_or_legacy_grafts_allowed: false
+    ls_tree_allowed_modes_exact: ["100644", "100755"]
+  terminal_receipt_required_source_audit_binding_fields:
+    - auditor_source_audit.git_commit
+    - auditor_source_audit.source_set_sha256
+    - auditor_source_audit.source_audit_reference
+    - auditor_source_audit.source_audit_git_commit
+    - auditor_source_audit.source_audit_git_blob_oid
+    - auditor_source_audit.source_audit_receipt_path
+    - auditor_source_audit.source_audit_erratum_id
+    - auditor_source_audit.timing_scope
+    - auditor_source_audit.terminal_bound_successful_run_id
+    - auditor_source_audit.audited_source_ancestor_check_command
+    - auditor_source_audit.audited_source_ancestor_check_exit_code
+    - auditor_source_audit.source_audit_evidence_ancestor_check_command
+    - auditor_source_audit.source_audit_evidence_ancestor_check_exit_code
+    - auditor_source_audit.committed_before_v1_prepare
+    - auditor_source_audit.source_audited_before_v1_prepare
+    - assertions.parent_auditor_source_identity_equals_copied_source_audit_receipt
+    - assertions.parent_auditor_audited_source_commit_is_ancestor_of_v1_model_contract_git_head
+    - assertions.parent_auditor_source_audit_receipt_commit_is_ancestor_of_v1_model_contract_git_head
+    - assertions.parent_auditor_source_audit_raw_bytes_equal_committed_git_blob
+  source_audit_forbidden_imports_or_actions:
+    - torch_or_cuda
+    - model_training_or_prediction
+    - preparation_source_truth_or_signed_reconstructor
+    - challenge_route
+    - network_access
+    - v1_mutation
+  mandatory_pre_v1_source_tests:
+    - exact_eight_file_source_closure_and_digest
+    - no_v1_result_metric_or_run_root_fixture_read
+    - exact_git_cat_file_blob_byte_and_ancestor_validation
+    - audited_source_and_evidence_commit_exact_identity_equality_and_dual_ancestor_validation
+    - original_and_erratum1_source_audit_paths_audited_commits_and_evidence_commits_rejected_as_successful_terminal_authority
+    - sealed_001_and_sealed_002_exact_evidence_and_zero_outcome_counts_bound
+    - sealed_003_v1_preparation_and_supervisor_roots_enforced
+    - old_git_config_blob_equals_new_methods_hyperparameters_folds_seeds_and_gates_projection
+    - strict_duplicate_key_nonfinite_unknown_extra_missing_and_noncanonical_reference_rejection
+    - workspace_project_v1_preparation_v2_root_domain_escape_symlink_and_alternate_base_rejection
+    - exact_terminal_receipt_and_comparator_bundle_closed_key_sets
+    - comparator_bundle_rejects_every_method_id_except_masked_erm
+    - comparator_bundle_rejects_prediction_evaluation_row_and_source_truth_references
+    - payload_hash_excludes_only_its_own_key_and_raw_reference_hashes_match
+    - static_import_and_call_closure_rejects_torch_cuda_training_prediction_truth_challenge_network_and_v1_write
+    - synthetic_masked_erm_only_fixture_round_trip
+  mandatory_pre_v1_source_test_invocation:
+    synthetic_cli_test_scope: parser_fixed_path_exclusive_creation_and_receipt_shape_under_explicit_private_authority_substitutions_not_an_operational_bootstrap_run
+    synthetic_private_substitutions_exact: [_now_utc, _run_exact_source_tests, _verify_v1_sources_at_model_head, _verify_live_source_audit_environment]
+    real_production_source_audit_cli_remains_separate_mandatory_pre_v1_operation: true
+    production_cli_bootstrap_exact: env_dash_i_then_project_dot_venv312_bin_python_dash_P_dash_S_with_explicit_PYTHONPATH_src_colon_exact_venv_site_packages
+    production_cli_must_fail_closed_on_sys_flags_environment_sys_executable_sys_path_or_module_file_drift: true
+    python_launch_path: canonical_absolute_project_root_join_dot_venv312_bin_python
+    python_real_executable: realpath_of_launch_path
+    python_real_executable_sha256: sha256_of_raw_real_regular_nonsymlink_executable_bytes
+    python_version_exact: "3.12.3"
+    sys_prefix_exact: canonical_absolute_real_interpreter_base_prefix_observed_under_dash_S
+    site_packages_exact: canonical_absolute_project_root_join_dot_venv312_lib_python3_12_site_packages
+    working_directory: canonical_absolute_project_root
+    argv_after_executable_exact:
+      - -P
+      - -S
+      - -m
+      - pytest
+      - -c
+      - /dev/null
+      - --noconftest
+      - -p
+      - no:cacheprovider
+      - -q
+      - tests/test_openaxes_external_native_v2_parent_receipt.py
+    environment_exact:
+      PYTHONHASHSEED: "0"
+      PYTHONPATH: src:canonical_absolute_dot_venv312_site_packages
+      PYTEST_DISABLE_PLUGIN_AUTOLOAD: "1"
+      PYTHONNOUSERSITE: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+      CUDA_VISIBLE_DEVICES: ""
+      LC_ALL: C.UTF-8
+      TZ: UTC
+      GIT_CONFIG_GLOBAL: /dev/null
+      GIT_CONFIG_NOSYSTEM: "1"
+      GIT_NO_REPLACE_OBJECTS: "1"
+      PATH: /usr/bin:/bin
+    PYTEST_ADDOPTS_must_be_absent: true
+    project_pyproject_pytest_configuration_read_allowed: false
+    repository_or_parent_conftest_loading_allowed: false
+    pytest_entrypoint_script_or_shell_alias_allowed: false
+    invocation_argv_environment_executable_and_working_directory_must_equal_test_receipt: true
+    direct_execution_by_auditor_after_git_and_worktree_closure_verification: true
+    externally_supplied_test_receipt_allowed: false
+    requirements_eval_lock_path_exact: requirements-eval.lock
+    requirements_eval_lock_strength: exact_version_pins_without_distribution_artifact_hashes
+    pyvenv_cfg_raw_reference_and_exact_five_fields_bound: true
+    each_of_27_pinned_distributions_binds_exact_dist_info_METADATA_RECORD_and_RECORD_owned_installed_file_count_bytes_manifest_sha256: true
+    record_csv_rows_exact_three_fields_and_raw_posix_paths_validated_before_resolution: true
+    record_sha256_urlsafe_base64_and_canonical_decimal_size_must_match_actual_no_follow_raw_file: true
+    record_hash_and_size_both_present_or_both_empty: true
+    record_empty_integrity_allowed_only_for_own_RECORD_or_generated_cpython312_pycache_file: true
+    importlib_distribution_files_must_equal_exact_RECORD_raw_path_set: true
+    metadata_single_normalized_name_and_exact_version_must_equal_pin: true
+    installed_file_count_bytes_and_manifest_sha256_are_runtime_computed_receipt_bindings_not_machine_specific_preregistered_constants: true
+    pinned_distribution_file_closure_recomputed_immediately_before_and_after_tests_and_must_be_identical: true
+    installed_distribution_name_version_inventory_bound_in_receipt: true
+    exact_venv_is_not_claimed_closed_world_because_unpinned_visible_distributions_are_inventoried_not_rejected: true
+    wheel_or_sdist_artifact_hashes_present: false
+    windows_lock_comment_is_not_a_linux_runtime_hash_lock: true
+    import_site_bootstrap_disabled_by_dash_S: true
+    source_top_level_shadow_files_allowed: false
+    pytest_pluggy_iniconfig_module_files_must_be_under_exact_venv_site_packages: true
+  mandatory_pre_v1_source_test_acceptance: exactly_12_passed_0_failed_0_skipped_0_xfailed_exit_0_with_raw_stdout_stderr_hashes
+  pytest_pass_summary_line_grammar: exactly_12_passed_in_decimal_seconds_s_optionally_followed_by_space_and_parenthesized_canonical_nonnegative_decimal_hours_colon_two_digit_00_to_59_minutes_colon_two_digit_00_to_59_seconds
+  pytest_optional_long_duration_wall_clock_suffix_allowed: true
+  producer_and_persisted_receipt_validator_use_the_same_closed_outcome_parser: true
+  persisted_counts_must_equal_raw_stdout_stderr_derived_counts: true
+  run_window: only_after_validated_v1_terminal_stage_and_before_v2_implementation
+  operation: read_only_binding_of_existing_validated_v1_artifacts
+  output_directory_in_v2_run: parents
+  terminal_receipt_path: parents/v1_terminal_for_native_v2.json
+  comparator_bundle_path: parents/v1_masked_erm_comparator_bundle.json
+  atomic_creation: fresh_directory_and_O_CREAT_O_EXCL_regular_files_with_file_and_parent_directory_fsync
+  canonical_json:
+    encoding: utf8
+    ensure_ascii: false
+    sort_keys: true
+    separators: [comma, colon]
+    allow_nan: false
+    file_final_newline: exactly_one_lf
+  canonical_reference:
+    keys_exact: [path, bytes, sha256]
+    path_rule: canonical_relative_posix_no_absolute_backslash_empty_dot_dotdot_or_repeated_separator
+    bytes_rule: regular_nonsymlink_file_raw_byte_count
+    sha256_rule: sha256_of_raw_file_bytes
+  canonical_reference_resolution:
+    persisted_reference_roots_keys_exact:
+      - workspace_root
+      - project_root
+      - v1_run_root
+      - preparation_run_root
+      - v2_run_root
+    workspace_root_derivation: canonical_absolute_realpath_of_git_rev_parse_show_toplevel_from_required_workspace_cli_argument
+    project_root_derivation: canonical_absolute_realpath_of_workspace_root_join_09_SO101_IMU_VIVE_LEARNING
+    v1_run_root_derivation: canonical_absolute_realpath_of_project_root_join_artifacts_openaxes_external_model_v1_run_openaxes_v1_sealed_003_equal_to_required_v1_run_dir_cli_argument
+    preparation_run_root_derivation: canonical_absolute_realpath_of_project_root_join_artifacts_openaxes_external_v1_prepared_openaxes_v1_sealed_003_equal_to_required_preparation_run_dir_cli_argument
+    v2_run_root_derivation: canonical_absolute_realpath_of_required_v2_run_dir_cli_argument
+    every_root_must_exist_be_absolute_and_have_no_symlink_component: true
+    project_root_must_be_exact_declared_child_of_workspace_root: true
+    v1_and_preparation_root_basenames_and_common_suffix_exact: [run_openaxes-v1-sealed-003, prepared_openaxes-v1-sealed-003, openaxes-v1-sealed-003]
+    v1_preparation_and_v2_run_roots_must_be_distinct: true
+    filesystem_reference_domain_map:
+      auditor_source_audit.source_audit_reference: v2_run_root
+      references.v1_complete_marker: v1_run_root
+      references.v1_development_manifest: v1_run_root
+      references.v1_task_index: v1_run_root
+      references.v1_prepared_manifest: v1_run_root
+      references.preparation_manifest: preparation_run_root
+      references.preparation_table: preparation_run_root
+      comparator_bundle_reference: v2_run_root
+      comparator_bundle.source_references.v1_development_manifest: v1_run_root
+      comparator_bundle.source_references.masked_erm_primary_training_receipts: v1_run_root
+      comparator_bundle.source_references.masked_erm_primary_outer_metric_receipts: v1_run_root
+    git_object_reference_fields:
+      - git_lineage.v2_yaml_git_blob_reference
+      - git_lineage.v2_markdown_git_blob_reference
+    git_object_reference_resolution: exact_repository_relative_path_at_bound_commit_via_git_cat_file_not_filesystem_join
+    filesystem_resolution_algorithm: parse_canonical_relative_posix_then_open_each_component_relative_to_root_directory_fd_with_O_NOFOLLOW_and_final_O_RDONLY_O_NOFOLLOW
+    canonical_absolute_check: resolved_absolute_path_must_equal_root_join_reference_path_and_os_path_commonpath_must_equal_root
+    component_policy: reject_symlink_empty_dot_dotdot_absolute_backslash_repeated_separator_nonregular_final_or_escape
+    raw_read_race_check: fstat_before_and_after_read_must_match_device_inode_mode_size_mtime_ns_and_ctime_ns
+    issuance_root_pinning: componentwise_from_slash_with_required_O_DIRECTORY_and_O_NOFOLLOW_handles_kept_until_final_revalidation
+    directory_component_identity_and_parent_entry_revalidation: device_inode_mode_only_so_unrelated_sibling_churn_does_not_invalidate_identity
+    regular_file_read_stability: device_inode_mode_size_mtime_ns_ctime_ns_before_after_and_parent_entry
+    privileged_mount_namespace_or_kernel_adversary_excluded: true
+    reference_bytes_and_sha256_must_equal_opened_raw_bytes: true
+    alternate_base_fallback_search_or_working_directory_resolution_allowed: false
+  terminal_receipt_top_level_keys_exact:
+    - contract
+    - schema_version
+    - created_at_utc
+    - reference_roots
+    - auditor_source_audit
+    - git_lineage
+    - v1_lineage
+    - preparation_lineage
+    - references
+    - comparator_bundle_reference
+    - assertions
+    - payload_sha256
+  terminal_receipt_payload_hash: sha256_of_canonical_json_of_all_exact_top_level_keys_except_payload_sha256
+  terminal_receipt_reference_keys_exact:
+    - v1_complete_marker
+    - v1_development_manifest
+    - v1_task_index
+    - v1_prepared_manifest
+    - preparation_manifest
+    - preparation_table
+  terminal_receipt_closed_subschemas:
+    contract_exact: openaxes.external.model_benchmark.v1.terminal_for_native_v2.v1
+    schema_version_exact: 1
+    created_at_utc: canonical_UTC_RFC3339_with_Z
+    auditor_source_audit_keys_exact:
+      - auditor_identity
+      - git_commit
+      - source_set_sha256
+      - source_audit_reference
+      - source_audit_git_commit
+      - source_audit_git_blob_oid
+      - source_audit_receipt_path
+      - source_audit_erratum_id
+      - timing_scope
+      - terminal_bound_successful_run_id
+      - audited_source_ancestor_check_command
+      - audited_source_ancestor_check_exit_code
+      - source_audit_evidence_ancestor_check_command
+      - source_audit_evidence_ancestor_check_exit_code
+      - committed_before_v1_prepare
+      - source_audited_before_v1_prepare
+    reference_roots_keys_exact:
+      - workspace_root
+      - project_root
+      - v1_run_root
+      - preparation_run_root
+      - v2_run_root
+    git_lineage_keys_exact:
+      - repository_object_format
+      - v2_preregistration_git_commit
+      - v2_yaml_git_blob_oid
+      - v2_markdown_git_blob_oid
+      - v2_yaml_git_blob_reference
+      - v2_markdown_git_blob_reference
+      - v1_model_contract_git_head
+      - ancestor_check_command
+      - ancestor_check_exit_code
+    v1_lineage_keys_exact:
+      - contract
+      - canonical_config_sha256
+      - terminal_source_set_file_count
+      - terminal_source_set_sha256
+      - terminal_stage
+      - exact_task_count
+      - comparator_method_id
+    preparation_lineage_keys_exact:
+      - contract
+      - canonical_config_sha256
+      - manifest_sha256
+      - prepared_table_and_fold_identity_sha256
+    assertions_keys_exact:
+      - v2_preregistration_blobs_verified_from_git_objects
+      - v2_preregistration_commit_is_ancestor_of_v1_model_contract_git_head
+      - parent_auditor_committed_and_source_audited_before_v1_prepare
+      - parent_auditor_source_identity_equals_copied_source_audit_receipt
+      - parent_auditor_audited_source_commit_is_ancestor_of_v1_model_contract_git_head
+      - parent_auditor_source_audit_receipt_commit_is_ancestor_of_v1_model_contract_git_head
+      - parent_auditor_source_audit_raw_bytes_equal_committed_git_blob
+      - v1_outcomes_did_not_modify_v2_preregistration
+      - no_v1_refit
+      - no_v1_source_truth_reread
+      - no_v1_outer_evaluator_replay
+      - masked_erm_only_bundle
+      - no_challenge_access
+    all_assertion_values_exact: true
+  terminal_receipt_source_audit_exact_equalities:
+    - auditor_source_audit.git_commit_equals_copied_source_audit.audited_git_commit
+    - auditor_source_audit.source_set_sha256_equals_copied_source_audit.source_set_sha256
+    - auditor_source_audit.source_audit_reference_sha256_equals_sha256_of_exact_copied_source_audit_raw_bytes
+    - auditor_source_audit.source_audit_git_blob_oid_equals_git_hash_object_of_exact_copied_source_audit_raw_bytes
+    - exact_eight_file_copied_source_audit_source_closure_equals_git_blob_path_bytes_sha256_map_at_auditor_source_audit.git_commit
+    - git_lineage.v2_preregistration_git_commit_equals_auditor_source_audit.git_commit
+    - both_preregistered_blob_oids_and_references_equal_git_objects_at_auditor_source_audit.git_commit
+  terminal_receipt_source_audit_ancestry_checks:
+    audited_source_command: git_merge_base_dash_dash_is_ancestor_auditor_source_audit_git_commit_v1_model_contract_git_head
+    audited_source_required_exit_code: 0
+    evidence_command: git_merge_base_dash_dash_is_ancestor_auditor_source_audit_source_audit_git_commit_v1_model_contract_git_head
+    evidence_required_exit_code: 0
+    missing_object_shallow_history_or_nonzero_exit_policy: fail_closed
+  comparator_bundle_top_level_keys_exact:
+    - contract
+    - schema_version
+    - method_id
+    - seed_order
+    - primary_fold_order
+    - view_order
+    - initial_state_by_seed
+    - primary_context_identity
+    - primary_seed_ensemble_outage_contexts
+    - primary_seed_ensemble_full_contexts
+    - primary_per_seed_outage_contexts
+    - derived_gate_inputs
+    - source_references
+    - payload_sha256
+  comparator_bundle_contract: openaxes.external.native_sensor_experts.v2.masked_erm_parent_bundle.v1
+  comparator_bundle_method_id_exact: masked_erm
+  comparator_bundle_allowed_method_ids_exact: [masked_erm]
+  comparator_bundle_other_method_identifier_metric_selection_or_ranking_allowed: false
+  comparator_bundle_seed_order: [1701, 2603, 3907]
+  comparator_bundle_view_order:
+    - full
+    - outage_humerus
+    - outage_radius
+    - outage_carpus
+    - outage_digitus
+  comparator_bundle_closed_subschemas:
+    initial_state_by_seed:
+      keys_exact: ['1701', '2603', '3907']
+      value: lowercase_sha256_of_exact_v1_state_byte_serialization
+    primary_context_identity:
+      keys_exact: [context_count, ordered_contexts, identity_sha256]
+      context_count_exact: 32
+      ordered_context_fields_exact: [fold_id, scenario_id, view_id, rows, identity_sha256]
+    primary_seed_ensemble_outage_contexts:
+      row_count_exact: 32
+      row_fields_exact: [fold_id, scenario_id, view_id, rows, identity_sha256, rmse3d_m]
+      order: primary_fold_then_outage_view
+    primary_seed_ensemble_full_contexts:
+      row_count_exact: 8
+      row_fields_exact: [fold_id, scenario_id, view_id, rows, identity_sha256, rmse3d_m]
+      order: primary_fold
+      view_id_exact: full
+    primary_per_seed_outage_contexts:
+      row_count_exact: 96
+      row_fields_exact: [seed, fold_id, scenario_id, view_id, rows, identity_sha256, rmse3d_m]
+      order: seed_then_primary_fold_then_outage_view
+    derived_gate_inputs:
+      keys_exact:
+        - A_mean_context_rmse3d_m
+        - WS_worst_scenario_mean_rmse3d_m
+        - WM_worst_mask_mean_rmse3d_m
+        - robust_J_m
+        - fold_outage_scores_m
+        - per_seed_J_m
+        - full_F_m
+      fold_outage_scores_count_exact: 8
+      per_seed_J_count_exact: 3
+      must_be_recomputed_from_closed_context_rows_by_fixed_v2_reductions: true
+    source_references:
+      keys_exact: [v1_development_manifest, masked_erm_primary_training_receipts, masked_erm_primary_outer_metric_receipts]
+      reference_fields_exact: [path, bytes, sha256]
+      masked_erm_primary_training_receipt_count_exact: 24
+      masked_erm_primary_outer_metric_receipt_count_exact: 24
+      persisted_prediction_evaluation_row_or_source_truth_reference_allowed: false
+      non_masked_erm_or_nonprimary_reference_allowed: false
+  comparator_bundle_payload_hash: sha256_of_canonical_json_of_all_exact_top_level_keys_except_payload_sha256
+  comparator_bundle_numeric_policy: exact_json_integers_for_counts_and_finite_nonnegative_binary64_origin_numbers_for_rmse_and_gate_values
+  comparator_bundle_source_references_must_resolve_only_to_masked_erm_persisted_artifacts: true
+  comparator_bundle_generation_may_refit_repredict_reread_truth_or_reinvoke_evaluator: false
+  comparator_authority:
+    all_336_result_index_entries_parse_exact_result_to_bundle_and_seven_phase_lineage: true
+    all_336_checkpoint_transform_history_training_prediction_evaluation_rows_outer_metric_bundle_and_result_recorded_references_rehashed_as_raw_bytes: true
+    binary_checkpoint_prediction_and_evaluation_rows_deserialization_allowed: false
+    outer_metric_json_parse_scope: exact_24_masked_erm_scenario_loso_primary_tasks_only
+    exact_complete_task_directories: results_ledgers_attempt_roster_attempt_ledger_each_exact_336_task_ids_and_quarantine_empty
+    execution_session_exact_17_key_semantic_identity_slot_and_self_hash_validation: true
+    launch_started_worker_ready_controller_ready_and_latest_launch_completed_closed_authority_validation: true
+    optional_prelaunch_session_recovery_raw_reference_closed_official_semantics_session_prefit_contract_and_self_hash_validation: true
+    launch_session_recovery_worker_and_controller_raw_references_exact_cross_equalities_required: true
+    every_task_binding_task_id_must_be_member_of_authenticated_session_transport_slot_task_ids: true
+    authenticated_precontroller_crash_may_retain_nonempty_partial_worker_ready_slot_subset: true
+    partial_worker_ready_requires_authenticated_launch_unique_in_range_slots_unique_positive_pids_and_exact_session_launch_slot_receipts: true
+    worker_ready_orphan_empty_unknown_extra_symlink_or_special_member_policy: fail_closed
+    controller_observed_launch_worker_ready_slots_exact: 8
+    attempt_id_semantic_hash_payload: [contract, task_id, task_spec_sha256, first_execution_binding, scientific_fit_attempt]
+    resume_binding_stable_fields_exact: [execution_session_id, transport_slot_index, local_slot, gpu, controller_source_sha256, task_assignment_sha256, slot_assignment_sha256, worker_identity_source, scientific_fit_attempt]
+    resume_binding_launch_specific_fields_may_change: [launch_id, launch_started, launch_payload_sha256, worker_ready, controller_ready_observations, controller_observations_sha256]
+    phase_launch_ordinals_nondecreasing_and_same_ordinal_binding_exact_equal: true
+    masked_erm_primary_authoritative_task_count_exact: 24
+    masked_primary_training_and_metric_receipts_must_link_through_phase_payloads: true
+    prediction_parquet_evaluation_rows_truth_and_checkpoint_deserialization_allowed: false
+    sealed_development_seed_ensemble_rows_are_not_recomputed_from_per_task_metric_json: true
+    per_task_metric_json_is_a_separate_sealed_vector_and_not_the_v1_prediction_ensemble_score: true
+    full_signed_source_replay_closed_schema_and_payload_binding_required: true
+    full_signed_source_replay_preparation_artifact_projection_keys_exact: [source, config, manifest, parquet, complete]
+    full_signed_source_replay_receipt_kind_exact: immutable_full_signed_source_semantic_replay
+    full_signed_source_replay_scenario_shift_support_exact_order: lexical_eight_scenarios_then_each_shift_minus50_minus20_minus10_plus10_plus20_plus50
+    full_signed_source_replay_scenario_shift_support_item_count_exact: 48
+    full_signed_source_replay_scenario_shift_support_item_keys_exact: [scenario_id, shift_ms, base_uid_rows, base_uid_sha256]
+    preparation_external_source_config_manifest_parquet_complete_raw_bytes_rehashed_at_declared_canonical_absolute_paths: true
+    execution_binding_gpu_keys_exact: [physical_index, uuid, pci_bus_id, name]
+    execution_binding_internal_refs_exact:
+      - launch_started
+      - worker_ready
+      - controller_ready_observations
+    controller_observations_semantic_hash_must_equal_binding: true
+  public_terminal_validator:
+    caller_supplied_audit_or_bundle_dictionary_is_authority: false
+    reopens_persisted_terminal_bundle_and_copied_audit_from_pinned_v2_root: true
+    recomputes_git_blobs_oids_dual_ancestry_v1_source_oracle_preparation_and_all_v1_references: true
+    issuer_reopens_all_three_persisted_parent_files_and_calls_public_authoritative_validator_before_success_return: true
+  official_v1_validator_operational_precondition:
+    separate_from_parent_json_only_audit: true
+    required_successful_runs_exact: 10
+    parent_auditor_is_weaker_and_does_not_reproduce_v1_metrics_or_full_semantic_replay: true
+  persistence_failure_boundary:
+    three_file_transactional_all_or_none_guarantee: false
+    any_partial_parent_directory_is_invalid_and_requires_a_fresh_v2_run_directory: true
+    preexisting_or_partial_parent_files_are_never_deleted_or_overwritten: true
+  evidence_strength:
+    local_sha256_sealed_persisted_consistency_only: true
+    cryptographic_signature_or_external_hostile_forgery_proof: false
+    created_at_utc_is_report_only_and_no_public_api_or_production_cli_timestamp_override_exists: true
+    pinned_root_device_inode_mode_baseline_is_never_refreshed_between_preissuance_pin_and_final_revalidation: true
+  static_ast_safety_claim: defense_in_depth_over_authenticated_blob_not_a_malicious_self_proof_or_os_sandbox
+  v2_parent_data_access:
+    preexecution_lineage_validator_reads_terminal_receipt_and_bundle: true
+    scientific_trainers_read_any_v1_parent_file: false
+    v2_aggregation_and_gate_code_reads_only_verified_comparator_bundle: true
+    direct_v1_run_root_access_by_v2_training_aggregation_or_gate_code: false
+    expose_noncomparator_v1_outcome_to_v2_code: false
+  missing_extra_noncanonical_or_hash_mismatched_key_reference_or_method_policy: fail_closed
+
+v1_terminal_receipt:
+  required: true
+  status_at_preregistration: required_but_not_yet_issued
+  receipt_contract: openaxes.external.model_benchmark.v1.terminal_for_native_v2.v1
+  copied_location_in_v2_run: parents/v1_terminal_for_native_v2.json
+  generator_role: separate_read_only_auditor_after_v1_terminal_validation
+  receipt_may_refit_v1: false
+  receipt_may_read_source_truth_again: false
+  receipt_may_invoke_v1_task_evaluator_again: false
+  receipt_may_only_bind_existing_validated_v1_artifacts: true
+  required_exact_values:
+    contract: openaxes.external.model_benchmark.v1.terminal_for_native_v2.v1
+    schema_version: 1
+    v1_lineage.contract: openaxes.external.model_benchmark.v1
+    v1_lineage.canonical_config_sha256: ce6a828e6d92118e29b7c67ec166cc3a555709e78bb41ef0838a79e982e80a3e
+    v1_lineage.terminal_source_set_file_count: 9
+    v1_lineage.terminal_source_set_sha256: dd6418badc644f7d7576c836d17074ee2914b4ae0cb555b26315eae8669b8488
+    auditor_source_audit.source_audit_receipt_path: receipts/openaxes_external_native_v2_parent_receipt_source_audit_erratum2.json
+    auditor_source_audit.source_audit_erratum_id: openaxes_external_native_v2_parent_receipt_erratum2
+    auditor_source_audit.timing_scope: committed_and_source_audited_before_terminal_bound_successful_openaxes_v1_sealed_003_preparation
+    auditor_source_audit.terminal_bound_successful_run_id: openaxes-v1-sealed-003
+    v1_lineage.terminal_stage: development_complete_before_any_external_outcome_reinterpretation
+    v1_lineage.exact_task_count: 336
+    v1_lineage.comparator_method_id: masked_erm
+    preparation_lineage.contract: openaxes.external.preparation.v1
+    preparation_lineage.canonical_config_sha256: 05c3f44b58a16cebb8c0cef1338a42ae55a0fd84dd9f87db09196a7b740b32c6
+    git_lineage.repository_object_format: sha1
+    git_lineage.ancestor_check_exit_code: 0
+    assertions.v2_preregistration_blobs_verified_from_git_objects: true
+    assertions.v2_preregistration_commit_is_ancestor_of_v1_model_contract_git_head: true
+    assertions.parent_auditor_committed_and_source_audited_before_v1_prepare: true
+    assertions.parent_auditor_source_identity_equals_copied_source_audit_receipt: true
+    assertions.parent_auditor_audited_source_commit_is_ancestor_of_v1_model_contract_git_head: true
+    assertions.parent_auditor_source_audit_receipt_commit_is_ancestor_of_v1_model_contract_git_head: true
+    assertions.parent_auditor_source_audit_raw_bytes_equal_committed_git_blob: true
+    assertions.v1_outcomes_did_not_modify_v2_preregistration: true
+    assertions.no_v1_refit: true
+    assertions.no_v1_source_truth_reread: true
+    assertions.no_v1_outer_evaluator_replay: true
+    assertions.masked_erm_only_bundle: true
+    assertions.no_challenge_access: true
+  required_canonical_reference_objects:
+    - references.v1_complete_marker
+    - references.v1_development_manifest
+    - references.v1_task_index
+    - references.v1_prepared_manifest
+    - references.preparation_manifest
+    - references.preparation_table
+    - comparator_bundle_reference
+    - auditor_source_audit.source_audit_reference
+    - git_lineage.v2_yaml_git_blob_reference
+    - git_lineage.v2_markdown_git_blob_reference
+  required_nonempty_sha256_paths:
+    - payload_sha256
+    - auditor_source_audit.source_set_sha256
+    - v1_lineage.canonical_config_sha256
+    - v1_lineage.terminal_source_set_sha256
+    - preparation_lineage.canonical_config_sha256
+    - preparation_lineage.manifest_sha256
+    - preparation_lineage.prepared_table_and_fold_identity_sha256
+    - comparator_bundle_reference.sha256
+    - auditor_source_audit.source_audit_reference.sha256
+    - git_lineage.v2_yaml_git_blob_reference.sha256
+    - git_lineage.v2_markdown_git_blob_reference.sha256
+  required_nonempty_audit_fields:
+    - created_at_utc
+    - auditor_source_audit.auditor_identity
+    - git_lineage.v2_preregistration_git_commit
+    - git_lineage.repository_object_format
+    - git_lineage.v2_yaml_git_blob_oid
+    - git_lineage.v2_markdown_git_blob_oid
+    - git_lineage.v2_yaml_git_blob_reference
+    - git_lineage.v2_markdown_git_blob_reference
+    - git_lineage.v1_model_contract_git_head
+    - auditor_source_audit.git_commit
+    - auditor_source_audit.source_set_sha256
+    - auditor_source_audit.source_audit_reference
+    - auditor_source_audit.source_audit_git_commit
+    - auditor_source_audit.source_audit_git_blob_oid
+    - auditor_source_audit.audited_source_ancestor_check_command
+    - auditor_source_audit.source_audit_evidence_ancestor_check_command
+    - reference_roots.workspace_root
+    - reference_roots.project_root
+    - reference_roots.v1_run_root
+    - reference_roots.preparation_run_root
+    - reference_roots.v2_run_root
+  required_exact_integer_values:
+    auditor_source_audit.audited_source_ancestor_check_exit_code: 0
+    auditor_source_audit.source_audit_evidence_ancestor_check_exit_code: 0
+  execution_manifest_fields_bound_only_after_receipt_exists:
+    - v1_terminal_receipt_raw_sha256
+    - v1_terminal_receipt_source_set_sha256
+    - v1_terminal_receipt_audit_sha256
+  absent_empty_null_tbd_unknown_or_placeholder_receipt_field_policy: fail_closed
+  receipt_hash_must_not_be_guessed_or_prepopulated_in_this_preregistration: true
+  receipt_must_assert_v1_outcomes_did_not_modify_v2_preregistration: true
+  missing_or_hash_mismatched_receipt_blocks_native_v2_model_implementation_and_execution: true
+  missing_receipt_does_not_block_predeclared_parent_receipt_auditor_source_implementation: true
+
+schema:
+  sensor_groups_order:
+    - humerus
+    - radius
+    - carpus
+    - digitus
+  continuous_channels_per_sensor_order:
+    - accel_adxl355_x_mps2
+    - accel_adxl355_y_mps2
+    - accel_adxl355_z_mps2
+    - accel_bmi160_x_mps2
+    - accel_bmi160_y_mps2
+    - accel_bmi160_z_mps2
+    - gyro_x_rad_s
+    - gyro_y_rad_s
+    - gyro_z_rad_s
+  exact_continuous_feature_order_rule: sensor_groups_outer_then_channels_inner_with_underscore_join
+  continuous_feature_count: 36
+  availability_order:
+    - availability_humerus
+    - availability_radius
+    - availability_carpus
+    - availability_digitus
+  availability_count: 4
+  dense_input_order: exact_36_continuous_features_then_exact_4_availability_bits
+  dense_input_count: 40
+  expert_input_rule: corresponding_contiguous_nine_continuous_features_only
+  target_columns_order:
+    - tcp_x_m
+    - tcp_y_m
+    - tcp_z_m
+  target_frame: UR5_robot_base_TCP
+  target_unit: m
+  metadata_not_model_inputs:
+    - row_uid
+    - scenario_id
+    - sample_index
+    - aligned_time_us
+  shape_speed_time_sensor_identity_robot_state_or_target_alias_as_input_allowed: false
+  manifest_feature_order_and_fold_membership_must_match_receipt_exactly: true
+
+preprocessing:
+  feature_transform: train_only_population_mean_and_std_per_continuous_column
+  population_standard_deviation_ddof: 0
+  feature_transform_fit_rows: every_row_from_declared_outer_training_scenarios_once
+  outer_rows_in_feature_transform_allowed: false
+  nonfinite_mean_or_scale_policy: fail_closed
+  zero_scale_policy: fail_closed
+  availability_bits_scaled: false
+  target_transform: train_only_three_vector_mean_and_single_isotropic_population_scale
+  target_mean_formula: arithmetic_mean_of_raw_training_xyz_vectors
+  target_scale_formula: sqrt_of_mean_over_training_rows_and_three_axes_of_squared_centered_coordinates
+  target_population_standard_deviation_ddof: 0
+  per_axis_target_scale_allowed: false
+  outer_rows_in_target_transform_allowed: false
+  target_nonfinite_or_nonpositive_scale_policy: fail_closed
+  mask_after_train_only_feature_standardization: true
+  missing_sensor_nine_continuous_values: 0.0
+  available_sensor_nine_continuous_values: standardized_values
+  view_order:
+    - full
+    - outage_humerus
+    - outage_radius
+    - outage_carpus
+    - outage_digitus
+  availability_vectors:
+    full: [1.0, 1.0, 1.0, 1.0]
+    outage_humerus: [0.0, 1.0, 1.0, 1.0]
+    outage_radius: [1.0, 0.0, 1.0, 1.0]
+    outage_carpus: [1.0, 1.0, 0.0, 1.0]
+    outage_digitus: [1.0, 1.0, 1.0, 0.0]
+  exact_five_views_per_uid: true
+  same_uid_and_target_across_views: true
+  scenario_id_use: training_risk_grouping_and_blocked_fold_membership_only
+
+architectures:
+  dense_6979:
+    layer_widths: [40, 64, 64, 3]
+    hidden_activation: ReLU
+    output_activation: none
+    layer_parameter_arithmetic:
+      input_to_hidden_1_weights: 2560
+      hidden_1_bias: 64
+      hidden_1_to_hidden_2_weights: 4096
+      hidden_2_bias: 64
+      hidden_2_to_output_weights: 192
+      output_bias: 3
+      weight_total: 6848
+      bias_total: 131
+      trainable_total: 6979
+    matrix_multiply_accumulates_per_example: 6848
+  sensor_experts_6979:
+    expert_count: 4
+    expert_group_order:
+      - humerus
+      - radius
+      - carpus
+      - digitus
+    each_expert_widths: [9, 20, 24]
+    each_expert_hidden_activations: [ReLU, ReLU]
+    each_expert_parameter_arithmetic:
+      input_to_hidden_weights: 180
+      input_to_hidden_bias: 20
+      hidden_to_output_weights: 480
+      hidden_to_output_bias: 24
+      trainable_per_expert: 704
+      four_experts_total: 2816
+    availability_gate: multiply_each_24_vector_by_its_scalar_availability_after_second_expert_relu
+    fusion_input_order: gated_humerus_24_then_radius_24_then_carpus_24_then_digitus_24_then_availability_4
+    fusion_input_count: 100
+    fusion_widths: [100, 40, 3]
+    fusion_hidden_activation: ReLU
+    fusion_output_activation: none
+    fusion_parameter_arithmetic:
+      input_to_hidden_weights: 4000
+      hidden_bias: 40
+      hidden_to_output_weights: 120
+      output_bias: 3
+      trainable_total: 4163
+    total_parameter_arithmetic: 2816_plus_4163_equals_6979
+    trainable_total: 6979
+    matrix_multiply_accumulates_per_example: 6760
+  exact_parameter_match_required: true
+  permitted_trainable_parameters: declared_linear_weights_and_biases_only
+  layer_norm_batch_norm_dropout_router_reconstruction_imputation_or_auxiliary_head_allowed: false
+
+initialization_and_determinism:
+  task_process_scope: one_candidate_fold_seed_fit_per_fresh_process
+  paired_seeds: [1701, 2603, 3907]
+  python_random_seed: exact_fit_seed
+  numpy_random_seed: exact_fit_seed
+  torch_cpu_seed_before_model_construction: exact_fit_seed
+  torch_cuda_seed_before_transfer_or_training: exact_fit_seed
+  model_construction_device: cpu
+  model_construction_rng_scope: torch_random_fork_rng_with_empty_device_list_then_manual_seed
+  linear_initialization: pytorch_linear_reset_parameters_kaiming_uniform_a_sqrt5_and_uniform_bias_by_fan_in
+  module_declaration_order_dense: linear_40_64_then_linear_64_64_then_linear_64_3
+  module_declaration_order_experts: four_experts_in_sensor_group_order_then_fusion_100_40_then_output_40_3
+  candidate_a_dense_factory_and_seed_rule_must_match_v1_masked_erm: true
+  candidate_a_initial_state_hash_must_equal_receipt_bound_v1_hash_for_each_seed: true
+  candidates_b_and_c_initial_state_tensor_hash_equality_required: true
+  candidates_b_and_c_optimizer_initial_state_equality_required: true
+  state_tensor_hash_compatibility: exact_v1_streaming_byte_serialization
+  state_tensor_hash_algorithm:
+    digest: sha256
+    state_entries: every_state_dict_entry_in_python_sorted_name_order
+    tensor_conversion: detach_then_cpu_then_contiguous_then_numpy
+    per_entry_byte_stream_order:
+      - parameter_name_utf8
+      - numpy_dtype_string_ascii
+      - shape_canonical_json_ascii
+      - contiguous_numpy_payload_C_order
+    parameter_name_encoding: utf8
+    numpy_dtype_string: str_numpy_array_dtype
+    numpy_dtype_encoding: ascii
+    shape_encoding: json_dumps_list_shape_separators_comma_colon_then_ascii
+    payload_encoding: numpy_array_tobytes_order_C
+    delimiter_after_parameter_name: ""
+    delimiter_after_dtype: ""
+    delimiter_after_shape: ""
+    delimiter_after_tensor_payload: ""
+    length_prefixes_allowed: false
+    schema_name_dtype_and_shape_are_independently_bound: true
+  candidate_instantiation_order_may_change_initial_state: false
+  deterministic_algorithms_required: true
+  cublas_workspace_config_required_before_torch_import: ':4096:8'
+  cudnn_benchmark: false
+  cudnn_deterministic: true
+  allow_tf32: false
+  automatic_mixed_precision_allowed: false
+  model_and_training_dtype: float32
+  metric_checkpoint_and_gate_accumulation_dtype: float64
+  authenticated_row_order: exact_prepared_parquet_physical_row_order_after_order_preserving_fold_membership_mask
+  shuffling_or_batch_rng_allowed: false
+  environment_and_package_lock_receipt_required: true
+
+row_order_and_reductions:
+  authoritative_global_row_order: physical_row_order_of_receipt_bound_prepared_parquet
+  parquet_read_requirements:
+    preserve_physical_row_group_and_row_order: true
+    concatenate_row_groups_in_file_order: true
+    sort_reset_sample_or_uid_reorder_allowed: false
+    row_uid_unique_nonempty_and_scenario_id_exact: true
+  fold_row_derivation:
+    training_rows: apply_order_preserving_boolean_membership_mask_for_exact_manifest_train_scenarios
+    outer_rows: apply_order_preserving_boolean_membership_mask_for_exact_manifest_test_scenarios
+    scenario_membership_order: exact_fold_manifest_scenario_order
+    post_mask_sort_or_reindex_allowed: false
+  ordered_identity_hashes_required_per_fold_partition:
+    - ordered_row_uid_sha256
+    - ordered_scenario_id_sha256
+    - ordered_uid_scenario_pair_sha256
+  ordered_identity_hash_algorithm: sha256_of_utf8_canonical_json_array_ensure_ascii_false_separators_comma_colon_allow_nan_false
+  ordered_uid_scenario_pair_element: two_element_array_row_uid_then_scenario_id
+  view_tensor_order: view_major_in_frozen_view_order_then_authoritative_partition_row_order
+  training_scenario_reduction_order: exact_fold_manifest_train_scenario_order
+  within_scenario_row_reduction_order: authoritative_partition_row_order_filtered_without_reordering
+  xyz_coordinate_order: [tcp_x_m, tcp_y_m, tcp_z_m]
+  seed_reduction_order: [1701, 2603, 3907]
+  primary_fold_reduction_order: exact_preparation_manifest_scenario_loso_order
+  outage_reduction_order:
+    - outage_humerus
+    - outage_radius
+    - outage_carpus
+    - outage_digitus
+  float64_sum_algorithm:
+    name: fixed_adjacent_pair_binary_tree_with_odd_tail_carry
+    input: finite_C_contiguous_float64_vector_in_declared_order
+    level_rule: add_indices_0_1_then_2_3_and_so_on_in_float64_and_carry_final_odd_element_unchanged
+    repeat_rule: repeat_level_rule_until_one_scalar_remains
+    empty_vector_policy: fail_closed
+    singleton_rule: return_only_element
+    fused_multiply_add_allowed: false
+  float64_dot_algorithm: elementwise_float64_multiply_in_declared_order_then_fixed_float64_sum_algorithm
+  float64_mean_algorithm: fixed_float64_sum_algorithm_then_single_float64_division_by_exact_integer_count
+  float64_squared_norm_algorithm: fixed_float64_dot_of_vector_with_itself
+  float64_euclidean_norm_algorithm: float64_sqrt_of_fixed_squared_norm
+  rmse3d_order: xyz_square_and_fixed_sum_per_row_then_fixed_row_mean_then_float64_sqrt
+  max_tie_rule: first_value_in_declared_order
+  gate_and_checkpoint_may_use_blas_implicit_parallel_or_unordered_reduction: false
+  float32_autograd_risk_reduction_uses_same_tensor_order_and_locked_torch_cuda_environment: true
+
+environment_and_scheduler:
+  lock_references:
+    requirements_gpu:
+      path: requirements-gpu.lock
+      bytes: 77
+      sha256: fc602cce3bbc854cd4b538f43bae55dac2cdddced831b83c1ed613c116a37ab6
+    requirements_eval:
+      path: requirements-eval.lock
+      bytes: 830
+      sha256: b72b9455129011ac88829c87cb2b0012215214ead5622838b9117a19267232aa
+  required_runtime_versions:
+    python: "3.12.3"
+    torch: "2.12.1+cu132"
+    torch_cuda_runtime: "13.2"
+    cudnn_runtime_integer: 92000
+    numpy: "2.3.5"
+    scipy: "1.17.1"
+    pyarrow: "21.0.0"
+    pandas: "2.3.3"
+    PyYAML: "6.0.3"
+  runtime_version_probe_fields:
+    - platform.python_version
+    - torch.__version__
+    - torch.version.cuda
+    - torch.backends.cudnn.version
+    - numpy.__version__
+    - scipy.__version__
+    - pyarrow.__version__
+    - pandas.__version__
+    - importlib_metadata_version_PyYAML
+  runtime_version_mismatch_policy: fail_closed_before_task_attempt
+  process_environment_before_worker_interpreter:
+    PYTHONHASHSEED: "0"
+    CUBLAS_WORKSPACE_CONFIG: ':4096:8'
+    OMP_NUM_THREADS: "1"
+    MKL_NUM_THREADS: "1"
+    OPENBLAS_NUM_THREADS: "1"
+    NUMEXPR_NUM_THREADS: "1"
+  current_driver_inventory:
+    nvidia_smi_version: "610.43.03"
+    kernel_module_version: "610.43.03"
+    cuda_umd_version: "13.3"
+    torch_cuda_runtime_remains_exactly: "13.2"
+  physical_gpu_inventory:
+    - physical_index: 0
+      uuid: GPU-462585f2-b4cc-3864-e27c-cbaae4ab6c9a
+      pci_bus_id: '00000000:01:00.0'
+      name: NVIDIA CMP 170HX
+    - physical_index: 1
+      uuid: GPU-517dfd2b-2ade-0b3f-70d7-0ea2a78f868b
+      pci_bus_id: '00000000:2D:00.0'
+      name: NVIDIA CMP 170HX
+    - physical_index: 2
+      uuid: GPU-b3db5781-61ae-33bb-63a0-64b14dd9ae6b
+      pci_bus_id: '00000000:41:00.0'
+      name: NVIDIA CMP 170HX
+    - physical_index: 3
+      uuid: GPU-5ebdc8be-b2f3-b6e2-4da1-af79ef91f7cb
+      pci_bus_id: '00000000:61:00.0'
+      name: NVIDIA CMP 170HX
+  exact_physical_gpu_count: 4
+  workers_per_physical_gpu: 3
+  persistent_logical_slot_count: 12
+  scheduler: one_spawned_persistent_torch_free_slot_controller_per_logical_slot_fifo_serial
+  fit_process_policy: persistent_slot_controller_spawns_one_fresh_fit_child_per_assigned_task_and_waits_for_exit_before_next
+  persistent_slot_controller_may_import_torch_or_hold_model_optimizer_or_cuda_context: false
+  logical_slot_mapping:
+    physical_index_formula: slot_index_modulo_4
+    local_slot_formula: floor_slot_index_divided_by_4
+    slot_indices: inclusive_integers_0_through_11
+    slot_controller_sets_CUDA_VISIBLE_DEVICES_to_exact_gpu_uuid_before_fresh_fit_child_start: true
+    fresh_fit_child_imports_torch_only_after_visible_device_binding: true
+    child_visible_device: cuda:0
+    remap_rebalance_or_worker_substitution_allowed: false
+  context_triplet_assignment:
+    context_definition: one_exact_fold_and_one_exact_seed_with_all_three_candidates
+    fold_order: exact_preparation_manifest_14_fold_order
+    seed_order: [1701, 2603, 3907]
+    context_ordinal_formula: fold_ordinal_times_3_plus_seed_ordinal
+    context_count: 42
+    slot_formula: context_ordinal_modulo_12
+    within_triplet_candidate_order:
+      - dense_6979__scenario_balanced_masked_erm
+      - sensor_experts_6979__scenario_balanced_masked_erm
+      - sensor_experts_6979__scenario_balanced_cagrad
+    per_slot_context_counts: [4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3]
+    per_slot_fit_counts: [12, 12, 12, 12, 12, 12, 9, 9, 9, 9, 9, 9]
+    per_physical_gpu_context_counts_in_inventory_order: [11, 11, 10, 10]
+    per_physical_gpu_fit_counts_in_inventory_order: [33, 33, 30, 30]
+    assignment_hash_and_exact_task_roster_required: true
+  utilization_telemetry:
+    fields: [timestamp_utc, gpu_uuid, pci_bus_id, slot_index, task_id, phase, utilization_percent, memory_used_mib, temperature_c]
+    role: report_only
+    may_change_assignment_batch_update_checkpoint_candidate_gate_retry_or_claim: false
+
+candidates:
+  ordered_ids:
+    - dense_6979__scenario_balanced_masked_erm
+    - sensor_experts_6979__scenario_balanced_masked_erm
+    - sensor_experts_6979__scenario_balanced_cagrad
+  dense_6979__scenario_balanced_masked_erm:
+    short_id: A
+    architecture: dense_6979
+    update_rule: direct_mask_law_erm
+    fixed_comparator: frozen_v1_masked_erm
+  sensor_experts_6979__scenario_balanced_masked_erm:
+    short_id: B
+    architecture: sensor_experts_6979
+    update_rule: direct_mask_law_erm
+    fixed_comparator: dense_6979__scenario_balanced_masked_erm
+  sensor_experts_6979__scenario_balanced_cagrad:
+    short_id: C
+    architecture: sensor_experts_6979
+    update_rule: full_plus_outage_cagrad_0p4
+    fixed_comparator: sensor_experts_6979__scenario_balanced_masked_erm
+  best_of_or_posthoc_candidate_selection_allowed: false
+  blend_or_ensemble_across_candidates_allowed: false
+  candidate_c_is_fixed_terminal_v2_candidate: true
+
+training_risk:
+  coordinate_loss: mean_squared_error_over_three_scaled_target_coordinates
+  row_loss_formula: one_third_times_sum_of_three_scaled_coordinate_squared_errors
+  training_scenario_set: exact_distinct_scenario_ids_in_the_outer_training_partition
+  within_scenario_view_risk: arithmetic_mean_of_row_losses_for_that_training_scenario_and_view
+  view_risk: equal_arithmetic_mean_of_within_scenario_view_risks_over_training_scenarios
+  empirical_row_count_weighting_across_training_scenarios_allowed: false
+  mask_law:
+    full: 0.25
+    outage_humerus: 0.1875
+    outage_radius: 0.1875
+    outage_carpus: 0.1875
+    outage_digitus: 0.1875
+  direct_erm_formula: 0.25_R_full_plus_0.1875_times_sum_of_four_outage_R
+  all_five_view_risks_from_same_post_transform_tensor_and_same_parameter_state: true
+
+cagrad:
+  applies_only_to_candidate: sensor_experts_6979__scenario_balanced_cagrad
+  coefficient_c: 0.4
+  full_task_role: outside_outage_solver
+  outage_task_order:
+    - outage_humerus
+    - outage_radius
+    - outage_carpus
+    - outage_digitus
+  task_gradient_definition: gradient_of_corresponding_scenario_balanced_view_risk
+  trainable_parameter_vector_order: module_named_parameters_declaration_order
+  task_gradient_dtype: float32
+  gram_matrix_dtype: float64
+  gram_matrix_formula: cast_each_fixed_float32_gradient_to_float64_then_row_order_and_reductions_fixed_float64_dot
+  gram_symmetrization: half_times_G_plus_G_transpose
+  uniform_reference_weights: [0.25, 0.25, 0.25, 0.25]
+  mean_outage_gradient_formula: one_fourth_sum_of_four_outage_gradients
+  solver:
+    library: scipy.optimize.minimize
+    method: SLSQP
+    decision_variable_order: outage_task_order
+    initial_weights: [0.25, 0.25, 0.25, 0.25]
+    bounds_each_weight: [0.0, 1.0]
+    equality_constraint: sum_weights_equals_1
+    objective: dot_weighted_outage_gradient_with_mean_outage_gradient_plus_c_times_norm_mean_times_norm_weighted
+    objective_evaluation: explicit_float64_gradient_matrix_weighted_vector_with_fixed_reductions_and_fixed_euclidean_norm
+    objective_gram_form_diagnostic_identity: wT_G_u_plus_c_times_sqrt_uT_G_u_times_sqrt_wT_G_w
+    analytic_jacobian: G_u_plus_c_times_sqrt_uT_G_u_times_G_w_divided_by_sqrt_wT_G_w
+    zero_weighted_gradient_subgradient: G_u
+    constraint_representation: scipy_equality_mapping_fun_sum_minus_one_with_float64_ones_jacobian
+    top_level_tol_argument_omitted: true
+    maxiter: 100
+    ftol: 1.0e-12
+    solver_display: false
+    one_solver_start_only: true
+    success_flag_required: true
+    finite_objective_weights_and_jacobian_required: true
+    equality_absolute_residual_max: 1.0e-10
+    bound_absolute_violation_max: 1.0e-10
+    returned_weights_are_not_clipped_renormalized_or_reoptimized: true
+    failure_or_nonconvergence_policy: fail_closed_no_fallback
+  epsilon: 1.0e-12
+  cagrad_outage_direction_formula: g_mean_plus_c_times_norm_g_mean_times_g_weighted_divided_by_norm_g_weighted_plus_epsilon
+  final_gradient_formula: 0.25_times_g_full_plus_0.75_times_cagrad_outage_direction
+  direction_arithmetic: cast_all_five_fixed_float32_gradients_to_float64_form_direction_with_fixed_reductions_then_cast_once_to_float32_parameter_grad
+  post_assembly_norm_rescaling_or_clipping_allowed: false
+  missing_none_or_nonfinite_task_gradient_policy: fail_closed
+  degenerate_norms_solver_weights_objective_residual_and_direction_norms_recorded_each_update: true
+
+optimization:
+  optimizer: torch.optim.AdamW
+  learning_rate: 0.001
+  betas: [0.9, 0.999]
+  epsilon: 1.0e-8
+  weight_decay: 0.001
+  amsgrad: false
+  maximize: false
+  foreach: false
+  fused: false
+  capturable: false
+  differentiable: false
+  zero_grad_set_to_none: true
+  gradient_clipping_allowed: false
+  full_training_fold_updates_per_fit: 400
+  update_budget_matches_v1: true
+  early_stopping_or_pruning_allowed: false
+  update_indices: inclusive_integers_1_through_400
+  batch_policy: every_training_uid_and_all_five_views_every_update
+  vectorized_training_tensor_shape_rule: five_by_N_train_by_40_flattened_only_for_one_model_forward
+  training_forward_calls_per_update: 1
+  optimizer_steps_per_update: 1
+  candidate_a_or_b_gradient_traversals_per_update: 1
+  candidate_c_gradient_traversals_per_update: 5
+  candidate_c_gradient_traversal_order: full_then_humerus_then_radius_then_carpus_then_digitus
+  candidate_c_autograd_graph_policy: retain_graph_true_for_first_four_fixed_order_grad_calls_and_false_for_fifth
+  candidate_c_composite_gradient_extra_backward_traversals: 0
+  one_optimizer_state_per_fit: true
+
+checkpoint:
+  candidate_specific: true
+  outer_labels_or_features_visible_during_selection: false
+  evaluation_time: after_each_optimizer_step
+  evaluated_update_indices: inclusive_integers_1_through_400
+  update_zero_eligible: false
+  no_grad_post_update_forward_calls_per_update: 1
+  forward_view_order:
+    - full
+    - outage_humerus
+    - outage_radius
+    - outage_carpus
+    - outage_digitus
+  forward_tensor_shape_rule: five_by_N_train_by_40_flattened_only_for_one_model_forward
+  score_views:
+    - outage_humerus
+    - outage_radius
+    - outage_carpus
+    - outage_digitus
+  full_view_checkpoint_prediction_role: recorded_diagnostic_only_not_in_score
+  scenario_view_rmse3d_formula: sqrt_of_mean_over_rows_in_training_scenario_of_sum_xyz_raw_metre_squared_error
+  outage_score_component: equal_mean_of_scenario_view_rmse3d_over_training_scenarios
+  score_formula: half_times_mean_of_four_outage_components_plus_half_times_max_of_four_outage_components
+  score_unit: m
+  selection_rule: smallest_finite_score
+  tie_rule: earliest_update_with_strictly_smaller_score_only
+  exact_equality_replaces_checkpoint: false
+  nonfinite_score_policy: fail_closed
+  selected_checkpoint_supplies_all_five_outer_views: true
+
+folds_and_fits:
+  fold_source: exact_hash_bound_preparation_manifest
+  ordered_families:
+    - scenario_loso
+    - speed_pair_out
+    - shape_out
+  family_counts:
+    scenario_loso: 8
+    speed_pair_out: 4
+    shape_out: 2
+  primary_family: scenario_loso
+  report_only_families:
+    - speed_pair_out
+    - shape_out
+  seeds: [1701, 2603, 3907]
+  candidate_count: 3
+  total_outer_folds: 14
+  fits_per_candidate: 42
+  primary_fits_per_candidate: 24
+  stress_fits_per_candidate: 18
+  total_primary_scientific_fits: 72
+  total_stress_scientific_fits: 54
+  total_scientific_fits: 126
+  all_fits_receive_exactly_400_updates: true
+  outer_test_fitting_allowed: false
+  row_random_split_allowed: false
+  restart_or_additional_fit_after_outer_outcome_access_allowed: false
+
+outer_boundary:
+  checkpoint_must_be_irreversibly_locked_before_outer_feature_read: true
+  outer_feature_loader_receives_no_target_columns: true
+  outer_feature_forward_calls_per_fit: 1
+  outer_feature_forward_contains_all_five_views: true
+  persist_predictions_before_outer_label_read: true
+  one_zero_shift_task_evaluator_call_per_fit: true
+  one_zero_shift_outer_label_read_per_fit: true
+  outer_labels_visible_to_trainer_checkpoint_optimizer_or_solver: false
+  all_five_views_evaluated_in_the_same_call: true
+  outer_metric_cannot_trigger_refit_recheckpoint_reselection_or_rerun: true
+  completed_task_recovery_uses_persisted_receipts_without_evaluator_replay: true
+
+execution_state_machine:
+  contract: openaxes.external.native_sensor_experts.v2.execution.v1
+  canonical_json_for_every_runtime_receipt:
+    encoding: utf8
+    ensure_ascii: false
+    sort_keys: true
+    separators: [comma, colon]
+    allow_nan: false
+    file_final_newline: exactly_one_lf
+    duplicate_unknown_extra_missing_or_nonfinite_policy: fail_closed
+  task_spec:
+    path_rule: 'tasks/<task_id>.json'
+    contract_exact: openaxes.external.native_sensor_experts.v2.task_spec.v1
+    schema_version_exact: 1
+    top_level_keys_exact:
+      - contract
+      - schema_version
+      - task_id
+      - task_ordinal
+      - context_ordinal
+      - fold_id
+      - fold_ordinal
+      - fold_family
+      - seed
+      - seed_ordinal
+      - candidate_id
+      - candidate_ordinal
+      - task_spec_sha256
+    task_ordinal_formula: context_ordinal_times_3_plus_candidate_ordinal
+    context_ordinal_formula: fold_ordinal_times_3_plus_seed_ordinal
+    task_id_formula: literal_task_underscore_then_zero_padded_three_digit_task_ordinal
+    task_id_regex: '^task_(00[0-9]|0[1-9][0-9]|1[01][0-9]|12[0-5])$'
+    task_ordinal_range: inclusive_integers_0_through_125
+    fold_ordinal_range: inclusive_integers_0_through_13
+    seed_ordinal_range: inclusive_integers_0_through_2
+    candidate_ordinal_range: inclusive_integers_0_through_2
+    fold_id_and_family_rule: exact_values_at_fold_ordinal_in_receipt_bound_preparation_manifest
+    seed_rule: exact_value_at_seed_ordinal_in_frozen_seed_order
+    candidate_rule: exact_value_at_candidate_ordinal_in_frozen_candidate_order
+    task_spec_sha256: sha256_of_canonical_json_of_all_exact_keys_except_task_spec_sha256
+  task_index:
+    path: task_index.json
+    contract_exact: openaxes.external.native_sensor_experts.v2.task_index.v1
+    schema_version_exact: 1
+    top_level_keys_exact:
+      - contract
+      - schema_version
+      - task_id_order
+      - task_spec_references
+      - task_assignment_rows
+      - task_assignment_sha256
+      - payload_sha256
+    task_id_order_exact: task_000_through_task_125_in_numeric_order
+    task_spec_references_representation: task_id_keyed_map_in_task_id_order_with_exact_canonical_reference_values
+    task_spec_reference_path_rule: 'tasks/<same_task_id>.json'
+    task_assignment_row_fields_exact:
+      - task_id
+      - task_spec_sha256
+      - task_ordinal
+      - context_ordinal
+      - fold_id
+      - fold_ordinal
+      - fold_family
+      - seed
+      - seed_ordinal
+      - candidate_id
+      - candidate_ordinal
+      - transport_slot_index
+    task_assignment_row_count_exact: 126
+    task_assignment_row_order: task_ordinal_ascending
+    transport_slot_index_formula: context_ordinal_modulo_12
+    task_assignment_sha256: sha256_of_canonical_json_of_exact_ordered_task_assignment_rows
+    payload_sha256: sha256_of_canonical_json_of_all_exact_top_level_keys_except_payload_sha256
+    task_specs_then_index_creation: each_regular_nonsymlink_O_CREAT_O_EXCL_fsync_file_and_parent_directory_before_execution_session
+  slot_assignments_receipt:
+    path: runtime/slot_assignments.json
+    contract_exact: openaxes.external.native_sensor_experts.v2.slot_assignments.v1
+    schema_version_exact: 1
+    top_level_keys_exact:
+      - contract
+      - schema_version
+      - workers_per_physical_gpu
+      - logical_slot_count
+      - physical_gpu_inventory_sha256
+      - task_assignment_sha256
+      - slots
+      - slot_assignment_sha256
+      - payload_sha256
+    slot_row_fields_exact:
+      - transport_slot_index
+      - physical_index
+      - local_slot
+      - gpu_reference
+      - ordered_task_ids
+    workers_per_physical_gpu_exact: 3
+    logical_slot_count_exact: 12
+    slot_count_exact: 12
+    slot_order: transport_slot_index_ascending
+    gpu_reference_fields_exact: [physical_index, uuid, pci_bus_id, name]
+    physical_index_formula: transport_slot_index_modulo_4
+    local_slot_formula: floor_transport_slot_index_divided_by_4
+    ordered_task_ids_rule: exact_task_index_rows_for_slot_in_task_ordinal_order
+    slot_assignment_sha256: sha256_of_canonical_json_of_exact_ordered_slot_rows
+    payload_sha256: sha256_of_canonical_json_of_all_exact_top_level_keys_except_payload_sha256
+    creation: regular_nonsymlink_O_CREAT_O_EXCL_fsync_file_and_parent_directory_before_execution_session
+  phase_order:
+    - execution.started
+    - training.completed
+    - outer_prediction.completed
+    - outer_eval.started
+    - outer_eval.completed
+    - bundle.completed
+    - result.completed
+  phase_count_per_complete_task: 7
+  ledger_path_rule: 'runtime/ledgers/<task_id>/<phase>.json'
+  phase_receipt_top_level_keys_exact:
+    - contract
+    - schema_version
+    - task_id
+    - task_spec_sha256
+    - phase
+    - attempt_id
+    - previous_phase
+    - attempt_origin_binding
+    - executor_binding
+    - payload
+    - payload_sha256
+    - phase_receipt_sha256
+  phase_receipt_contract_exact: openaxes.external.native_sensor_experts.v2.phase_receipt.v1
+  phase_receipt_schema_version_exact: 1
+  previous_phase_reference_fields_exact: [path, bytes, sha256]
+  previous_phase_rule: null_only_for_execution_started_otherwise_exact_raw_reference_to_immediately_preceding_phase
+  phase_prefix_rule: present_phases_must_be_exact_contiguous_prefix_of_phase_order
+  phase_attempt_rule: one_identical_attempt_id_and_task_spec_sha256_across_entire_chain
+  phase_attempt_origin_binding_rule: immutable_session_origin_launch_slot_gpu_assignment_source_environment_prefit_and_parent_bundle_identity_across_entire_chain
+  attempt_origin_binding_keys_exact:
+    - execution_session_id
+    - attempt_origin_launch_id
+    - attempt_origin_launch_ordinal
+    - transport_slot_index
+    - local_slot
+    - gpu_reference
+    - controller_source_sha256
+    - environment_sha256
+    - source_set_sha256
+    - task_assignment_sha256
+    - slot_assignment_sha256
+    - comparator_bundle_sha256
+    - pre_fit_validation_sha256
+    - scientific_fit_attempt
+  attempt_origin_binding_semantics:
+    scientific_fit_attempt_exact: 1
+    attempt_origin_launch_id_must_equal_launch_id_formula_for_ordinal: true
+    transport_slot_index_must_equal_task_assignment: true
+    local_slot_gpu_reference_must_equal_authenticated_slot_assignment_and_inventory: true
+    gpu_reference_fields_exact: [physical_index, uuid, pci_bus_id, name]
+    every_hash_must_equal_execution_session_or_pre_fit_validation_truth: true
+  executor_binding_keys_exact:
+    - execution_session_id
+    - launch_id
+    - launch_ordinal
+    - transport_slot_index
+    - local_slot
+    - gpu_reference
+    - phase_action_class
+    - launch_ready_reference
+    - controller_ready_reference
+    - child_ready_reference
+    - child_uuid
+    - child_pid
+    - controller_source_sha256
+    - environment_sha256
+    - source_set_sha256
+    - task_assignment_sha256
+    - slot_assignment_sha256
+    - comparator_bundle_sha256
+    - pre_fit_validation_sha256
+  executor_binding_rules:
+    phase_action_class_order:
+      execution.started: fresh_fit
+      training.completed: fresh_fit
+      outer_prediction.completed: outer_prediction
+      outer_eval.started: outer_evaluation
+      outer_eval.completed: outer_evaluation
+      bundle.completed: bundle_only
+      result.completed: result_only
+    execution_started_and_training_completed_must_use_attempt_origin_launch_and_same_fresh_fit_child: true
+    child_role_compatibility:
+      fresh_fit_full_task: [fresh_fit, outer_prediction, outer_evaluation, bundle_only, result_only]
+      recovery_outer_prediction: [outer_prediction]
+      recovery_outer_evaluation: [outer_evaluation]
+      recovery_bundle_only: [bundle_only]
+      recovery_result_only: [result_only]
+      recovery_verify_only: []
+    later_phase_launch_ordinal_must_be_greater_than_or_equal_to_attempt_origin_launch_ordinal: true
+    same_session_slot_gpu_controller_source_environment_source_assignment_parent_and_prefit_hashes_as_attempt_origin: true
+    launch_ready_controller_ready_and_child_ready_raw_references_must_resolve_under_v2_run_root_and_cross_match_every_executor_field: true
+    phase_receipt_writer_pid_must_equal_authenticated_live_child_pid_before_O_EXCL_creation: true
+    arbitrary_resume_token_launch_slot_gpu_hash_child_uuid_or_pid_allowed: false
+  phase_payload_closed_schemas:
+    execution.started:
+      keys_exact:
+        - attempt_roster_reference
+        - attempt_ledger_reference
+        - fit_child_ready_reference
+        - launch_ready_reference
+        - prior_optimizer_steps
+        - prior_outer_forwards
+        - prior_outer_label_reads
+        - prior_task_evaluator_calls
+      exact_integer_values:
+        prior_optimizer_steps: 0
+        prior_outer_forwards: 0
+        prior_outer_label_reads: 0
+        prior_task_evaluator_calls: 0
+    training.completed:
+      keys_exact:
+        - checkpoint_reference
+        - transform_reference
+        - history_reference
+        - training_receipt_reference
+        - selected_update
+        - optimizer_updates
+        - training_model_forward_calls
+        - checkpoint_model_forward_calls
+        - parameter_gradient_traversals
+        - cagrad_solver_calls
+      exact_integer_values_common:
+        optimizer_updates: 400
+        training_model_forward_calls: 400
+        checkpoint_model_forward_calls: 400
+      candidate_specific_exact_integer_values:
+        dense_6979__scenario_balanced_masked_erm: {parameter_gradient_traversals: 400, cagrad_solver_calls: 0}
+        sensor_experts_6979__scenario_balanced_masked_erm: {parameter_gradient_traversals: 400, cagrad_solver_calls: 0}
+        sensor_experts_6979__scenario_balanced_cagrad: {parameter_gradient_traversals: 2000, cagrad_solver_calls: 400}
+      selected_update_range: inclusive_integers_1_through_400
+    outer_prediction.completed:
+      keys_exact:
+        - prediction_claim_reference
+        - checkpoint_reference
+        - outer_predictions_reference
+        - outer_feature_loader_calls
+        - outer_model_forward_calls
+        - outer_view_equivalent_forwards
+        - outer_label_reads
+        - task_evaluator_calls
+      exact_integer_values:
+        outer_feature_loader_calls: 1
+        outer_model_forward_calls: 1
+        outer_view_equivalent_forwards: 5
+        outer_label_reads: 0
+        task_evaluator_calls: 0
+    outer_eval.started:
+      keys_exact:
+        - label_claim_reference
+        - outer_prediction_phase_reference
+        - outer_predictions_reference
+        - prior_outer_label_reads
+        - prior_task_evaluator_calls
+      exact_integer_values:
+        prior_outer_label_reads: 0
+        prior_task_evaluator_calls: 0
+    outer_eval.completed:
+      keys_exact:
+        - label_claim_reference
+        - outer_predictions_reference
+        - outer_evaluation_rows_reference
+        - outer_evaluation_reference
+        - outer_label_reads
+        - task_evaluator_calls
+        - views_evaluated
+      exact_integer_values:
+        outer_label_reads: 1
+        task_evaluator_calls: 1
+        views_evaluated: 5
+    bundle.completed:
+      keys_exact:
+        - bundle_reference
+        - outer_evaluation_rows_reference
+        - outer_evaluation_reference
+        - source_truth_reopens_after_outer_eval
+        - task_evaluator_replays
+      exact_integer_values:
+        source_truth_reopens_after_outer_eval: 0
+        task_evaluator_replays: 0
+    result.completed:
+      keys_exact:
+        - result_reference
+        - bundle_reference
+        - source_truth_reopens_after_outer_eval
+        - task_evaluator_replays
+        - scientific_actions_after_bundle
+      exact_integer_values:
+        source_truth_reopens_after_outer_eval: 0
+        task_evaluator_replays: 0
+        scientific_actions_after_bundle: 0
+  phase_payload_reference_rule: every_field_ending_reference_is_exact_canonical_path_bytes_sha256_reference_under_v2_run_root_with_the_declared_task_artifact_path
+  phase_payload_reference_paths_exact:
+    execution.started.attempt_roster_reference: 'runtime/attempt_roster/<task_id>.json'
+    execution.started.attempt_ledger_reference: 'runtime/attempt_ledger/<task_id>.json'
+    execution.started.fit_child_ready_reference: 'runtime/child_ready/<attempt_origin_launch_id>/<fit_child_uuid>.json'
+    execution.started.launch_ready_reference: 'runtime/execution_launches/<attempt_origin_launch_id>/launch.ready.json'
+    training.completed.checkpoint_reference: 'results/<task_id>/checkpoint.pt'
+    training.completed.transform_reference: 'results/<task_id>/transform.json'
+    training.completed.history_reference: 'results/<task_id>/history.json'
+    training.completed.training_receipt_reference: 'results/<task_id>/training_receipt.json'
+    outer_prediction.completed.prediction_claim_reference: 'runtime/outer_prediction_claims/<task_id>.json'
+    outer_prediction.completed.checkpoint_reference: 'results/<task_id>/checkpoint.pt'
+    outer_prediction.completed.outer_predictions_reference: 'results/<task_id>/outer_predictions.parquet'
+    outer_eval.started.label_claim_reference: 'runtime/outer_label_claims/<task_id>.json'
+    outer_eval.started.outer_prediction_phase_reference: 'runtime/ledgers/<task_id>/outer_prediction.completed.json'
+    outer_eval.started.outer_predictions_reference: 'results/<task_id>/outer_predictions.parquet'
+    outer_eval.completed.label_claim_reference: 'runtime/outer_label_claims/<task_id>.json'
+    outer_eval.completed.outer_predictions_reference: 'results/<task_id>/outer_predictions.parquet'
+    outer_eval.completed.outer_evaluation_rows_reference: 'results/<task_id>/outer_evaluation_rows.parquet'
+    outer_eval.completed.outer_evaluation_reference: 'results/<task_id>/outer_evaluation.json'
+    bundle.completed.bundle_reference: 'results/<task_id>/bundle.json'
+    bundle.completed.outer_evaluation_rows_reference: 'results/<task_id>/outer_evaluation_rows.parquet'
+    bundle.completed.outer_evaluation_reference: 'results/<task_id>/outer_evaluation.json'
+    result.completed.result_reference: 'results/<task_id>/result.json'
+    result.completed.bundle_reference: 'results/<task_id>/bundle.json'
+  payload_sha256_rule: sha256_of_canonical_json_of_exact_phase_payload
+  phase_receipt_sha256_rule: sha256_of_canonical_json_of_all_exact_phase_top_level_keys_except_phase_receipt_sha256
+  phase_raw_file_reference_sha256_rule: sha256_of_entire_canonical_phase_file_bytes_including_phase_receipt_sha256_and_final_lf
+  phase_creation:
+    regular_nonsymlink_files_only: true
+    O_CREAT_O_EXCL_for_every_phase: true
+    mode: '0600'
+    canonical_json_and_exactly_one_final_lf: true
+    flush_and_fsync_file_before_close: true
+    fsync_parent_ledger_directory_after_creation: true
+    overwrite_truncate_or_reseal_allowed: false
+  outer_eval_started_exactly_once_barrier:
+    label_permit_path_rule: 'runtime/outer_label_permits/<task_id>.json'
+    label_claim_path_rule: 'runtime/outer_label_claims/<task_id>.json'
+    label_permit_creation: exact_126_O_CREAT_O_EXCL_files_during_pre_fit_validation_before_any_task_attempt
+    label_permit_contract_exact: openaxes.external.native_sensor_experts.v2.outer_label_permit.v1
+    label_permit_keys_exact: [contract, task_id, task_spec_sha256, execution_session_id, task_assignment_sha256, permit_sha256]
+    label_permit_sha256: sha256_of_canonical_json_of_all_exact_keys_except_permit_sha256
+    label_claim_promotion: hard_link_permit_to_absent_claim_path_fsync_claim_directory_unlink_permit_and_fsync_permit_directory
+    label_claim_raw_bytes_and_sha256_exactly_equal_consumed_permit: true
+    direct_O_CREAT_O_EXCL_creation_before_any_outer_label_materialization: true
+    payload_binds_label_claim_outer_prediction_reference_and_zero_prior_truth_or_evaluator_counts: true
+    capability_minted_only_after_durable_file_and_directory_fsync: true
+    capability_requires_claim_present_permit_absent_and_same_process_live_promotion: true
+    started_without_completed_recovery: fail_closed_no_label_reread_or_evaluator_recall
+    claim_present_without_completed_recovery: fail_closed_no_label_reread_or_evaluator_recall
+    claim_absent_and_permit_absent: fail_closed_consumed_or_deleted_permit_no_label_reread
+    claim_and_permit_both_present: fail_closed_interrupted_promotion_no_label_reread
+    outer_eval_completed_must_bind_label_claim_reference: true
+    label_claim_survives_task_state_quarantine: true
+  task_attempt:
+    maximum_attempts_per_task: 1
+    attempt_id: sha256_of_canonical_json_object_with_exact_keys_task_spec_sha256_and_attempt_origin_binding
+    monotonic_roster_path_rule: 'runtime/attempt_roster/<task_id>.json'
+    persistent_attempt_ledger_path_rule: 'runtime/attempt_ledger/<task_id>.json'
+    monotonic_roster_keys_exact: [contract, task_id, task_spec_sha256, attempt_id, attempt_origin_binding, origin, attempt_started_or_state_observed, survives_quarantine, payload_sha256]
+    persistent_attempt_ledger_keys_exact: [contract, task_id, task_spec_sha256, attempt_id, attempt_origin_binding, scientific_fit_attempt, survives_quarantine, payload_sha256]
+    monotonic_roster_contract_exact: openaxes.external.native_sensor_experts.v2.attempt_roster.v1
+    persistent_attempt_ledger_contract_exact: openaxes.external.native_sensor_experts.v2.attempt_ledger.v1
+    origin_exact: fresh_fit
+    attempt_started_or_state_observed_exact: true
+    survives_quarantine_exact: true
+    scientific_fit_attempt_exact: 1
+    roster_and_attempt_payload_sha256: sha256_of_canonical_json_of_all_exact_keys_except_payload_sha256
+    controller_creates_roster_and_attempt_ledger_O_CREAT_O_EXCL_before_spawning_fresh_fit_child: true
+    fresh_fit_child_ready_must_exist_and_validate_before_execution_started: true
+    roster_and_attempt_ledger_survive_task_state_quarantine: true
+    existing_roster_attempt_child_ready_phase_result_prediction_or_label_claim_or_quarantine_evidence_forbids_fresh_attempt: true
+    retry_refit_or_reseed_allowed: false
+  prediction_forward_claim:
+    path_rule: 'runtime/outer_prediction_claims/<task_id>.json'
+    permit_path_rule: 'runtime/outer_prediction_permits/<task_id>.json'
+    permit_creation: exact_126_O_CREAT_O_EXCL_files_during_pre_fit_validation_before_any_task_attempt
+    permit_contract_exact: openaxes.external.native_sensor_experts.v2.outer_prediction_permit.v1
+    permit_keys_exact: [contract, task_id, task_spec_sha256, execution_session_id, task_assignment_sha256, permit_sha256]
+    permit_sha256: sha256_of_canonical_json_of_all_exact_keys_except_permit_sha256
+    claim_creation: hard_link_permit_to_absent_claim_path_then_fsync_claim_directory_unlink_permit_and_fsync_permit_directory
+    claim_destination_must_not_exist_and_hard_link_count_is_validated: true
+    live_forward_capability: nonserializable_single_use_object_minted_only_to_same_process_after_successful_promotion_and_both_directory_fsyncs
+    outer_forward_allowed_state: exact_claim_present_exact_permit_absent_and_live_forward_capability_present
+    claim_keys_exactly_equal_permit_keys: true
+    claim_raw_bytes_and_sha256_exactly_equal_consumed_permit: true
+    outer_prediction_completed_phase_binds_claim_reference_attempt_origin_executor_binding_and_checkpoint_reference: true
+    recovery_with_claim_present_without_outer_prediction_completed: fail_closed_no_reforward
+    claim_absent_and_permit_absent: fail_closed_consumed_or_deleted_permit_no_reforward
+    claim_and_permit_both_present: fail_closed_interrupted_promotion_no_reforward
+    outer_prediction_completed_must_bind_claim_reference: true
+    claim_survives_task_state_quarantine: true
+  resume_actions_by_last_durable_phase:
+    no_phase_and_no_attempt_authority: fresh_fit_once
+    execution.started: fail_closed_ambiguous_possible_fit_no_refit
+    training.completed_with_unused_prediction_permit_and_no_claim: promote_permit_to_claim_and_predict_once_without_refit
+    training.completed_with_prediction_claim: fail_closed_ambiguous_possible_forward_no_reforward
+    training.completed_with_neither_or_both_prediction_authorities: fail_closed_no_reforward
+    outer_prediction.completed_with_unused_label_permit_and_no_claim: promote_label_permit_create_outer_eval_started_once_then_read_label_and_evaluate_once
+    outer_prediction.completed_with_invalid_label_authority_state: fail_closed_no_label_reread
+    outer_eval.started: fail_closed_ambiguous_possible_label_read_no_label_reread_or_evaluator_recall
+    outer_eval.completed: verify_persisted_evaluation_and_bundle_without_label_read_or_evaluator_recall
+    bundle.completed: write_result_only_without_scientific_action
+    result.completed: verify_and_return_without_scientific_action
+  recovery_artifact_rules:
+    training_completed_requires_checkpoint_transform_history_and_training_receipt_raw_references: true
+    outer_prediction_completed_requires_persisted_all_five_view_prediction_reference: true
+    outer_eval_completed_requires_persisted_prediction_truth_identity_evaluation_rows_and_metric_references: true
+    bundle_and_result_recovery_reads_only_authenticated_persisted_artifacts: true
+    validator_may_recompute_metrics_only_from_persisted_evaluation_rows_without_source_truth_read: true
+    source_truth_reopen_by_task_recovery_or_complete_validator: false
+  quarantine:
+    mode: immutable_nondelete_intent_move_audit
+    persistent_roster_attempt_ledger_prediction_claim_and_label_claim_are_never_moved: true
+    quarantine_cannot_authorize_fresh_attempt: true
+    any_quarantine_event_blocks_COMPLETE: true
+    deletion_of_evidence_to_create_freshness_allowed: false
+  declared_no_repeat_threat_model: crash_corrupt_prefix_quarantine_and_ordinary_partial_deletion_with_any_local_attempt_authority_remaining
+  external_append_only_or_signature_authority_present: false
+  simultaneous_total_erasure_prior_execution_provable: false
+
+runtime_closed_world:
+  prelaunch_creation_order:
+    - validate_parent_bundle_preparation_config_source_locks_environment_and_gpu_inventory
+    - freeze_exact_task_index_and_slot_assignments
+    - create_immutable_execution_session
+    - create_exact_126_prediction_permits_and_126_label_permits
+    - write_pre_fit_validation_receipt
+    - create_launch_zero_and_exact_12_worker_ready_receipts
+    - authorize_first_task_attempts
+  exact_COMPLETE_root_members:
+    - prepared_manifest.json
+    - PREPARED.json
+    - task_index.json
+    - parents
+    - tasks
+    - runtime
+    - results
+    - reports
+    - quarantine
+    - development_manifest.json
+    - COMPLETE.json
+  exact_parents_members:
+    - parent_receipt_auditor_source_audit.json
+    - v1_terminal_for_native_v2.json
+    - v1_masked_erm_comparator_bundle.json
+  public_parent_validator_requires_exact_three_regular_nonsymlink_files_and_no_subdirectories_or_extras_before_read: true
+  exact_runtime_members:
+    - source_set.json
+    - environment.json
+    - gpu_inventory.json
+    - pre_fit_validation.json
+    - execution_session.json
+    - slot_assignments.json
+    - execution_launches
+    - worker_ready
+    - child_ready
+    - attempt_roster
+    - attempt_ledger
+    - outer_prediction_permits
+    - outer_prediction_claims
+    - outer_label_permits
+    - outer_label_claims
+    - ledgers
+    - utilization.jsonl
+  exact_reports_members:
+    - zero_shift.json
+    - primary_gates.json
+    - stress_report.json
+    - signed_shift_report.json
+    - development_summary.json
+  exact_completed_task_result_members:
+    - checkpoint.pt
+    - transform.json
+    - history.json
+    - training_receipt.json
+    - outer_predictions.parquet
+    - outer_evaluation_rows.parquet
+    - outer_evaluation.json
+    - bundle.json
+    - result.json
+  task_spec_file_count: 126
+  task_index_entry_count: 126
+  result_directory_count: 126
+  task_ledger_directory_count: 126
+  phase_files_per_task_ledger: 7
+  attempt_roster_file_count: 126
+  attempt_ledger_file_count: 126
+  outer_prediction_claim_file_count: 126
+  outer_prediction_permit_file_count_for_COMPLETE: 0
+  pre_fit_outer_prediction_permit_file_count: 126
+  outer_label_claim_file_count: 126
+  outer_label_permit_file_count_for_COMPLETE: 0
+  pre_fit_outer_label_permit_file_count: 126
+  quarantine_member_count_for_COMPLETE: 0
+  fresh_fit_child_ready_receipt_count_for_COMPLETE: 126
+  recovery_child_ready_receipt_count_for_COMPLETE: zero_or_more_all_closed_world_referenced
+  task_ids_unique_and_exactly_equal_across_index_specs_rosters_attempts_claims_ledgers_and_results: true
+  no_unknown_symlink_special_extra_missing_or_duplicate_member_allowed: true
+  execution_session:
+    path: runtime/execution_session.json
+    contract_exact: openaxes.external.native_sensor_experts.v2.execution_session.v1
+    schema_version_exact: 1
+    immutable_and_O_CREAT_O_EXCL: true
+    top_level_keys_exact:
+      - contract
+      - schema_version
+      - execution_session_id
+      - created_at_utc
+      - reference_roots
+      - canonical_config_sha256
+      - source_set_reference
+      - source_set_sha256
+      - v1_terminal_receipt_reference
+      - v1_terminal_receipt_sha256
+      - comparator_bundle_reference
+      - comparator_bundle_sha256
+      - prepared_manifest_reference
+      - prepared_manifest_sha256
+      - prepared_table_reference
+      - prepared_table_sha256
+      - environment_reference
+      - environment_sha256
+      - gpu_inventory_reference
+      - gpu_inventory_sha256
+      - task_index_reference
+      - task_assignment_sha256
+      - slot_assignments_reference
+      - slot_assignment_sha256
+      - controller_source_sha256
+      - session_sha256
+    execution_session_id_rule: canonical_lowercase_RFC4122_UUIDv4_generated_once_before_any_permit_or_attempt
+    created_at_utc_rule: canonical_UTC_RFC3339_with_Z_report_only_not_order_authority
+    reference_roots_keys_exact: [workspace_root, project_root, v1_run_root, preparation_run_root, v2_run_root]
+    reference_resolution_rule: exact_parent_receipt_auditor_canonical_reference_resolution
+    controller_source_path_exact: src/imu_vive_learning/openaxes_external_native_v2_experiment.py
+    controller_source_sha256_rule: exact_raw_blob_sha256_for_controller_source_path_in_authenticated_source_set
+    session_sha256: sha256_of_canonical_json_of_all_exact_top_level_keys_except_session_sha256
+    binds_config_source_parent_bundle_preparation_environment_gpu_task_roster_and_slot_assignment_hashes: true
+  pre_fit_validation_receipt:
+    path: runtime/pre_fit_validation.json
+    contract_exact: openaxes.external.native_sensor_experts.v2.pre_fit_validation.v1
+    schema_version_exact: 1
+    top_level_keys_exact:
+      - contract
+      - schema_version
+      - created_at_utc
+      - execution_session_reference
+      - execution_session_sha256
+      - canonical_config_sha256
+      - source_set_sha256
+      - v1_terminal_receipt_sha256
+      - comparator_bundle_sha256
+      - prepared_manifest_sha256
+      - prepared_table_sha256
+      - environment_sha256
+      - gpu_inventory_sha256
+      - task_assignment_sha256
+      - slot_assignment_sha256
+      - prediction_permit_set_sha256
+      - label_permit_set_sha256
+      - assertions
+      - payload_sha256
+    assertions_keys_exact:
+      - parent_and_git_lineage_valid
+      - source_and_config_valid
+      - preparation_and_ordered_fold_identity_valid
+      - environment_and_locks_valid
+      - four_gpu_inventory_valid
+      - task_index_and_slot_assignments_valid
+      - exact_126_prediction_permits_valid
+      - exact_126_label_permits_valid
+      - zero_attempt_or_scientific_action_evidence_before_authorization
+      - all_mandatory_synthetic_source_tests_passed
+    all_assertion_values_exact: true
+    permit_set_sha256_rule: sha256_of_canonical_json_task_id_ordered_map_to_exact_raw_permit_references
+    payload_sha256: sha256_of_canonical_json_of_all_exact_top_level_keys_except_payload_sha256
+    every_hash_must_equal_recomputed_authenticated_source_and_receipt_truth: true
+    creation: regular_nonsymlink_O_CREAT_O_EXCL_fsync_file_and_parent_directory_before_any_launch
+  launches:
+    directory_rule: 'runtime/execution_launches/launch_<zero_padded_six_digit_ordinal>'
+    launch_ordinals: contiguous_integers_starting_at_zero
+    launch_id_formula: literal_launch_underscore_then_zero_padded_six_digit_launch_ordinal
+    launch_started_path_rule: 'runtime/execution_launches/<launch_id>/launch.started.json'
+    launch_ready_path_rule: 'runtime/execution_launches/<launch_id>/launch.ready.json'
+    recovery_snapshot_path_rule: 'runtime/execution_launches/<launch_id>/recovery_snapshot.json'
+    launch_started_contract_exact: openaxes.external.native_sensor_experts.v2.launch_started.v1
+    launch_started_top_level_keys_exact:
+      - contract
+      - schema_version
+      - execution_session_id
+      - launch_id
+      - launch_ordinal
+      - resume_mode
+      - created_at_utc
+      - execution_session_reference
+      - pre_fit_validation_reference
+      - canonical_config_sha256
+      - controller_source_sha256
+      - environment_sha256
+      - source_set_sha256
+      - gpu_inventory_sha256
+      - task_assignment_sha256
+      - slot_assignment_sha256
+      - comparator_bundle_sha256
+      - recovery_snapshot_reference
+      - payload_sha256
+    launch_started_semantics:
+      schema_version_exact: 1
+      resume_mode_allowed_exact: [initial, recovery]
+      launch_zero_requires_initial_and_null_recovery_snapshot: true
+      later_launch_requires_recovery_and_exact_nonnull_recovery_snapshot_reference: true
+      all_hashes_exactly_equal_immutable_execution_session_or_pre_fit_validation_truth: true
+      arbitrary_resume_token_worker_count_slot_count_assignment_controller_source_or_reference_allowed: false
+      payload_sha256: sha256_of_canonical_json_of_all_exact_top_level_keys_except_payload_sha256
+    recovery_snapshot_contract_exact: openaxes.external.native_sensor_experts.v2.recovery_snapshot.v1
+    recovery_snapshot_top_level_keys_exact:
+      - contract
+      - schema_version
+      - execution_session_id
+      - launch_id
+      - launch_ordinal
+      - task_state_rows
+      - task_state_set_sha256
+      - payload_sha256
+    recovery_task_state_row_fields_exact:
+      - task_id
+      - task_spec_sha256
+      - attempt_id
+      - attempt_origin_binding
+      - last_durable_phase
+      - last_phase_reference
+      - prediction_authority_state
+      - label_authority_state
+      - allowed_next_action
+      - observed_authority_references
+    recovery_observed_authority_reference_keys_exact:
+      - attempt_roster
+      - attempt_ledger
+      - child_ready
+      - phase_receipts
+      - result_artifacts
+      - prediction_permit
+      - prediction_claim
+      - label_permit
+      - label_claim
+      - quarantine_events
+    recovery_observed_authority_reference_values: exact_null_single_reference_or_task_local_path_ordered_reference_list_as_implied_by_authority_type
+    recovery_last_durable_phase_allowed_exact: [null, execution.started, training.completed, outer_prediction.completed, outer_eval.started, outer_eval.completed, bundle.completed, result.completed]
+    recovery_prediction_authority_states_exact: [unused_permit_only, consumed_claim_only, invalid_neither, invalid_both]
+    recovery_label_authority_states_exact: [unused_permit_only, consumed_claim_only, invalid_neither, invalid_both]
+    recovery_no_attempt_row_rule: null_attempt_id_origin_last_phase_and_last_reference_only_when_every_attempt_scientific_and_quarantine_authority_reference_is_null_or_empty
+    recovery_attempted_row_rule: nonnull_exact_attempt_id_origin_and_contiguous_phase_prefix_with_every_observed_reference_authenticated
+    recovery_task_state_row_count_exact: 126
+    recovery_task_state_row_order: task_id_order
+    recovery_allowed_next_actions_exact:
+      - fresh_fit_once_only_if_no_attempt_authority_exists_anywhere
+      - promote_prediction_permit_and_predict_once
+      - promote_label_permit_and_evaluate_once
+      - bundle_from_persisted_evaluation
+      - result_from_persisted_bundle
+      - verify_completed
+      - fail_closed
+    recovery_next_action_semantics:
+      no_attempt_authority_and_both_unused_permits: fresh_fit_once_only_if_no_attempt_authority_exists_anywhere
+      execution_started_or_incomplete_training: fail_closed
+      training_completed_and_unused_prediction_permit_only: promote_prediction_permit_and_predict_once
+      outer_prediction_completed_and_unused_label_permit_only: promote_label_permit_and_evaluate_once
+      outer_eval_started_or_invalid_authority_state: fail_closed
+      outer_eval_completed: bundle_from_persisted_evaluation
+      bundle_completed: result_from_persisted_bundle
+      result_completed: verify_completed
+    recovery_snapshot_rule: closed_world_no_symlink_scan_of_every_task_roster_attempt_child_phase_result_prediction_label_and_quarantine_authority_with_exact_raw_references
+    recovery_task_state_set_sha256: sha256_of_canonical_json_of_exact_ordered_task_state_rows
+    recovery_payload_sha256: sha256_of_canonical_json_of_all_exact_top_level_keys_except_payload_sha256
+    controller_ready_path_rule: 'runtime/worker_ready/<launch_id>/slot_<zero_padded_two_digit_slot_index>.json'
+    controller_ready_contract_exact: openaxes.external.native_sensor_experts.v2.controller_ready.v1
+    controller_ready_top_level_keys_exact:
+      - contract
+      - schema_version
+      - execution_session_id
+      - launch_id
+      - launch_ordinal
+      - transport_slot_index
+      - local_slot
+      - controller_uuid
+      - controller_pid
+      - controller_process_start_time_ticks
+      - gpu_reference
+      - cuda_visible_devices
+      - torch_imported
+      - execution_session_reference
+      - launch_started_reference
+      - controller_source_sha256
+      - environment_sha256
+      - source_set_sha256
+      - task_assignment_sha256
+      - slot_assignment_sha256
+      - pre_fit_validation_sha256
+      - created_at_utc
+      - payload_sha256
+    controller_ready_semantics:
+      schema_version_exact: 1
+      controller_uuid_rule: UUIDv5_namespace_execution_session_id_name_launch_id_colon_transport_slot_index
+      controller_pid_rule: positive_integer_matching_live_writer_process
+      process_start_time_rule: positive_OS_process_start_ticks_matching_live_writer
+      gpu_reference_fields_exact: [physical_index, uuid, pci_bus_id, name]
+      gpu_reference_must_equal_slot_assignment_and_authenticated_inventory: true
+      cuda_visible_devices_must_equal_exact_gpu_uuid: true
+      torch_imported_exact: false
+      every_hash_and_reference_must_equal_launch_session_and_prefit_truth: true
+      payload_sha256: sha256_of_canonical_json_of_all_exact_top_level_keys_except_payload_sha256
+    launch_ready_contract_exact: openaxes.external.native_sensor_experts.v2.launch_ready.v1
+    launch_ready_top_level_keys_exact:
+      - contract
+      - schema_version
+      - execution_session_id
+      - launch_id
+      - launch_ordinal
+      - launch_started_reference
+      - ordered_controller_ready_references
+      - controller_ready_set_sha256
+      - payload_sha256
+    launch_ready_semantics:
+      schema_version_exact: 1
+      ordered_controller_ready_reference_count_exact: 12
+      reference_order: transport_slot_index_ascending
+      controller_ready_set_sha256: sha256_of_canonical_json_of_exact_ordered_raw_controller_ready_references
+      all_twelve_live_controller_pid_start_identities_verified_immediately_before_launch_ready_O_EXCL: true
+      payload_sha256: sha256_of_canonical_json_of_all_exact_top_level_keys_except_payload_sha256
+    launch_started_controller_ready_and_launch_ready_creation: O_CREAT_O_EXCL_regular_nonsymlink_fsync_file_then_parent_directory
+    each_launch_has_exact_12_worker_ready_receipts_and_one_launch_ready_receipt: true
+    launch_zero_directory_members_exact: [launch.started.json, launch.ready.json]
+    later_launch_directory_members_exact: [recovery_snapshot.json, launch.started.json, launch.ready.json]
+    worker_ready_launch_directory_members_exact: slot_00.json_through_slot_11.json
+    missing_extra_symlink_special_malformed_or_empty_launch_or_worker_ready_member_policy: fail_closed
+    task_assignment_and_gpu_slot_mapping_immutable_across_launches: true
+    no_child_may_start_before_exact_launch_ready_validates: true
+    later_launch_may_only_execute_exact_recovery_snapshot_allowed_next_action: true
+    later_launch_may_fresh_fit_only_a_task_with_no_attempt_or_scientific_authority_evidence_anywhere: true
+    later_launch_cannot_create_second_attempt_refit_repeat_forward_or_repeat_label_read: true
+  child_ready:
+    path_rule: 'runtime/child_ready/<launch_id>/<child_uuid>.json'
+    contract_exact: openaxes.external.native_sensor_experts.v2.child_ready.v1
+    schema_version_exact: 1
+    top_level_keys_exact:
+      - contract
+      - schema_version
+      - execution_session_id
+      - launch_id
+      - launch_ordinal
+      - task_id
+      - task_spec_sha256
+      - attempt_id
+      - child_role
+      - slot_child_ordinal
+      - child_uuid
+      - child_pid
+      - child_process_start_time_ticks
+      - parent_controller_uuid
+      - parent_controller_pid
+      - transport_slot_index
+      - local_slot
+      - gpu_reference
+      - cuda_visible_devices
+      - torch_imported_after_visible_device_binding
+      - torch_cuda_is_available
+      - torch_cuda_device_count
+      - torch_cuda_current_device
+      - observed_current_device_uuid
+      - observed_current_device_pci_bus_id
+      - observed_current_device_name
+      - cuda_identity_probe
+      - launch_ready_reference
+      - controller_ready_reference
+      - controller_source_sha256
+      - environment_sha256
+      - source_set_sha256
+      - task_assignment_sha256
+      - slot_assignment_sha256
+      - comparator_bundle_sha256
+      - pre_fit_validation_sha256
+      - created_at_utc
+      - payload_sha256
+    child_roles_exact:
+      - fresh_fit_full_task
+      - recovery_outer_prediction
+      - recovery_outer_evaluation
+      - recovery_bundle_only
+      - recovery_result_only
+      - recovery_verify_only
+    child_uuid_rule: UUIDv5_namespace_execution_session_id_name_launch_id_colon_transport_slot_index_colon_slot_child_ordinal_colon_task_id_colon_attempt_id_colon_child_role
+    slot_child_ordinal_rule: zero_based_contiguous_FIFO_child_start_ordinal_within_exact_launch_and_transport_slot
+    process_identity_rule: child_pid_and_OS_start_ticks_match_live_receipt_writer_and_parent_pid_uuid_match_authenticated_live_controller
+    exact_lineage_rule: session_launch_task_attempt_slot_gpu_controller_source_environment_source_assignment_parent_and_prefit_fields_equal_authenticated_receipts
+    cuda_visible_devices_all_roles: exact_assigned_gpu_uuid_inherited_from_authenticated_slot_controller
+    cuda_required_roles: [fresh_fit_full_task, recovery_outer_prediction]
+    cuda_required_role_exact_values:
+      cuda_visible_devices: exact_assigned_gpu_uuid
+      torch_imported_after_visible_device_binding: true
+      torch_cuda_is_available: true
+      torch_cuda_device_count: 1
+      torch_cuda_current_device: 0
+    cuda_identity_probe_rule: query_current_visible_ordinal_zero_through_CUDA_runtime_and_torch_after_torch_initialization_not_environment_echo_or_inventory_copy
+    cuda_identity_probe_fields_exact:
+      - uuid_api
+      - uuid_return_code
+      - pci_bus_id_api
+      - pci_bus_id_return_code
+      - name_api
+      - visible_ordinal
+    cuda_identity_probe_required_values:
+      uuid_api: cudaDeviceGetUuid
+      uuid_return_code: 0
+      pci_bus_id_api: cudaDeviceGetPCIBusId
+      pci_bus_id_return_code: 0
+      name_api: torch.cuda.get_device_name
+      visible_ordinal: 0
+    observed_uuid_serialization: literal_GPU_dash_then_lowercase_8_4_4_4_12_hex_groups_from_cudaUUID_t_bytes
+    observed_pci_bus_id_serialization: uppercase_hex_domain_bus_device_function_exactly_matching_authenticated_nvidia_smi_inventory
+    observed_name_serialization: exact_unmodified_torch_cuda_get_device_name_string
+    observed_uuid_pci_bus_id_and_name_must_exactly_equal_assigned_authenticated_gpu_reference: true
+    noncuda_role_exact_values:
+      torch_imported_after_visible_device_binding: false
+      torch_cuda_is_available: null
+      torch_cuda_device_count: null
+      torch_cuda_current_device: null
+      observed_current_device_uuid: null
+      observed_current_device_pci_bus_id: null
+      observed_current_device_name: null
+      cuda_identity_probe: null
+    fresh_fit_role_rules:
+      one_and_only_one_per_task_at_COMPLETE: true
+      attempt_roster_and_attempt_ledger_exist_before_controller_spawns_child: true
+      execution_started_does_not_exist_before_child_ready_is_durable: true
+      task_candidate_fold_seed_and_transport_slot_match_exact_task_assignment: true
+    recovery_role_rule: role_must_equal_recovery_snapshot_allowed_next_action_and_may_not_authorize_fit
+    payload_sha256: sha256_of_canonical_json_of_all_exact_top_level_keys_except_payload_sha256
+    creation: child_writer_O_CREAT_O_EXCL_regular_nonsymlink_fsync_file_then_parent_directory
+    closed_world_join:
+      every_child_ready_must_reference_one_valid_launch_ready_and_controller_ready: true
+      every_phase_executor_binding_must_reference_one_exact_child_ready: true
+      every_child_ready_must_be_referenced_by_at_least_one_phase_or_fail_closed_recovery_snapshot: true
+      orphan_unknown_duplicate_resealed_or_cross_task_child_receipt_policy: fail_closed
+      no_missing_empty_or_malformed_launch_ready_controller_ready_or_child_ready_directory_allowed: true
+  COMPLETE_requirements:
+    exact_126_result_completed_phase_chains: true
+    exact_126_semantically_validated_results: true
+    no_incomplete_ambiguous_or_quarantined_task: true
+    recompute_task_roster_source_parent_environment_gpu_reports_and_all_artifact_hashes: true
+    development_manifest_contains_task_id_ordered_exact_result_completed_phase_raw_references: true
+    every_final_phase_reference_revalidated_against_runtime_ledger_before_COMPLETE: true
+    primary_gate_evaluated_exactly_once: true
+    marker_created_O_CREAT_O_EXCL_after_development_manifest_fsync: true
+
+outer_label_capability_acceptance:
+  boundary_strength: application_level_capability_and_api_boundary_not_OS_or_process_file_permission_separation
+  implementation_boundary:
+    trainer_signature_has_no_outer_feature_or_label_argument: true
+    checkpoint_selector_signature_has_no_outer_feature_or_label_argument: true
+    outer_feature_loader_projects_only_metadata_and_exact_36_continuous_features: true
+    outer_feature_loader_return_type_cannot_contain_target_columns: true
+    predictor_accepts_only_checkpoint_transform_and_feature_only_batch: true
+    label_loader_and_task_evaluator_require_opaque_single_use_capability: true
+    capability_bound_to_task_attempt_prediction_reference_and_outer_eval_started_reference: true
+    capability_also_bound_to_consumed_outer_label_claim_reference: true
+    capability_minted_only_after_outer_eval_started_O_EXCL_and_fsync: true
+    capability_consumption_count: 1
+    capability_serialization_copy_or_reuse_allowed: false
+    direct_parquet_or_target_loader_import_in_training_or_prediction_module_allowed: false
+  mandatory_source_tests:
+    - exact_task_000_through_task_125_specs_semantic_hash_index_assignment_and_slot_roster_round_trip
+    - balanced_interleaved_slot_mapping_yields_exact_33_33_30_30_gpu_fit_counts_without_changing_126_fit_grid
+    - all_seven_phase_payload_closed_schemas_payload_hashes_phase_hashes_and_raw_previous_references_reject_tamper
+    - immutable_attempt_origin_and_actual_per_phase_executor_launch_child_lineage_reject_reseal_or_remap
+    - execution_session_prefit_launch_controller_ready_and_recovery_snapshot_closed_schemas_reject_unknown_missing_or_forged_fields
+    - every_launch_requires_exact_all_twelve_controller_ready_receipts_and_rejects_empty_or_orphan_ready_evidence
+    - exactly_126_fresh_fit_child_receipts_cross_join_tasks_attempts_phases_and_authenticated_gpu_slots
+    - fit_and_prediction_child_reject_wrong_device_count_current_device_uuid_pci_name_pid_parent_or_probe_source
+    - trainer_rejects_outer_features_labels_and_unknown_keyword_arguments
+    - checkpoint_selection_opener_spy_observes_zero_outer_feature_and_label_opens
+    - feature_loader_schema_has_no_tcp_target_or_target_alias
+    - predictor_opener_spy_observes_zero_label_opens
+    - label_loader_rejects_missing_wrong_task_wrong_attempt_wrong_prediction_or_spent_capability
+    - outer_eval_started_is_durable_before_first_label_opener_call
+    - successful_task_observes_exactly_one_label_read_and_one_evaluator_call_for_all_five_views
+    - crash_after_execution_started_refuses_refit
+    - crash_after_prediction_claim_refuses_reforward
+    - deleted_prediction_claim_with_consumed_permit_refuses_reforward
+    - crash_after_outer_eval_started_refuses_label_reread_and_evaluator_recall
+    - deleted_outer_eval_phase_or_label_claim_with_consumed_label_permit_refuses_label_reread
+    - interrupted_permit_claim_promotion_with_both_paths_refuses_scientific_action
+    - recovery_after_outer_eval_completed_bundles_without_source_truth_open
+    - recovery_after_bundle_completed_writes_result_without_scientific_action
+    - completed_task_validation_uses_persisted_rows_and_never_source_truth
+    - ast_closure_rejects_direct_label_loader_or_preparation_truth_import_from_trainer_and_predictor
+  test_data_policy: synthetic_only_no_real_prepared_or_outer_rows
+  acceptance_rule: every_mandatory_test_passes_under_exact_eval_lock_before_source_audit_and_before_execution
+  any_missing_skipped_xfailed_or_flaky_capability_test_policy: fail_closed
+
+aggregation:
+  prediction_unit: raw_metres
+  seed_ensemble: arithmetic_mean_of_three_raw_prediction_vectors_before_any_metric
+  seed_order: [1701, 2603, 3907]
+  outer_rmse3d_formula: sqrt_of_mean_over_rows_of_sum_xyz_raw_metre_squared_error
+  primary_outage_contexts_per_candidate: 32
+  primary_full_contexts_per_candidate: 8
+  fold_outage_score: arithmetic_mean_of_four_outage_rmse3d_values_for_the_held_out_scenario
+  A_mean_context: arithmetic_mean_of_all_8_by_4_primary_outage_rmse3d_values
+  WS_worst_scenario: maximum_of_8_fold_outage_scores
+  WM_worst_mask: maximum_over_4_masks_of_the_arithmetic_mean_across_8_held_out_scenarios
+  robust_J: arithmetic_mean_of_A_mean_context_WS_worst_scenario_and_WM_worst_mask
+  full_F: half_times_mean_of_8_primary_full_rmse3d_values_plus_half_times_their_maximum
+  per_seed_J: same_robust_J_formula_using_one_seed_predictions_without_seed_ensemble
+  metric_and_gate_arithmetic_dtype: float64
+  lower_is_better: true
+
+primary_gates:
+  scope: scenario_loso_only
+  strict_improvement_guard_m: 1.0e-12
+  full_nonharm_tolerance_m: 1.0e-12
+  equality_is_strict_improvement: false
+  contrast_order:
+    - A_vs_frozen_v1_masked_erm
+    - B_vs_A
+    - C_vs_B
+  A_vs_frozen_v1_masked_erm:
+    challenger: dense_6979__scenario_balanced_masked_erm
+    comparator: receipt_bound_frozen_v1_masked_erm
+    exact_seed_fold_view_context_identity_required: true
+  B_vs_A:
+    challenger: sensor_experts_6979__scenario_balanced_masked_erm
+    comparator: dense_6979__scenario_balanced_masked_erm
+    exact_seed_fold_view_context_identity_required: true
+  C_vs_B:
+    challenger: sensor_experts_6979__scenario_balanced_cagrad
+    comparator: sensor_experts_6979__scenario_balanced_masked_erm
+    exact_seed_fold_view_context_identity_required: true
+  required_for_each_contrast:
+    robust_J_strictly_lower_by_more_than_guard: true
+    WM_strictly_lower_by_more_than_guard: true
+    minimum_strict_fold_outage_score_wins: 6
+    fold_count: 8
+    minimum_strict_per_seed_J_wins: 2
+    seed_count: 3
+    full_F_not_greater_than_comparator_plus_tolerance: true
+  all_five_requirements_must_pass_within_each_contrast: true
+  all_three_contrasts_must_pass_for_primary_claim: true
+  partial_pass_language_allowed: descriptive_table_only_not_success
+  gate_evaluations_allowed: exactly_once_after_all_fixed_v2_predictions_are_complete
+  missing_nonfinite_or_context_mismatched_gate_input_policy: fail_closed
+
+report_only_analyses:
+  stress_folds:
+    families:
+      - speed_pair_out
+      - shape_out
+    report_all_candidate_fold_view_rmse3d: true
+    may_select_gate_tune_or_change_claim: false
+  signed_target_shift:
+    shifts_ms: [-50, -20, -10, 10, 20, 50]
+    zero_shift_predictions_source: persisted_fixed_seed_ensemble_predictions
+    model_refit_allowed: false
+    additional_model_forward_allowed: false
+    additional_checkpoint_selection_allowed: false
+    target_reconstruction_api_owner: openaxes.external.preparation.v1
+    target_lookup_rule: base_aligned_time_us_plus_shift_ms_times_1000
+    extrapolation_allowed: false
+    pairing_key: row_uid
+    canonical_public_signed_truth_reconstruction_calls: 1
+    signed_task_evaluator_calls: 0
+    fixed_preparation_requires_zero_dropped_edges: true
+    nonzero_dropped_edge_policy: fail_closed_signed_report_incomplete_without_changing_primary_gate
+    candidates_reported: 3
+    folds_reported: 14
+    views_reported: 5
+    candidate_fold_shift_ensemble_cells: 252
+    candidate_fold_shift_view_metric_cells: 1260
+    report_candidate_fold_view_rmse3d_and_primary_robust_J: true
+    report_shift_minus_zero_deltas: true
+    dropped_edge_counts_and_uid_support_hashes_required: true
+    may_select_gate_tune_or_change_claim: false
+
+exact_accounting:
+  scientific_fits:
+    primary: 72
+    stress: 54
+    total: 126
+  optimizer_updates:
+    per_fit: 400
+    per_candidate: 16800
+    total: 50400
+  training_model_forward_calls:
+    per_update: 1
+    per_candidate: 16800
+    total: 50400
+    view_equivalent_total: 252000
+  checkpoint_model_forward_calls:
+    per_update: 1
+    per_candidate: 16800
+    total: 50400
+    view_equivalent_total: 252000
+  outer_model_forward_calls:
+    per_fit: 1
+    total: 126
+    view_equivalent_total: 630
+  all_model_forward_calls:
+    total: 100926
+    view_equivalent_total: 504630
+  parameter_gradient_traversals:
+    candidate_A: 16800
+    candidate_B: 16800
+    candidate_C: 84000
+    total: 117600
+    composite_assembly_extra: 0
+  cagrad_solver_calls:
+    candidate_C: 16800
+    total: 16800
+  zero_shift_outer_feature_loader_calls: 126
+  zero_shift_outer_label_reads: 126
+  zero_shift_task_evaluator_calls: 126
+  seed_level_outer_view_prediction_blocks: 630
+  seed_ensemble_candidate_fold_view_blocks: 210
+  v1_receipt_scientific_fits_updates_forwards_or_evaluator_calls: 0
+  signed_shift_scientific_fits_or_model_forwards: 0
+  signed_shift_canonical_public_truth_reconstruction_calls: 1
+  signed_shift_task_evaluator_calls: 0
+  preexecution_preflight:
+    role: config_hash_parameter_arithmetic_source_and_synthetic_unit_validation_only
+    scientific_fits: 0
+    prepared_data_model_forwards: 0
+    prepared_data_gradient_traversals: 0
+    optimizer_updates: 0
+    outer_feature_reads: 0
+    outer_label_reads: 0
+    task_evaluator_calls: 0
+    synthetic_unit_operations_count_as_scientific_work: false
+
+source_closure:
+  preregistration_files_exact:
+    - configs/openaxes_external_native_v2.yaml
+    - docs/OPENAXES_EXTERNAL_NATIVE_V2_CONTRACT.md
+  future_v2_execution_closure_files_exact:
+    - configs/openaxes_external_native_v2.yaml
+    - docs/OPENAXES_EXTERNAL_NATIVE_V2_CONTRACT.md
+    - docs/OPENAXES_EXTERNAL_NATIVE_V2_PARENT_RECEIPT_CONTRACT.md
+    - requirements-eval.lock
+    - requirements-gpu.lock
+    - src/imu_vive_learning/__init__.py
+    - src/imu_vive_learning/io_utils.py
+    - src/imu_vive_learning/openaxes_external_native_v2_config.py
+    - src/imu_vive_learning/openaxes_external_native_v2_experiment.py
+    - src/imu_vive_learning/openaxes_external_native_v2_parent_receipt.py
+    - src/imu_vive_learning/openaxes_external_native_v2_training.py
+    - tests/test_openaxes_external_native_v2_config.py
+    - tests/test_openaxes_external_native_v2_experiment.py
+    - tests/test_openaxes_external_native_v2_parent_receipt.py
+    - tests/test_openaxes_external_native_v2_training.py
+  future_v2_execution_closure_file_count: 15
+  parent_runtime_source_sets:
+    preparation_public_api: exact_source_set_sha256_from_preparation_receipt
+    predecessor_model_code_execution: prohibited_receipt_data_only
+  execution_source_set_status_at_preregistration: required_parent_auditor_and_v2_implementation_test_doc_files_do_not_yet_exist
+  missing_future_source_path_blocks_execution_but_does_not_invalidate_this_preregistration: true
+  source_file_hash_algorithm: sha256_of_raw_file_bytes
+  canonical_yaml_digest_algorithm: sha256_of_utf8_json_sort_keys_true_separators_comma_colon_allow_nan_false_excluding_loader_private_keys
+  source_set_file_record_fields: [path, bytes, sha256]
+  source_set_digest_payload_fields: [contract, canonical_config_sha256, files]
+  source_set_files_representation: path_sorted_list_of_exact_path_bytes_sha256_records
+  source_set_digest_algorithm: sha256_of_utf8_canonical_json_sort_keys_true_separators_comma_colon_allow_nan_false
+  execution_source_set_receipt_location: runtime/source_set.json
+  execution_source_set_receipt_must_bind_every_exact_v2_closure_path_and_no_extra_v2_executable_source: true
+  normal_package_import_executes_bound_src_imu_vive_learning_init_py: true
+  undeclared_project_source_import_policy: fail_closed
+  execution_source_set_receipt_must_bind_v1_terminal_receipt_raw_sha256: true
+  execution_source_set_receipt_must_bind_parent_auditor_source_audit_and_comparator_bundle_sha256: true
+  execution_source_set_receipt_must_bind_preparation_manifest_and_table_hashes: true
+  execution_source_set_receipt_must_bind_both_exact_lock_references: true
+  execution_source_set_receipt_must_bind_environment_gpu_roster_and_slot_assignment_sha256: true
+  implementation_source_set_hash_must_be_computed_after_all_future_files_exist: true
+  fake_placeholder_or_preregistered_future_hash_allowed: false
+  source_or_config_drift_after_preexecution_audit_policy: fail_closed
+  runtime_import_allowed_sets: python_standard_library_frozen_third_party_lock_exact_v2_source_set_and_receipt_bound_preparation_public_api
+  mandatory_v2_source_test_invocation:
+    python_executable: canonical_absolute_realpath_of_the_exact_eval_environment_sys_executable
+    python_executable_sha256: sha256_of_raw_regular_nonsymlink_executable_bytes
+    python_version_exact: "3.12.3"
+    working_directory: canonical_absolute_project_root
+    argv_after_executable_exact:
+      - -P
+      - -m
+      - pytest
+      - -c
+      - /dev/null
+      - --noconftest
+      - -p
+      - no:cacheprovider
+      - -q
+      - tests/test_openaxes_external_native_v2_config.py
+      - tests/test_openaxes_external_native_v2_experiment.py
+      - tests/test_openaxes_external_native_v2_parent_receipt.py
+      - tests/test_openaxes_external_native_v2_training.py
+    environment_exact:
+      PYTHONHASHSEED: "0"
+      PYTHONPATH: src
+      PYTEST_DISABLE_PLUGIN_AUTOLOAD: "1"
+      PYTHONNOUSERSITE: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+      CUDA_VISIBLE_DEVICES: ""
+      LC_ALL: C.UTF-8
+      TZ: UTC
+      GIT_CONFIG_GLOBAL: /dev/null
+      GIT_CONFIG_NOSYSTEM: "1"
+      PATH: /usr/bin:/bin
+    PYTEST_ADDOPTS_must_be_absent: true
+    project_pyproject_pytest_configuration_read_allowed: false
+    repository_or_parent_conftest_loading_allowed: false
+    exact_argv_environment_executable_working_directory_and_zero_skipped_xfailed_bound_in_source_audit_receipt: true
+
+execution_preconditions:
+  v1_terminal_receipt_valid: required
+  v2_git_blob_and_ancestor_receipt_valid: required
+  parent_receipt_auditor_pre_v1_prepare_commit_and_source_audit_valid: required
+  comparator_only_masked_erm_bundle_valid: required
+  preregistration_hash_timing_audit_valid: required
+  literal_implementation_conformance_audit_valid: required
+  exact_source_set_receipt_valid: required
+  exact_gpu_and_eval_lock_references_valid: required
+  exact_runtime_versions_valid: required
+  exact_four_gpu_inventory_and_twelve_slot_assignment_valid: required
+  exact_task_spec_index_session_prefit_launch_and_ready_schemas_valid: required
+  exact_interleaved_slot_mapping_and_33_33_30_30_gpu_fit_roster_valid: required
+  preparation_artifact_semantically_validated_and_hash_bound: required
+  ordered_fold_uid_and_scenario_identity_hashes_valid: required
+  candidate_parameter_counts_equal_6979: required
+  candidates_b_and_c_initial_state_hashes_equal_per_fold_seed: required
+  candidate_a_and_v1_masked_erm_initial_state_hashes_equal_per_seed: required
+  state_hash_exact_v1_byte_serialization_valid: required
+  all_outer_label_capability_acceptance_tests_pass: required
+  all_126_fresh_fit_child_cuda_identity_receipts_and_phase_executor_joins_valid: required
+  closed_world_126_task_roster_and_empty_quarantine_valid: required
+  no_v1_result_value_in_config_doc_or_source: required
+  production_device: cuda
+  assigned_gpu_identity_and_preflight_receipt_required: true
+  challenge_route_absent: required
+  any_failed_precondition: prohibit_fit_and_outer_read
+
+claims_and_limitations:
+  components_status: known_components_combined_in_a_fixed_parameter_matched_protocol
+  allowed_inference: within_protocol_predictive_contrasts_on_the_declared_openaxes_folds
+  novelty_first_causal_proof_theorem_or_general_superiority_claim_allowed: false
+  architecture_contrast_B_vs_A_is_causal_effect_claim_allowed: false
+  optimization_contrast_C_vs_B_is_causal_effect_claim_allowed: false
+  public_recording_session_count: 1
+  new_or_additional_data_collection_allowed: false
+  independent_sessions: false
+  effective_scenario_clusters: 8
+  three_seeds_are_independent_experiments: false
+  overlapping_outer_folds_are_independent_replications: false
+  measured_complete_streams_with_synthetic_single_sensor_masks: true
+  actual_sensor_outage_observed: false
+  independent_external_validation: false
+  so101_confirmation: false
+  cross_installation_cross_hardware_deployment_or_closed_loop_control_validation: false
+  stress_and_signed_shift_are_report_only: true
+  outer_label_capability_is_OS_level_separation: false

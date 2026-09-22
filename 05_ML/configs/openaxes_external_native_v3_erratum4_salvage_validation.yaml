@@ -1,0 +1,199 @@
+contract:
+  name: openaxes.external.native_sensor_experts.v3.erratum4_salvage_validation
+  version: 1
+  status: preregistered_not_implemented_erratum4
+  role: additive_outcome_neutral_dual_lineage_parent_authority_overlay
+
+scope:
+  base_v3_erratum3_source_audit_commit: 540a46e95b32c7164aad3ecef58ba9e6630a2b0b
+  base_v3_erratum3_source_audit_path: receipts/openaxes_external_native_v3_preregistration_erratum3_source_audit.json
+  base_v3_erratum3_source_audit_bytes: 5584
+  base_v3_erratum3_source_audit_sha256: cda0ab8062acc235a2e38bc354ab379ebe6a27e1580530161a32c28b22db4d3c
+  base_v3_erratum3_source_audit_git_blob_oid: 65cceed315adab02dee51a1c1a545faf116fd558
+  all_prior_v3_audited_blobs_are_immutable: true
+  science_design_change: forbidden
+  candidate_model_view_parameter_training_fold_seed_metric_gate_execution_count_or_claim_change: forbidden
+  canonical_preparation_api_calls_during_erratum4_design: 0
+  run003_reads_during_erratum4_design: 0
+  scientific_outcome_payload_reads_during_erratum4_design: 0
+  scientific_fits_during_erratum4_design: 0
+
+v2_salvage_preissued_authority:
+  git_commit: 6a953c9996cc7ff446a1a6a3aa7e7c29ccc7044d
+  git_tree_oid: 943150f194fc5d5e7180966a7faa02c57dcd5790
+  erratum2_document:
+    path: docs/OPENAXES_EXTERNAL_NATIVE_V2_RUN003_RECOVERY_ERRATUM2.md
+    bytes: 4390
+    sha256: d053b8bed1aa7e427d06688b4978ad9bf6c48e105dd6b6da29a16bda682ae906
+    git_blob_oid: 94da89b25763e91ee16659b5f03a8ad0528c1fd7
+    git_mode: '100644'
+  salvage_preissue:
+    contract: openaxes.external.native_sensor_experts.v2.compound_recovery.salvage_preissue.v1
+    path: receipts/openaxes_external_native_v2_compound_recovery_salvage_preissue.json
+    bytes: 5149
+    sha256: 0b15daf0d47878d57a798a34bdc5df09092b4523dc1bd3070cf0653fe7a4f1b5
+    payload_sha256: 02ecc9a881ad6cef04ad4cd905ba7a6c1bcdaa205591167163d5881f225bd5a0
+    git_blob_oid: e6ad11ee6c558cf37d3b4e44490f9e28e15a4633
+    git_mode: '100644'
+  exact_two_authority_blob_set_hash_algorithm: sha256_of_canonical_json_array_in_document_then_preissue_order
+  exact_two_authority_blob_set_sha256: 707a75183f8de3581c627dfddd7e6d6fe2d290cfb9cebb2cbf622c487ee90991
+  failed_stage_raw_authority_must_come_only_from_pinned_preissue: true
+  v3_parent_may_not_open_failed_stage_scientific_payload: true
+
+dual_lineage:
+  original_recovery:
+    implementation_git_commit: c77e8bb30a5cb1040194b3b0ade35cbd78aa3977
+    source_audit_evidence_git_commit: 9cf2c36a47eb203ea07840b0410eec96c639fb43
+    source_audit_path: receipts/openaxes_external_native_v2_compound_recovery_source_audit.json
+    source_audit_bytes: 15299
+    source_audit_sha256: 887ba564fee0f701df2fa69e233600a0f7266df2cbb4ffde166bfb628ae7df4c
+    standard_terminal_contract: openaxes.external.native_sensor_experts.v2.compound_recovery.terminal.v1
+  salvage_recovery:
+    implementation_git_commit: supplied_by_validated_salvage_source_audit
+    source_audit_evidence_git_commit: supplied_by_validated_salvage_source_audit
+    source_audit_contract: openaxes.external.native_sensor_experts.v2.compound_recovery.salvage.source_audit.v1
+    terminal_contract: openaxes.external.native_sensor_experts.v2.compound_recovery.salvage.terminal.v1
+    implementation_commit_must_be_strict_ancestor_of_evidence_commit: true
+    evidence_commit_must_contain_exact_source_audit_blob: true
+    source_audit_must_bind_pinned_v2_erratum2_and_preissue_git_blobs: true
+    source_audit_must_bind_original_recovery_lineage: true
+  both_lineages_required_no_substitution: true
+  standard_and_salvage_terminals_jointly_required: true
+
+parent_gate_overlay:
+  boolean_operator: all_of_no_substitution
+  erratum3_gate_remains_required: true
+  erratum3_non_salvage_validation_records_do_not_satisfy_erratum4: true
+  validated_run003_complete_and_development_manifest_required: true
+  validated_standard_compound_terminal_required: true
+  validated_salvage_terminal_required: true
+  exact_ten_fresh_process_salvage_aware_validation_records_required: true
+  authority_cli_alone_is_sufficient: false
+  salvage_authority_envelope_validation_alone_is_sufficient: false
+  original_recovery_full_validate_required_inside_every_salvage_validation: true
+  any_failure_action: fail_before_v3_implementation
+
+salvage_aware_validation_process:
+  process_count: 10
+  execution_order: strictly_sequential_ordinals_0_through_9
+  fresh_python_process_per_ordinal: true
+  process_interpreter_or_validator_reuse: forbidden
+  salvage_module: imu_vive_learning.openaxes_external_native_v2_recovery_salvage
+  salvage_subcommand: validate
+  original_recovery_module: imu_vive_learning.openaxes_external_native_v2_recovery
+  original_recovery_subcommand: validate
+  original_full_validate_invocations_per_process: 1
+  salvage_full_validate_invocations_per_process: 1
+  original_full_validate_success_required_before_salvage_validation_success: true
+  all_roots_and_inputs_are_retained_no_follow_proc_self_fd_descriptors: true
+  input_fd_identity_and_raw_hash_equal_before_and_after_process: true
+  exit_code: 0
+  stdout_bytes: 0
+  stderr_bytes: 0
+  network_allowed: false
+  cuda_allowed: false
+  performance_payload_decode_by_parent_controller: forbidden
+
+validation_record:
+  contract: openaxes.external.native_sensor_experts.v3.parent_salvage_validation_record.v1
+  schema_version: 1
+  record_paths:
+    - parents/native_v2_compound_salvage_validations/validation_00.json
+    - parents/native_v2_compound_salvage_validations/validation_01.json
+    - parents/native_v2_compound_salvage_validations/validation_02.json
+    - parents/native_v2_compound_salvage_validations/validation_03.json
+    - parents/native_v2_compound_salvage_validations/validation_04.json
+    - parents/native_v2_compound_salvage_validations/validation_05.json
+    - parents/native_v2_compound_salvage_validations/validation_06.json
+    - parents/native_v2_compound_salvage_validations/validation_07.json
+    - parents/native_v2_compound_salvage_validations/validation_08.json
+    - parents/native_v2_compound_salvage_validations/validation_09.json
+  validation_ordinals: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  exact_keys:
+    - contract
+    - schema_version
+    - run_id
+    - validation_ordinal
+    - invocation_uuid_v4
+    - process_identity
+    - original_recovery_implementation_git_commit
+    - original_recovery_source_evidence_git_commit
+    - original_recovery_source_audit_reference
+    - salvage_implementation_git_commit
+    - salvage_source_evidence_git_commit
+    - salvage_source_audit_reference
+    - v2_salvage_erratum2_reference
+    - v2_salvage_preissue_reference
+    - corrected_stage_seal_reference
+    - standard_compound_terminal_reference
+    - salvage_terminal_reference
+    - run003_complete_reference
+    - run003_development_manifest_reference
+    - input_reference_set_sha256
+    - original_recovery_full_validate_exit_code
+    - salvage_validate_exit_code
+    - stdout_reference
+    - stderr_reference
+    - semantic_assertions
+    - scientific_values_disclosed
+    - payload_sha256
+  raw_reference_keys: [path, bytes, sha256]
+  exact_input_reference_order:
+    - original_recovery_source_audit_reference
+    - salvage_source_audit_reference
+    - v2_salvage_erratum2_reference
+    - v2_salvage_preissue_reference
+    - corrected_stage_seal_reference
+    - standard_compound_terminal_reference
+    - salvage_terminal_reference
+    - run003_complete_reference
+    - run003_development_manifest_reference
+  input_reference_set_hash_algorithm: sha256_of_canonical_json_array_in_exact_input_reference_order
+  semantic_assertions_exact:
+    original_recovery_full_validate_passed: true
+    salvage_aware_full_validate_passed: true
+    embedded_exact_seven_file_semantics_passed: true
+    frozen_full_run003_validator_passed: true
+    original_recovery_authority_validator_passed: true
+    salvage_authority_validator_passed: true
+    dual_source_lineage_and_git_object_validation_passed: true
+    failed_stage_and_corrected_stage_boundary_passed: true
+    standard_and_salvage_terminal_joint_validation_passed: true
+    run003_prestate_outside_exact_seven_outputs_unchanged: true
+    salvage_scientific_recomputation_count_zero: true
+    performance_values_disclosed: false
+  common_raw_references_and_commits_equal_across_all_ten: true
+  pid_start_ticks_and_invocation_uuid_unique_across_all_ten: true
+  scientific_values_disclosed: false
+  canonical_json_utf8_sorted_keys_compact_final_newline: true
+
+validation_receipt_set:
+  record_count: 10
+  record_reference_keys: [path, bytes, sha256]
+  record_reference_order: validation_record.record_paths
+  set_hash_algorithm: sha256_of_canonical_json_array_of_exact_record_references_in_validation_ordinal_order
+  parent_receipt_required_fields:
+    - salvage_validation_record_references
+    - salvage_validation_receipt_set_sha256
+    - original_recovery_source_audit_reference
+    - original_recovery_source_evidence_git_commit
+    - salvage_source_audit_reference
+    - salvage_source_evidence_git_commit
+    - v2_salvage_erratum2_reference
+    - v2_salvage_preissue_reference
+    - corrected_stage_seal_reference
+    - standard_compound_terminal_reference
+    - salvage_terminal_reference
+    - run003_complete_reference
+    - run003_development_manifest_reference
+  parent_common_references_and_commits_must_equal_every_record: true
+  missing_extra_duplicate_reordered_or_noncanonical_record_action: fail_parent_gate
+
+preregistration_authority:
+  exact_preregistered_paths:
+    - configs/openaxes_external_native_v3_erratum4_salvage_validation.yaml
+    - docs/OPENAXES_EXTERNAL_NATIVE_V3_ERRATUM4_SALVAGE_VALIDATION_CONTRACT.md
+    - receipts/openaxes_external_native_v3_preregistration_erratum4_preissue.json
+  source_audit_receipt_path: receipts/openaxes_external_native_v3_preregistration_erratum4_source_audit.json
+  source_audit_contract: openaxes.external.native_sensor_experts.v3.preregistration_erratum4_source_audit.v1
+  implementation_or_parent_validation_before_source_audit_evidence_commit: forbidden

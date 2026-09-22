@@ -1,0 +1,373 @@
+contract:
+  name: alphaf.endpoint_regression.gpu_experiment.outage_v3
+  parent_contract: alphaf.endpoint_regression.gpu_experiment.robust_v2
+  base_seed: 20260824
+  research_status: prospective_reused_session_sensor_outage_development
+  label_frame: vive_world
+  label_unit: mm
+  frozen_before_challenge_label_access: true
+  prior_v1_v2_results_observed: true
+  independent_session_available: false
+  confirmatory_claim_allowed: false
+
+lineage:
+  gpu_v1_config_sha256: 9bda3280b91351bd00f67faece111454c9807d277463683d5a3c409747dc4402
+  robust_v2_config_sha256: ed28b16cde0be391b1c893003a58bd26c4de57df144e6e1cdf64c7a1dca8339a
+  preparation_release_sha256: 94deccb960b0554fb9a683875d36ef5726afc825d4b4ea244a1490f3353b1930
+  frozen_predecessors_are_immutable: true
+
+development_release:
+  archive: ../06_simulation_and_data_collect_preparation/imu_added_experiment/ml_preparation_v1.zip
+  archive_sha256: 94deccb960b0554fb9a683875d36ef5726afc825d4b4ea244a1490f3353b1930
+  expected_contract: alphaf.ml_preparation.v1
+  expected_canonical_rows: 7707
+  expected_train_eligible_rows: 7702
+
+source:
+  archive: ../06_simulation_and_data_collect_preparation/imu_added_experiment/derived_dataset_archive.zip
+  member: derived/parquet/real_motion_demo/trials.parquet
+  archive_sha256: ceadf164a15a3ce302f8b2ffdde450df0f6d3a91c3b0c258a28acb5de9b92d64
+  member_sha256: 1b0a821a1822f237adadb1c978ea73da02b0e4bb7f099ce085a63931e9792b54
+  expected_rows: 10055
+  session_id: real_motion_demo
+  reject_git_lfs_pointer: true
+  immutable_read_only: true
+
+row_roles:
+  development:
+    segments: [36, 37, 38, 39]
+    expected_rows: 6635
+    expected_segment_rows:
+      36: 1672
+      37: 1597
+      38: 1707
+      39: 1659
+    sorted_trial_uid_hash_algorithm: sha256_of_newline_joined_lexicographically_sorted_strings
+    sorted_trial_uid_sha256: f8ef6f2ea62aa4e3591e8ea10fb195ade5fc0804342a5925a420039b2fd33ad0
+    population: existing_v1_canonical_complete_train_eligible_measured_rows
+    require_all_four_imu_summaries: true
+    labels_available_for_development_only: true
+  challenge:
+    segments: [40, 41]
+    population: label_blind_otherwise_v1_eligible_rows_exempting_imu1
+    expected_rows: 3295
+    expected_segment_rows:
+      40: 1672
+      41: 1623
+    ordered_trial_uid_hash_algorithm: sha256_of_compact_canonical_json_string_array
+    ordered_trial_uid_sha256: fa24e77ba5ce5f333bc4bfc5d7b75dd567d098651493ec89cda8dfbe9f12c0a1
+    identity_projection_excludes_vive_coordinate_labels: true
+    identity_projection_excludes_all_imu1_values: true
+    exempt_sensor_from_completeness_and_sample_count: imu1_link_root
+    require_other_three_imu_summaries: true
+    force_outage_sensor: imu1_link_root
+    recorded_imu1_values_must_not_be_projected_or_used: true
+    labels_sealed_until_final_model_and_prediction_freeze: true
+  pilot_segments_forbidden: [33, 34, 35]
+  no_row_may_cross_roles: true
+  no_synthetic_rows: true
+
+label_blind_eligibility:
+  require_keep_true: true
+  duration_s: [2.8, 3.2]
+  require_vive_tracking_valid_ratio: 1.0
+  min_vive_samples: 170
+  required_encoder_samples: 5
+  min_available_imu_samples: 28
+  encoder_active_ranges:
+    - [1160.0, 3083.0]
+    - [1202.0, 3186.0]
+    - [1937.0, 3968.0]
+  challenge_exempts_only:
+    - imu1_link_root_feature_finiteness
+    - imu1_link_root_sample_count
+  label_coordinate_values_must_not_affect_selection: true
+  nonfinite_label_after_unseal_action: fail_entire_challenge_without_row_filtering
+
+task:
+  input_view: fusion_v1_plus_imu_availability_v1
+  sensor_feature_view: fusion_v1
+  sensor_feature_count: 43
+  sensor_feature_allowlist_sha256: 1756b0aafb8ba4c9a740683d0a0d12236d8ee6e0065cfbe9fc6fb9d656345b6f
+  availability_features:
+    - imu0_base_available
+    - imu1_link_root_available
+    - imu2_link_mid_available
+    - imu3_tip_available
+  model_input_feature_count: 47
+  model_input_allowlist_sha256: ebd4c9b1087daeb3e6badcaad3ddfc1f3d0ef48951fa8d2c8599e16defa3b2a0
+  source_label_columns:
+    - vive_pos_x_m
+    - vive_pos_y_m
+    - vive_pos_z_m
+  labels:
+    - vive_pos_raw_x_mm
+    - vive_pos_raw_y_mm
+    - vive_pos_raw_z_mm
+  label_transform: source_vive_world_metres_times_1000
+  recipe: measured_real_only_with_training_time_sensor_masking
+  inference_forbidden_tokens: [vive, tracker, planned, target_id, segment, timestamp, qc, provenance]
+
+sensor_layout:
+  ordered_sensors:
+    - imu0_base
+    - imu1_link_root
+    - imu2_link_mid
+    - imu3_tip
+  per_sensor_feature_count: 10
+  per_sensor_feature_families:
+    euler_sine_cosine: 6
+    acceleration: 3
+    gyro_rms: 1
+  regrouping: explicit_signal_family_indices_to_four_by_ten
+  sensor_major_reshape_of_fusion_v1_forbidden: true
+
+preprocessing:
+  fit_scope: active_development_train_segments_only
+  continuous_feature_scaler: train_mean_and_population_std
+  constant_feature_scale: 1.0
+  fit_on_unmasked_complete_sensor_values: true
+  availability_bits: raw_binary_not_standardized
+  unavailable_sensor_imputation: exact_zero_after_standardization
+  imputation_before_standardization: forbidden
+  target_center: train_xyz_mean
+  target_scale: one_isotropic_scale
+  preserve_axis_weighting: true
+  challenge_statistics_forbidden: true
+
+masking:
+  training_policy: independent_categorical_per_row_per_epoch
+  states:
+    - state: full
+      probability: 0.25
+      availability: [1, 1, 1, 1]
+    - state: drop_imu0_base
+      probability: 0.1875
+      availability: [0, 1, 1, 1]
+    - state: drop_imu1_link_root
+      probability: 0.1875
+      availability: [1, 0, 1, 1]
+    - state: drop_imu2_link_mid
+      probability: 0.1875
+      availability: [1, 1, 0, 1]
+    - state: drop_imu3_tip
+      probability: 0.1875
+      availability: [1, 1, 1, 0]
+  allow_at_most_one_missing_imu: true
+  mask_draw_key: [base_seed, held_out_segment, forced_validation_outage, paired_seed_index, epoch, trial_uid]
+  mask_draw_excludes_candidate_id: true
+  paired_mask_schedule_across_trainable_candidates: true
+  validation_policy: force_exactly_the_context_outage_on_every_row
+  challenge_availability: [1, 0, 1, 1]
+
+splits:
+  development_segments: [36, 37, 38, 39]
+  held_out_segment_policy: leave_one_development_segment_out
+  forced_validation_outages:
+    - imu0_base
+    - imu1_link_root
+    - imu2_link_mid
+    - imu3_tip
+  expected_contexts_per_candidate: 16
+  context_cartesian_product: four_held_out_segments_by_four_single_imu_outages
+  training_segments_per_context: 3
+  validation_rows: measured_real_only
+  challenge_segments: [40, 41]
+  challenge_access_after_selection_only: true
+
+training:
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.001
+  batch_size: 128
+  epoch_budget: 400
+  ensemble_seed_count: 3
+  paired_seed_values: [20260824, 20260825, 20260826]
+  model_seed_policy: use_paired_seed_value_directly
+  dtype: float32
+  deterministic_algorithms: true
+  sampling_policy: deterministic_segment_balanced_largest_group_epoch
+  rows_per_segment_per_batch: floor_batch_size_divided_by_active_segment_count
+  smaller_segment_policy: deterministic_cycle_to_largest_group_epoch_length
+  endpoint_segment_weighting: equal_mean_over_active_training_segments
+  endpoint_loss: mean_squared_error_in_isotropically_scaled_xyz
+  checkpoint_rule: minimum_forced_outage_validation_rmse_3d_mm
+  equal_checkpoint_rmse_tie: earliest_epoch
+  checkpoint_evaluation_cadence: every_epoch
+  final_refit_epoch_rule: rounded_median_development_best_epoch_per_seed
+  all_scaler_model_epoch_and_blend_decisions_use_development_only: true
+
+candidates:
+  - candidate_id: masked_mlp
+    kind: trainable
+    backbone: plain_mlp
+    hidden_layer_sizes: [64, 64]
+    activation: relu
+    output_strategy: shared_xyz
+    auxiliary_loss: none
+  - candidate_id: residual_mlp
+    kind: trainable
+    backbone: gated_residual_mlp
+    width: 192
+    depth: 4
+    expansion: 2
+    activation: silu_gated
+    normalization: layer_norm
+    dropout: 0.0
+    auxiliary_loss: none
+  - candidate_id: tabm_batchensemble
+    kind: trainable
+    backbone: tabm_style_batchensemble_mlp
+    width: 128
+    depth: 3
+    expansion: 2
+    ensemble_size: 8
+    rank1_init_std: 0.1
+    activation: silu
+    normalization: layer_norm
+    dropout: 0.0
+    member_aggregation: arithmetic_mean_in_scaled_xyz
+    auxiliary_loss: none
+  - candidate_id: chain_endpoint_only
+    kind: trainable
+    backbone: encoder_conditioned_four_sensor_chain_message_passing
+    width: 96
+    depth: 4
+    expansion: 2
+    activation: silu
+    normalization: layer_norm
+    dropout: 0.0
+    endpoint_loss_weight: 1.0
+    masked_reconstruction_loss_weight: 0.0
+  - candidate_id: chain_masked_reconstruction
+    kind: trainable
+    backbone: encoder_conditioned_four_sensor_chain_message_passing
+    width: 96
+    depth: 4
+    expansion: 2
+    activation: silu
+    normalization: layer_norm
+    dropout: 0.0
+    endpoint_loss_weight: 1.0
+    masked_reconstruction_loss_weight: 0.1
+    reconstruction_target: unmasked_standardized_ten_features_of_deliberately_dropped_training_imu
+    reconstruction_loss: mean_squared_error_over_masked_features_only
+    no_masked_features_in_batch_loss: zero
+    challenge_reconstruction_target_available: false
+  - candidate_id: equal_blend_tabm_chain_reconstruction
+    kind: fixed_virtual_blend
+    components:
+      - candidate_id: tabm_batchensemble
+        weight: 0.5
+      - candidate_id: chain_masked_reconstruction
+        weight: 0.5
+    blend_space: inverse_transformed_vive_world_xyz_mm
+    learned_blend_weights: false
+    separate_training_fit: false
+
+selection:
+  scored_candidate_count: 6
+  trained_candidate_count: 5
+  context_count_per_candidate: 16
+  trainable_seeded_fit_count: 240
+  context_prediction: arithmetic_mean_of_three_paired_seed_predictions
+  context_prediction_space: inverse_transformed_vive_world_xyz_mm
+  virtual_blend_seed_pairing: same_paired_seed_index_before_seed_dispersion
+  primary_metric: rmse_3d_mm
+  score_name: outage_robust_j_mm
+  score_formula: "(mean_rmse_over_16_contexts_mm + worst_segment_mean_rmse_over_4_outages_mm + worst_sensor_mean_rmse_over_4_segments_mm) / 3"
+  mean_component:
+    aggregation: equal_mean_over_16_contexts
+  worst_segment_component:
+    within_segment_aggregation: equal_mean_over_four_forced_outages
+    across_segment_aggregation: maximum
+  worst_sensor_component:
+    within_sensor_aggregation: equal_mean_over_four_held_out_segments
+    across_sensor_aggregation: maximum
+  tie_break_order:
+    - mean_p95_3d_mm_over_16_contexts
+    - mean_seed_rmse_population_std_over_16_contexts
+    - listed_order
+  p95_quantile_method: linear
+  numeric_equality_abs_tolerance_mm: 1.0e-12
+  nonfinite_context_score: positive_infinity
+  missing_context_action: fail_closed_before_scoring
+  challenge_scores_can_trigger_selection_or_reselection: false
+
+final_refit:
+  data: all_development_rows_from_segments_36_39_only
+  selected_candidate_only: true
+  challenge_rows_in_training: forbidden
+  scaler_refit_on_all_development_rows: true
+  three_seed_ensemble: true
+  virtual_blend_refits_both_frozen_components: true
+  epoch_median_scope: per_candidate_per_paired_seed_over_16_contexts
+  epoch_rounding: half_up
+  mask_draw_held_out_segment_token: final_refit_all_development
+  mask_draw_forced_outage_sensor: imu1_link_root
+  mask_draw_reuses_training_key_recipe: true
+  exact_rounded_median_epoch_final_state: true
+  model_and_prediction_artifact_hashes_required_before_challenge_label_access: true
+
+challenge:
+  designation: retrospective_later_segment_single_imu_outage_challenge
+  forced_outage_sensor: imu1_link_root
+  segment_40_previously_observed_by_preparation_v1_and_gpu_v1_v2: true
+  segment_41_used_by_legacy_augmentation_preparation_v1_gpu_v1_or_robust_v2: false
+  primary_previously_unused_segment: 41
+  secondary_previously_observed_segment: 40
+  combined_two_segment_metrics_are_descriptive_only: true
+  freshness_claim_applies_only_to_segment_41: true
+  label_seal_scope: current_v3_raw_source_coordinate_projection_pass
+  parent_release_transiently_deserializes_historical_segment_40_labels: true
+  development_api_returns_segment_40_rows_or_labels: false
+  same_collection_session_as_development: true
+  independent_session: false
+  four_imu_confirmation: false
+  ordered_trial_uid_list_frozen_before_model_selection: true
+  selected_model_and_preprocessing_frozen_before_label_access: true
+  label_blind_predictions_hashed_before_label_access: true
+  maximum_source_label_access_passes: 1
+  access_log_required: true
+  evaluate_selected_frozen_model_only: true
+  report_metrics:
+    - per_segment_rmse_3d_mm
+    - equal_segment_macro_rmse_3d_mm
+    - per_segment_p95_3d_mm
+    - equal_segment_macro_p95_3d_mm
+    - pooled_rmse_3d_mm
+    - pooled_p95_3d_mm
+    - per_axis_bias_mae_rmse
+    - seed_dispersion
+  acceptance_gate: none_diagnostic_only
+  tuning_reselection_or_threshold_changes_after_access: forbidden
+  post_access_change_action: new_contract_and_current_challenge_becomes_development_evidence
+
+monitoring:
+  history_interval_epochs: 10
+  require_finite_loss_and_predictions: true
+  report_train_validation_gap: true
+  report_all_16_development_contexts: true
+  report_per_segment_and_per_sensor_components: true
+  report_seed_dispersion: true
+  require_durable_semantic_validation: true
+
+runtime:
+  gpu_count: 4
+  scheduling: one_process_per_gpu_independent_context_tasks
+  requested_gpu_utilization_is_not_a_model_selection_metric: true
+  artificial_model_scaling_for_utilization: false
+  cublas_workspace_config: ":4096:8"
+  python: "3.12"
+
+claim_boundaries:
+  current_output: static_trial_endpoint_in_raw_vive_world_mm_under_forced_single_imu_outage
+  retrospective_existing_corpus: true
+  not_independent_session_confirmation: true
+  not_four_imu_confirmation: true
+  not_robot_base_or_tcp_calibrated: true
+  not_dynamic_state_estimation: true
+  not_shapefk_or_formal_imu_only: true
+  not_deployment_ready: true
+  not_control_authority: true
+  method_novelty_requires_results_and_literature_comparison: true

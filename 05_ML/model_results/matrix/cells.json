@@ -1,0 +1,349 @@
+{
+  "cells": [
+    {
+      "cell_id": "dummy_mean__none__real_only",
+      "deployment_candidate": false,
+      "diagnostic_only": false,
+      "feature_view": "none",
+      "model": "dummy_mean",
+      "purposes": [
+        "baseline"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "extra_trees__encoder__real_only",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "encoder",
+      "model": "extra_trees",
+      "purposes": [
+        "sensor_comparison"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "extra_trees__four_imu__real_only",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "four_imu",
+      "model": "extra_trees",
+      "purposes": [
+        "sensor_comparison"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "extra_trees__fusion__cmixup_offline_v1",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "fusion",
+      "model": "extra_trees",
+      "purposes": [
+        "augmentation_comparison"
+      ],
+      "recipe": "cmixup_offline_v1"
+    },
+    {
+      "cell_id": "extra_trees__fusion__local_interp_v2",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "fusion",
+      "model": "extra_trees",
+      "purposes": [
+        "augmentation_comparison"
+      ],
+      "recipe": "local_interp_v2"
+    },
+    {
+      "cell_id": "extra_trees__fusion__real_only",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "fusion",
+      "model": "extra_trees",
+      "purposes": [
+        "augmentation_comparison",
+        "sensor_comparison"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "extra_trees__fusion__replay",
+      "deployment_candidate": false,
+      "diagnostic_only": false,
+      "feature_view": "fusion",
+      "model": "extra_trees",
+      "purposes": [
+        "augmentation_comparison"
+      ],
+      "recipe": "replay"
+    },
+    {
+      "cell_id": "extra_trees__fusion_mag__real_only",
+      "deployment_candidate": false,
+      "diagnostic_only": true,
+      "feature_view": "fusion_mag",
+      "model": "extra_trees",
+      "purposes": [
+        "shortcut_diagnostics"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "extra_trees__fusion_planned__real_only",
+      "deployment_candidate": false,
+      "diagnostic_only": true,
+      "feature_view": "fusion_planned",
+      "model": "extra_trees",
+      "purposes": [
+        "shortcut_diagnostics"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "extra_trees__planned_only__real_only",
+      "deployment_candidate": false,
+      "diagnostic_only": true,
+      "feature_view": "planned_only",
+      "model": "extra_trees",
+      "purposes": [
+        "shortcut_diagnostics"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "mlp__encoder__real_only",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "encoder",
+      "model": "mlp",
+      "purposes": [
+        "sensor_comparison"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "mlp__four_imu__real_only",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "four_imu",
+      "model": "mlp",
+      "purposes": [
+        "sensor_comparison"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "mlp__fusion__cmixup_offline_v1",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "fusion",
+      "model": "mlp",
+      "purposes": [
+        "augmentation_comparison"
+      ],
+      "recipe": "cmixup_offline_v1"
+    },
+    {
+      "cell_id": "mlp__fusion__local_interp_v2",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "fusion",
+      "model": "mlp",
+      "purposes": [
+        "augmentation_comparison"
+      ],
+      "recipe": "local_interp_v2"
+    },
+    {
+      "cell_id": "mlp__fusion__real_only",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "fusion",
+      "model": "mlp",
+      "purposes": [
+        "augmentation_comparison",
+        "sensor_comparison"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "mlp__fusion__replay",
+      "deployment_candidate": false,
+      "diagnostic_only": false,
+      "feature_view": "fusion",
+      "model": "mlp",
+      "purposes": [
+        "augmentation_comparison"
+      ],
+      "recipe": "replay"
+    },
+    {
+      "cell_id": "ridge__encoder__real_only",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "encoder",
+      "model": "ridge",
+      "purposes": [
+        "sensor_comparison"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "ridge__four_imu__real_only",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "four_imu",
+      "model": "ridge",
+      "purposes": [
+        "sensor_comparison"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "ridge__fusion__cmixup_offline_v1",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "fusion",
+      "model": "ridge",
+      "purposes": [
+        "augmentation_comparison"
+      ],
+      "recipe": "cmixup_offline_v1"
+    },
+    {
+      "cell_id": "ridge__fusion__local_interp_v2",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "fusion",
+      "model": "ridge",
+      "purposes": [
+        "augmentation_comparison"
+      ],
+      "recipe": "local_interp_v2"
+    },
+    {
+      "cell_id": "ridge__fusion__real_only",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "fusion",
+      "model": "ridge",
+      "purposes": [
+        "augmentation_comparison",
+        "sensor_comparison"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "ridge__fusion__replay",
+      "deployment_candidate": false,
+      "diagnostic_only": false,
+      "feature_view": "fusion",
+      "model": "ridge",
+      "purposes": [
+        "augmentation_comparison"
+      ],
+      "recipe": "replay"
+    },
+    {
+      "cell_id": "ridge__fusion_mag__real_only",
+      "deployment_candidate": false,
+      "diagnostic_only": true,
+      "feature_view": "fusion_mag",
+      "model": "ridge",
+      "purposes": [
+        "shortcut_diagnostics"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "ridge__fusion_planned__real_only",
+      "deployment_candidate": false,
+      "diagnostic_only": true,
+      "feature_view": "fusion_planned",
+      "model": "ridge",
+      "purposes": [
+        "shortcut_diagnostics"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "ridge__planned_only__real_only",
+      "deployment_candidate": false,
+      "diagnostic_only": true,
+      "feature_view": "planned_only",
+      "model": "ridge",
+      "purposes": [
+        "shortcut_diagnostics"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "xgboost__encoder__real_only",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "encoder",
+      "model": "xgboost",
+      "purposes": [
+        "sensor_comparison"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "xgboost__four_imu__real_only",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "four_imu",
+      "model": "xgboost",
+      "purposes": [
+        "sensor_comparison"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "xgboost__fusion__cmixup_offline_v1",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "fusion",
+      "model": "xgboost",
+      "purposes": [
+        "augmentation_comparison"
+      ],
+      "recipe": "cmixup_offline_v1"
+    },
+    {
+      "cell_id": "xgboost__fusion__local_interp_v2",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "fusion",
+      "model": "xgboost",
+      "purposes": [
+        "augmentation_comparison"
+      ],
+      "recipe": "local_interp_v2"
+    },
+    {
+      "cell_id": "xgboost__fusion__real_only",
+      "deployment_candidate": true,
+      "diagnostic_only": false,
+      "feature_view": "fusion",
+      "model": "xgboost",
+      "purposes": [
+        "augmentation_comparison",
+        "sensor_comparison"
+      ],
+      "recipe": "real_only"
+    },
+    {
+      "cell_id": "xgboost__fusion__replay",
+      "deployment_candidate": false,
+      "diagnostic_only": false,
+      "feature_view": "fusion",
+      "model": "xgboost",
+      "purposes": [
+        "augmentation_comparison"
+      ],
+      "recipe": "replay"
+    }
+  ]
+}

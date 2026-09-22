@@ -1,0 +1,16 @@
+{
+  "byteorder": "little",
+  "joblib": "1.5.3",
+  "machine": "AMD64",
+  "matplotlib": "3.11.1",
+  "numpy": "2.3.5",
+  "pandas": "2.3.3",
+  "platform": "Windows-11-10.0.26100-SP0",
+  "pyarrow": "21.0.0",
+  "python": "3.12.13",
+  "python_implementation": "CPython",
+  "scikit_learn": "1.9.0",
+  "scipy": "1.17.1",
+  "threadpoolctl": "3.6.0",
+  "xgboost": "3.3.0"
+}

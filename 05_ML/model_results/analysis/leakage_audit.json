@@ -1,0 +1,16 @@
+{
+  "actual_ensemble_oof_rows": 477524,
+  "assignment_contexts": 50,
+  "assignment_rows": 385100,
+  "ensemble_oof_duplicate_keys": 0,
+  "ensemble_oof_missing_rows": 0,
+  "ensemble_oof_wrong_id_sets": 0,
+  "ensemble_oof_wrong_truth_sets": 0,
+  "expected_ensemble_oof_rows": 477524,
+  "preprocessor_forbidden_uid_overlap": 0,
+  "primary_feature_leakage_fields": 0,
+  "rmse_relation_max_abs_error": 5.684341886080802e-14,
+  "selection_trace_test_uid_fields": 0,
+  "synthetic_test_rows": 0,
+  "synthetic_validation_rows": 0
+}

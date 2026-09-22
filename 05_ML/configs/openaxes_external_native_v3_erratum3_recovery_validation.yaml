@@ -1,0 +1,182 @@
+contract:
+  name: openaxes.external.native_sensor_experts.v3.erratum3_recovery_validation
+  version: 1
+  status: preregistered_not_implemented_erratum3
+  role: additive_outcome_neutral_parent_authority_overlay
+
+scope:
+  base_v3_contract: openaxes.external.native_sensor_experts.v3.allmask_dmome
+  base_v3_erratum: 2
+  base_v3_receipt_commit: f38a0213ed53f8698a9e12d23cc496f27084423d
+  base_v3_source_audit_path: receipts/openaxes_external_native_v3_preregistration_erratum2_source_audit.json
+  base_v3_source_audit_bytes: 8523
+  base_v3_source_audit_sha256: bc4519fd0a67ef1019d912302368965a6b165d2aea9d2adde68ecee5a4c906e8
+  base_v3_source_audit_git_blob_oid: 7d5993f772ba9c9fac4d975214b4e3361a02812e
+  prior_audited_blobs_are_immutable: true
+  candidate_model_view_hyperparameter_fold_seed_metric_gate_fit_update_forward_and_claim_changes: forbidden
+  scientific_outcome_payload_read_during_erratum3_design: false
+  canonical_preparation_api_calls_during_erratum3_design: 0
+  run003_reads_during_erratum3_design: 0
+  scientific_fits_during_erratum3_design: 0
+
+parent_gate_overlay:
+  boolean_operator: all_of_no_substitution
+  base_erratum2_compound_parent_gate_required: true
+  run003_complete_required: true
+  external_compound_terminal_required: true
+  recovery_aware_validation_receipt_set_required: true
+  authority_cli_validate_terminal_alone_is_sufficient: false
+  authority_cli_role: necessary_nested_raw_authority_check_only
+  recovery_module_cli_role: required_full_recovery_aware_semantic_validation
+  recovery_module: imu_vive_learning.openaxes_external_native_v2_recovery
+  recovery_module_subcommand: validate
+  recovery_module_validation_contract: openaxes.external.native_sensor_experts.v2.compound_recovery.validation.v1
+  external_terminal_contract: openaxes.external.native_sensor_experts.v2.compound_recovery.terminal.v1
+  source_audit_contract: openaxes.external.native_sensor_experts.v2.compound_recovery.source_audit.v1
+  required_fresh_process_successes: 10
+  execution_order: strictly_sequential_ordinals_0_through_9
+  process_reuse: forbidden
+  interpreter_reuse: forbidden
+  validator_object_reuse: forbidden
+  failed_or_signaled_process_action: fail_parent_gate
+  missing_extra_duplicate_reordered_or_noncanonical_record_action: fail_parent_gate
+
+recovery_module_cli:
+  exact_argument_order:
+    - validate
+    - --workspace-root
+    - inherited_workspace_directory_fd_path
+    - --run-dir
+    - inherited_run003_directory_fd_path
+    - --stage-dir
+    - inherited_external_stage_directory_fd_path
+    - --authority-dir
+    - inherited_external_authority_directory_fd_path
+    - --source-audit-fd
+    - inherited_recovery_source_audit_regular_fd_path
+    - --erratum-fd
+    - inherited_recovery_erratum_regular_fd_path
+    - --diagnostic-fd
+    - inherited_signed_diagnostic_regular_fd_path
+    - --original-source-evidence-commit
+    - exact_original_run003_source_evidence_commit
+    - --recovery-source-evidence-commit
+    - exact_recovery_source_audit_evidence_commit
+  all_path_arguments_must_be_retained_proc_self_fd_paths: true
+  directory_and_regular_file_descriptors_opened_no_follow_before_process_start: true
+  descriptors_remain_open_until_process_exit_and_post_validation_hashing: true
+  input_descriptor_identity_and_raw_hash_must_match_before_and_after_each_process: true
+  process_exit_code: 0
+  stdout_bytes: 0
+  stderr_bytes: 0
+  network_allowed: false
+  cuda_allowed: false
+  performance_value_decode_by_parent_controller: forbidden
+
+fresh_process_identity:
+  required_fields: [pid, proc_start_ticks, invocation_uuid_v4]
+  pid_and_proc_start_ticks_pair_unique_across_ten: true
+  invocation_uuid_v4_unique_across_ten: true
+  process_started_after_previous_process_exit: true
+  exactly_one_validate_cli_invocation_per_process: true
+
+validation_record:
+  contract: openaxes.external.native_sensor_experts.v3.parent_recovery_validation_record.v1
+  schema_version: 1
+  record_paths:
+    - parents/native_v2_compound_recovery_validations/validation_00.json
+    - parents/native_v2_compound_recovery_validations/validation_01.json
+    - parents/native_v2_compound_recovery_validations/validation_02.json
+    - parents/native_v2_compound_recovery_validations/validation_03.json
+    - parents/native_v2_compound_recovery_validations/validation_04.json
+    - parents/native_v2_compound_recovery_validations/validation_05.json
+    - parents/native_v2_compound_recovery_validations/validation_06.json
+    - parents/native_v2_compound_recovery_validations/validation_07.json
+    - parents/native_v2_compound_recovery_validations/validation_08.json
+    - parents/native_v2_compound_recovery_validations/validation_09.json
+  exact_keys:
+    - contract
+    - schema_version
+    - run_id
+    - validation_ordinal
+    - invocation_uuid_v4
+    - process_identity
+    - recovery_implementation_git_commit
+    - recovery_source_evidence_git_commit
+    - recovery_source_audit_reference
+    - stage_seal_reference
+    - external_compound_terminal_reference
+    - run003_complete_reference
+    - run003_development_manifest_reference
+    - input_reference_set_sha256
+    - cli_identity
+    - exit_code
+    - stdout_reference
+    - stderr_reference
+    - semantic_assertions
+    - scientific_values_disclosed
+    - payload_sha256
+  validation_ordinal_exact_values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  raw_reference_keys: [path, bytes, sha256]
+  input_reference_order:
+    - recovery_source_audit_reference
+    - stage_seal_reference
+    - external_compound_terminal_reference
+    - run003_complete_reference
+    - run003_development_manifest_reference
+  input_reference_set_hash_algorithm: sha256_of_canonical_json_array_in_exact_input_reference_order
+  common_reference_equality_across_all_ten: true
+  source_audit_must_embed_recovery_implementation_git_commit: true
+  source_audit_evidence_commit_must_contain_exact_source_audit_raw_blob: true
+  implementation_commit_must_be_strict_ancestor_of_source_evidence_commit: true
+  semantic_assertions_exact:
+    recovery_module_cli_validate_passed: true
+    embedded_exact_seven_file_semantics_passed: true
+    frozen_full_run003_validator_passed: true
+    recovery_authority_validator_passed: true
+    source_audit_live_git_object_validation_passed: true
+    staged_and_published_output_raw_references_equal: true
+    run003_prestate_outside_exact_seven_outputs_unchanged: true
+    signed_report_failure_isolated_from_primary_gate: true
+    performance_values_disclosed: false
+  scientific_values_disclosed: false
+  canonical_json_utf8_sorted_keys_compact_final_newline: true
+
+validation_receipt_set:
+  record_count: 10
+  record_reference_keys: [path, bytes, sha256]
+  record_reference_order: validation_record.record_paths
+  set_hash_algorithm: sha256_of_canonical_json_array_of_exact_record_references_in_validation_ordinal_order
+  parent_receipt_required_fields:
+    - recovery_validation_record_references
+    - recovery_validation_receipt_set_sha256
+    - recovery_source_audit_reference
+    - recovery_source_evidence_git_commit
+    - stage_seal_reference
+    - external_compound_terminal_reference
+    - run003_complete_reference
+    - run003_development_manifest_reference
+  parent_common_references_must_equal_every_record: true
+  parent_source_evidence_commit_must_equal_every_record: true
+  parent_gate_may_open_only_authority_and_raw_reference_fields: true
+  parent_gate_may_not_decode_report_metric_prediction_comparator_or_gate_values: true
+
+publication_boundary:
+  compound_pair_required:
+    - validated_run003_complete_and_development_manifest
+    - validated_external_compound_terminal
+  ten_recovery_module_validation_records_are_additionally_required: true
+  complete_alone_is_sufficient: false
+  external_terminal_alone_is_sufficient: false
+  ten_authority_cli_only_validations_are_sufficient: false
+  any_hash_identity_ancestry_semantic_or_process_failure_action: fail_before_v3_implementation
+
+preregistration_authority:
+  exact_preregistered_paths:
+    - configs/openaxes_external_native_v3_erratum3_recovery_validation.yaml
+    - docs/OPENAXES_EXTERNAL_NATIVE_V3_ERRATUM3_RECOVERY_VALIDATION_CONTRACT.md
+    - receipts/openaxes_external_native_v3_preregistration_erratum3_preissue.json
+  source_audit_receipt_path: receipts/openaxes_external_native_v3_preregistration_erratum3_source_audit.json
+  source_audit_contract: openaxes.external.native_sensor_experts.v3.preregistration_erratum3_source_audit.v1
+  source_audit_requires_git_commit_blob_bytes_sha256_oid_mode_and_exact_three_set_hash: true
+  implementation_or_parent_validation_before_source_audit_evidence_commit: forbidden

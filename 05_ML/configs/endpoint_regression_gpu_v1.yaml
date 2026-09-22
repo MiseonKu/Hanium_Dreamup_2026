@@ -1,0 +1,111 @@
+contract:
+  name: alphaf.endpoint_regression.gpu_experiment.v1
+  parent_contract: alphaf.ml_preparation.v1
+  base_seed: 20260818
+  research_status: exploratory_gpu_v1
+  label_frame: vive_world
+  label_unit: mm
+  independent_test_available: false
+  pilot_observed_before_freeze: true
+
+release:
+  archive: ../06_simulation_and_data_collect_preparation/imu_added_experiment/ml_preparation_v1.zip
+  archive_sha256: 94deccb960b0554fb9a683875d36ef5726afc825d4b4ea244a1490f3353b1930
+  expected_contract: alphaf.ml_preparation.v1
+  expected_canonical_rows: 7707
+  expected_train_eligible_rows: 7702
+
+task:
+  input_view: fusion_v1
+  expected_feature_count: 43
+  labels:
+    - vive_pos_raw_x_mm
+    - vive_pos_raw_y_mm
+    - vive_pos_raw_z_mm
+  recipe: real_only
+  augmentation_excluded_reason: endpoint_regression_v1_passed_0_of_8_augmentation_gates
+  inference_forbidden_tokens: [vive, tracker, planned, target_id, segment, timestamp, qc, provenance]
+
+splits:
+  primary:
+    name: segment_loso
+    groups: [36, 37, 38, 39, 40]
+  secondary:
+    name: target_group
+    groups: [0, 1, 2, 3, 4]
+  nested_policy: each_non_test_group_once_as_validation
+  preprocessing_fit_scope: real_train_only
+  validation_and_test_real_only: true
+  outer_test_access: after_inner_selection_only
+
+models:
+  torch_mlp:
+    role: primary
+    output_strategy: shared_xyz
+    hidden_layer_sizes:
+      - [64, 64]
+      - [128, 64]
+    weight_decay: [0.001, 0.0001]
+    activation: relu
+    optimizer: AdamW
+    learning_rate: 0.001
+    batch_size: 128
+    epoch_budget: 400
+    ensemble_seed_count: 3
+    dtype: float32
+    deterministic_algorithms: true
+    checkpoint_rule: minimum_inner_validation_rmse_3d_mm
+    refit_epoch_rule: rounded_median_inner_best_epoch_per_seed
+  xgboost_cuda:
+    role: reference_baseline
+    output_strategy: independent_xyz
+    n_estimators: 500
+    learning_rate: 0.05
+    max_depth: [4, 8]
+    min_child_weight: [5.0, 1.0]
+    reg_lambda: [10.0, 1.0]
+    subsample: 0.8
+    colsample_bytree: 0.8
+    tree_method: hist
+    device: cuda
+    n_jobs: 1
+
+preprocessing:
+  feature_center_scale: train_mean_and_population_std
+  target_center: train_xyz_mean
+  target_scale: one_isotropic_scale
+  preserve_axis_weighting: true
+
+selection:
+  metric: rmse_3d_mm
+  inner_aggregate: equal_validation_group_mean
+  hyperparameter_tie_break: listed_order
+  final_model_family: torch_mlp
+  final_config_source: all_segment_inner_validation_contexts
+  outer_scores_not_used_for_final_config: true
+
+monitoring:
+  history_interval_epochs: 10
+  require_finite_loss_and_predictions: true
+  report_train_validation_gap: true
+  report_per_group_rmse_and_p95: true
+  warning_current_to_best_validation_ratio: 1.10
+  warning_stale_epochs: 50
+
+runtime:
+  gpu_count: 4
+  scheduling: one_process_per_gpu_independent_context_tasks
+  artificial_model_scaling_for_utilization: false
+  cublas_workspace_config: ":4096:8"
+  torch_version: 2.12.1+cu132
+  cuda_runtime: "13.2"
+  xgboost_version: 3.3.0
+  python: "3.12"
+
+claim_boundaries:
+  current_output: static_trial_endpoint_in_vive_world_mm
+  not_robot_base_or_tcp_calibrated: true
+  not_dynamic_state_estimation: true
+  not_shapefk: true
+  not_control_authority: true
+  deployment_requires_independent_sessions_calibration_uncertainty_ood: true

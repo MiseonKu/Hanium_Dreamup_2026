@@ -1,0 +1,209 @@
+contract:
+  name: alphaf.endpoint_regression.gpu_experiment.outage_v4_gbdt
+  parent_contract: alphaf.endpoint_regression.gpu_experiment.outage_v3
+  base_seed: 20260824
+  research_status: post_v3_development_gbdt_followup_on_reused_same_session
+  label_frame: vive_world
+  label_unit: mm
+  frozen_before_challenge_label_access: true
+  independent_session_available: false
+  confirmatory_claim_allowed: false
+  development_only: true
+  challenge_gate_owner: outage_v5_separate_sole_owner_contract
+
+incumbent_freeze:
+  prepare_command_required: true
+  v3_required_stage: development_complete_challenge_labels_sealed
+  v3_challenge_label_access_marker_must_be_absent: true
+  bindings_materialized_after_v3_completion:
+    - v3_resolved_config_sha256
+    - v3_development_manifest_sha256
+    - v3_validator_payload_sha256
+    - v3_selection_sha256
+    - v3_selected_candidate_id
+    - v3_240_task_prediction_tree_sha256
+  task_prediction_tree_expected_tasks: 240
+  selected_incumbent_seed_predictions_snapshotted: true
+  development_replay_snapshotted: true
+  label_blind_challenge_identity_snapshotted: true
+  v3_run_remains_unmodified: true
+  deferred_values_must_not_be_guessed_in_static_config: true
+
+data_roles:
+  development_segments: [36, 37, 38, 39]
+  development_rows: 6635
+  development_segment_rows:
+    36: 1672
+    37: 1597
+    38: 1707
+    39: 1659
+  challenge_segments: [40, 41]
+  challenge_rows: 3295
+  challenge_segment_rows:
+    40: 1672
+    41: 1623
+  challenge_forced_outage_sensor: imu1_link_root
+  challenge_availability: [1, 0, 1, 1]
+  segment_41_role: primary_previously_unused_same_session_diagnostic
+  segment_40_role: secondary_previously_observed_same_session_diagnostic
+  no_synthetic_rows: true
+
+task:
+  sensor_feature_view: fusion_v1
+  sensor_feature_count: 43
+  availability_feature_count: 4
+  model_input_feature_count: 47
+  unavailable_sensor_imputation: exact_zero_after_train_only_standardization
+  availability_features_are_raw_binary: true
+  target_transform: train_xyz_mean_and_one_isotropic_scale
+  prediction_space: inverse_transformed_vive_world_xyz_mm
+  inference_forbidden_tokens: [vive, tracker, planned, target_id, segment, timestamp, qc, provenance]
+
+mask_replication:
+  states:
+    - state: full
+      probability: 0.25
+      availability: [1, 1, 1, 1]
+    - state: drop_imu0_base
+      probability: 0.1875
+      availability: [0, 1, 1, 1]
+    - state: drop_imu1_link_root
+      probability: 0.1875
+      availability: [1, 0, 1, 1]
+    - state: drop_imu2_link_mid
+      probability: 0.1875
+      availability: [1, 1, 0, 1]
+    - state: drop_imu3_tip
+      probability: 0.1875
+      availability: [1, 1, 1, 0]
+  materialization: each_complete_training_uid_replicated_once_per_state
+  replicated_rows_per_training_uid: 5
+  segment_balance_weight_formula: "N_train / (K * n_segment) * q_mask"
+  total_effective_weight: N_train
+  fit_preprocessor_on_complete_unreplicated_train_rows_only: true
+
+xgboost:
+  bundle_axes: [x, y, z]
+  scalar_boosters_per_bundle: 3
+  development_unique_bundle_count: 12
+  development_evaluation_record_count: 48
+  booster: gbtree
+  objective: reg:squarederror
+  tree_method: hist
+  num_boost_round: 1000
+  eta: 0.03
+  max_depth: 6
+  min_child_weight: 5.0
+  subsample: 1.0
+  sampling_method: uniform
+  colsample_bytree: 0.8
+  colsample_bylevel: 1.0
+  colsample_bynode: 1.0
+  reg_lambda: 5.0
+  reg_alpha: 0.0
+  gamma: 0.0
+  max_bin: 256
+  grow_policy: depthwise
+  num_parallel_tree: 1
+  seed_per_iteration: false
+  nthread: 1
+  early_stopping: false
+  device: supplied_per_isolated_gpu_worker_as_cuda_0
+  base_score: exact_train_only_weighted_mean_per_axis
+  axis_seed_recipe: "uint32_big_endian_first4_sha256(canonical_json([paired_seed,axis_index]))"
+
+splits:
+  held_out_segment_policy: leave_one_development_segment_out
+  forced_validation_outages:
+    - imu0_base
+    - imu1_link_root
+    - imu2_link_mid
+    - imu3_tip
+  paired_seed_values: [20260824, 20260825, 20260826]
+  xgb_unique_bundles: four_held_out_segments_by_three_paired_seeds
+  xgb_outage_evaluations_reuse_bundle: four_forced_outages_per_bundle
+
+candidates:
+  - candidate_id: v3_incumbent
+    kind: immutable_v3_development_winner
+  - candidate_id: xgboost_mask_replicated
+    kind: trainable_three_axis_gbdt_bundle
+  - candidate_id: equal_blend_incumbent_xgboost
+    kind: fixed_virtual_blend
+    components:
+      - candidate_id: v3_incumbent
+        weight: 0.5
+      - candidate_id: xgboost_mask_replicated
+        weight: 0.5
+    blend_space: inverse_transformed_vive_world_xyz_mm
+    pair_same_seed_index_before_ensemble_and_dispersion: true
+    learned_blend_weights: false
+
+selection:
+  candidate_order_is_tie_order: true
+  scored_candidate_count: 3
+  context_count_per_candidate: 16
+  context_prediction: arithmetic_mean_of_three_paired_seed_predictions
+  score_name: outage_robust_j_mm
+  score_formula: "(mean_rmse_over_16_contexts_mm + worst_segment_mean_rmse_over_4_outages_mm + worst_sensor_mean_rmse_over_4_segments_mm) / 3"
+  tie_break_order:
+    - mean_p95_3d_mm_over_16_contexts
+    - mean_seed_rmse_population_std_mm_over_16_contexts
+    - listed_order
+  numeric_equality_abs_tolerance_mm: 1.0e-12
+  nonfinite_context_score: positive_infinity
+  missing_context_action: fail_closed_before_scoring
+  exact_v3_scoring_semantics: true
+  challenge_scores_can_trigger_selection_or_reselection: false
+
+final_refit:
+  enabled: false
+  owner: outage_v5_separate_sole_owner_contract
+  v4_final_refit_forbidden: true
+  v4_challenge_prediction_forbidden: true
+  v4_challenge_label_access_forbidden: true
+
+execution:
+  fresh_run_stops_after_development_selection: true
+  development_only: true
+  finalize_challenge_argument_forbidden: true
+  challenge_label_loader_import_forbidden: true
+  source_archive_access_forbidden: true
+  maximum_source_label_access_passes: 0
+  v4_reselection_after_development_forbidden: true
+  resultless_complete_bundle_resume: authenticate_and_reconstruct_without_refit
+  incomplete_bundle_resume: quarantine_without_deletion_then_refit
+  missing_aggregate_worker_ledger_resume: reconstruct_from_durable_per_worker_ledgers
+  gpu_count: 4
+  python: "3.12"
+
+provenance:
+  source_closure_required_before_any_gbdt_metric: true
+  source_closure_includes_all_v4_and_imported_v3_files: true
+  current_source_must_match_prepare_snapshot: true
+  environment_snapshot_required: true
+  xgboost_version: 3.3.0
+  xgboost_cuda_build_required: true
+  loaded_libxgboost_sha256_required: true
+  fixed_xgb_parameter_sha256_required: true
+  exact_four_gpu_identity_required: true
+  parent_gpu_uuid_and_pci_required: true
+  worker_visible_cuda_0_uuid_pci_exact_physical_mapping_required: true
+
+challenge_report:
+  enabled: false
+  owner: outage_v5_separate_sole_owner_contract
+  v4_may_materialize_challenge_metrics: false
+  v4_handoff_is_development_selection_only: true
+
+claim_boundaries:
+  current_output: static_trial_endpoint_in_raw_vive_world_mm_under_forced_single_imu_outage
+  same_collection_session_as_development: true
+  not_independent_session_confirmation: true
+  not_normal_four_imu_confirmation: true
+  not_robot_base_or_tcp_calibrated: true
+  not_dynamic_state_estimation: true
+  not_shapefk_or_formal_imu_only: true
+  not_deployment_ready: true
+  not_control_authority: true
+  method_combination_novelty_not_claimed: true

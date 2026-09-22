@@ -1,0 +1,64 @@
+{
+  "assertions": {
+    "accounting_supplement_preissue_is_append_only_to_erratum4": true,
+    "audited_commit_changes_exactly_the_one_accounting_supplement_preissue_path": true,
+    "created_before_salvage_implementation_or_execution": true,
+    "exact_one_preregistered_git_blob_matches_worktree_at_issuance": true,
+    "no_preparation_api_call_run003_read_or_scientific_payload_read_by_supplement_audit_author": true,
+    "v3_scientific_design_values_and_execution_counts_are_unchanged": true
+  },
+  "audited_commit_tree_oid": "e92775190fe5f1af7f5537bf99c0a5ab286192a1",
+  "audited_git_commit": "dd5e01aafb2dee1309bc1da2a221bd71bc59783e",
+  "audited_git_parent_commit": "c09ff7df998a772364941100397aec79ff958614",
+  "contract": "openaxes.external.native_sensor_experts.v3.preregistration_erratum4_accounting_supplement_source_audit.v1",
+  "created_at_utc": "2026-08-26T01:21:12Z",
+  "erratum4_preregistration_commit": "c09ff7df998a772364941100397aec79ff958614",
+  "outcome_neutral_action_accounting": {
+    "canonical_preparation_public_api_calls": 0,
+    "run003_file_reads": 0,
+    "scientific_fits": 0,
+    "scientific_model_forwards": 0,
+    "scientific_outcome_payload_reads": 0,
+    "task_evaluator_calls": 0
+  },
+  "payload_hash_algorithm": "sha256_of_utf8_canonical_json_document_with_payload_sha256_field_omitted",
+  "payload_sha256": "f4794efef8e2a89b170d62948de159e6a2bcf6fda5c7e798454a147e72d5139c",
+  "project_repository_prefix": "09_SO101_IMU_VIVE_LEARNING",
+  "repository_object_format": "sha1",
+  "schema_version": 1,
+  "source_closure": {
+    "file_count": 1,
+    "files": [
+      {
+        "bytes": 3364,
+        "git_blob_oid": "1764ec526b0e42eba814b525ff73adb62a360981",
+        "git_mode": "100644",
+        "path": "receipts/openaxes_external_native_v3_preregistration_erratum4_accounting_supplement_preissue.json",
+        "sha256": "7272358884667c8d898ddcc678a7977402024b10325d5cde0f0f353856e43b8f"
+      }
+    ],
+    "path_order": [
+      "receipts/openaxes_external_native_v3_preregistration_erratum4_accounting_supplement_preissue.json"
+    ],
+    "set_hash_algorithm": "sha256_of_canonical_json_path_ordered_array_of_exact_path_bytes_sha256_git_blob_oid_git_mode_records",
+    "set_sha256": "7d0fe2a15ad8198df00ac0da6cd879a8775709c3b76090c69a492c7539b47440"
+  },
+  "source_evidence_boundary": {
+    "implementation_or_salvage_execution_before_this_receipt_is_committed": "forbidden",
+    "source_audit_evidence_commit_must_be_a_strict_descendant_of_audited_git_commit": true,
+    "source_audit_evidence_commit_must_contain_this_exact_receipt_blob": true
+  },
+  "v2_accounting_authority": {
+    "contract": "openaxes.external.native_sensor_experts.v2.compound_recovery.salvage_accounting_supplement.v1",
+    "git_commit": "4b71a1686f45638f9b4087c85401478626fc2ed7",
+    "git_parent_commit": "6a953c9996cc7ff446a1a6a3aa7e7c29ccc7044d",
+    "payload_sha256": "97c43bbfa9c239f3c1f69ade69e252af09ae57447e73c295057060e5d0e5d9dc",
+    "reference": {
+      "bytes": 2995,
+      "git_blob_oid": "478c61c37d0dab833f4fb2f55864b86c11a4ed88",
+      "git_mode": "100644",
+      "path": "receipts/openaxes_external_native_v2_compound_recovery_salvage_accounting_supplement.json",
+      "sha256": "4df21c681f15cbcfdad43a17304e4f5e23da9478aba77ea804b525d25a7122be"
+    }
+  }
+}

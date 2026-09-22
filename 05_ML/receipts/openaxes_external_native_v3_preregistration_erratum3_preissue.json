@@ -1,0 +1,53 @@
+{
+  "assertions": {
+    "authority_cli_validate_terminal_alone_is_insufficient": true,
+    "base_erratum2_audited_blobs_remain_immutable": true,
+    "created_before_any_v3_implementation_fit_prediction_result_metric_or_gate": true,
+    "erratum3_changes_only_recovery_aware_parent_validation_authority": true,
+    "no_native_v2_or_v3_scientific_outcome_payload_read_by_erratum3_author": true,
+    "no_scientific_result_metric_prediction_comparator_or_gate_payload_in_receipt": true,
+    "ten_fresh_process_recovery_module_cli_validate_successes_are_required": true,
+    "v3_candidates_views_parameters_training_folds_seeds_metrics_gates_execution_counts_and_claims_unchanged": true
+  },
+  "contract": "openaxes.external.native_sensor_experts.v3.preregistration_erratum3_preissue.v1",
+  "created_at_utc": "2026-08-26T00:47:50Z",
+  "historical_authority": {
+    "base_erratum2_receipt_commit": "f38a0213ed53f8698a9e12d23cc496f27084423d",
+    "base_erratum2_source_audit_reference": {
+      "bytes": 8523,
+      "git_blob_oid": "7d5993f772ba9c9fac4d975214b4e3361a02812e",
+      "path": "receipts/openaxes_external_native_v3_preregistration_erratum2_source_audit.json",
+      "sha256": "bc4519fd0a67ef1019d912302368965a6b165d2aea9d2adde68ecee5a4c906e8"
+    },
+    "erratum2_preregistration_commit": "652dc542bc398806c2243cfd3abd0244cebd1612",
+    "erratum1_receipt_commit": "d54e9f08f81273d1f5a1931d00309b771853b1c6",
+    "original_preregistration_commit": "7da0bb4e4bb10193465cf03d3e082275157aaa43",
+    "repository_parent_commit": "a06488185601cfd646ac1cecb43d8951cd0fb3b8"
+  },
+  "outcome_neutral_action_accounting": {
+    "canonical_preparation_public_api_calls": 0,
+    "run003_file_reads": 0,
+    "scientific_fits": 0,
+    "scientific_model_forwards": 0,
+    "scientific_outcome_payload_reads": 0,
+    "task_evaluator_calls": 0
+  },
+  "payload_sha256": "7178c1fb73f3daea945e2a9e39f06cb08e5356738ec6ad6db6be097501b588f3",
+  "project_repository_prefix": "09_SO101_IMU_VIVE_LEARNING",
+  "repository_object_format": "sha1",
+  "schema_version": 1,
+  "scope": {
+    "exact_preregistered_paths": [
+      "configs/openaxes_external_native_v3_erratum3_recovery_validation.yaml",
+      "docs/OPENAXES_EXTERNAL_NATIVE_V3_ERRATUM3_RECOVERY_VALIDATION_CONTRACT.md",
+      "receipts/openaxes_external_native_v3_preregistration_erratum3_preissue.json"
+    ],
+    "external_terminal_contract": "openaxes.external.native_sensor_experts.v2.compound_recovery.terminal.v1",
+    "record_contract": "openaxes.external.native_sensor_experts.v3.parent_recovery_validation_record.v1",
+    "recovery_module": "imu_vive_learning.openaxes_external_native_v2_recovery",
+    "recovery_module_subcommand": "validate",
+    "required_fresh_process_success_count": 10,
+    "source_audit_contract": "openaxes.external.native_sensor_experts.v3.preregistration_erratum3_source_audit.v1",
+    "source_audit_path": "receipts/openaxes_external_native_v3_preregistration_erratum3_source_audit.json"
+  }
+}

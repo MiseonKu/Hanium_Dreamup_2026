@@ -1,0 +1,103 @@
+{
+  "assertions": {
+    "created_before_any_native_v2_or_v3_scientific_outcome_disclosure_to_erratum_author": true,
+    "created_before_any_v3_implementation_fit_prediction_result_or_metric": true,
+    "erratum2_changes_only_parent_authority_inherited_public_api_closure_and_signed_report_failure_isolation": true,
+    "no_scientific_result_metric_prediction_or_comparator_payload_read_by_erratum2_author": true,
+    "no_scientific_result_or_metric_payload_in_receipt": true,
+    "original_and_erratum1_receipts_preserved_byte_for_byte": true,
+    "preissue_receipt_is_not_implementation_authority": true,
+    "six_candidates_views_hyperparameters_folds_seeds_metrics_gates_fit_counts_execution_counts_and_claims_unchanged": true
+  },
+  "contract": "openaxes.external.native_sensor_experts.v3.preregistration_erratum2_preissue.v1",
+  "created_at_utc": "2026-08-26T00:16:52Z",
+  "historical_authority": {
+    "erratum1_receipt_commit": "d54e9f08f81273d1f5a1931d00309b771853b1c6",
+    "erratum1_receipt_reference": {
+      "bytes": 2160,
+      "git_blob_oid": "d087a0dd3797ca3f8c281a71922564f0b7c5b5d7",
+      "path": "receipts/openaxes_external_native_v3_preregistration_erratum1_source_audit.json",
+      "sha256": "88f4522c4cc4a28c8b2dd40fbe21a523dc2684bc3a43a08c7e8cdbbdb2e0e889"
+    },
+    "original_preregistration_commit": "7da0bb4e4bb10193465cf03d3e082275157aaa43",
+    "original_receipt_commit": "a6e28ac6df8bc864c81104f4e3be958804d87f6c",
+    "original_receipt_reference": {
+      "bytes": 1571,
+      "git_blob_oid": "fca77128937d40139b011f630a7afbdcb240093f",
+      "path": "receipts/openaxes_external_native_v3_preregistration_source_audit.json",
+      "sha256": "cf12fc6e36a14b936ba978cbcefdd4e4db4766aae0a1bdca83ed5006297e988d"
+    },
+    "repository_parent_commit": "a06488185601cfd646ac1cecb43d8951cd0fb3b8"
+  },
+  "inherited_public_api_source_set": {
+    "authority_commit": "d54e9f08f81273d1f5a1931d00309b771853b1c6",
+    "contract": "openaxes.external.signed_shift_truth.v1",
+    "files": [
+      {
+        "bytes": 11693,
+        "git_blob_oid": "4d6de5634eeeaf9deb42e06e7414597aeac53f9d",
+        "path": "configs/openaxes_external_v1.yaml",
+        "sha256": "640bf3614483a7b5cf468ff883b69e8f017d941862d77b92058aa3e40fedbb82"
+      },
+      {
+        "bytes": 830,
+        "git_blob_oid": "ed7aedc9995c3be613e8a3061aea7b6feeacb1e2",
+        "path": "requirements-eval.lock",
+        "sha256": "b72b9455129011ac88829c87cb2b0012215214ead5622838b9117a19267232aa"
+      },
+      {
+        "bytes": 214,
+        "git_blob_oid": "c190a03581b3244ec8c97b37c7b5eeb749bfd99c",
+        "path": "src/imu_vive_learning/__init__.py",
+        "sha256": "623b51c9381b2a014b5f66fbf389bd3ceb0b53642adad0e8390f62e635d62cef"
+      },
+      {
+        "bytes": 2693,
+        "git_blob_oid": "333fd380c828b7a22fe5c4a4275b60ee0a7a4448",
+        "path": "src/imu_vive_learning/io_utils.py",
+        "sha256": "7c4371e7fc7098e77b3d0668edda68901e16f485e2d9a6ff4fb287951ec7362a"
+      },
+      {
+        "bytes": 77740,
+        "git_blob_oid": "77d82cfd66c846ab701bd156452cd15fe52d8ce3",
+        "path": "src/imu_vive_learning/openaxes_external_v1.py",
+        "sha256": "dd31562ea02b4b72f0123cdf426f6d7a81daa52a8147cd1913cc4ba3a82c4384"
+      },
+      {
+        "bytes": 16488,
+        "git_blob_oid": "ab6bdbaec8f1d42dc6cc4b4451e4e1695d2f7fae",
+        "path": "src/imu_vive_learning/openaxes_external_v1_config.py",
+        "sha256": "abc4ea4dd09334845222cad7c3baf52150bacbc2a1a6d57844bd26a040833d94"
+      }
+    ],
+    "function": "reconstruct_openaxes_signed_shift_truth_v1",
+    "source_set_hash_algorithm": "sha256_of_canonical_json_path_sorted_array_of_exact_path_bytes_sha256_git_blob_oid_records",
+    "source_set_sha256": "3be65b169226b8d088315311238b973c7f831cc4bf9a12116835cdba3a0a905c"
+  },
+  "outcome_neutral_diagnostic_boundary": {
+    "artifact_written": false,
+    "calls_may_not_select_change_or_recompute_any_candidate_gate_or_claim": true,
+    "canonical_public_truth_api_calls_before_preissue": 2,
+    "features_predictions_metrics_comparators_selection_gates_or_claims_computed_or_read": false,
+    "read_only_target_truth_and_receipt_only": true,
+    "separate_diagnostic_receipt_required_before_implementation": true
+  },
+  "payload_sha256": "009fb1207a1d93731902ae7e4056f2e65cfc6e7bed1e40b1a95ae0f446659845",
+  "project_repository_prefix": "09_SO101_IMU_VIVE_LEARNING",
+  "repository_object_format": "sha1",
+  "schema_version": 1,
+  "scope": {
+    "compound_parent_gate": "validated_RUN003_COMPLETE_and_validated_external_RUN003_signed_shift_recovery_terminal",
+    "external_recovery_terminal_contract": "openaxes.external.native_sensor_experts.v2.compound_recovery.terminal.v1",
+    "final_git_object_source_audit_contract": "openaxes.external.native_sensor_experts.v3.preregistration_erratum2_source_audit.v1",
+    "final_git_object_source_audit_path": "receipts/openaxes_external_native_v3_preregistration_erratum2_source_audit.json",
+    "final_git_object_source_audit_required_before_implementation": true,
+    "preregistered_paths": [
+      "configs/openaxes_external_native_v3_allmask_dmome.yaml",
+      "docs/OPENAXES_EXTERNAL_NATIVE_V3_ALLMASK_DMOME_CONTRACT.md",
+      "receipts/openaxes_external_native_v3_preregistration_erratum2_preissue.json"
+    ],
+    "private_prepared_table_shifted_time_lookup_or_copied_reconstruction": "forbidden",
+    "signed_incomplete_branch_may_change_primary_gate": false
+  }
+}

@@ -1,0 +1,158 @@
+contract:
+  name: alphaf.endpoint_regression.gpu_experiment.robust_v2
+  parent_contract: alphaf.endpoint_regression.gpu_experiment.v1
+  base_seed: 20260818
+  research_status: post_v1_robustness_development
+  label_frame: vive_world
+  label_unit: mm
+  post_v1_outer_observed: true
+  independent_test_available: false
+
+lineage:
+  base_v1_config_sha256: 9bda3280b91351bd00f67faece111454c9807d277463683d5a3c409747dc4402
+  preparation_release_sha256: 94deccb960b0554fb9a683875d36ef5726afc825d4b4ea244a1490f3353b1930
+
+release:
+  archive: ../06_simulation_and_data_collect_preparation/imu_added_experiment/ml_preparation_v1.zip
+  archive_sha256: 94deccb960b0554fb9a683875d36ef5726afc825d4b4ea244a1490f3353b1930
+  expected_contract: alphaf.ml_preparation.v1
+  expected_canonical_rows: 7707
+  expected_train_eligible_rows: 7702
+
+task:
+  input_view: fusion_v1
+  expected_feature_count: 43
+  feature_allowlist_sha256: 1756b0aafb8ba4c9a740683d0a0d12236d8ee6e0065cfbe9fc6fb9d656345b6f
+  labels:
+    - vive_pos_raw_x_mm
+    - vive_pos_raw_y_mm
+    - vive_pos_raw_z_mm
+  recipe: real_only
+  augmentation_excluded_reason: endpoint_regression_v1_passed_0_of_8_augmentation_gates
+  inference_forbidden_tokens: [vive, tracker, planned, target_id, segment, timestamp, qc, provenance]
+
+splits:
+  primary:
+    name: segment_loso
+    groups: [36, 37, 38, 39, 40]
+  nested_policy: each_non_test_group_once_as_validation
+  expected_inner_contexts_per_candidate: 20
+  optimization_group_key: segment_id
+  preprocessing_fit_scope: real_train_only
+  validation_and_diagnostic_real_only: true
+  diagnostic_access: after_inner_selection_only
+
+models:
+  torch_mlp:
+    role: sole_candidate_family
+    output_strategy: shared_xyz
+    hidden_layer_sizes: [64, 64]
+    weight_decay: 0.001
+    activation: relu
+    optimizer: AdamW
+    learning_rate: 0.001
+    batch_size: 128
+    epoch_budget: 400
+    ensemble_seed_count: 3
+    dtype: float32
+    deterministic_algorithms: true
+    checkpoint_rule: minimum_inner_validation_rmse_3d_mm
+    refit_epoch_rule: rounded_median_inner_best_epoch_per_seed
+
+training_protocol:
+  paired_candidate_model_seeds: true
+  balanced_batch_rule: floor_max_batch_rows_divided_by_training_group_count
+  group_dro_update: exponentiated_gradient_per_batch
+  group_dro_weight_floor: 1.0e-12
+  v_rex_schedule: zero_beta_through_warmup_epochs_then_full_beta
+  sam_variant: nonadaptive_l2_two_pass
+  inner_checkpoint_evaluation_cadence: every_epoch
+  unpromoted_candidate_default_inference: forbidden
+
+candidates:
+  - candidate_id: balanced_erm
+    objective: balanced_erm
+  - candidate_id: group_dro_eta_0_01
+    objective: group_dro
+    eta: 0.01
+  - candidate_id: group_dro_eta_0_1
+    objective: group_dro
+    eta: 0.1
+  - candidate_id: v_rex_beta_10
+    objective: v_rex
+    beta: 10.0
+    warmup_epochs: 40
+  - candidate_id: v_rex_beta_100
+    objective: v_rex
+    beta: 100.0
+    warmup_epochs: 40
+  - candidate_id: balanced_erm_sam_rho_0_05
+    objective: balanced_erm
+    sam: true
+    rho: 0.05
+
+preprocessing:
+  feature_center_scale: train_mean_and_population_std
+  target_center: train_xyz_mean
+  target_scale: one_isotropic_scale
+  preserve_axis_weighting: true
+
+selection:
+  context_count_per_candidate: 20
+  score_name: robust_j_mm
+  score_formula: (mean_rmse_over_20_contexts_mm + worst_validation_segment_mean_rmse_over_4_contexts_mm) / 2
+  mean_component:
+    metric: rmse_3d_mm
+    aggregation: mean_over_20_inner_contexts
+  worst_segment_component:
+    metric: rmse_3d_mm
+    within_segment_aggregation: mean_over_4_inner_contexts
+    across_segment_aggregation: maximum
+  tie_break_order:
+    - mean_p95_3d_mm
+    - seed_dispersion_rmse_3d_mm
+    - listed_order
+  historical_v1_j_mm: 16.3801
+  numeric_equality_abs_tolerance_mm: 1.0e-12
+  promotion_rule: strict_candidate_j_less_than_historical_v1_j
+  no_improvement_action: retain_v1
+  diagnostic_scores_can_trigger_reselection: false
+
+evaluation:
+  outer_designation: reused_holdout_development_diagnostic
+  outer_scores_are_independent_test: false
+  selection_must_be_frozen_before_access: true
+  reselection_after_outer_diagnostic: forbidden
+
+confirmatory:
+  occurs_after_candidate_and_model_freeze: true
+  data_requirement: independent_restart_sessions
+  minimum_session_count: 10
+  no_tuning_or_reselection_on_confirmatory_data: true
+  required_before_confirmatory_or_deployment_claim: true
+
+monitoring:
+  history_interval_epochs: 10
+  require_finite_loss_and_predictions: true
+  report_train_validation_gap: true
+  report_per_segment_rmse_and_p95: true
+  report_seed_dispersion: true
+  require_durable_semantic_validation: true
+
+runtime:
+  gpu_count: 4
+  scheduling: one_process_per_gpu_independent_context_tasks
+  artificial_model_scaling_for_utilization: false
+  cublas_workspace_config: ":4096:8"
+  torch_version: 2.12.1+cu132
+  cuda_runtime: "13.2"
+  python: "3.12"
+
+claim_boundaries:
+  current_output: static_trial_endpoint_in_vive_world_mm
+  not_robot_base_or_tcp_calibrated: true
+  not_dynamic_state_estimation: true
+  not_shapefk: true
+  not_control_authority: true
+  development_diagnostic_not_independent_confirmation: true
+  deployment_requires_independent_sessions_calibration_uncertainty_ood: true

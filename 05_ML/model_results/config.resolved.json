@@ -1,0 +1,394 @@
+{
+  "augmentation_gate": {
+    "baseline_recipe": "real_only",
+    "comparison_feature_view": "fusion",
+    "maximum_relative_p95_degradation": 0.05,
+    "minimum_absolute_rmse_improvement_mm": 3.0,
+    "minimum_relative_rmse_improvement": 0.1,
+    "require_both_improvement_thresholds_via_max": true
+  },
+  "contract": {
+    "base_seed": 20260818,
+    "independent_test_available": false,
+    "label_frame": "vive_world",
+    "label_unit": "mm",
+    "name": "alphaf.endpoint_regression.experiment.v1",
+    "parent_contract": "alphaf.ml_preparation.v1",
+    "research_status": "exploratory_v1"
+  },
+  "experiment_matrix": {
+    "augmentation_comparison": {
+      "feature_views": [
+        "fusion"
+      ],
+      "models": [
+        "ridge",
+        "extra_trees",
+        "xgboost",
+        "mlp"
+      ],
+      "recipes": [
+        "real_only",
+        "replay",
+        "local_interp_v2",
+        "cmixup_offline_v1"
+      ]
+    },
+    "baseline": {
+      "feature_views": [
+        "none"
+      ],
+      "models": [
+        "dummy_mean"
+      ],
+      "recipes": [
+        "real_only"
+      ]
+    },
+    "deployment_exclusions": {
+      "feature_views": [
+        "planned_only",
+        "fusion_planned",
+        "fusion_mag"
+      ],
+      "models": [
+        "dummy_mean"
+      ],
+      "recipes": [
+        "replay"
+      ]
+    },
+    "sensor_comparison": {
+      "feature_views": [
+        "encoder",
+        "four_imu",
+        "fusion"
+      ],
+      "models": [
+        "ridge",
+        "extra_trees",
+        "xgboost",
+        "mlp"
+      ],
+      "recipes": [
+        "real_only"
+      ]
+    },
+    "shortcut_diagnostics": {
+      "feature_views": [
+        "planned_only",
+        "fusion_planned",
+        "fusion_mag"
+      ],
+      "models": [
+        "ridge",
+        "extra_trees"
+      ],
+      "recipes": [
+        "real_only"
+      ]
+    }
+  },
+  "features": {
+    "diagnostic_views": {
+      "fusion_mag": "mag_ablation_v1",
+      "fusion_planned": "command_context_ablation_v1",
+      "planned_only": "planned_only_v1"
+    },
+    "forbidden_primary_tokens": [
+      "vive",
+      "tracker",
+      "target_id",
+      "segment",
+      "timestamp",
+      "qc",
+      "planned",
+      "provenance"
+    ],
+    "label_columns": [
+      "vive_pos_raw_x_mm",
+      "vive_pos_raw_y_mm",
+      "vive_pos_raw_z_mm"
+    ],
+    "primary_views": {
+      "encoder": "encoder_only_v1",
+      "four_imu": "four_imu_endpoint_v1",
+      "fusion": "fusion_v1"
+    }
+  },
+  "final_model": {
+    "allow_only_gate_passing_augmentation": true,
+    "fallback_recipe": "real_only",
+    "independent_test_score_available": false,
+    "regenerate_selected_augmentation_ratio": 1.0,
+    "selection_contexts": 20,
+    "selection_scheme": "segment_loso",
+    "train_on_all_eligible_real": true
+  },
+  "metrics": {
+    "cell_balance_factors": [
+      "segment_id",
+      "target_id"
+    ],
+    "legacy_axis_pooled_name": "rmse_xyz_mm",
+    "per_axis": [
+      "bias",
+      "mae",
+      "rmse",
+      "r2"
+    ],
+    "pooled_error_quantiles": [
+      0.5,
+      0.9,
+      0.95
+    ],
+    "primary": "rmse_3d_mm",
+    "report_seed_variability": true,
+    "verify_rmse_relation": true
+  },
+  "models": {
+    "dummy_mean": {
+      "strategy": "train_fold_mean"
+    },
+    "extra_trees": {
+      "max_features": [
+        0.5,
+        1.0
+      ],
+      "min_samples_leaf": [
+        1,
+        4
+      ],
+      "n_estimators": 400,
+      "n_jobs": 1
+    },
+    "mlp": {
+      "activation": "relu",
+      "alpha": [
+        0.0001,
+        0.001
+      ],
+      "batch_size": 128,
+      "early_stopping": false,
+      "ensemble_seed_count": 3,
+      "hidden_layer_sizes": [
+        [
+          64,
+          64
+        ],
+        [
+          128,
+          64
+        ]
+      ],
+      "output_strategy": "shared_xyz",
+      "scale_features": true,
+      "solver": "adam"
+    },
+    "ridge": {
+      "alpha": [
+        0.1,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "scale_features": true
+    },
+    "xgboost": {
+      "colsample_bytree": 0.8,
+      "learning_rate": 0.05,
+      "max_depth": [
+        4,
+        8
+      ],
+      "min_child_weight": [
+        1.0,
+        5.0
+      ],
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "output_strategy": "independent_xyz",
+      "reg_lambda": [
+        1.0,
+        10.0
+      ],
+      "subsample": 0.8,
+      "tree_method": "hist"
+    }
+  },
+  "outputs": {
+    "include_frame_and_unit": true,
+    "include_model_hash": true,
+    "inference_optional_columns": [
+      "row_id"
+    ],
+    "prediction_columns": [
+      "pred_vive_world_x_mm",
+      "pred_vive_world_y_mm",
+      "pred_vive_world_z_mm"
+    ]
+  },
+  "preprocessing": {
+    "feature_scaling_models": [
+      "ridge",
+      "mlp"
+    ],
+    "fit_scope": "real_train_only",
+    "preserve_axis_weighting": true,
+    "target_center": "train_xyz_mean",
+    "target_scale": "one_isotropic_scale"
+  },
+  "recipes": {
+    "cmixup_offline_v1": {
+      "added_weight": 0.5,
+      "epoch_budget": 200,
+      "ratio": 1.0,
+      "real_weight": 0.5,
+      "source": "regenerate_from_context_real_train"
+    },
+    "local_interp_v2": {
+      "added_weight": 0.5,
+      "epoch_budget": 200,
+      "ratio": 1.0,
+      "real_weight": 0.5,
+      "source": "regenerate_from_context_real_train"
+    },
+    "outer_refit_materialized_from_release": true,
+    "real_only": {
+      "added_weight": 0.0,
+      "epoch_budget": 400,
+      "real_weight": 1.0
+    },
+    "replay": {
+      "added_weight": 0.5,
+      "epoch_budget": 200,
+      "real_weight": 0.5,
+      "source": "duplicate_real_train_once"
+    }
+  },
+  "release": {
+    "archive": "../06_simulation_and_data_collect_preparation/imu_added_experiment/ml_preparation_v1.zip",
+    "archive_sha256": "94deccb960b0554fb9a683875d36ef5726afc825d4b4ea244a1490f3353b1930",
+    "expected_canonical_rows": 7707,
+    "expected_contract": "alphaf.ml_preparation.v1",
+    "expected_strict_qc_rows": 7670,
+    "expected_train_eligible_rows": 7702,
+    "reject_lfs_pointer": true,
+    "require_manifest_checksums": true
+  },
+  "runtime": {
+    "atomic_resume": true,
+    "default_jobs": 4,
+    "deterministic_context_hash_seeds": true,
+    "estimator_threads": 1,
+    "refuse_task_or_config_hash_mismatch": true
+  },
+  "selection": {
+    "aggregate": "equal_group_mean",
+    "hyperparameter_priority": {
+      "extra_trees_max_features": [
+        0.5,
+        1.0
+      ],
+      "extra_trees_min_samples_leaf": [
+        4,
+        1
+      ],
+      "mlp_alpha": [
+        0.001,
+        0.0001
+      ],
+      "mlp_hidden_layer_sizes": [
+        [
+          64,
+          64
+        ],
+        [
+          128,
+          64
+        ]
+      ],
+      "ridge_alpha": [
+        100.0,
+        10.0,
+        1.0,
+        0.1
+      ],
+      "xgboost_max_depth": [
+        4,
+        8
+      ],
+      "xgboost_min_child_weight": [
+        5.0,
+        1.0
+      ],
+      "xgboost_reg_lambda": [
+        10.0,
+        1.0
+      ]
+    },
+    "model_priority": [
+      "ridge",
+      "extra_trees",
+      "xgboost",
+      "mlp"
+    ],
+    "parameter_tie_tolerance": 1e-12,
+    "recipe_priority": [
+      "real_only",
+      "local_interp_v2",
+      "cmixup_offline_v1"
+    ],
+    "score": "macro_group_rmse_3d_mm"
+  },
+  "splits": {
+    "expected_assignment_rows": 385100,
+    "expected_contexts": 50,
+    "schemes": {
+      "segment_loso": {
+        "inner_contexts": 20,
+        "inner_policy": "each_remaining_group_once",
+        "outer_contexts": 5,
+        "outer_groups": [
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        "role": "primary"
+      },
+      "target_group": {
+        "expected_targets_per_group": 10,
+        "group_rule": "int(target_id[1:]) % 5",
+        "inner_contexts": 20,
+        "inner_policy": "each_remaining_group_once",
+        "outer_contexts": 5,
+        "outer_groups": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "role": "secondary"
+      }
+    },
+    "validation_and_test_real_only": true
+  },
+  "strict_qc": {
+    "final_candidate_strict_only_refit": true,
+    "locked_oof_subset_analysis": true,
+    "select_on_strict_qc": false
+  },
+  "uncertainty": {
+    "cluster_factors": [
+      "segment_id",
+      "target_id"
+    ],
+    "confidence_level": 0.95,
+    "method": "deterministic_multiway_bootstrap",
+    "replicates": 10000,
+    "report_p_values": false
+  }
+}

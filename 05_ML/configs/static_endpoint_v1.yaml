@@ -1,0 +1,62 @@
+contract:
+  name: alphaf.ml_preparation.v1
+  session_id: real_motion_demo
+  base_seed: 20260818
+
+source:
+  archive: ../06_simulation_and_data_collect_preparation/imu_added_experiment/derived_dataset_archive.zip
+  member: derived/parquet/real_motion_demo/trials.parquet
+  archive_sha256: ceadf164a15a3ce302f8b2ffdde450df0f6d3a91c3b0c258a28acb5de9b92d64
+  member_sha256: 1b0a821a1822f237adadb1c978ea73da02b0e4bb7f099ce085a63931e9792b54
+  expected_rows: 10055
+
+cleaning:
+  canonical_segments: [36, 37, 38, 39, 40]
+  expected_canonical_rows: 7707
+  expected_train_eligible_rows: 7702
+  expected_segment_rows:
+    36: 1672
+    37: 1597
+    38: 1707
+    39: 1659
+    40: 1072
+  expected_train_segment_rows:
+    36: 1672
+    37: 1597
+    38: 1707
+    39: 1659
+    40: 1067
+  duration_s: [2.8, 3.2]
+  min_vive_samples: 170
+  required_encoder_samples: 5
+  min_imu_samples: 28
+  encoder_reference_ticks: [2055.0, 2093.0, 1970.0]
+  encoder_active_ranges:
+    - [1160.0, 3083.0]
+    - [1202.0, 3186.0]
+    - [1937.0, 3968.0]
+  warning_thresholds:
+    gyro_rms_rad_s: 0.02
+    vive_std_m: 0.001
+    encoder_std_ticks: 1.0
+
+features:
+  euler_unit: rad
+  label_columns: [vive_pos_raw_x_mm, vive_pos_raw_y_mm, vive_pos_raw_z_mm]
+  include_magnetometer_primary: false
+  include_planned_primary: false
+
+splits:
+  segment_outer_values: [36, 37, 38, 39, 40]
+  target_group_count: 5
+  expected_targets_per_group: 10
+  expected_assignment_rows: 231060
+
+augmentation:
+  ratio: 1.0
+  planned_max_distance_mm: 100.0
+  joint_max_distance_deg: 20.0
+  local_neighbor_count: 5
+  local_lambdas: [0.25, 0.5, 0.75]
+  cmixup_alpha: 2.0
+  expected_total_synthetic_rows: 123232

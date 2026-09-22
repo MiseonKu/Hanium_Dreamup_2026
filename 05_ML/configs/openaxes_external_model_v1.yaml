@@ -1,0 +1,338 @@
+contract:
+  name: openaxes.external.model_benchmark.v1
+  prepared_input_contract: openaxes.external.preparation.v1
+  research_role: secondary_objective_portability_development_benchmark
+  prepared_before_external_model_results: true
+  independent_so101_confirmation: false
+  so101_data_or_weights_allowed: false
+  challenge_access_allowed: false
+  actual_sensor_outage_observed: false
+  measured_complete_streams_with_synthetic_one_imu_masks: true
+  first_causal_or_provable_claim_allowed: false
+
+schema:
+  sensor_groups:
+    - humerus
+    - radius
+    - carpus
+    - digitus
+  continuous_channels_per_sensor: 9
+  prepared_continuous_feature_count: 36
+  availability_bit_count: 4
+  model_input_count: 40
+  target_columns:
+    - tcp_x_m
+    - tcp_y_m
+    - tcp_z_m
+  target_role: label_only
+  target_frame: UR5_robot_base_TCP
+  target_unit: m
+  metadata_not_model_inputs:
+    - row_uid
+    - scenario_id
+    - sample_index
+    - aligned_time_us
+  shape_or_speed_as_model_input_allowed: false
+
+preprocessing:
+  feature_transform: train_only_population_mean_and_std
+  feature_zero_variance_policy: fail_closed
+  target_transform: train_only_three_vector_mean_and_single_isotropic_population_scale
+  target_per_axis_scale_allowed: false
+  outer_rows_in_transform_fit_allowed: false
+  mask_after_feature_standardization: true
+  continuous_mask_value: 0.0
+  view_order:
+    - full
+    - outage_humerus
+    - outage_radius
+    - outage_carpus
+    - outage_digitus
+  availability_vectors:
+    full: [1.0, 1.0, 1.0, 1.0]
+    outage_humerus: [0.0, 1.0, 1.0, 1.0]
+    outage_radius: [1.0, 0.0, 1.0, 1.0]
+    outage_carpus: [1.0, 1.0, 0.0, 1.0]
+    outage_digitus: [1.0, 1.0, 1.0, 0.0]
+  mask_law:
+    full: 0.25
+    outage_humerus: 0.1875
+    outage_radius: 0.1875
+    outage_carpus: 0.1875
+    outage_digitus: 0.1875
+  exact_five_views_per_training_uid: true
+  same_uid_full_missing_pairing: true
+  scenario_id_used_only_for_blocking_and_training_group_atoms: true
+
+model:
+  backbone: masked_mlp_64x64_relu
+  hidden_widths: [64, 64]
+  activation: ReLU
+  output_count: 3
+  reconstruction_head: false
+
+methods:
+  ordered_ids:
+    - full_gradient_only_mask_selected_control
+    - masked_erm
+    - group_mean_pord
+    - paired_pord
+    - paired_wrong_pair
+    - groupdro
+    - vrex
+    - mofe
+  frozen_comparator: masked_erm
+  frozen_objective: paired_pord
+  paired_outage_degradation_name_only: true
+  regret_name_or_oracle_comparator_allowed: false
+  upper_tail:
+    kind: fixed_atom_top_quarter_surrogate
+    standard_cvar_theorem_claim_allowed: false
+    atom: training_scenario_group_by_forced_outage
+    count_rule: ceil_one_quarter_of_available_atoms
+    cutoff_tie_subgradient: symmetric
+  interaction:
+    kind: two_way_double_centered_outage_degradation_atoms
+    coefficient: 1.0
+    absolute_zero_subgradient: 0.0
+  objectives:
+    full_gradient_only_mask_selected_control:
+      gradient_views: full_only
+      checkpoint_views: four_training_outages
+      complete_no_mask_pipeline_claim_allowed: false
+    masked_erm:
+      gradient_views: exact_five_view_mask_law
+    group_mean_pord:
+      positive_gap_order: relu_after_group_mean
+      full_loss_stop_gradient: true
+    paired_pord:
+      positive_gap_order: relu_per_uid_before_group_mean
+      full_loss_stop_gradient: true
+    paired_wrong_pair:
+      positive_gap_order: relu_per_uid_before_group_mean
+      full_loss_stop_gradient: true
+      pairing: within_training_scenario_sorted_uid_circular_derangement_by_one
+      marginal_full_loss_preserved: true
+    groupdro:
+      eta: 0.01
+      atoms: training_scenario_group_by_five_views
+      prior: mask_law_times_uniform_training_group
+    vrex:
+      beta: 1.0
+      variance: population_weighted_over_training_scenario_group_by_five_views
+    mofe:
+      lambda: 0.1
+      hinge: relu_full_row_loss_minus_missing_row_loss
+
+optimization:
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.001
+  full_data_updates: 400
+  batch_policy: full_outer_training_partition_every_update
+  checkpoint_selection_scope: training_scenarios_only
+  checkpoint_score: half_mean_four_outage_rmse_plus_half_max_four_outage_rmse
+  checkpoint_tie_rule: earliest_strict_minimum
+  outer_labels_visible_to_trainer: false
+  outer_evaluation_count_per_fit: 1
+  identical_initial_state_views_scaler_budget_and_update_count: true
+
+folds:
+  ordered_families:
+    - scenario_loso
+    - speed_pair_out
+    - shape_out
+  family_counts:
+    scenario_loso: 8
+    speed_pair_out: 4
+    shape_out: 2
+  primary_selection_family: scenario_loso
+  report_only_families:
+    - speed_pair_out
+    - shape_out
+  outer_test_fitting_allowed: false
+  row_random_split_allowed: false
+  seeds: [1701, 2603, 3907]
+  method_count: 8
+  total_outer_folds: 14
+  primary_scientific_fits: 192
+  stress_scientific_fits: 144
+  total_scientific_fits: 336
+  zero_shift_fit_level_outage_contexts: 1344
+  zero_shift_fit_level_full_contexts: 336
+  primary_seed_ensemble_outage_contexts: 256
+  stress_seed_ensemble_outage_contexts: 192
+
+selection:
+  source_family: scenario_loso
+  seed_aggregation: raw_prediction_mean_across_three_paired_seeds
+  score_name: robust_J_m
+  score_formula: arithmetic_mean_of_A_mean_context_WS_worst_scenario_mean_and_WM_worst_mask_mean_rmse3d_m
+  score_contexts_per_method: 32
+  lower_is_better: true
+  tie_rule: exact_score_then_ordered_method_id
+  full_view_metric_role: diagnostic_only
+  speed_or_shape_stress_may_select: false
+  alignment_sensitivity_may_select: false
+  alignment_sensitivity_may_decide_directional_gate: false
+  three_seeds_are_independent_experiments: false
+  overlapping_outer_folds_are_independent_replications: false
+  directional_gate:
+    objective_method_id: paired_pord
+    strict_robust_J_better_than:
+      - masked_erm
+      - group_mean_pord
+      - paired_wrong_pair
+    scenario_comparator_method_id: masked_erm
+    scenario_score: mean_four_outage_context_rmse3d_m
+    scenario_count: 8
+    minimum_strict_scenario_wins: 6
+    equality_passes: false
+    exact_method_context_identity_hash_required: true
+
+alignment_sensitivity:
+  required_signed_target_shifts_ms: [-50, -20, -10, 10, 20, 50]
+  zero_shift_required: true
+  reconstruction_api_owner: openaxes.external.preparation.v1
+  private_preparation_helper_import_allowed: false
+  target_lookup_rule: base_aligned_time_us_plus_shift_ms_times_1000
+  no_extrapolation: true
+  edge_policy: drop_base_rows_without_shifted_target_support
+  fixed_source_requires_zero_dropped_edges: true
+  pairing_key: row_uid
+  same_base_uid_pairing_required: true
+  methods_reported:
+    - masked_erm
+    - paired_pord
+  fold_families_reported:
+    - scenario_loso
+    - speed_pair_out
+    - shape_out
+  metrics:
+    - rmse3d_m
+    - robust_J_m
+    - delta_rmse3d_m_shift_minus_zero
+    - delta_robust_J_m_shift_minus_zero
+  selection_or_gate_use_allowed: false
+  production_complete_requires_signed_source_replay: true
+
+execution:
+  production_cuda_required: true
+  required_physical_gpu_count: 4
+  workers_per_gpu_min: 1
+  workers_per_gpu_max: 3
+  workers_per_gpu_exact: 2
+  scheduler: spawn_persistent_process_per_logical_gpu_slot_fifo_serial
+  child_sets_cuda_visible_devices_before_torch_import: true
+  child_visible_device: cuda:0
+  worker_identity_from_process_transport_only: true
+  duplicate_scientific_task_allowed: false
+  result_order: canonical_task_id
+  phases:
+    - execution.started
+    - training.completed
+    - outer_prediction.completed
+    - outer_eval.started
+    - outer_eval.completed
+    - bundle.completed
+    - result.completed
+  started_only_training_recovery: fail_closed_ambiguous_no_refit
+  completed_training_refit_allowed: false
+  completed_outer_evaluation_replay_allowed: false
+  resultless_recovery: authenticated_phase_payloads_only
+  immutable_execution_session_required: true
+  exact_resume_session_lineage_required: true
+  child_gpu_ready_receipts_required: true
+  persistent_attempt_ledger_survives_quarantine: true
+  prelaunch_session_recovery:
+    receipt_path: runtime/prelaunch_session_recovery.json
+    required_resume_value: true
+    required_launch_ordinal: 0
+    required_launch_mode: authenticated_prelaunch_session_recovery
+    exact_prepared_root_members:
+      - prepared_manifest.json
+      - PREPARED.json
+      - tasks
+      - runtime
+      - results
+      - quarantine
+    exact_runtime_members_before_receipt:
+      - ledgers
+      - execution_launches
+      - worker_ready
+      - attempt_ledger
+      - attempt_roster
+      - pre_fit_validation.json
+      - execution_session.json
+    exact_runtime_members_after_receipt:
+      - ledgers
+      - execution_launches
+      - worker_ready
+      - attempt_ledger
+      - attempt_roster
+      - pre_fit_validation.json
+      - execution_session.json
+      - prelaunch_session_recovery.json
+    exact_empty_directories:
+      - runtime/execution_launches
+      - runtime/worker_ready
+      - runtime/attempt_ledger
+      - runtime/attempt_roster
+      - runtime/ledgers
+      - results
+      - quarantine
+    authorized_action_scope: deterministic_authenticated_ordinal_zero_launch_creation_only
+    forbidden_action_scopes:
+      - scientific_refit_authorization_under_declared_non_total_erasure_threat_model
+      - task_attempt_creation_from_recovery_receipt_alone
+      - evidence_deletion_or_quarantine_as_freshness
+      - worker_gpu_or_task_remapping
+      - later_launch_creation_without_authenticated_predecessor
+    partial_or_ambiguous_evidence_action: fail_closed
+    recovery_receipt_is_attempt_authority: false
+    scientific_refit_authorized_under_declared_non_total_erasure_threat_model: false
+    no_refit_guarantee_threat_model: crash_corrupt_prefix_quarantine_and_ordinary_partial_deletion_with_any_local_attempt_authority_remaining
+    external_append_only_or_signature_authority_present: false
+    total_erasure_prior_execution_provable: false
+    total_erasure_limitation: simultaneous_total_erasure_of_all_local_attempt_authorities_cannot_prove_whether_execution_previously_occurred_without_external_append_only_or_signature_authority
+
+artifacts:
+  prepared_model_manifest: prepared_manifest.json
+  task_directory: tasks
+  ledger_directory: runtime/ledgers
+  result_directory: results
+  development_manifest: development_manifest.json
+  complete_marker: COMPLETE.json
+  immutable_nondelete_quarantine: true
+  source_receipts_required: true
+  config_source_environment_gpu_task_checkpoint_history_prediction_hashes_required: true
+  synthetic_test_only_artifacts_accepted_in_production: false
+  pre_fit_validation_receipt: runtime/pre_fit_validation.json
+  prelaunch_session_recovery_receipt: runtime/prelaunch_session_recovery.json
+  full_signed_source_replay_receipt: runtime/full_signed_source_replay.json
+  execution_session: runtime/execution_session.json
+  execution_launch_directory: runtime/execution_launches
+  worker_ready_directory: runtime/worker_ready
+  persistent_attempt_ledger_directory: runtime/attempt_ledger
+  monotonic_attempt_roster_directory: runtime/attempt_roster
+
+limitations:
+  external_development_benchmark_only: true
+  independent_so101_confirmation: false
+  same_public_recording_session: true
+  effective_scenario_clusters: 8
+  measured_complete_streams: true
+  actual_sensor_failures_observed: false
+  synthetic_single_imu_mask_only: true
+  label_assisted_alignment: true
+  heldout_input_clock_fit_offline_transductive: true
+  acausal_alignment: true
+  causal_streaming_or_deployment_claim_allowed: false
+  pord_first_causal_provable_or_regret_claim_allowed: false
+  statistical_significance_claim_allowed: false
+  source_license_conflict_must_be_resolved_before_redistribution: true
+  no_refit_guarantee_threat_model: crash_corrupt_prefix_quarantine_and_ordinary_partial_deletion_with_any_local_attempt_authority_remaining
+  external_append_only_or_signature_attempt_authority_present: false
+  total_erasure_prior_execution_provable: false
+  total_erasure_resistance_claim_allowed: false
+  total_erasure_limitation: simultaneous_total_erasure_of_all_local_attempt_authorities_cannot_prove_whether_execution_previously_occurred_without_external_append_only_or_signature_authority

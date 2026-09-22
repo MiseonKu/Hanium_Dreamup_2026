@@ -1,0 +1,458 @@
+contract:
+  name: openaxes.external.preparation.v1
+  research_role: secondary_objective_portability_benchmark
+  preparation_only: true
+  independent_so101_confirmation: false
+  so101_merge_allowed: false
+  model_training_allowed: false
+  model_selection_allowed: false
+  challenge_access_allowed: false
+
+source:
+  filename: openaxes-example-robot-dataset.zip
+  url: https://data.uni-hannover.de/dataset/a5637b98-acb4-4487-bf1b-a32b42425be4/resource/fdebcc7b-26cb-43f5-81ac-9b604ddae767/download/openaxes-example-robot-dataset.zip
+  doi: 10.25835/psqqs9w0
+  expected_size_bytes: 423808715
+  expected_sha256: 78f31d1967842e693c2efb6ee0530e162cd509e4fa786745a485d502f2aa6da7
+  expected_zip_entries: 97
+  expected_zip_payload_bytes: 505766974
+  nested_tar_member: measure_raw-2022-09-15.tar.bz2
+  expected_nested_tar_entries: 1226
+  expected_nested_tar_payload_bytes: 908374762
+  portal_license: CC-BY-SA-3.0
+  member_data_license: CC-BY-SA-4.0
+  license_conflict_expected: true
+  redistribution_allowed: false
+  attribution_required: true
+
+schema:
+  segments:
+    - humerus
+    - radius
+    - carpus
+    - digitus
+  sensor_bindings:
+    humerus:
+      imu_id: imu1
+      mac: "18:04:ED:C4:75:35"
+    radius:
+      imu_id: imu2
+      mac: "18:04:ED:C4:75:34"
+    carpus:
+      imu_id: imu6
+      mac: "18:04:ED:C4:75:05"
+    digitus:
+      imu_id: imu9
+      mac: "18:04:ED:C4:75:1A"
+  imu_header:
+    - MAC
+    - IMU
+    - TIME
+    - INDEX
+    - QUATERNION_0
+    - QUATERNION_1
+    - QUATERNION_2
+    - QUATERNION_3
+    - ACCEL_ADXL355_0
+    - ACCEL_ADXL355_1
+    - ACCEL_ADXL355_2
+    - ACCEL_BMI160_0
+    - ACCEL_BMI160_1
+    - ACCEL_BMI160_2
+    - GYRO_0
+    - GYRO_1
+    - GYRO_2
+  robot_header:
+    - timestamp
+    - tcp_x
+    - tcp_y
+    - tcp_z
+    - tcp_u
+    - tcp_v
+    - tcp_w
+    - q0
+    - q1
+    - q2
+    - q3
+    - q4
+    - q5
+    - tcp_dx
+    - tcp_dy
+    - tcp_dz
+    - tcp_du
+    - tcp_dv
+    - tcp_dw
+    - acc_x
+    - acc_y
+    - acc_z
+  aligned_header:
+    - TIME
+    - QUATERNION_0
+    - QUATERNION_1
+    - QUATERNION_2
+    - QUATERNION_3
+  sensor_channels:
+    - accel_adxl355_x_mps2
+    - accel_adxl355_y_mps2
+    - accel_adxl355_z_mps2
+    - accel_bmi160_x_mps2
+    - accel_bmi160_y_mps2
+    - accel_bmi160_z_mps2
+    - gyro_x_rad_s
+    - gyro_y_rad_s
+    - gyro_z_rad_s
+  target_columns:
+    - tcp_x_m
+    - tcp_y_m
+    - tcp_z_m
+  raw_quaternion_columns:
+    - QUATERNION_0
+    - QUATERNION_1
+    - QUATERNION_2
+    - QUATERNION_3
+  metadata_columns:
+    - row_uid
+    - scenario_id
+    - sample_index
+    - aligned_time_us
+  forbidden_model_inputs:
+    - row_uid
+    - scenario_id
+    - sample_index
+    - aligned_time_us
+    - shape
+    - nominal_speed_mm_s
+    - MAC
+    - IMU
+    - TIME
+    - INDEX
+    - QUATERNION_0
+    - QUATERNION_1
+    - QUATERNION_2
+    - QUATERNION_3
+    - timestamp
+    - tcp_x
+    - tcp_y
+    - tcp_z
+    - tcp_x_m
+    - tcp_y_m
+    - tcp_z_m
+    - normalized_tcp_x
+    - normalized_tcp_y
+    - normalized_tcp_z
+    - normalized_tcp_x_m
+    - normalized_tcp_y_m
+    - normalized_tcp_z_m
+    - tcp_x_normalized
+    - tcp_y_normalized
+    - tcp_z_normalized
+    - tcp_u
+    - tcp_v
+    - tcp_w
+    - q0
+    - q1
+    - q2
+    - q3
+    - q4
+    - q5
+    - tcp_dx
+    - tcp_dy
+    - tcp_dz
+    - tcp_du
+    - tcp_dv
+    - tcp_dw
+    - acc_x
+    - acc_y
+    - acc_z
+
+preprocessing:
+  grid_hz: 100
+  active_trace_only: true
+  quiet_prefix_samples: 20
+  quiet_prefix_max_axis_std_rad_s: 0.01
+  gyro_correction: subtract_quiet_prefix_axis_mean
+  imu_clock_fit: deterministic_huber_irls_time_on_index
+  imu_clock_fit_iterations: 8
+  imu_clock_slope_min_us_per_index: 9500.0
+  imu_clock_slope_max_us_per_index: 10500.0
+  imu_clock_residual_max_us: 50000.0
+  target_interpolation: linear_on_source_aligned_robot_time
+  feature_interpolation: linear_on_robust_imu_index_time
+  allow_extrapolation: false
+
+alignment:
+  source: publisher_nested_tar_robot_segment_aligned_time
+  construction: madgwick_cal_imu_orientation_to_robot_joint_orientation_affine
+  label_assisted: true
+  fixed_before_model_results: true
+  per_model_or_prediction_realign_allowed: false
+  aligned_clock_slope_min_us_per_robot_s: 995000.0
+  aligned_clock_slope_max_us_per_robot_s: 1005000.0
+  aligned_clock_fit_residual_max_us: 1.0
+  sensitivity_recipe:
+    stage: downstream_evaluation_required
+    preparation_executes_recipe: false
+    signed_target_shifts_ms:
+      - -50
+      - -20
+      - -10
+      - 10
+      - 20
+      - 50
+    zero_shift_baseline_required: true
+    sign_convention: target_lookup_time_us_equals_base_aligned_time_us_plus_shift_ms_times_1000
+    positive_shift_meaning: sample_target_later_than_the_base_prediction_time
+    no_extrapolation: true
+    edge_policy: drop_base_rows_without_shifted_target_support
+    pairing_key: row_uid
+    same_base_uid_pairing_required: true
+    reporting_granularity: per_signed_shift_per_outer_fold_and_family_summary
+    reporting_fold_families:
+      - scenario_loso
+      - speed_pair_out
+      - shape_out
+    primary_scenario_loso_folds: 8
+    stress_reporting_required: true
+    required_metrics:
+      - rmse3d_m
+      - robust_J_m
+      - delta_rmse3d_m_shift_minus_zero
+      - delta_robust_J_m_shift_minus_zero
+    metric_definitions:
+      rmse3d_m: sqrt_mean_squared_euclidean_tcp_xyz_error_in_metres
+      robust_J_m: arithmetic_mean_of_A_mean_context_WS_worst_segment_and_WM_worst_mask_rmse3d_m
+      shift_delta: signed_shift_metric_minus_zero_shift_metric_on_same_base_uid_pairs
+    reporting_methods:
+      - frozen_comparator
+      - frozen_objective
+    paired_method_delta_required: true
+    paired_method_delta_sign: frozen_objective_minus_frozen_comparator
+    model_selection_use_allowed: false
+    claim_gate_use_allowed: false
+
+scenarios:
+  - id: circle-100
+    shape: circle
+    nominal_speed_mm_s: 100
+    robot_rows: 5858
+    imu_rows:
+      humerus: 5049
+      radius: 4952
+      carpus: 4858
+      digitus: 4687
+    common_aligned_robot_rows: 5663
+    dropped_robot_head_rows: 0
+    dropped_robot_tail_rows: 195
+    active_trace:
+      start_robot_row_inclusive: 567
+      end_robot_row_inclusive: 5046
+      geometry:
+        kind: circle_yz
+        plane_x_m: -0.43194
+        plane_tolerance_m: 0.001
+        center_y_m: -0.096892
+        center_z_m: 0.604972
+        radius_m: 0.2
+        path_tolerance_m: 0.0016
+  - id: circle-150
+    shape: circle
+    nominal_speed_mm_s: 150
+    robot_rows: 4282
+    imu_rows:
+      humerus: 4159
+      radius: 4051
+      carpus: 3953
+      digitus: 3740
+    common_aligned_robot_rows: 4282
+    dropped_robot_head_rows: 0
+    dropped_robot_tail_rows: 0
+    active_trace:
+      start_robot_row_inclusive: 505
+      end_robot_row_inclusive: 3505
+      geometry:
+        kind: circle_yz
+        plane_x_m: -0.43194
+        plane_tolerance_m: 0.001
+        center_y_m: -0.096892
+        center_z_m: 0.604972
+        radius_m: 0.2
+        path_tolerance_m: 0.0016
+  - id: circle-200
+    shape: circle
+    nominal_speed_mm_s: 200
+    robot_rows: 3479
+    imu_rows:
+      humerus: 3380
+      radius: 3289
+      carpus: 3174
+      digitus: 3018
+    common_aligned_robot_rows: 3419
+    dropped_robot_head_rows: 0
+    dropped_robot_tail_rows: 60
+    calibration_truth_complete: false
+    active_trace:
+      start_robot_row_inclusive: 397
+      end_robot_row_inclusive: 2658
+      geometry:
+        kind: circle_yz
+        plane_x_m: -0.43194
+        plane_tolerance_m: 0.001
+        center_y_m: -0.096892
+        center_z_m: 0.604972
+        radius_m: 0.2
+        path_tolerance_m: 0.0016
+  - id: circle-250
+    shape: circle
+    nominal_speed_mm_s: 250
+    robot_rows: 3759
+    imu_rows:
+      humerus: 4423
+      radius: 4328
+      carpus: 4233
+      digitus: 4045
+    common_aligned_robot_rows: 3759
+    dropped_robot_head_rows: 0
+    dropped_robot_tail_rows: 0
+    active_trace:
+      start_robot_row_inclusive: 932
+      end_robot_row_inclusive: 2751
+      geometry:
+        kind: circle_yz
+        plane_x_m: -0.43194
+        plane_tolerance_m: 0.001
+        center_y_m: -0.096892
+        center_z_m: 0.604972
+        radius_m: 0.2
+        path_tolerance_m: 0.0016
+  - id: triangle-100
+    shape: triangle
+    nominal_speed_mm_s: 100
+    robot_rows: 7932
+    imu_rows:
+      humerus: 12522
+      radius: 12420
+      carpus: 12267
+      digitus: 12147
+    common_aligned_robot_rows: 7932
+    dropped_robot_head_rows: 0
+    dropped_robot_tail_rows: 0
+    active_trace:
+      start_robot_row_inclusive: 725
+      end_robot_row_inclusive: 7028
+      geometry:
+        kind: triangle_yz
+        plane_x_m: -0.54698
+        plane_tolerance_m: 0.001
+        vertices_yz_m:
+          - [-0.3201, 0.5442]
+          - [0.36312, 0.21932]
+          - [-0.322, 0.21925]
+        path_tolerance_m: 0.0021
+  - id: triangle-150
+    shape: triangle
+    nominal_speed_mm_s: 150
+    robot_rows: 5448
+    imu_rows:
+      humerus: 5016
+      radius: 4900
+      carpus: 4789
+      digitus: 4632
+    common_aligned_robot_rows: 5448
+    dropped_robot_head_rows: 0
+    dropped_robot_tail_rows: 0
+    active_trace:
+      start_robot_row_inclusive: 593
+      end_robot_row_inclusive: 4860
+      geometry:
+        kind: triangle_yz
+        plane_x_m: -0.54698
+        plane_tolerance_m: 0.001
+        vertices_yz_m:
+          - [-0.3201, 0.5442]
+          - [0.36312, 0.21932]
+          - [-0.322, 0.21925]
+        path_tolerance_m: 0.0021
+  - id: triangle-200
+    shape: triangle
+    nominal_speed_mm_s: 200
+    robot_rows: 4589
+    imu_rows:
+      humerus: 4502
+      radius: 4400
+      carpus: 4292
+      digitus: 4105
+    common_aligned_robot_rows: 4589
+    dropped_robot_head_rows: 0
+    dropped_robot_tail_rows: 0
+    active_trace:
+      start_robot_row_inclusive: 638
+      end_robot_row_inclusive: 3910
+      geometry:
+        kind: triangle_yz
+        plane_x_m: -0.54698
+        plane_tolerance_m: 0.001
+        vertices_yz_m:
+          - [-0.3201, 0.5442]
+          - [0.36312, 0.21932]
+          - [-0.322, 0.21925]
+        path_tolerance_m: 0.0021
+  - id: triangle-250
+    shape: triangle
+    nominal_speed_mm_s: 250
+    robot_rows: 4446
+    imu_rows:
+      humerus: 3867
+      radius: 3767
+      carpus: 3659
+      digitus: 3482
+    common_aligned_robot_rows: 4209
+    dropped_robot_head_rows: 237
+    dropped_robot_tail_rows: 0
+    active_trace:
+      start_robot_row_inclusive: 1026
+      end_robot_row_inclusive: 3716
+      geometry:
+        kind: triangle_yz
+        plane_x_m: -0.54698
+        plane_tolerance_m: 0.001
+        vertices_yz_m:
+          - [-0.3201, 0.5442]
+          - [0.36312, 0.21932]
+          - [-0.322, 0.21925]
+        path_tolerance_m: 0.0021
+
+folds:
+  total_declared_outer_folds: 14
+  families:
+    - id: scenario_loso
+      expected_folds: 8
+      test_group: one_complete_scenario
+      role: primary
+    - id: speed_pair_out
+      expected_folds: 4
+      test_group: both_shapes_at_one_complete_speed
+      role: stress
+    - id: shape_out
+      expected_folds: 2
+      test_group: all_speeds_of_one_complete_shape
+      role: stress
+  inner_selection: scenario_blocked_training_groups_only
+  outer_test_fitting_allowed: false
+  row_random_split_allowed: false
+  repeated_loops_are_independent_folds: false
+
+limitations:
+  physical_recording_sessions: 1
+  effective_scenario_clusters: 8
+  same_installation: true
+  same_sensor_units: true
+  observed_real_sensor_outage: false
+  simulated_sensor_dropout_only: true
+  confirmatory_claim_allowed: false
+  row_level_inference_allowed: false
+  external_code_execution_required: false
+  publisher_reconstructed_tcp_allowed: false
+  held_out_full_recording_clock_calibration: true
+  offline_transductive_preparation: true
+  acausal_preparation: true
+  causal_or_online_claim_allowed: false

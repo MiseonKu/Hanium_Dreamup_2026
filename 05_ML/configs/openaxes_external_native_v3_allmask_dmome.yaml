@@ -1,0 +1,696 @@
+contract:
+  name: openaxes.external.native_sensor_experts.v3.allmask_dmome
+  version: 1
+  erratum: 2
+  status: preregistered_not_implemented_erratum2
+  research_role: fixed_parameter_matched_arbitrary_sensor_subset_regression
+  preregistration_scope: public_openaxes_same_recording_development_benchmark
+  created_before_any_v1_scientific_metric_was_opened_by_preregistration_author: true
+  created_before_any_native_v2_fit_or_scientific_outcome_existed: true
+  outcomes_may_not_change_candidates_views_hyperparameters_folds_seeds_metrics_or_gates: true
+  run_exactly_once_after_all_parent_and_source_authorities_validate: true
+  no_retry_retuning_or_semantic_clone_after_terminal_manifest: true
+
+erratum1:
+  role: outcome_blind_closure_of_preexisting_unspecified_execution_semantics
+  original_preregistration_commit: 7da0bb4e4bb10193465cf03d3e082275157aaa43
+  original_receipt_commit: a6e28ac6df8bc864c81104f4e3be958804d87f6c
+  original_receipt_path: receipts/openaxes_external_native_v3_preregistration_source_audit.json
+  original_receipt_sha256: cf12fc6e36a14b936ba978cbcefdd4e4db4766aae0a1bdca83ed5006297e988d
+  original_receipt_preserved_byte_for_byte: true
+  created_before_any_v3_implementation_fit_prediction_result_or_metric: true
+  scientific_values_read_by_erratum_author: false
+  v1_v2_or_v3_outcomes_may_not_select_erratum_choices: true
+  candidates_views_hyperparameters_folds_seeds_metrics_and_gate_directions_unchanged: true
+  implementation_requires_erratum1_git_receipt: true
+
+erratum2:
+  role: outcome_neutral_parent_authority_and_inherited_public_api_closure_only
+  erratum1_receipt_commit: d54e9f08f81273d1f5a1931d00309b771853b1c6
+  erratum1_receipt_path: receipts/openaxes_external_native_v3_preregistration_erratum1_source_audit.json
+  erratum1_receipt_sha256: 88f4522c4cc4a28c8b2dd40fbe21a523dc2684bc3a43a08c7e8cdbbdb2e0e889
+  erratum2_preissue_receipt_path: receipts/openaxes_external_native_v3_preregistration_erratum2_preissue.json
+  erratum2_preissue_receipt_sha256: fc050f08c32643ec2c126322ba0a9400b34eb241c57aeac21092383293ba8a31
+  created_before_any_v3_implementation_fit_prediction_result_or_metric: true
+  created_before_any_native_v2_or_v3_scientific_outcome_disclosure_to_erratum_author: true
+  scientific_values_read_by_erratum_author: false
+  authority_trigger: fail_closed_native_v2_signed_report_exception_and_static_support_audit_only
+  candidates_views_hyperparameters_folds_seeds_metrics_gates_fit_counts_and_claims_unchanged: true
+  implementation_requires_erratum2_git_object_receipt: true
+
+claims:
+  intended_contribution: >-
+    A sealed empirical protocol for parameter-matched four-IMU endpoint
+    regression under every nonempty availability subset, combining an
+    output-space dynamic mixture of sensor experts, adjacent mask-lattice
+    More-vs-Fewer calibration, and conflict-averse cardinality-risk gradients.
+  algorithmic_first_or_theorem_claim: forbidden
+  causal_or_general_superiority_claim: forbidden
+  independent_session_or_cross_installation_claim: forbidden
+  observed_physical_outage_claim: forbidden
+  online_control_or_deployment_claim: forbidden
+  same_recording_public_benchmark_only: true
+  outages_are_synthetic_masks_over_measured_complete_imu_streams: true
+  all_methods_are_known_components_or_fixed_combinations: true
+
+outcome_blind_freeze:
+  repository_parent_commit: a06488185601cfd646ac1cecb43d8951cd0fb3b8
+  v1_training_complete: true
+  v1_fresh_validation_processes_complete: 10
+  v1_locked_eleventh_validation_complete: true
+  v1_scientific_values_read_by_preregistration_author: false
+  v1_disclosure_checker_output_exists_at_freeze: false
+  native_v2_parent_receipt_may_exist_but_its_scientific_payload_is_unread: true
+  native_v2_implementation_or_fit_exists_at_freeze: false
+  literature_and_protocol_constraints_are_the_only_design_inputs: true
+
+lineage:
+  source_dataset: OpenAXES_Example_Robot_Dataset
+  source_zip_path: artifacts/openaxes_external_v1/source/openaxes-example-robot-dataset.zip
+  source_zip_sha256: 78f31d1967842e693c2efb6ee0530e162cd509e4fa786745a485d502f2aa6da7
+  source_license: CC_BY_SA_3_0
+  public_robot: UR5
+  public_recording_sessions: 1
+  scenario_count: 8
+  scenario_factors: {shape_count: 2, speed_count: 4}
+  preparation_run: artifacts/openaxes_external_v1/prepared_openaxes-v1-sealed-003
+  preparation_complete_sha256: 093bf56d0a2eaa41985f83c03a172fe836598e95498aeedc50f3e04a5f5752b7
+  preparation_manifest_sha256: 12a0a7ed5188cf7fee432d8ac7b09811ced5ed53b8f6c43bac071fb1c0a3aa57
+  preparation_table_sha256: 98747e51fd95506b91facfeb273be23c454d07da563deea13a6f2192ded48703
+  preparation_rows: 22482
+  preparation_hz: 100
+  preparation_config_sha256: 640bf3614483a7b5cf468ff883b69e8f017d941862d77b92058aa3e40fedbb82
+  v1_model_config_sha256: 848a19cc270401f6c37d391b399832996324792382a4a926f93b1584d7186c51
+  native_v2_config_sha256: c0115d95b9f6971d23b8b70d07b1dce55d0613ebf56eb963fe30175cbbb2f794
+  native_v2_contract_sha256: 591d1cf4409f80945c8b2916d9e220c57292efabd399e91f83c451d08f8016c6
+  native_v2_parent_source_audit_sha256: 8f935f243ce0940687a639b83484196044715df45bf159613303c23bc47467ad
+  table_and_fold_bytes_must_equal_native_v1_and_v2_authority: true
+  new_collection: forbidden
+  source_truth_reconstruction_count_per_validation: 1
+
+canonical_preparation_public_api_authority:
+  contract: openaxes.external.signed_shift_truth.v1
+  function: reconstruct_openaxes_signed_shift_truth_v1
+  inherited_git_object_authority_commit: d54e9f08f81273d1f5a1931d00309b771853b1c6
+  exact_inherited_source_files:
+    - {path: configs/openaxes_external_v1.yaml, bytes: 11693, sha256: 640bf3614483a7b5cf468ff883b69e8f017d941862d77b92058aa3e40fedbb82, git_blob_oid: 4d6de5634eeeaf9deb42e06e7414597aeac53f9d}
+    - {path: requirements-eval.lock, bytes: 830, sha256: b72b9455129011ac88829c87cb2b0012215214ead5622838b9117a19267232aa, git_blob_oid: ed7aedc9995c3be613e8a3061aea7b6feeacb1e2}
+    - {path: src/imu_vive_learning/__init__.py, bytes: 214, sha256: 623b51c9381b2a014b5f66fbf389bd3ceb0b53642adad0e8390f62e635d62cef, git_blob_oid: c190a03581b3244ec8c97b37c7b5eeb749bfd99c}
+    - {path: src/imu_vive_learning/io_utils.py, bytes: 2693, sha256: 7c4371e7fc7098e77b3d0668edda68901e16f485e2d9a6ff4fb287951ec7362a, git_blob_oid: 333fd380c828b7a22fe5c4a4275b60ee0a7a4448}
+    - {path: src/imu_vive_learning/openaxes_external_v1.py, bytes: 77740, sha256: dd31562ea02b4b72f0123cdf426f6d7a81daa52a8147cd1913cc4ba3a82c4384, git_blob_oid: 77d82cfd66c846ab701bd156452cd15fe52d8ce3}
+    - {path: src/imu_vive_learning/openaxes_external_v1_config.py, bytes: 16488, sha256: abc4ea4dd09334845222cad7c3baf52150bacbc2a1a6d57844bd26a040833d94, git_blob_oid: ab6bdbaec8f1d42dc6cc4b4451e4e1695d2f7fae}
+  source_set_hash_algorithm: sha256_of_canonical_json_path_sorted_array_of_exact_path_bytes_sha256_git_blob_oid_records
+  source_set_sha256: 3be65b169226b8d088315311238b973c7f831cc4bf9a12116835cdba3a0a905c
+  required_imported_distributions_from_exact_eval_lock: [numpy, pandas, pyarrow, scipy, PyYAML]
+  runtime_and_git_object_bytes_must_match_every_exact_reference: true
+  inherited_files_are_read_only_and_may_not_be_reimplemented_or_mutated: true
+  private_prepared_table_shifted_time_lookup_or_copied_reconstruction: forbidden
+  public_api_return_must_pass_an_independent_v3_semantic_validator_before_metric_use: true
+
+parent_gate:
+  required_before_implementation:
+    - validated_v1_terminal_and_10_plus_1_publication_receipts
+    - validated_native_v2_parent_receipt_bundle
+    - validated_native_v2_RUN003_COMPLETE
+    - validated_external_native_v2_RUN003_signed_shift_recovery_terminal
+    - outcome_blind_v3_preregistration_erratum2_git_object_receipt
+  native_v2_compound_terminal_gate:
+    boolean_operator: all_of_no_substitution
+    run003:
+      run_id: openaxes-native-v2-sealed-003
+      run_root: artifacts/openaxes_external_native_v2/run_openaxes-native-v2-sealed-003
+      required_terminal_files: [development_manifest.json, COMPLETE.json]
+      complete_and_development_manifest_raw_references_required: true
+      full_native_v2_validator_success_required: true
+    external_signed_shift_recovery:
+      terminal_contract: openaxes.external.native_sensor_experts.v2.compound_recovery.terminal.v1
+      terminal_raw_reference_must_be_carried_by_v3_parent_receipt: true
+      terminal_must_bind_run003_run_id_complete_and_development_manifest_raw_references: true
+      canonical_public_api_contract_required: openaxes.external.signed_shift_truth.v1
+      canonical_public_api_semantic_receipt_validation_required: true
+      private_prepared_table_shifted_time_lookup: forbidden
+      scientific_fits_updates_checkpoint_selections_model_forwards_or_task_evaluator_calls: 0
+      may_select_change_or_recompute_native_v2_or_v3_primary_gate: false
+    parent_receipt_must_bind_both_terminal_raw_references_and_cross_equalities: true
+    either_terminal_alone_is_insufficient: true
+    missing_incomplete_extra_replaced_or_hash_drifted_terminal_action: fail_before_v3_implementation
+  native_v2_terminal_scientific_value_projection_into_v3_parent_gate: forbidden
+  native_v2_outcome_may_not_change_v3_design_or_suppress_v3: true
+  native_v2_predictions_are_report_only_due_to_different_five_view_mask_law: true
+  v3_primary_baselines_are_refit_under_the_exact_v3_fifteen_view_law: true
+  missing_ambiguous_or_hash_drifted_parent_action: fail_before_task_creation
+
+preregistration_authority:
+  exact_preregistered_paths:
+    - configs/openaxes_external_native_v3_allmask_dmome.yaml
+    - docs/OPENAXES_EXTERNAL_NATIVE_V3_ALLMASK_DMOME_CONTRACT.md
+    - receipts/openaxes_external_native_v3_preregistration_erratum2_preissue.json
+  historical_source_audit_receipt_path: receipts/openaxes_external_native_v3_preregistration_source_audit.json
+  historical_source_audit_receipt_sha256: cf12fc6e36a14b936ba978cbcefdd4e4db4766aae0a1bdca83ed5006297e988d
+  erratum1_source_audit_receipt_path: receipts/openaxes_external_native_v3_preregistration_erratum1_source_audit.json
+  erratum1_source_audit_receipt_sha256: 88f4522c4cc4a28c8b2dd40fbe21a523dc2684bc3a43a08c7e8cdbbdb2e0e889
+  erratum2_preissue_receipt_path: receipts/openaxes_external_native_v3_preregistration_erratum2_preissue.json
+  erratum2_preissue_receipt_sha256: fc050f08c32643ec2c126322ba0a9400b34eb241c57aeac21092383293ba8a31
+  exact_source_audit_receipt_path: receipts/openaxes_external_native_v3_preregistration_erratum2_source_audit.json
+  source_audit_contract: openaxes.external.native_sensor_experts.v3.preregistration_erratum2_source_audit.v1
+  audited_commit_is_intentionally_not_embedded_in_preregistered_blobs: true
+  receipt_must_bind_for_each_preregistered_path: [path, bytes, sha256, git_blob_oid]
+  receipt_must_bind:
+    - audited_git_commit
+    - repository_object_format
+    - exact_three_file_source_set_sha256
+    - outcome_blind_assertions
+    - canonical_payload_sha256
+  bytes_must_be_read_from_git_objects_at_audited_commit: true
+  worktree_bytes_must_equal_audited_git_blobs_at_issuance: true
+  receipt_commit_must_be_descendant_of_audited_commit: true
+  audited_and_receipt_commits_must_be_ancestors_of_implementation_commit: true
+  receipt_must_be_created_before_any_v3_implementation_fit_prediction_or_result: true
+  receipt_payload_may_not_contain_v1_v2_or_v3_scientific_values: true
+  missing_untracked_dirty_replaced_or_nonancestor_authority_action: fail_before_implementation
+
+input:
+  sensor_order: [humerus, radius, carpus, digitus]
+  per_sensor_continuous_order:
+    - adxl355_acc_x
+    - adxl355_acc_y
+    - adxl355_acc_z
+    - bmi160_acc_x
+    - bmi160_acc_y
+    - bmi160_acc_z
+    - gyro_x
+    - gyro_y
+    - gyro_z
+  continuous_features_per_sensor: 9
+  continuous_feature_count: 36
+  availability_feature_count: 4
+  model_input_feature_count: 40
+  metadata_or_target_as_model_input: forbidden
+  target_columns: [tcp_x_m, tcp_y_m, tcp_z_m]
+  target_frame: ur5_base_tcp
+  target_unit: metre
+  scaler_fit_scope: training_fold_rows_only
+  feature_scale: population_standard_deviation_ddof_zero
+  feature_mean_and_scale_arithmetic: fixed_order_float64_tree_over_training_rows
+  feature_nonfinite_or_zero_scale_action: fail_fit
+  target_transform: training_fold_xyz_mean_and_one_isotropic_population_scale
+  target_mean_formula: fixed_tree_mean_of_raw_training_xyz_vectors
+  target_scale_formula: sqrt_of_fixed_tree_mean_over_training_rows_and_xyz_of_squared_centered_coordinates
+  target_scale_ddof: 0
+  per_axis_target_scale: forbidden
+  target_nonfinite_or_nonpositive_scale_action: fail_fit
+  standardized_model_tensor_dtype: float32
+  missing_continuous_value_after_standardization: 0.0
+  availability_bits_are_not_standardized: true
+  row_order: receipt_bound_prepared_parquet_physical_order
+
+availability_lattice:
+  empty_subset_allowed: false
+  exact_view_count: 15
+  exact_order:
+    - {view_id: full, availability: [1, 1, 1, 1], cardinality: 4}
+    - {view_id: drop_humerus, availability: [0, 1, 1, 1], cardinality: 3}
+    - {view_id: drop_radius, availability: [1, 0, 1, 1], cardinality: 3}
+    - {view_id: drop_carpus, availability: [1, 1, 0, 1], cardinality: 3}
+    - {view_id: drop_digitus, availability: [1, 1, 1, 0], cardinality: 3}
+    - {view_id: only_humerus_radius, availability: [1, 1, 0, 0], cardinality: 2}
+    - {view_id: only_humerus_carpus, availability: [1, 0, 1, 0], cardinality: 2}
+    - {view_id: only_humerus_digitus, availability: [1, 0, 0, 1], cardinality: 2}
+    - {view_id: only_radius_carpus, availability: [0, 1, 1, 0], cardinality: 2}
+    - {view_id: only_radius_digitus, availability: [0, 1, 0, 1], cardinality: 2}
+    - {view_id: only_carpus_digitus, availability: [0, 0, 1, 1], cardinality: 2}
+    - {view_id: only_humerus, availability: [1, 0, 0, 0], cardinality: 1}
+    - {view_id: only_radius, availability: [0, 1, 0, 0], cardinality: 1}
+    - {view_id: only_carpus, availability: [0, 0, 1, 0], cardinality: 1}
+    - {view_id: only_digitus, availability: [0, 0, 0, 1], cardinality: 1}
+  cardinality_stratum_weights: {1: 0.25, 2: 0.25, 3: 0.25, 4: 0.25}
+  within_stratum_mask_weights:
+    cardinality_1_each: 0.0625
+    cardinality_2_each: 0.041666666666666664
+    cardinality_3_each: 0.0625
+    cardinality_4_each: 0.25
+  same_uid_and_target_across_all_views: true
+  vectorized_view_major_layout: true
+  adjacent_rich_poor_edge_count: 28
+  adjacent_edges_exact_rule: rich_equals_poor_union_one_sensor_and_poor_nonempty
+  edges_by_transition: {one_to_two: 12, two_to_three: 12, three_to_four: 4}
+
+models:
+  exact_trainable_parameter_count_each: 6979
+  dense:
+    layout: [40, 64, 64, 3]
+    hidden_activation: ReLU
+    parameter_arithmetic: 2560_plus_64_plus_4096_plus_64_plus_192_plus_3_equals_6979
+    matrix_macs_per_example: 6848
+  static_sensor_experts:
+    each_expert_layout: [9, 20, 24]
+    each_expert_hidden_activations: [ReLU, ReLU]
+    each_expert_parameters: 704
+    four_expert_parameters: 2816
+    availability_multiply_each_24_vector: true
+    fusion_input: four_gated_24_vectors_plus_four_availability_bits
+    fusion_layout: [100, 40, 3]
+    fusion_parameters: 4163
+    total_parameters: 6979
+    matrix_macs_per_example: 6760
+  dmome_output_space:
+    each_sensor_expert_layout: [9, 27, 42, 3]
+    each_sensor_expert_hidden_activations: [ReLU, ReLU]
+    each_sensor_expert_parameter_arithmetic: 270_plus_1176_plus_129_equals_1575
+    four_expert_parameters: 6300
+    router_layout: [40, 15, 4]
+    router_hidden_activation: ReLU
+    router_parameter_arithmetic: 615_plus_64_equals_679
+    total_parameters: 6979
+    matrix_macs_per_example_all_four_experts_plus_router: 6672
+    all_four_experts_are_computed_in_fixed_order: true
+    unavailable_router_logit: negative_infinity_before_softmax
+    router_weights_nonnegative_sum_one_over_available_sensors: true
+    final_xyz_scaled_output: weighted_sum_of_four_sensor_expert_xyz_outputs
+    missing_expert_weight_exact_zero: true
+    learned_imputation_reconstruction_or_auxiliary_head: forbidden
+    normalization_dropout_or_sparse_dynamic_skipping: forbidden
+
+initialization_and_determinism:
+  task_process_scope: one_candidate_fold_seed_fit_per_fresh_process
+  python_random_seed: exact_fit_seed
+  numpy_random_seed: exact_fit_seed
+  torch_cpu_seed_before_model_construction: exact_fit_seed
+  torch_cuda_seed_before_transfer_or_training: exact_fit_seed
+  model_construction_device: cpu
+  model_construction_rng_scope: torch_random_fork_rng_with_empty_device_list_then_manual_seed
+  linear_initialization: pytorch_linear_reset_parameters_kaiming_uniform_a_sqrt5_and_uniform_bias_by_fan_in
+  model_and_training_dtype: float32
+  module_declaration_order_dense: linear_40_64_then_linear_64_64_then_linear_64_3
+  module_declaration_order_static: four_sensor_experts_in_sensor_order_each_linear_9_20_then_linear_20_24_then_fusion_linear_100_40_then_linear_40_3
+  module_declaration_order_dmome: four_sensor_experts_in_sensor_order_each_linear_9_27_then_linear_27_42_then_linear_42_3_then_router_linear_40_15_then_linear_15_4
+  dmome_candidate_initial_state_tensor_hash_equality_required_per_fold_seed: true
+  dmome_candidate_optimizer_initial_state_equality_required_per_fold_seed: true
+  dmome_initial_state_may_depend_on_candidate_ordinal_or_instantiation_history: false
+  deterministic_algorithms_required: true
+  cublas_workspace_config_required_before_torch_import: ':4096:8'
+  cudnn_benchmark: false
+  cudnn_deterministic: true
+  allow_tf32: false
+  automatic_mixed_precision_allowed: false
+  environment_and_package_lock_receipt_required: true
+  state_tensor_hash_algorithm:
+    digest: sha256
+    entry_order: python_sorted_state_dict_name
+    tensor_conversion: detach_then_cpu_then_contiguous_then_numpy
+    entry_stream: parameter_name_utf8_then_numpy_dtype_ascii_then_shape_canonical_json_ascii_then_C_order_payload
+    length_prefix_or_delimiter: none
+
+row_order_and_reductions:
+  authoritative_global_row_order: physical_row_order_of_receipt_bound_prepared_parquet
+  fold_partition_rule: order_preserving_membership_mask_without_sort_reset_sample_or_reindex
+  training_scenario_order: exact_fold_manifest_train_scenario_order
+  outer_scenario_order: exact_fold_manifest_test_scenario_order
+  within_scenario_row_order: authoritative_partition_order_filtered_without_reordering
+  view_order: exact_availability_lattice_order
+  cardinality_order: [1, 2, 3, 4]
+  mask_order_within_cardinality: exact_availability_lattice_order_filtered_by_cardinality
+  adjacent_edge_order: rich_in_exact_view_order_then_poor_in_exact_view_order_where_poor_is_one_sensor_subset
+  xyz_coordinate_order: [tcp_x_m, tcp_y_m, tcp_z_m]
+  seed_order: [1701, 2603, 3907]
+  primary_fold_order: exact_preparation_manifest_scenario_loso_order
+  float64_sum_algorithm: fixed_adjacent_pair_binary_tree_with_odd_tail_carry
+  float64_mean_algorithm: fixed_tree_sum_then_one_float64_division_by_exact_integer_count
+  float64_dot_algorithm: elementwise_float64_multiply_in_declared_order_then_fixed_tree_sum
+  float64_norm_algorithm: sqrt_of_fixed_float64_dot_with_self
+  empty_or_nonfinite_reduction_action: fail_closed
+  fused_multiply_add_for_reductions: forbidden
+  max_tie_rule: first_value_in_declared_order
+  rmse3d_formula: sqrt_of_fixed_tree_mean_over_rows_of_fixed_tree_sum_xyz_raw_metre_squared_error
+  autograd_loss_rule: cast_scaled_prediction_and_target_to_float64_before_xyz_squared_error_and_fixed_tree_reductions
+  autograd_parameter_gradient_dtype: float32
+
+candidates:
+  exact_order:
+    - dense_6979__allmask_cardinality_balanced_erm
+    - static_sensor_experts_6979__allmask_cardinality_balanced_erm
+    - dmome_6979__one_stage_allmask_cardinality_balanced_erm
+    - dmome_6979__two_stage_allmask_cardinality_balanced_erm
+    - dmome_6979__two_stage_allmask_cardinality_balanced_mofe
+    - dmome_6979__two_stage_allmask_cardinality_balanced_mofe_cagrad
+  fixed_terminal_candidate: dmome_6979__two_stage_allmask_cardinality_balanced_mofe_cagrad
+  best_of_selection_blending_or_post_outcome_replacement: forbidden
+  dense_6979__allmask_cardinality_balanced_erm:
+    architecture: dense
+    stages: {independent_expert_updates: 0, cooperative_updates: 400}
+    objective: direct_cardinality_balanced_erm
+  static_sensor_experts_6979__allmask_cardinality_balanced_erm:
+    architecture: static_sensor_experts
+    stages: {independent_expert_updates: 0, cooperative_updates: 400}
+    objective: direct_cardinality_balanced_erm
+  dmome_6979__one_stage_allmask_cardinality_balanced_erm:
+    architecture: dmome_output_space
+    stages: {independent_expert_updates: 0, cooperative_updates: 400}
+    objective: direct_cardinality_balanced_erm
+  dmome_6979__two_stage_allmask_cardinality_balanced_erm:
+    architecture: dmome_output_space
+    stages: {independent_expert_updates: 100, cooperative_updates: 300}
+    objective: direct_cardinality_balanced_erm
+  dmome_6979__two_stage_allmask_cardinality_balanced_mofe:
+    architecture: dmome_output_space
+    stages: {independent_expert_updates: 100, cooperative_updates: 300}
+    objective: direct_cardinality_balanced_erm_plus_mofe_0p1
+  dmome_6979__two_stage_allmask_cardinality_balanced_mofe_cagrad:
+    architecture: dmome_output_space
+    stages: {independent_expert_updates: 100, cooperative_updates: 300}
+    objective: four_cardinality_tasks_each_include_mofe_0p1_then_cagrad_0p4
+
+objectives:
+  row_task_loss: mean_squared_error_over_three_scaled_target_coordinates
+  scenario_risk: fixed_tree_mean_of_row_task_losses_within_training_scenario
+  mask_risk: equal_mean_of_training_scenario_risks
+  cardinality_risk: equal_mean_of_mask_risks_with_same_available_sensor_count
+  base_risk: 0.25_times_sum_of_four_cardinality_risks
+  base_risk_reduction_order: cardinality_1_then_2_then_3_then_4
+  stage_one_expert_risk: equal_mean_of_four_direct_scenario_balanced_single_sensor_expert_risks
+  stage_one_expert_order: [humerus, radius, carpus, digitus]
+  stage_one_per_expert_risk: fixed_tree_mean_of_scenario_risks_from_that_experts_direct_scaled_xyz_output_and_own_nine_channels
+  stage_one_router_or_other_expert_output_used: false
+  stage_one_forward_calls_per_update: 1
+  stage_one_gradient_traversals_per_update: 1
+  stage_one_optimizer_steps_per_update: 1
+  stage_one_router_parameters_frozen_at_initial_state: true
+  mofe:
+    applies_only_during_cooperative_updates_of_last_two_candidates: true
+    coefficient_lambda: 0.1
+    atom: relu(row_loss_rich_minus_row_loss_poor)
+    exact_adjacent_edge_count_per_row: 28
+    reduction_nesting: for_each_edge_fixed_tree_mean_of_training_scenario_values_each_being_fixed_tree_mean_of_row_atoms
+    reduction_order: adjacent_edge_order_then_training_scenario_order_then_within_scenario_row_order
+    total_direct_objective: base_risk_plus_0p1_times_mofe
+    regression_applicability_is_literature_supported_but_local_effect_is_empirical: true
+  cagrad:
+    applies_only_during_300_cooperative_updates_of_terminal_candidate: true
+    ordered_tasks: [cardinality_1, cardinality_2, cardinality_3, cardinality_4]
+    each_task: cardinality_risk_plus_0p1_times_common_mofe
+    task_count: 4
+    task_gradient_parameter_order: model_named_parameter_registration_order
+    task_gradient_source_dtype: float32
+    missing_parameter_gradient_action: fail_fit
+    flatten_rule: contiguous_float32_per_parameter_then_concatenate_in_frozen_parameter_order
+    transfer_and_cast_rule: one_detached_complete_vector_per_task_cuda_to_cpu_then_cast_once_to_float64
+    gram_matrix_dtype_and_device: float64_cpu
+    gram_matrix_rule: all_sixteen_ordered_dot_products
+    g_mean: one_fourth_sum_four_ordered_task_gradients
+    g_weighted: sum_simplex_weight_k_times_task_gradient_k
+    c: 0.4
+    epsilon: 1.0e-12
+    dual_objective: dot_g_weighted_g_mean_plus_c_times_norm_g_mean_times_norm_g_weighted
+    dual_optimization_direction: minimize
+    solver: scipy.optimize.minimize_method_SLSQP
+    solver_version_bound_by_requirements_lock: true
+    simplex_initial_weights: [0.25, 0.25, 0.25, 0.25]
+    simplex_bounds_each: [0.0, 1.0]
+    simplex_equality: sum_weights_minus_one_equals_zero
+    solver_jacobian: null
+    solver_constraint_jacobian: null
+    solver_tol_argument: null
+    solver_callback: null
+    solver_options: {maxiter: 100, ftol: 1.0e-12, disp: false}
+    solver_success_must_be_exact_true: true
+    solver_result_x_shape: [4]
+    solver_x_and_fun_must_be_finite: true
+    solver_bound_residual_max: 1.0e-10
+    solver_simplex_residual_max: 1.0e-10
+    no_fallback_clipping_or_second_solve: true
+    failure_action: fail_fit
+    final_direction: g_mean_plus_c_times_norm_g_mean_times_g_weighted_over_norm_g_weighted_plus_epsilon
+    epsilon_scope: final_direction_norm_g_weighted_denominator_only
+    gram_or_dual_objective_epsilon: forbidden
+    zero_norm_shortcut: forbidden_still_run_solver_and_record_degenerate_case
+    composite_gradient_dtype: float64
+    final_cast_and_assignment: cast_complete_direction_once_to_float32_then_slice_in_frozen_parameter_order
+    extra_direction_rescale: none
+    autograd_traversal_order: cardinality_1_then_cardinality_2_then_cardinality_3_then_cardinality_4
+    autograd_retain_graph: [true, true, true, false]
+    composite_direction_extra_backward_traversals: 0
+    theorem_or_convergence_transfer_to_this_composite_objective: forbidden
+
+training:
+  seeds: [1701, 2603, 3907]
+  optimizer: AdamW
+  learning_rate: 0.001
+  betas: [0.9, 0.999]
+  epsilon: 1.0e-8
+  weight_decay: 0.001
+  amsgrad: false
+  fused: false
+  foreach: false
+  gradient_clipping: none
+  mixed_precision: false
+  optimizer_instances_per_fit: 1
+  optimizer_parameter_order: model_named_parameter_registration_order
+  optimizer_created_once_before_update_one_with_all_model_parameters: true
+  zero_grad_before_each_update: set_to_none_true
+  stage_one_router_requires_grad: false
+  stage_one_router_optimizer_state_created: false
+  stage_two_router_requires_grad: true
+  stage_transition_optimizer_reconstruction_or_state_reset: forbidden
+  stage_two_expert_adamw_step_and_moments_continue_from_stage_one: true
+  stage_two_router_adamw_state_begins_at_first_cooperative_update: true
+  two_stage_candidate_4_5_6_model_and_optimizer_hash_equality_after_update_100_required: true
+  exact_optimizer_updates_per_fit: 400
+  full_training_fold_each_update: true
+  training_forward_mode: train_and_restored_before_every_optimizer_update
+  shuffle_or_minibatch_rng: forbidden
+  early_stopping_or_outer_driven_restart: forbidden
+  checkpoint_forward_after_every_update: true
+  checkpoint_forward_views: all_fifteen_in_exact_view_order
+  checkpoint_forward_grad_enabled: false
+  checkpoint_forward_mode: eval
+  cooperative_checkpoint_score: half_mean_plus_half_max_of_fourteen_missing_mask_training_rmse3d_components
+  checkpoint_missing_mask_component: fixed_tree_mean_over_training_scenarios_of_per_scenario_raw_metre_rmse3d
+  checkpoint_full_view_role: computed_and_recorded_diagnostic_only_not_in_score
+  stage_one_updates_checkpoint_ineligible: true
+  two_stage_first_eligible_checkpoint_global_update: 101
+  earliest_strict_finite_minimum: true
+  checkpoint_exact_equality_replaces_existing: false
+  checkpoint_nonfinite_action: fail_fit
+  checkpoint_state_capture: detached_deep_copy_of_complete_model_state
+  checkpoint_restore_after_update_400_before_outer_feature_load: true
+  outer_prediction_only_after_checkpoint_lock: true
+  one_outer_feature_load_forward_label_read_and_evaluator_call_per_fit: true
+  outer_information_may_not_refit_recheckpoint_or_rerun: true
+
+folds:
+  exact_total: 14
+  primary_family: scenario_loso
+  primary_count: 8
+  report_only_families: {speed_pair_out: 4, shape_out: 2}
+  report_only_count: 6
+  order_must_equal_preparation_manifest: true
+  overlapping_folds_are_not_independent_replications: true
+
+metrics:
+  outer_prediction_unit: raw_metre
+  row_pairing_key: row_uid
+  seed_ensemble_prediction: fixed_float64_tree_arithmetic_mean_xyz_in_seed_order_before_every_primary_metric
+  seed_ensemble_requires_exact_fold_view_uid_support_equality: true
+  per_context_rmse3d: sqrt_of_fixed_tree_mean_over_rows_of_fixed_tree_sum_xyz_seed_ensemble_raw_metre_squared_error
+  primary_missing_contexts_per_candidate: 112
+  primary_full_contexts_per_candidate: 8
+  Amean: mean_rmse3d_over_8_scenarios_and_14_missing_masks
+  WS: maximum_over_8_scenario_means_across_14_missing_masks
+  WM: maximum_over_14_mask_means_across_8_scenarios
+  J: one_third_times_Amean_plus_WS_plus_WM
+  F: half_mean_plus_half_max_of_8_full_view_rmse3d
+  scenario_fold_score: fixed_tree_mean_of_fourteen_missing_mask_rmse3d_for_one_seed_ensemble_loso_scenario
+  per_seed_J: same_Amean_WS_WM_J_formula_from_one_seed_predictions_without_seed_ensemble
+  CR_adjacent: equal_scenario_and_edge_mean_of_indicator_rich_euclidean_error_strictly_exceeds_poor
+  PE_adjacent_m: equal_scenario_and_edge_mean_of_relu_rich_euclidean_error_minus_poor
+  adjacent_metric_prediction_source: seed_ensemble_raw_metre_xyz
+  adjacent_metric_row_error: fixed_float64_euclidean_norm_of_xyz_raw_metre_error
+  adjacent_metric_reduction_nesting: edge_then_scenario_then_authenticated_rows
+  cardinality_1_2_3_means: required
+  cardinality_mean: equal_scenario_then_equal_mask_within_cardinality_rmse3d
+  all_reductions: fixed_order_float64_adjacent_pair_tree_with_odd_tail_carry
+
+gates:
+  strict_lower_guard: 0.0
+  full_and_PE_nonharm_tolerance_m: 1.0e-12
+  CR_nonharm_tolerance_fraction: 1.0e-12
+  tolerance_scope: full_F_and_PE_use_metre_tolerance_CR_uses_fraction_tolerance_strict_lower_uses_no_tolerance
+  exact_pair_order:
+    - {gate_id: static_vs_dense, challenger: static_sensor_experts_6979__allmask_cardinality_balanced_erm, comparator: dense_6979__allmask_cardinality_balanced_erm}
+    - {gate_id: dynamic_vs_static, challenger: dmome_6979__one_stage_allmask_cardinality_balanced_erm, comparator: static_sensor_experts_6979__allmask_cardinality_balanced_erm}
+    - {gate_id: two_stage_vs_one_stage, challenger: dmome_6979__two_stage_allmask_cardinality_balanced_erm, comparator: dmome_6979__one_stage_allmask_cardinality_balanced_erm}
+    - {gate_id: mofe_vs_two_stage_erm, challenger: dmome_6979__two_stage_allmask_cardinality_balanced_mofe, comparator: dmome_6979__two_stage_allmask_cardinality_balanced_erm}
+    - {gate_id: cagrad_vs_mofe, challenger: dmome_6979__two_stage_allmask_cardinality_balanced_mofe_cagrad, comparator: dmome_6979__two_stage_allmask_cardinality_balanced_mofe}
+  component_gate_common:
+    J_strictly_lower: true
+    WM_strictly_lower: true
+    full_F_not_higher_beyond_tolerance: true
+    scenario_fold_score_strict_wins_minimum: 6
+    seed_level_J_strict_wins_minimum: 2
+  mofe_gate_additional:
+    CR_adjacent_strictly_lower: true
+    PE_adjacent_m_strictly_lower: true
+  cagrad_gate_additional:
+    CR_adjacent_not_higher_beyond_tolerance: true
+    PE_adjacent_m_not_higher_beyond_tolerance: true
+  primary_terminal_claim_comparators:
+    - dense_6979__allmask_cardinality_balanced_erm
+    - static_sensor_experts_6979__allmask_cardinality_balanced_erm
+  primary_terminal_claim_requires_against_each_comparator:
+    - J_strictly_lower
+    - WM_strictly_lower
+    - CR_adjacent_strictly_lower
+    - PE_adjacent_m_strictly_lower
+    - full_F_not_higher_beyond_tolerance
+    - at_least_6_of_8_scenario_fold_score_wins
+    - at_least_2_of_3_seed_level_J_wins
+  all_primary_terminal_conditions_and_both_comparators_must_pass: true
+  component_failure_does_not_authorize_selection_or_retuning: true
+  equality_is_not_a_strict_win: true
+
+report_only_analyses:
+  router:
+    candidates: four_dmome_candidates_only
+    dense_and_static_value: not_applicable
+    source: weights_persisted_from_same_single_outer_forward_as_predictions
+    additional_model_forwards: 0
+    atomic_identity: [candidate_id, fold_id, seed, view_id, row_uid, sensor]
+    persisted_weight_dtype: float32
+    unavailable_sensor_weight: 0.0
+    entropy_formula: negative_fixed_tree_sum_over_available_sensors_of_w_times_natural_log_w
+    entropy_zero_weight_convention: zero_times_log_zero_equals_zero
+    entropy_normalization: none
+    entropy_computed_per_seed_before_any_seed_summary: true
+    entropy_of_seed_mean_weights: forbidden
+    row_summary: fixed_tree_mean_in_authenticated_outer_row_order
+    report_per_fold_seed_view_entropy_and_available_sensor_mean_weights: true
+    primary_cardinality_summary_nesting: fixed_mean_seed_of_fixed_mean_scenario_of_fixed_mean_available_masks_within_cardinality_of_authenticated_row_mean
+    primary_overall_summary: equal_mean_of_four_primary_cardinality_summaries
+    per_sensor_summary_conditions_on_sensor_available: true
+    selection_checkpoint_gate_or_claim_role: none
+  signed_target_shift:
+    shifts_ms: [-50, -20, -10, 10, 20, 50]
+    prediction_source: persisted_zero_shift_seed_ensemble_predictions
+    model_refit_allowed: false
+    additional_model_forward_allowed: false
+    additional_checkpoint_selection_allowed: false
+    target_reconstruction_api_contract: openaxes.external.signed_shift_truth.v1
+    target_reconstruction_function: reconstruct_openaxes_signed_shift_truth_v1
+    canonical_public_truth_reconstruction_calls_per_signed_report: 1
+    private_prepared_table_exact_time_lookup_or_copied_reconstruction: forbidden
+    returned_truth_and_receipt_require_independent_v3_semantic_validation_before_use: true
+    target_lookup_rule: base_aligned_time_us_plus_shift_ms_times_1000
+    positive_shift_semantics: fixed_prediction_at_base_time_is_scored_against_later_target
+    outer_feature_time_or_prediction_changed: false
+    pairing_key: row_uid
+    extrapolation_allowed: false
+    expected_dropped_edges: 0
+    nonzero_dropped_edge_action: fail_signed_report_only_without_changing_primary_gate
+    missing_incomplete_invalid_or_exceptional_reconstruction_action: fail_signed_report_only_without_changing_primary_gate
+    primary_gate_input_or_decision_dependency_on_signed_report_or_recovery_terminal: forbidden
+    report_all_six_candidates_fourteen_folds_fifteen_views: true
+    candidate_fold_shift_ensemble_cells: 504
+    candidate_fold_shift_view_metric_cells: 7560
+    report_rmse3d_primary_J_and_shift_minus_zero_on_identical_uid_support: true
+    selector_checkpoint_gate_or_claim_role: none
+
+execution:
+  candidate_count: 6
+  fold_count: 14
+  seed_count: 3
+  context_count: 42
+  exact_fit_count: 252
+  primary_fit_count: 144
+  stress_fit_count: 108
+  exact_optimizer_updates: 100800
+  exact_training_model_forward_calls: 100800
+  exact_checkpoint_model_forward_calls: 100800
+  exact_outer_model_forward_calls: 252
+  exact_model_forward_calls: 201852
+  exact_one_stage_training_view_equivalents: 756000
+  exact_two_stage_stage_one_training_view_equivalents: 50400
+  exact_two_stage_cooperative_training_view_equivalents: 567000
+  exact_checkpoint_view_equivalents: 1512000
+  exact_outer_view_equivalents: 3780
+  exact_view_equivalents: 2889180
+  direct_gradient_traversals_first_five_candidates: 84000
+  terminal_stage_one_gradient_traversals: 4200
+  terminal_cooperative_gradient_traversals: 50400
+  exact_parameter_gradient_traversals: 138600
+  exact_cagrad_solver_calls: 12600
+  exact_outer_feature_loads: 252
+  exact_outer_label_reads: 252
+  exact_outer_evaluator_calls: 252
+  gpu_count: 4
+  logical_slot_count: 12
+  slots_per_gpu: 3
+  fold_order: exact_preparation_manifest_order
+  seed_order: [1701, 2603, 3907]
+  candidate_order: exact_candidates_order
+  context_ordinal: fold_ordinal_times_3_plus_seed_ordinal
+  task_ordinal: context_ordinal_times_6_plus_candidate_ordinal
+  task_id: literal_task_underscore_then_zero_padded_three_digit_task_ordinal
+  task_id_range: task_000_through_task_251
+  context_to_slot: context_ordinal_mod_12
+  slot_to_physical_gpu: slot_mod_4
+  slot_to_local_slot: floor_slot_div_4
+  contexts_per_slot: [4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3]
+  fits_per_slot: [24, 24, 24, 24, 24, 24, 18, 18, 18, 18, 18, 18]
+  contexts_per_gpu: [11, 11, 10, 10]
+  fits_per_gpu: [66, 66, 60, 60]
+  candidate_sextet_for_one_fold_seed_stays_fifo_on_one_slot: true
+  per_slot_fifo_order: context_ordinal_ascending_then_candidate_ordinal_ascending
+  complete_task_index_and_slot_rosters_exist_before_first_attempt: true
+  signed_shift_additional_scientific_fits_updates_forwards_or_evaluator_calls: 0
+  router_report_additional_model_forwards: 0
+  runtime_rebalancing_or_gpu_substitution: forbidden
+  target_gpu_utilization_percent_when_compute_bound: 80
+  artificial_dummy_load: forbidden
+
+validation_and_publication:
+  source_and_result_tree_immutable_after_first_task_attempt: true
+  exact_task_index_and_assignment_receipts_required: true
+  fresh_process_per_fit: true
+  phase_receipts_must_bind_actual_child_gpu_and_previous_phase_raw_hash: true
+  challenge_or_hidden_label_route: absent
+  fresh_full_validation_processes_required: 10
+  locked_eleventh_publication_validation_required: true
+  two_independent_metric_recomputations_required: true
+  checker_canonical_overlap_must_match_exactly: true
+  missing_extra_symlink_special_partial_or_nonfinite_state: fail_closed
+
+future_source_closure:
+  add_only_implementation_after_parent_authentication: true
+  exact_future_files:
+    - configs/openaxes_external_native_v3_allmask_dmome.yaml
+    - docs/OPENAXES_EXTERNAL_NATIVE_V3_ALLMASK_DMOME_CONTRACT.md
+    - receipts/openaxes_external_native_v3_preregistration_source_audit.json
+    - receipts/openaxes_external_native_v3_preregistration_erratum1_source_audit.json
+    - receipts/openaxes_external_native_v3_preregistration_erratum2_preissue.json
+    - receipts/openaxes_external_native_v3_preregistration_erratum2_source_audit.json
+    - configs/openaxes_external_v1.yaml
+    - src/imu_vive_learning/openaxes_external_native_v3_config.py
+    - src/imu_vive_learning/openaxes_external_native_v3_training.py
+    - src/imu_vive_learning/openaxes_external_native_v3_experiment.py
+    - src/imu_vive_learning/openaxes_external_native_v3_parent_receipt.py
+    - tests/test_openaxes_external_native_v3_config.py
+    - tests/test_openaxes_external_native_v3_training.py
+    - tests/test_openaxes_external_native_v3_experiment.py
+    - tests/test_openaxes_external_native_v3_parent_receipt.py
+    - src/imu_vive_learning/__init__.py
+    - src/imu_vive_learning/io_utils.py
+    - src/imu_vive_learning/openaxes_external_v1.py
+    - src/imu_vive_learning/openaxes_external_v1_config.py
+    - requirements-gpu.lock
+    - requirements-eval.lock
+  existing_native_v1_v2_or_so101_v3_v6_source_mutation: forbidden
+  inherited_canonical_preparation_public_api_source_set_sha256: 3be65b169226b8d088315311238b973c7f831cc4bf9a12116835cdba3a0a905c
+  inherited_public_api_files_must_match_pinned_git_objects_and_remain_read_only: true
+
+limitations:
+  - One public UR5 recording with eight clustered scenarios is development evidence.
+  - Synthetic masks do not establish robustness to physical sensor faults, drift, corruption, or timing failure.
+  - Three seeds are paired optimization repeats, not independent experiments.
+  - Parameter equality does not imply equal training compute or statistical capacity.
+  - The two-stage contrast changes optimization path even with the same total update count.
+  - No SO101 independent session, cross-installation, or closed-loop evidence exists.

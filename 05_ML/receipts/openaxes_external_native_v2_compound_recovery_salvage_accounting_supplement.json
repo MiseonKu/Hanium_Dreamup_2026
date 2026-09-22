@@ -1,0 +1,61 @@
+{
+  "assertions": {
+    "authority_only_validation_insufficient": true,
+    "created_before_salvage_implementation_or_execution": true,
+    "failed_stage_and_sibling_authority_closed_rosters_required": true,
+    "original_and_salvage_terminals_both_required": true,
+    "performance_values_read_or_disclosed": false,
+    "source_audit_must_bind_external_root_identity": true
+  },
+  "contract": "openaxes.external.native_sensor_experts.v2.compound_recovery.salvage_accounting_supplement.v1",
+  "created_at_utc": "2026-08-26T01:18:07Z",
+  "exact_action_accounting": {
+    "corrected_stage_file_writes": 7,
+    "corrected_stage_seal_writes": 1,
+    "exact_development_summary_key_deletions": 1,
+    "failed_stage_post_projection_passes": 1,
+    "failed_stage_pre_projection_passes": 1,
+    "original_compound_publisher_invocations": 1,
+    "original_compound_terminal_writes": 1,
+    "raw_byte_exact_stage_file_copies": 6,
+    "run003_ordered_o_excl_file_copies": 7,
+    "salvage_aggregate_calls": 0,
+    "salvage_canonical_reconstructions": 0,
+    "salvage_checkpoint_selections": 0,
+    "salvage_evaluator_calls": 0,
+    "salvage_fits": 0,
+    "salvage_gate_replays": 0,
+    "salvage_invocations": 1,
+    "salvage_model_forwards": 0,
+    "salvage_optimizer_updates": 0,
+    "salvage_outer_feature_loads": 0,
+    "salvage_outer_label_reads": 0,
+    "salvage_scientific_payload_recomputations": 0,
+    "salvage_terminal_writes": 1,
+    "summary_metadata_canonicalizations": 1
+  },
+  "external_closed_world": {
+    "failed_stage_root": "/home/shin-server/.codex-supervisors/capstone-code/openaxes-native-v2-run003-compound-recovery-001/stage",
+    "failed_stage_root_exact_members": ["COMPLETE.json", "development_manifest.json", "reports"],
+    "failed_stage_reports_exact_members": ["development_summary.json", "primary_gates.json", "signed_shift_report.json", "stress_report.json", "zero_shift.json"],
+    "original_authority_root": "/home/shin-server/.codex-supervisors/capstone-code/openaxes-native-v2-run003-compound-recovery-001/authority",
+    "original_authority_root_exact_pre_salvage_members": [],
+    "pre_and_post_identity_fields": ["st_dev", "st_ino", "st_mode", "st_uid", "st_gid", "st_nlink", "st_size", "st_mtime_ns", "st_ctime_ns", "sha256"]
+  },
+  "payload_sha256": "97c43bbfa9c239f3c1f69ade69e252af09ae57447e73c295057060e5d0e5d9dc",
+  "prior_preissue_reference": {
+    "bytes": 5149,
+    "path": "09_SO101_IMU_VIVE_LEARNING/receipts/openaxes_external_native_v2_compound_recovery_salvage_preissue.json",
+    "sha256": "0b15daf0d47878d57a798a34bdc5df09092b4523dc1bd3070cf0653fe7a4f1b5"
+  },
+  "publication_validation": {
+    "fresh_process_success_count": 10,
+    "must_raw_bind_original_compound_terminal": true,
+    "must_raw_bind_salvage_terminal": true,
+    "must_run_original_recovery_full_validate": true,
+    "must_run_salvage_semantic_validate": true,
+    "ordered_record_set_sha256_required": true
+  },
+  "run_id": "openaxes-native-v2-sealed-003",
+  "schema_version": 1
+}
