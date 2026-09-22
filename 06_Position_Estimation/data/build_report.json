@@ -1,0 +1,17 @@
+{
+  "fixture_rows": 32,
+  "max_fixture_difference_mm": 1.1368683772161603e-13,
+  "eligible_rows": 7702,
+  "target_ids": [
+    "T002",
+    "T032",
+    "T034",
+    "T015",
+    "T044"
+  ],
+  "plan_member": "sessions/real_motion_demo/target_plan_segment036.json",
+  "plan_sha256": "dd0ad5dab9bd769697326644944535027aed989a9b3020889a497949a19231ce",
+  "source_model_sha256": "14ddf90e009f112e85600f9346281dd91b125da10f37ca4b211c42c03ae45401",
+  "hardware_commands_sent": 0,
+  "scope": "model export parity, not live control validation"
+}
