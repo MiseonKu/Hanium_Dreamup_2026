@@ -1,0 +1,52 @@
+{
+  "data_contract_version": "v0.1",
+  "units": {
+    "position": "mm",
+    "angle": "rad",
+    "time": "s"
+  },
+  "robot_models": {
+    "long": {
+      "description": "Long-stroke model, larger reach and higher expected deflection",
+      "rod_lengths_mm": {
+        "A": 233.0,
+        "B": 215.0,
+        "C": 106.0
+      },
+      "effective_fk_lengths_mm": {
+        "L_A": 299.5,
+        "L_B": 299.5,
+        "L_C": 150.3
+      }
+    },
+    "short": {
+      "description": "Short-stroke model, lower expected deflection comparison condition",
+      "rod_lengths_mm": {
+        "A": 183.0,
+        "B": 165.0,
+        "C": 56.0
+      },
+      "effective_fk_lengths_mm": {
+        "L_A": 249.5,
+        "L_B": 249.5,
+        "L_C": 100.3
+      }
+    }
+  },
+  "conditions": {
+    "C0": "no_correction",
+    "C1": "encoder_only",
+    "C2": "imu_array_only_mpu6050_raw",
+    "C3": "imu_array_only_mpu6050_kalman",
+    "C4": "imu_array_only_mpu6050_madgwick",
+    "C5": "imu_array_only_wt901c_internal",
+    "C6": "encoder_imu_fusion_residual",
+    "C7": "encoder_imu_fusion_covariance",
+    "C8": "encoder_imu_fusion_wt901c"
+  },
+  "imu_layout": {
+    "per_link_positions": ["start", "mid", "end"],
+    "local_x_axis": "rod_tangent",
+    "frame_rule": "all positions and attitudes must include a frame suffix"
+  }
+}

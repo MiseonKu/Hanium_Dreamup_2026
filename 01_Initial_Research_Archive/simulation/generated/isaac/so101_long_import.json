@@ -1,0 +1,26 @@
+{
+  "base_frame": "base_link",
+  "joint_names": [
+    "joint_1",
+    "joint_2",
+    "joint_3"
+  ],
+  "model_id": "so101_long",
+  "notes": [
+    "Treat this asset as a research visualization baseline.",
+    "Replace placeholder mass/inertia before physics validation.",
+    "Keep ROS 2 joint order aligned with q_encoder_rad_1..3."
+  ],
+  "recommended_extensions": [
+    "isaacsim.asset.importer.urdf",
+    "isaacsim.ros2.bridge"
+  ],
+  "recommended_importer": "Isaac Sim URDF Importer",
+  "source_format": "URDF",
+  "tool_frame": "tool0",
+  "units": {
+    "angle": "rad",
+    "position": "m"
+  },
+  "urdf_path": "../urdf/so101_long.urdf"
+}

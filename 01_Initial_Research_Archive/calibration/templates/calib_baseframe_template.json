@@ -1,0 +1,12 @@
+{
+  "calibration_type": "baseframe",
+  "version": "v001",
+  "date": "YYYY-MM-DD",
+  "R_world_to_base": [
+    [1.0, 0.0, 0.0],
+    [0.0, 1.0, 0.0],
+    [0.0, 0.0, 1.0]
+  ],
+  "p_world_origin_in_base_mm": [0.0, 0.0, 0.0],
+  "max_allowed_base_motion_mm": 2.0
+}

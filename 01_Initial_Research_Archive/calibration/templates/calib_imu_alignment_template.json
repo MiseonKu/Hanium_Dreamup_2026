@@ -1,0 +1,15 @@
+{
+  "calibration_type": "imu_alignment",
+  "version": "v001",
+  "date": "YYYY-MM-DD",
+  "notes": "R_imu_to_link maps each IMU local frame into its link frame.",
+  "alignments": {
+    "link_1_start": {
+      "R_imu_to_link": [
+        [1.0, 0.0, 0.0],
+        [0.0, 1.0, 0.0],
+        [0.0, 0.0, 1.0]
+      ]
+    }
+  }
+}

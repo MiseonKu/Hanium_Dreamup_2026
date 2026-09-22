@@ -1,0 +1,21 @@
+{
+  "allowed_split": "validation",
+  "selected": {
+    "candidate_id": "cand_0002",
+    "constraint_violations": [],
+    "metrics": {
+      "dropped_sample_ratio": 0.0,
+      "position_rmse_mm": 4.8,
+      "residual_vibration_rms_mm": 0.85,
+      "settling_time_s": 0.55,
+      "shape_rmse_mm": 3.9,
+      "transient_rms_mm": 5.2
+    },
+    "objective_score": 8.5525,
+    "params": {
+      "base_damping": "0.030",
+      "fusion_alpha": "0.55"
+    }
+  },
+  "source_metrics": "data\\samples\\analysis\\optimization_candidates.csv"
+}

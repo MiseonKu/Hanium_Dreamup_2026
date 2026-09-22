@@ -1,0 +1,21 @@
+{
+  "objective_version": "objective_v0.1",
+  "allowed_split": "validation",
+  "weights": {
+    "position_rmse_mm": 1.0,
+    "shape_rmse_mm": 0.5,
+    "settling_time_s": 1.0,
+    "transient_rms_mm": 0.2,
+    "residual_vibration_rms_mm": 0.25,
+    "dropped_sample_ratio": 100.0
+  },
+  "constraint_max": {
+    "dropped_sample_ratio": 0.01
+  },
+  "selection_rule": "minimize weighted validation score, then candidate_id lexical order",
+  "forbidden": [
+    "test split tuning",
+    "per-target manual damping changes",
+    "metric changes after viewing results"
+  ]
+}

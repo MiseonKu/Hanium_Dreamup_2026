@@ -1,0 +1,2 @@
+trial_id,condition_id,robot_model,target_id,position_rmse_mm,shape_rmse_mm,settling_time_s,transient_rms_mm,residual_vibration_rms_mm,dropped_sample_ratio
+0001,C2_imu_array_only,long,T001,2.291288,,0.000000,2.291288,0.000000,0.000000

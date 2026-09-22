@@ -1,0 +1,19 @@
+{
+  "filter_default": {
+    "mpu6050_raw": {
+      "gyro_bias_calibration_s": 3.0,
+      "yaw_initialization": "zero_at_trial_start"
+    },
+    "mpu6050_kalman": {
+      "q_angle": 0.001,
+      "q_bias": 0.003,
+      "r_measure": 0.03
+    },
+    "mpu6050_madgwick": {
+      "beta": 0.08
+    },
+    "wt901c_internal": {
+      "source": "device_attitude_output"
+    }
+  }
+}

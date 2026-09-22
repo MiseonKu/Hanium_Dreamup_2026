@@ -1,0 +1,9 @@
+{
+  "calibration_type": "dh_params",
+  "version": "v001",
+  "date": "YYYY-MM-DD",
+  "robot_model": "long",
+  "effective_fk_lengths_mm": [299.5, 299.5, 150.3],
+  "encoder_zero_offsets_rad": [0.0, 0.0, 0.0],
+  "backlash_check": "not_measured"
+}

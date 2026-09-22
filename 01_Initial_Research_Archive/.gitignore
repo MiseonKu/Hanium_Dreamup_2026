@@ -1,0 +1,24 @@
+# Generated experiment data
+data/raw/*
+data/processed/*
+data/analysis/*
+!data/raw/.gitignore
+!data/processed/.gitignore
+!data/analysis/.gitignore
+
+# Local calibration outputs. Keep templates tracked.
+calibration/*.json
+calibration/*.yaml
+!calibration/templates/
+!calibration/templates/*
+
+# Runtime caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local simulator imports and heavy runtime projects
+simulation/local/
+simulation/**/*.usd
+simulation/**/*.usda
+simulation/**/*.usdc

@@ -1,0 +1,20 @@
+{
+  "randomization_version": "rand_v0.1",
+  "default_seed": 101,
+  "blocking": {
+    "block_keys": ["robot_model", "target_id", "repeat_id"],
+    "within_block": "shuffle_conditions_once",
+    "avoid_adjacent_same_condition": true
+  },
+  "quality_controls": {
+    "warmup_discard_s": 10.0,
+    "record_plan_digest": true,
+    "record_seed_in_metadata": true,
+    "do_not_drop_trials_without_quality_flag": true
+  },
+  "split_policy": {
+    "optimization_split": "validation",
+    "final_report_split": "test",
+    "preferred_split_key": "session_or_target_set"
+  }
+}

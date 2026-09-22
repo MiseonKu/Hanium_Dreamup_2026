@@ -1,0 +1,7 @@
+{
+  "plan_digest_sha256": "31e97c5846b7227ef0eb1a1af03eec6eec0e116347c54b26abcce159631780d7",
+  "randomization_seed": 101,
+  "source": "research_host.experimental_design.generate_balanced_trial_plan",
+  "trial_count": 16,
+  "validation_issues": []
+}

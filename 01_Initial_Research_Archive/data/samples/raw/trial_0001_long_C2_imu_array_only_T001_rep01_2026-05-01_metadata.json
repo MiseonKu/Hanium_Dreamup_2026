@@ -1,0 +1,26 @@
+{
+  "calibration_versions": {
+    "dh_params": "template",
+    "imu_alignment": "template",
+    "imu_bias": "template",
+    "latency": "template"
+  },
+  "condition_id": "C2_imu_array_only",
+  "data_contract_version": "v0.1",
+  "date": "2026-05-01",
+  "filename_stem": "trial_0001_long_C2_imu_array_only_T001_rep01_2026-05-01",
+  "filter_params_id": "filter_default",
+  "fixture": true,
+  "fusion_params_id": "fusion_default",
+  "generated_by": "research_host.cli.make_sample_trial",
+  "notes": "Synthetic fixture for offline smoke tests.",
+  "quality_thresholds": {
+    "max_dropped_sample_ratio": 0.01,
+    "max_jitter_s": 0.002,
+    "settling_threshold_mm": 5.0
+  },
+  "repeat_id": 1,
+  "robot_model": "long",
+  "target_id": "T001",
+  "trial_id": "0001"
+}

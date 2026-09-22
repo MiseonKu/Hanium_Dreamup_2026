@@ -1,0 +1,4 @@
+candidate_id,split_id,position_rmse_mm,shape_rmse_mm,settling_time_s,transient_rms_mm,residual_vibration_rms_mm,dropped_sample_ratio,param_base_damping,param_fusion_alpha
+cand_0001,validation,5.20,4.10,0.60,5.80,0.90,0.000,0.020,0.50
+cand_0002,validation,4.80,3.90,0.55,5.20,0.85,0.000,0.030,0.55
+cand_0003,validation,4.10,3.50,0.65,4.90,0.80,0.020,0.040,0.60

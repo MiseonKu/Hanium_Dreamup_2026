@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<mujoco model="so101_short">
+  <compiler angle="radian" autolimits="true"/>
+  <option timestep="0.001"/>
+  <asset>
+    <material name="link_mat" rgba="0.2 0.4 0.8 1"/>
+  </asset>
+  <worldbody>
+    <body name="base_link" pos="0 0 0">
+      <geom type="sphere" size="0.025" mass="0.2"/>
+      <body name="link_1" pos="0 0 0">
+        <joint name="joint_1" type="hinge" axis="0.000000 0.000000 1.000000" range="-3.141593 3.141593"/>
+        <geom name="link_1_capsule" type="capsule" fromto="0 0 0 0.249500 0 0" size="0.012000" mass="0.080000" material="link_mat"/>
+        <site name="imu_link_1_start" pos="0.000000 0 0" size="0.004"/>
+        <site name="imu_link_1_mid" pos="0.124750 0 0" size="0.004"/>
+        <site name="imu_link_1_end" pos="0.249500 0 0" size="0.004"/>
+        <body name="link_2" pos="0.249500 0 0">
+          <joint name="joint_2" type="hinge" axis="0.000000 0.000000 1.000000" range="-3.141593 3.141593"/>
+          <geom name="link_2_capsule" type="capsule" fromto="0 0 0 0.249500 0 0" size="0.012000" mass="0.080000" material="link_mat"/>
+          <site name="imu_link_2_start" pos="0.000000 0 0" size="0.004"/>
+          <site name="imu_link_2_mid" pos="0.124750 0 0" size="0.004"/>
+          <site name="imu_link_2_end" pos="0.249500 0 0" size="0.004"/>
+          <body name="link_3" pos="0.249500 0 0">
+            <joint name="joint_3" type="hinge" axis="0.000000 0.000000 1.000000" range="-3.141593 3.141593"/>
+            <geom name="link_3_capsule" type="capsule" fromto="0 0 0 0.100300 0 0" size="0.012000" mass="0.080000" material="link_mat"/>
+            <site name="imu_link_3_start" pos="0.000000 0 0" size="0.004"/>
+            <site name="imu_link_3_mid" pos="0.050150 0 0" size="0.004"/>
+            <site name="imu_link_3_end" pos="0.100300 0 0" size="0.004"/>
+            <site name="tool0" pos="0.100300 0 0" size="0.006"/>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>

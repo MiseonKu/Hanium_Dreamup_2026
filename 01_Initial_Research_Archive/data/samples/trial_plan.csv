@@ -1,0 +1,17 @@
+planned_order_index,block_id,condition_id,robot_model,target_id,repeat_id,randomization_seed
+0,long_T001_rep01,C1,long,T001,1,101
+1,long_T001_rep01,C7,long,T001,1,101
+2,long_T001_rep01,C6,long,T001,1,101
+3,long_T001_rep01,C2,long,T001,1,101
+4,long_T002_rep01,C6,long,T002,1,101
+5,long_T002_rep01,C1,long,T002,1,101
+6,long_T002_rep01,C7,long,T002,1,101
+7,long_T002_rep01,C2,long,T002,1,101
+8,short_T001_rep01,C1,short,T001,1,101
+9,short_T001_rep01,C6,short,T001,1,101
+10,short_T001_rep01,C7,short,T001,1,101
+11,short_T001_rep01,C2,short,T001,1,101
+12,short_T002_rep01,C1,short,T002,1,101
+13,short_T002_rep01,C6,short,T002,1,101
+14,short_T002_rep01,C7,short,T002,1,101
+15,short_T002_rep01,C2,short,T002,1,101

@@ -1,0 +1,12 @@
+{
+  "calibration_type": "imu_bias",
+  "version": "v001",
+  "date": "YYYY-MM-DD",
+  "notes": "Replace with measured stationary gyro and accelerometer bias values.",
+  "imus": {
+    "link_1_start": {
+      "gyro_bias_rad_s": [0.0, 0.0, 0.0],
+      "acc_bias_m_s2": [0.0, 0.0, 0.0]
+    }
+  }
+}

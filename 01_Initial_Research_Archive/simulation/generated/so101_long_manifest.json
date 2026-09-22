@@ -1,0 +1,92 @@
+{
+  "generated_files": {
+    "isaac_manifest": "simulation/generated/isaac/so101_long_import.json",
+    "mjcf": "simulation/generated/mjcf/so101_long.xml",
+    "ros2_launch": "simulation/generated/ros2/so101_long_display.launch.py",
+    "rviz": "simulation/generated/rviz/so101_long.rviz",
+    "urdf": "simulation/generated/urdf/so101_long.urdf"
+  },
+  "model_id": "so101_long",
+  "robot_model": "long",
+  "spec": {
+    "base_frame": "base_link",
+    "joints": [
+      {
+        "axis_xyz": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "child_link": "link_1",
+        "lower_rad": -3.141592653589793,
+        "name": "joint_1",
+        "origin_xyz_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "parent_link": "base_link",
+        "upper_rad": 3.141592653589793
+      },
+      {
+        "axis_xyz": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "child_link": "link_2",
+        "lower_rad": -3.141592653589793,
+        "name": "joint_2",
+        "origin_xyz_m": [
+          0.2995,
+          0.0,
+          0.0
+        ],
+        "parent_link": "link_1",
+        "upper_rad": 3.141592653589793
+      },
+      {
+        "axis_xyz": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "child_link": "link_3",
+        "lower_rad": -3.141592653589793,
+        "name": "joint_3",
+        "origin_xyz_m": [
+          0.2995,
+          0.0,
+          0.0
+        ],
+        "parent_link": "link_2",
+        "upper_rad": 3.141592653589793
+      }
+    ],
+    "links": [
+      {
+        "length_m": 0.2995,
+        "mass_kg": 0.08,
+        "name": "link_1",
+        "radius_m": 0.012
+      },
+      {
+        "length_m": 0.2995,
+        "mass_kg": 0.08,
+        "name": "link_2",
+        "radius_m": 0.012
+      },
+      {
+        "length_m": 0.15030000000000002,
+        "mass_kg": 0.08,
+        "name": "link_3",
+        "radius_m": 0.012
+      }
+    ],
+    "model_id": "so101_long",
+    "robot_model": "long",
+    "tool_frame": "tool0",
+    "unit_angle": "rad",
+    "unit_position": "m"
+  }
+}

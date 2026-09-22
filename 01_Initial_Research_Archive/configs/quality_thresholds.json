@@ -1,0 +1,12 @@
+{
+  "quality_default": {
+    "max_jitter_s": 0.002,
+    "max_timestamp_gap_s": 0.05,
+    "max_dropped_sample_ratio": 0.01,
+    "max_yaw_drift_rad": 0.0872664626,
+    "max_base_motion_mm": 2.0,
+    "max_motor_temperature_c": 80.0,
+    "settling_threshold_mm": 5.0,
+    "tracker_occlusion_allowed": false
+  }
+}

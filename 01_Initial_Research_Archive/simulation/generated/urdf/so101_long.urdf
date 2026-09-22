@@ -1,0 +1,206 @@
+<?xml version="1.0" ?>
+<robot name="so101_long">
+  <link name="base_link">
+    <inertial>
+      <mass value="0.200000"/>
+      <inertia ixx="0.000001" ixy="0.0" ixz="0.0" iyy="0.000001" iyz="0.0" izz="0.000001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.020000 0 0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.025000" length="0.040000"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.020000 0 0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.025000" length="0.040000"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="link_1">
+    <inertial>
+      <mass value="0.080000"/>
+      <inertia ixx="0.000001" ixy="0.0" ixz="0.0" iyy="0.000001" iyz="0.0" izz="0.000001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.149750 0 0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.012000" length="0.299500"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.149750 0 0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.012000" length="0.299500"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="link_2">
+    <inertial>
+      <mass value="0.080000"/>
+      <inertia ixx="0.000001" ixy="0.0" ixz="0.0" iyy="0.000001" iyz="0.0" izz="0.000001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.149750 0 0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.012000" length="0.299500"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.149750 0 0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.012000" length="0.299500"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="link_3">
+    <inertial>
+      <mass value="0.080000"/>
+      <inertia ixx="0.000001" ixy="0.0" ixz="0.0" iyy="0.000001" iyz="0.0" izz="0.000001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.075150 0 0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.012000" length="0.150300"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.075150 0 0" rpy="0 1.570796 0"/>
+      <geometry>
+        <cylinder radius="0.012000" length="0.150300"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_1" type="revolute">
+    <parent link="base_link"/>
+    <child link="link_1"/>
+    <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+    <axis xyz="0.000000 0.000000 1.000000"/>
+    <limit lower="-3.141593" upper="3.141593" effort="10.0" velocity="3.141593"/>
+  </joint>
+  <joint name="joint_2" type="revolute">
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <origin xyz="0.299500 0.000000 0.000000" rpy="0 0 0"/>
+    <axis xyz="0.000000 0.000000 1.000000"/>
+    <limit lower="-3.141593" upper="3.141593" effort="10.0" velocity="3.141593"/>
+  </joint>
+  <joint name="joint_3" type="revolute">
+    <parent link="link_2"/>
+    <child link="link_3"/>
+    <origin xyz="0.299500 0.000000 0.000000" rpy="0 0 0"/>
+    <axis xyz="0.000000 0.000000 1.000000"/>
+    <limit lower="-3.141593" upper="3.141593" effort="10.0" velocity="3.141593"/>
+  </joint>
+  <link name="tool0">
+    <inertial>
+      <mass value="0.001000"/>
+      <inertia ixx="0.000001" ixy="0.0" ixz="0.0" iyy="0.000001" iyz="0.0" izz="0.000001"/>
+    </inertial>
+  </link>
+  <joint name="tool0_fixed" type="fixed">
+    <parent link="link_3"/>
+    <child link="tool0"/>
+    <origin xyz="0.150300 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="imu_link_1_start">
+    <inertial>
+      <mass value="0.001000"/>
+      <inertia ixx="0.000001" ixy="0.0" ixz="0.0" iyy="0.000001" iyz="0.0" izz="0.000001"/>
+    </inertial>
+  </link>
+  <joint name="imu_link_1_start_fixed" type="fixed">
+    <parent link="link_1"/>
+    <child link="imu_link_1_start"/>
+    <origin xyz="0.000000 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="imu_link_1_mid">
+    <inertial>
+      <mass value="0.001000"/>
+      <inertia ixx="0.000001" ixy="0.0" ixz="0.0" iyy="0.000001" iyz="0.0" izz="0.000001"/>
+    </inertial>
+  </link>
+  <joint name="imu_link_1_mid_fixed" type="fixed">
+    <parent link="link_1"/>
+    <child link="imu_link_1_mid"/>
+    <origin xyz="0.149750 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="imu_link_1_end">
+    <inertial>
+      <mass value="0.001000"/>
+      <inertia ixx="0.000001" ixy="0.0" ixz="0.0" iyy="0.000001" iyz="0.0" izz="0.000001"/>
+    </inertial>
+  </link>
+  <joint name="imu_link_1_end_fixed" type="fixed">
+    <parent link="link_1"/>
+    <child link="imu_link_1_end"/>
+    <origin xyz="0.299500 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="imu_link_2_start">
+    <inertial>
+      <mass value="0.001000"/>
+      <inertia ixx="0.000001" ixy="0.0" ixz="0.0" iyy="0.000001" iyz="0.0" izz="0.000001"/>
+    </inertial>
+  </link>
+  <joint name="imu_link_2_start_fixed" type="fixed">
+    <parent link="link_2"/>
+    <child link="imu_link_2_start"/>
+    <origin xyz="0.000000 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="imu_link_2_mid">
+    <inertial>
+      <mass value="0.001000"/>
+      <inertia ixx="0.000001" ixy="0.0" ixz="0.0" iyy="0.000001" iyz="0.0" izz="0.000001"/>
+    </inertial>
+  </link>
+  <joint name="imu_link_2_mid_fixed" type="fixed">
+    <parent link="link_2"/>
+    <child link="imu_link_2_mid"/>
+    <origin xyz="0.149750 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="imu_link_2_end">
+    <inertial>
+      <mass value="0.001000"/>
+      <inertia ixx="0.000001" ixy="0.0" ixz="0.0" iyy="0.000001" iyz="0.0" izz="0.000001"/>
+    </inertial>
+  </link>
+  <joint name="imu_link_2_end_fixed" type="fixed">
+    <parent link="link_2"/>
+    <child link="imu_link_2_end"/>
+    <origin xyz="0.299500 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="imu_link_3_start">
+    <inertial>
+      <mass value="0.001000"/>
+      <inertia ixx="0.000001" ixy="0.0" ixz="0.0" iyy="0.000001" iyz="0.0" izz="0.000001"/>
+    </inertial>
+  </link>
+  <joint name="imu_link_3_start_fixed" type="fixed">
+    <parent link="link_3"/>
+    <child link="imu_link_3_start"/>
+    <origin xyz="0.000000 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="imu_link_3_mid">
+    <inertial>
+      <mass value="0.001000"/>
+      <inertia ixx="0.000001" ixy="0.0" ixz="0.0" iyy="0.000001" iyz="0.0" izz="0.000001"/>
+    </inertial>
+  </link>
+  <joint name="imu_link_3_mid_fixed" type="fixed">
+    <parent link="link_3"/>
+    <child link="imu_link_3_mid"/>
+    <origin xyz="0.075150 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="imu_link_3_end">
+    <inertial>
+      <mass value="0.001000"/>
+      <inertia ixx="0.000001" ixy="0.0" ixz="0.0" iyy="0.000001" iyz="0.0" izz="0.000001"/>
+    </inertial>
+  </link>
+  <joint name="imu_link_3_end_fixed" type="fixed">
+    <parent link="link_3"/>
+    <child link="imu_link_3_end"/>
+    <origin xyz="0.150300 0 0" rpy="0 0 0"/>
+  </joint>
+</robot>

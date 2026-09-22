@@ -1,0 +1,14 @@
+{
+  "calibration_type": "latency",
+  "version": "v001",
+  "date": "YYYY-MM-DD",
+  "latency_s": {
+    "encoder": 0.001,
+    "imu": 0.001,
+    "tracker": 0.002
+  },
+  "offset_s": {
+    "encoder_to_imu": 0.0,
+    "imu_to_tracker": 0.0
+  }
+}

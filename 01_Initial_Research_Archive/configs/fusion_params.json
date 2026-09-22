@@ -1,0 +1,8 @@
+{
+  "fusion_default": {
+    "mode": "residual_sum",
+    "fusion_gain": 0.5,
+    "covariance_encoder_diag_mm2": [25.0, 25.0, 25.0],
+    "covariance_imu_diag_mm2": [16.0, 16.0, 16.0]
+  }
+}

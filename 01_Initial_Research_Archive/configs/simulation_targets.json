@@ -1,0 +1,31 @@
+{
+  "simulation_contract_version": "sim_v0.1",
+  "default_robot_model": "long",
+  "units": {
+    "sim_position": "m",
+    "research_position": "mm",
+    "angle": "rad"
+  },
+  "frames": {
+    "base_frame": "base_link",
+    "tool_frame": "tool0",
+    "research_base_position": "P_*_base_mm"
+  },
+  "joint_mapping": {
+    "joint_1": "q_encoder_rad_1",
+    "joint_2": "q_encoder_rad_2",
+    "joint_3": "q_encoder_rad_3"
+  },
+  "supported_exports": {
+    "ros2_rviz": ["urdf", "rviz", "ros2_launch"],
+    "isaac_sim": ["urdf", "isaac_manifest"],
+    "mujoco": ["mjcf"],
+    "offline_analysis": ["manifest"]
+  },
+  "limitations": [
+    "Generated assets are baseline kinematic/visualization scaffolds.",
+    "Mass and inertia are placeholders until hardware identification is done.",
+    "Generated URDF/MJCF does not replace calibration templates.",
+    "Tracker data remains evaluation-only ground truth."
+  ]
+}
