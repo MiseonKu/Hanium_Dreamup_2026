@@ -1,0 +1,14 @@
+.python_deps/
+.pytest_cache/
+__pycache__/
+*/__pycache__/
+**/__pycache__/
+*.pyc
+
+p1_one_link_experiment/simulation/ros2_ws/build/
+p1_one_link_experiment/simulation/ros2_ws/install/
+p1_one_link_experiment/simulation/ros2_ws/log/
+p1_one_link_experiment/simulation/generated/tf_launch.log
+
+p2_two_link_experiment/p2_simulation_matplot/.pytest_cache/
+p2_two_link_experiment/p2_simulation_matplot/**/__pycache__/
