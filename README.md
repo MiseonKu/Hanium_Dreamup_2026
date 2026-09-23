@@ -15,6 +15,5 @@ SO-101 로봇에 IMU를 추가하여 데이터를 수집하고, 머신러닝으�
 | `03_Dataset_Collection/` | IMU·엔코더·Vive Tracker로 수집한 데이터셋 |
 | `04_Data_Acquisition_Code/` | 실제 실험 데이터 수집 코드 |
 | `05_ML/` | 머신러닝 모델 학습·평가 및 결과 |
-| `06_Position_Estimation/` | 학습 모델을 이용한 위치 추정과 보정 계산 데모코드 |
 
 각 폴더의 자세한 내용은 해당 폴더의 `README.md`를 확인합니다.
